@@ -1,0 +1,8 @@
+# BMI Tool
+
+A free online BMI calculator using WHO standards. Calculate Body Mass Index instantly with metric or imperial units. Includes health insights, BMI charts, and evidence-based guides.
+
+- [BMI Calculator](https://bmitool.org/): Calculate your Body Mass Index with personalized health insights.
+- [How to Use](https://bmitool.org/how-to-use.html): Step-by-step guide for accurate BMI measurement.
+- [BMI Chart](https://bmitool.org/bmi-chart.html): Standard weight ranges by height in metric and imperial units.
+- [Health Risks](https://bmitool.org/health-risks.html): Evidence-based guide to BMI-related health risks and prevention.
