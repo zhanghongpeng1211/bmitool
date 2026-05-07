@@ -1,8 +1,39 @@
-# BMI Tool
+# FastingTool — Intermittent Fasting Calculator & Guide
 
-A free online BMI calculator using WHO standards. Calculate Body Mass Index instantly with metric or imperial units. Includes health insights, BMI charts, and evidence-based guides.
+> FastingTool is a free online calculator and educational resource for intermittent fasting. We help users plan fasting schedules, track fasting windows, and understand the science behind time-restricted eating.
 
-- [BMI Calculator](https://bmitool.org/): Calculate your Body Mass Index with personalized health insights.
-- [How to Use](https://bmitool.org/how-to-use.html): Step-by-step guide for accurate BMI measurement.
-- [BMI Chart](https://bmitool.org/bmi-chart.html): Standard weight ranges by height in metric and imperial units.
-- [Health Risks](https://bmitool.org/health-risks.html): Evidence-based guide to BMI-related health risks and prevention.
+## Site Overview
+
+- **Domain**: https://fastingtool.org
+- **Contact**: contact@fastingtool.org
+- **Primary Language**: English
+- **Site Type**: Health tool + educational content
+- **Last Updated**: 2026-05-03
+
+## Key Pages
+
+### Tools
+- [Home / Calculator](https://fastingtool.org/) — Calculate personalized fasting schedules for 16:8, 18:6, 20:4, 5:2, and OMAD methods. Includes a fasting timer.
+
+### Guides
+- [What Is Intermittent Fasting?](https://fastingtool.org/what-is-intermittent-fasting.html) — Complete beginner's guide covering mechanisms, benefits, and safety.
+- [Fasting Methods Compared](https://fastingtool.org/fasting-methods-guide.html) — Side-by-side comparison of 14:10, 16:8, 18:6, 20:4, OMAD, and 5:2.
+- [How to Break Your Fast](https://fastingtool.org/breaking-your-fast.html) — Best foods, common mistakes, and sample meals for ending a fast safely.
+- [FAQ](https://fastingtool.org/faq.html) — Answers to common questions about muscle loss, coffee, exercise, metabolism, and more.
+
+### Blog
+- [Blog Index](https://fastingtool.org/blog/)
+- [Fasting Myths Debunked](https://fastingtool.org/blog/fasting-myths.html)
+- [Common Fasting Mistakes](https://fastingtool.org/blog/common-mistakes.html)
+
+## Content Policy
+
+- All health claims are backed by peer-reviewed research where possible.
+- We do not provide medical advice. Users should consult healthcare professionals before starting any fasting regimen.
+- No personal health data is collected or stored.
+
+## Technical
+
+- Built with semantic HTML5 and ARIA accessibility labels.
+- Mobile-first responsive design.
+- No tracking cookies required for core functionality.

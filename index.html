@@ -1,435 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Calculator | Free Body Mass Index Tool 2026</title>
-    <meta name="description" content="Free BMI calculator using WHO standards. Calculate your Body Mass Index instantly with metric or imperial units. Includes health insights and BMI charts.">
-    <meta name="keywords" content="BMI calculator, body mass index, BMI chart, healthy weight calculator, BMI formula">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    <link rel="canonical" href="https://bmitool.org/">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bmitool.org/">
-    <meta property="og:title" content="BMI Calculator | Free Body Mass Index Tool 2026">
-    <meta property="og:description" content="Calculate your BMI instantly. WHO-standard formula with health insights.">
-    <meta property="og:image" content="https://bmitool.org/og-image.jpg">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BMI Calculator | Free Body Mass Index Tool">
-    <meta name="twitter:description" content="Calculate your BMI instantly with metric or imperial units.">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "BMI Calculator",
-      "description": "Free online BMI calculator using WHO standards. Calculate Body Mass Index with metric or imperial units.",
-      "url": "https://bmitool.org/",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "BMI Tool"
-      }
-    }
-    </script>
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is a healthy BMI range?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "According to WHO standards, a healthy BMI ranges from 18.5 to 24.9. Below 18.5 is underweight, 25-29.9 is overweight, and 30+ is obese."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate is BMI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BMI is a useful screening tool but not perfect. It does not distinguish between muscle and fat. Athletes may have high BMI but low body fat. Always consult a healthcare provider for comprehensive assessment."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Should I use metric or imperial units for BMI?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Both give identical results. Use whichever you are comfortable with. Metric uses kg and cm; imperial uses lbs and inches."
-          }
-        }
-      ]
-    }
-    </script>
-
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
-        body{background:#f0f4f8;color:#1a202c;line-height:1.7}
-        .container{max-width:800px;margin:0 auto;padding:20px}
-
-        header{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:40px 20px;border-radius:0 0 30px 30px;margin-bottom:30px;text-align:center}
-        header h1{font-size:2rem;margin-bottom:10px}
-        header p{font-size:1.1rem;opacity:0.95}
-
-        nav{background:#fff;padding:15px 20px;text-align:center;border-bottom:1px solid #e2e8f0;margin-bottom:25px}
-        nav a{color:#667eea;text-decoration:none;font-weight:600;margin:0 15px;font-size:0.95rem}
-        nav a:hover{text-decoration:underline}
-
-        main{background:#fff;border-radius:16px;padding:35px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);margin-bottom:25px}
-
-        .form-group{margin-bottom:20px}
-        label{display:block;font-weight:600;margin-bottom:8px;color:#2d3748;font-size:0.95rem}
-        input,select{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem;transition:border-color 0.2s;background:#fff}
-        input:focus,select:focus{outline:none;border-color:#667eea}
-
-        .unit-toggle{display:flex;gap:10px;margin-bottom:15px}
-        .unit-toggle button{flex:1;padding:10px;border:2px solid #e2e8f0;background:#fff;border-radius:8px;cursor:pointer;font-weight:600;transition:all 0.2s;min-height:44px}
-        .unit-toggle button.active{background:#667eea;color:#fff;border-color:#667eea}
-
-        .calc-btn{width:100%;padding:16px;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;border:none;border-radius:10px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:transform 0.1s;min-height:48px}
-        .calc-btn:hover{transform:translateY(-2px)}
-
-        .result-card{display:none;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:25px;border-radius:16px;margin-top:20px;text-align:center}
-        .result-card.show{display:block;animation:fadeIn 0.4s ease}
-        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-        .bmi-number{font-size:3rem;font-weight:800;margin:10px 0}
-        .bmi-category{font-size:1.2rem;font-weight:600;margin-bottom:15px}
-        .bmi-label{font-size:1rem;opacity:0.9}
-
-        .advice-box{background:rgba(255,255,255,0.15);border-radius:10px;padding:15px;margin-top:15px;text-align:left}
-        .advice-box h3{margin-bottom:8px;font-size:1.1rem}
-        .advice-box ul{margin-left:18px;font-size:0.95rem}
-        .advice-box li{margin-bottom:5px}
-
-        .ad-placeholder{background:#e2e8f0;border:2px dashed #cbd5e0;border-radius:12px;padding:20px;text-align:center;color:#718096;margin:25px 0;font-size:0.9rem}
-
-        .products-section{background:#fff;border-radius:16px;padding:25px;margin-bottom:25px}
-        .products-section h2{color:#2d3748;margin-bottom:15px;font-size:1.3rem}
-        .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
-        .product-card{border:2px solid #e2e8f0;border-radius:12px;padding:15px;text-align:center;transition:border-color 0.2s}
-        .product-card:hover{border-color:#667eea}
-        .product-img{width:100%;height:120px;background:#f7fafc;border-radius:8px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;color:#a0aec0;font-size:0.85rem}
-        .product-card h3{font-size:1rem;color:#2d3748;margin-bottom:8px}
-        .coming-soon{color:#718096;font-size:0.9rem}
-
-        article{background:#fff;border-radius:16px;padding:35px;margin-bottom:25px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1)}
-        article h2{color:#2d3748;margin-bottom:15px;font-size:1.4rem}
-        article h3{color:#2d3748;margin:25px 0 10px;font-size:1.15rem}
-        article p{margin-bottom:16px;color:#4a5568}
-        article ul,article ol{margin-left:25px;margin-bottom:16px;color:#4a5568}
-        article li{margin-bottom:8px}
-
-        .faq-item{margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid #e2e8f0}
-        .faq-item:last-child{border-bottom:none}
-        .faq-question{font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:10px}
-        .faq-answer{color:#4a5568;padding-left:5px}
-
-        .cta-card{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:25px;border-radius:12px;margin:30px 0;text-align:center}
-        .cta-btn{display:inline-block;padding:12px 28px;background:#fff;color:#667eea;text-decoration:none;border-radius:8px;font-weight:700;margin-top:10px;min-height:44px}
-
-        footer{text-align:center;padding:30px;color:#718096;font-size:0.9rem}
-        footer a{color:#667eea;text-decoration:none}
-
-        .disclaimer{background:#fffbeb;border:1px solid #f6e05e;border-radius:10px;padding:15px;margin:20px 0;font-size:0.85rem;color:#744210}
-
-        @media(max-width:600px){
-            header h1{font-size:1.5rem}
-            .bmi-number{font-size:2.2rem}
-            .container{padding:15px}
-            main{padding:20px}
-            article{padding:20px}
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intermittent Fasting Calculator & Schedule Planner | {domain}</title>
+<meta name="description" content="Free intermittent fasting calculator. Plan your 16:8, 18:6, 20:4, or 5:2 fasting schedule with built-in timer, personalized recommendations, and science-backed guides.">
+<meta name="keywords" content="intermittent fasting calculator, 16 8 fasting schedule, IF timer, fasting window calculator, OMAD planner, intermittent fasting guide">
+<link rel="canonical" href="https://{domain}">
+<meta property="og:title" content="Intermittent Fasting Calculator & Schedule Planner">
+<meta property="og:description" content="Plan your fasting window, eating schedule, and track progress — all in one free tool.">
+<meta property="og:url" content="https://{domain}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Intermittent Fasting Calculator",
+  "url": "https://{domain}",
+  "description": "Calculate and plan your intermittent fasting schedule with timer support",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Any",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Organization", "name": "FastingTool", "email": "contact@fastingtool.org"}
+}
+</script>
+<style>
+:root{--primary:#1a5f3f;--secondary:#2d8a5e;--accent:#e8f5e9;--text:#1b2e1b;--bg:#f6f9f6;--card:#fff;--border:#c8e6c9;--danger:#c62828;--warning:#f9a825}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
+header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:3rem 1rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;opacity:.4;pointer-events:none}
+header h1{font-size:2.2rem;margin-bottom:.6rem;position:relative;z-index:1;font-weight:800;letter-spacing:-.5px}
+header p{opacity:.92;max-width:600px;margin:0 auto;font-size:1.1rem;position:relative;z-index:1}
+nav{background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.15rem;text-decoration:none}
+.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.container{max-width:800px;margin:0 auto;padding:1.2rem}
+.card{background:var(--card);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border)}
+.card h2{color:var(--primary);font-size:1.35rem;margin-bottom:1.2rem;font-weight:700}
+label{display:block;margin:1rem 0 .35rem;font-weight:600;font-size:.95rem}
+input,select{width:100%;padding:.8rem 1rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:1rem;transition:border-color .2s;background:#fafafa}
+input:focus,select:focus{outline:none;border-color:var(--secondary);background:#fff}
+.btn{background:var(--primary);color:#fff;border:none;padding:1rem 1.8rem;border-radius:10px;font-size:1.05rem;cursor:pointer;width:100%;margin-top:1.2rem;font-weight:700;transition:all .2s;box-shadow:0 4px 12px rgba(26,95,63,.25)}
+.btn:hover{background:var(--secondary);transform:translateY(-1px);box-shadow:0 6px 16px rgba(26,95,63,.3)}
+.btn:active{transform:translateY(0)}
+.result{background:var(--accent);padding:1.4rem;border-radius:12px;margin-top:1.2rem;display:none;border-left:5px solid var(--primary);animation:fadeIn .4s ease}
+.result.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.result h3{color:var(--primary);margin-bottom:.8rem;font-size:1.15rem}
+.result-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed #b7e4c7;font-size:.95rem}
+.result-row:last-child{border-bottom:none;font-weight:700;color:var(--primary);font-size:1.05rem;margin-top:.3rem;padding-top:.5rem}
+.timer-section{text-align:center;padding:1.5rem 0}
+.timer-display{font-size:3.2rem;color:var(--primary);font-weight:800;margin:1rem 0;font-variant-numeric:tabular-nums;letter-spacing:2px;font-family:'SF Mono',monospace}
+.timer-controls{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+.timer-controls button{flex:1;min-width:110px;padding:.85rem 1.2rem;border:none;border-radius:10px;cursor:pointer;font-weight:700;font-size:.95rem;transition:all .2s}
+.start-btn{background:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(26,95,63,.25)}
+.start-btn:hover{background:var(--secondary)}
+.stop-btn{background:var(--danger);color:#fff}
+.stop-btn:hover{background:#b71c1c}
+.reset-btn{background:#78909c;color:#fff}
+.reset-btn:hover{background:#546e7a}
+.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.2rem}
+.schedule-card{border:2px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center;cursor:pointer;transition:all .2s;background:#fafafa}
+.schedule-card:hover,.schedule-card.active{border-color:var(--primary);background:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.schedule-card h3{margin-bottom:.4rem;color:var(--primary);font-size:1.1rem}
+.schedule-card p{font-size:.85rem;color:#555;line-height:1.4}
+.tip-box{background:#fff8e1;border-left:4px solid var(--warning);padding:1rem 1.2rem;border-radius:8px;margin-top:1rem;font-size:.9rem;color:#5d4037}
+.tip-box strong{color:#f57f17}
+.article-preview{margin-top:1.5rem}
+.article-preview h3{color:var(--primary);margin-bottom:.8rem;font-size:1.1rem}
+.article-preview a{display:block;color:var(--secondary);text-decoration:none;padding:.6rem 0;border-bottom:1px solid #eee;transition:color .2s}
+.article-preview a:hover{color:var(--primary);text-decoration:underline}
+.article-preview a:last-child{border-bottom:none}
+footer{text-align:center;padding:2.5rem 1rem 2rem;color:#666;font-size:.85rem;border-top:1px solid #e0e0e0;margin-top:2rem;background:#fff}
+footer a{color:var(--secondary);text-decoration:none;margin:0 .6rem}
+footer a:hover{text-decoration:underline}
+@media(max-width:480px){header h1{font-size:1.6rem}header p{font-size:.95rem}.timer-display{font-size:2.4rem}.card{padding:1.2rem}.nav-links{gap:.8rem}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
+<style>.ad-container{min-height:90px;background:#f8f9fa;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:1.5rem 0;text-align:center}.ad-container p{color:#aaa;font-size:.8rem;margin:0}.ad-container ins{display:block;width:100%;min-height:90px}</style>
 </head>
 <body>
-
 <header>
-    <h1>BMI Calculator</h1>
-    <p>Calculate your Body Mass Index instantly. WHO-standard formula with health insights.</p>
+<h1>Intermittent Fasting Calculator</h1>
+<p>Plan your fasting window, eating schedule, and track your progress — all in one free tool backed by science.</p>
 </header>
 
-<nav>
-    <a href="index.html">Calculator</a>
-    <a href="how-to-use.html">How to Use</a>
-    <a href="bmi-chart.html">BMI Chart</a>
-    <a href="health-risks.html">Health Risks</a>
-    <a href="about.html">About</a>
+<nav aria-label="Main navigation">
+    <a href="/">Calculator</a>
+    <a href="/how-to-use.html">How to Use</a>
+    <a href="/bmi-chart.html">BMI Chart</a>
+    <a href="/health-risks.html">Health Risks</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/faq.html">FAQ</a>
+    <a href="/about.html">About</a>
 </nav>
 
-<div class="container">
+<main class="container">
 
-    <div class="ad-placeholder">
-        📢 AdSense Ad Placeholder (Responsive)<br>
-        Insert your AdSense code here
-    </div>
+<section class="card" aria-labelledby="calc-heading">
+<h2 id="calc-heading">Set Up Your Fasting Schedule</h2>
 
-    <main>
-        <section aria-label="BMI Calculator Tool">
-            <div class="form-group">
-                <label for="height">Height</label>
-                <div class="unit-toggle" role="radiogroup" aria-label="Select height unit">
-                    <button type="button" class="active" onclick="setHeightUnit('cm',this)" aria-pressed="true" aria-label="Use centimeters">cm</button>
-                    <button type="button" onclick="setHeightUnit('ft',this)" aria-pressed="false" aria-label="Use feet and inches">ft/in</button>
-                </div>
-                <input type="number" id="height" placeholder="e.g., 175" min="50" max="300" step="1" aria-describedby="height-help">
-                <p id="height-help" style="font-size:0.85rem;color:#718096;margin-top:5px">Enter height in centimeters</p>
-            </div>
+<label for="method">Choose Your Fasting Method</label>
+<select id="method" aria-label="Select fasting method">
+<option value="16:8">16:8 — Fast 16 hours, eat 8 hours (Most Popular)</option>
+<option value="18:6">18:6 — Fast 18 hours, eat 6 hours (Intermediate)</option>
+<option value="20:4">20:4 — Fast 20 hours, eat 4 hours (Warrior Diet)</option>
+<option value="14:10">14:10 — Fast 14 hours, eat 10 hours (Beginner Friendly)</option>
+<option value="5:2">5:2 — Eat normally 5 days, restrict 2 days</option>
+<option value="OMAD">OMAD — One Meal A Day</option>
+</select>
 
-            <div class="form-group">
-                <label for="weight">Weight</label>
-                <div class="unit-toggle" role="radiogroup" aria-label="Select weight unit">
-                    <button type="button" class="active" onclick="setWeightUnit('kg',this)" aria-pressed="true" aria-label="Use kilograms">kg</button>
-                    <button type="button" onclick="setWeightUnit('lb',this)" aria-pressed="false" aria-label="Use pounds">lbs</button>
-                </div>
-                <input type="number" id="weight" placeholder="e.g., 70" min="20" max="500" step="0.1" aria-describedby="weight-help">
-                <p id="weight-help" style="font-size:0.85rem;color:#718096;margin-top:5px">Enter weight in kilograms</p>
-            </div>
+<label for="start-time">When Do You Want to Start Fasting?</label>
+<input type="time" id="start-time" value="20:00" aria-label="Fasting start time">
 
-            <button class="calc-btn" onclick="calculateBMI()" aria-label="Calculate Body Mass Index">Calculate BMI →</button>
+<label for="weight">Your Weight (kg, optional)</label>
+<input type="number" id="weight" placeholder="e.g. 70" min="20" max="300" step="0.1" aria-label="Weight in kilograms">
 
-            <div class="result-card" id="result" role="region" aria-label="BMI Calculation Result">
-                <div class="bmi-label">Your Body Mass Index</div>
-                <div class="bmi-number" id="bmiNumber">0</div>
-                <div class="bmi-category" id="bmiCategory">—</div>
+<label for="goal">Primary Goal</label>
+<select id="goal" aria-label="Primary goal">
+<option value="weight-loss">Weight Loss</option>
+<option value="maintenance">Maintenance</option>
+<option value="muscle-gain">Muscle Gain / Body Recomposition</option>
+<option value="health">General Health & Longevity</option>
+</select>
 
-                <div class="advice-box">
-                    <h3>💡 Health Insights</h3>
-                    <ul id="healthTips">
-                        <li>Maintain a balanced diet rich in vegetables and lean proteins</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
+<button class="btn" onclick="calculateSchedule()" aria-label="Calculate fasting schedule">Calculate My Schedule</button>
 
-    <div class="ad-placeholder">
-        📢 AdSense Ad Placeholder (Responsive)<br>
-        Insert your AdSense code here
-    </div>
+<div id="result" class="result" role="status" aria-live="polite"></div>
+</section>
 
-    <section class="products-section" aria-label="Recommended Health Products">
-        <h2>🛒 Recommended Health Products</h2>
-        <p style="color:#718096;font-size:0.9rem;margin-bottom:15px">As an Amazon Associate I earn from qualifying purchases.</p>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">[Scale]</div>
-                <h3>Digital Body Scale</h3>
-                <span class="coming-soon">Coming Soon</span>
-            </div>
-            <div class="product-card">
-                <div class="product-img">[Tape]</div>
-                <h3>Body Measuring Tape</h3>
-                <span class="coming-soon">Coming Soon</span>
-            </div>
-            <div class="product-card">
-                <div class="product-img">[Book]</div>
-                <h3>Healthy Eating Guide</h3>
-                <span class="coming-soon">Coming Soon</span>
-            </div>
-        </div>
-    </section>
-
-    <article>
-        <h2>How to Use the BMI Calculator</h2>
-        <p>Using our BMI calculator is straightforward. I built this tool back in early 2024 after helping a friend who kept getting confused by different BMI apps showing conflicting results. Here is what works:</p>
-
-        <ol>
-            <li><strong>Choose your units.</strong> Select metric (cm/kg) or imperial (ft/lbs). Most people outside the US prefer metric.</li>
-            <li><strong>Enter your height.</strong> Stand straight against a wall and measure without shoes. For metric, use centimeters. For imperial, you will enter feet and inches separately.</li>
-            <li><strong>Enter your weight.</strong> Weigh yourself in the morning, after using the bathroom, before eating. This gives the most consistent reading.</li>
-            <li><strong>Click Calculate.</strong> Your BMI appears instantly with your category and personalized health tips.</li>
-        </ol>
-
-        <p>I have tested this calculator against the WHO official standards and several medical calculators used in clinics. The formula is identical: <strong>BMI = weight (kg) / height (m)²</strong>. For imperial units, we apply the standard conversion factor.</p>
-
-        <div class="cta-card">
-            <h3>Want to Understand Your Results Better?</h3>
-            <a href="bmi-chart.html" class="cta-btn">View Full BMI Chart →</a>
-        </div>
-
-        <h2>Understanding BMI Categories</h2>
-        <p>The World Health Organization defines these standard categories:</p>
-
-        <ul>
-            <li><strong>Underweight:</strong> BMI below 18.5. May indicate malnutrition or underlying health conditions.</li>
-            <li><strong>Normal weight:</strong> BMI 18.5 to 24.9. Associated with lowest health risks for most adults.</li>
-            <li><strong>Overweight:</strong> BMI 25 to 29.9. Increased risk of cardiovascular disease and diabetes.</li>
-            <li><strong>Obese Class I:</strong> BMI 30 to 34.9. Significantly elevated health risks.</li>
-            <li><strong>Obese Class II:</strong> BMI 35 to 39.9. High risk of serious health complications.</li>
-            <li><strong>Obese Class III:</strong> BMI 40+. Very high risk; medical intervention often recommended.</li>
-        </ul>
-
-        <p><strong>Important note from my experience:</strong> In 2025, I consulted with a nutritionist who emphasized that BMI is a screening tool, not a diagnosis. A muscular athlete might have BMI 27 but 8% body fat. Always combine BMI with waist circumference and body composition analysis for a complete picture.</p>
-
-        <h2>Frequently Asked Questions</h2>
-
-        <div class="faq-item">
-            <div class="faq-question">What is a healthy BMI range?</div>
-            <div class="faq-answer">According to WHO standards, a healthy BMI ranges from 18.5 to 24.9. Below 18.5 is underweight, 25-29.9 is overweight, and 30+ is obese. These ranges apply to adults 18-65 years old.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">How accurate is BMI?</div>
-            <div class="faq-answer">BMI is a useful screening tool but not perfect. It does not distinguish between muscle and fat. Athletes may have high BMI but low body fat. Older adults may have normal BMI but higher body fat percentage. Always consult a healthcare provider for comprehensive assessment.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Should I use metric or imperial units for BMI?</div>
-            <div class="faq-answer">Both give identical results. Use whichever you are comfortable with. Metric uses kilograms and centimeters; imperial uses pounds and inches. The formula automatically handles the conversion.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Why does my BMI say overweight when I feel healthy?</div>
-            <div class="faq-answer">BMI does not account for muscle mass, bone density, or fat distribution. Many healthy individuals, especially those who exercise regularly, may have BMI in the overweight range while maintaining excellent cardiovascular health. Consider waist-to-hip ratio or body fat percentage for additional context.</div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">How often should I check my BMI?</div>
-            <div class="faq-answer">For most adults, checking BMI once every 3-6 months is sufficient. If you are actively trying to lose or gain weight, monthly checks can help track progress. Avoid obsessing over daily fluctuations—weight naturally varies by 1-2 kg throughout the day.</div>
-        </div>
-
-        <h2>Real-World Application: A Case Study</h2>
-        <p>Last year, a 34-year-old office worker named Mike used our calculator. At 178 cm and 92 kg, his BMI read 29.1—borderline obese. Initially shocked, he consulted his doctor and discovered his blood pressure was elevated. Over six months, Mike adjusted his diet and started walking 30 minutes daily. At 78 kg, his BMI dropped to 24.6—healthy range. His doctor noted this was not about the number but about sustainable lifestyle changes.</p>
-
-        <p>This is why I keep this tool free and simple. No app downloads, no account required. Just honest numbers to start a conversation with your healthcare provider.</p>
-    </article>
-
-    <div class="ad-placeholder">
-        📢 AdSense Ad Placeholder (Responsive)<br>
-        Insert your AdSense code here
-    </div>
-
-    <div class="disclaimer">
-        <strong>Disclaimer:</strong> This calculator provides estimates only. BMI is a screening tool, not a diagnostic measure. Individual health conditions vary. Always consult a licensed healthcare professional for personalized medical advice.
-    </div>
-
+<section class="card" aria-labelledby="timer-heading">
+<h2 id="timer-heading">Fasting Timer</h2>
+<div class="timer-section">
+<div class="timer-display" id="timer" aria-label="Fasting timer display">00:00:00</div>
+<div class="timer-controls">
+<button class="start-btn" onclick="startTimer()" aria-label="Start fasting timer">Start Fasting</button>
+<button class="stop-btn" onclick="stopTimer()" aria-label="Stop fasting timer">Stop</button>
+<button class="reset-btn" onclick="resetTimer()" aria-label="Reset fasting timer">Reset</button>
 </div>
+</div>
+</section>
+
+<section class="card" aria-labelledby="methods-heading">
+<h2 id="methods-heading">Popular Fasting Methods</h2>
+<div class="schedule-grid" role="radiogroup" aria-label="Fasting method selection">
+<div class="schedule-card active" tabindex="0" role="radio" aria-checked="true" onclick="selectMethod('16:8')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('16:8')">
+<h3>16:8</h3>
+<p>Skip breakfast. Eat lunch & dinner. Best for beginners.</p>
+</div>
+<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('18:6')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('18:6')">
+<h3>18:6</h3>
+<p>Tighter window. Faster fat loss. Good for experienced fasters.</p>
+</div>
+<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('20:4')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('20:4')">
+<h3>20:4</h3>
+<p>Warrior style. One big meal. Maximum autophagy benefits.</p>
+</div>
+<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('5:2')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('5:2')">
+<h3>5:2</h3>
+<p>Normal eating 5 days. 500-600 calories on 2 days.</p>
+</div>
+</div>
+</section>
+
+<section class="card article-preview" aria-labelledby="read-more">
+<h2 id="read-more">Learn More About Intermittent Fasting</h2>
+<a href="/what-is-intermittent-fasting.html">→ What Is Intermittent Fasting? The Complete Science-Backed Guide</a>
+<a href="/fasting-methods-guide.html">→ Intermittent Fasting Methods Compared: Which One Fits Your Lifestyle?</a>
+<a href="/breaking-your-fast.html">→ How to Break Your Fast Without Feeling Terrible</a>
+<a href="/faq.html">→ Frequently Asked Questions About Intermittent Fasting</a>
+<a href="/blog/">→ Browse All Articles & Research Updates</a>
+</section>
+
+</main>
 
 <footer>
     <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
-    <p style="margin-top:8px;font-size:0.8rem">As an Amazon Associate I earn from qualifying purchases.</p>
+    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
+    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
 
 <script>
-    let heightUnit = 'cm';
-    let weightUnit = 'kg';
-
-    function setHeightUnit(unit, btn) {
-        heightUnit = unit;
-        document.querySelectorAll('[onclick^="setHeightUnit"]').forEach(b => {
-            b.classList.remove('active');
-            b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        const input = document.getElementById('height');
-        const help = document.getElementById('height-help');
-        if(unit === 'cm') {
-            input.placeholder = 'e.g., 175';
-            help.textContent = 'Enter height in centimeters';
-        } else {
-            input.placeholder = 'e.g., 5.9 (5 feet 9 inches)';
-            help.textContent = 'Enter height as decimal feet (5.9 = 5ft 9in)';
-        }
-    }
-
-    function setWeightUnit(unit, btn) {
-        weightUnit = unit;
-        document.querySelectorAll('[onclick^="setWeightUnit"]').forEach(b => {
-            b.classList.remove('active');
-            b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-
-        const input = document.getElementById('weight');
-        const help = document.getElementById('weight-help');
-        if(unit === 'kg') {
-            input.placeholder = 'e.g., 70';
-            help.textContent = 'Enter weight in kilograms';
-        } else {
-            input.placeholder = 'e.g., 154';
-            help.textContent = 'Enter weight in pounds';
-        }
-    }
-
-    function calculateBMI() {
-        const heightInput = parseFloat(document.getElementById('height').value);
-        const weightInput = parseFloat(document.getElementById('weight').value);
-
-        if(!heightInput || !weightInput || heightInput <= 0 || weightInput <= 0) {
-            alert('Please enter valid height and weight');
-            return;
-        }
-
-        let heightM, weightKg;
-
-        if(heightUnit === 'cm') {
-            heightM = heightInput / 100;
-        } else {
-            heightM = heightInput * 0.3048;
-        }
-
-        if(weightUnit === 'kg') {
-            weightKg = weightInput;
-        } else {
-            weightKg = weightInput * 0.453592;
-        }
-
-        const bmi = weightKg / (heightM * heightM);
-        const bmiRounded = bmi.toFixed(1);
-
-        let category, tips;
-        if(bmi < 18.5) {
-            category = 'Underweight';
-            tips = '<li>Consider increasing caloric intake with nutrient-dense foods</li><li>Add strength training to build muscle mass</li><li>Consult a nutritionist for a personalized meal plan</li>';
-        } else if(bmi < 25) {
-            category = 'Normal Weight';
-            tips = '<li>Maintain your current lifestyle with balanced nutrition</li><li>Aim for 150 minutes of moderate exercise weekly</li><li>Regular health check-ups to stay on track</li>';
-        } else if(bmi < 30) {
-            category = 'Overweight';
-            tips = '<li>Focus on portion control and reducing processed foods</li><li>Increase daily activity: walking, swimming, or cycling</li><li>Set realistic goals: aim for 0.5-1 kg loss per week</li>';
-        } else {
-            category = 'Obese';
-            tips = '<li>Consult a healthcare provider for a comprehensive plan</li><li>Consider structured programs with professional support</li><li>Small changes add up: start with 10-minute daily walks</li>';
-        }
-
-        const resultDiv = document.getElementById('result');
-        const numberDiv = document.getElementById('bmiNumber');
-        const categoryDiv = document.getElementById('bmiCategory');
-        const tipsList = document.getElementById('healthTips');
-
-        resultDiv.classList.add('show');
-        numberDiv.textContent = bmiRounded;
-        categoryDiv.textContent = category;
-        tipsList.innerHTML = tips;
-
-        setTimeout(() => {
-            resultDiv.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-        }, 100);
-    }
-
-    document.getElementById('height').addEventListener('keypress', function(e) {
-        if(e.key === 'Enter') calculateBMI();
-    });
-    document.getElementById('weight').addEventListener('keypress', function(e) {
-        if(e.key === 'Enter') calculateBMI();
-    });
+let timerInterval=null,seconds=0,isRunning=false;
+function calculateSchedule(){
+  const method=document.getElementById('method').value;
+  const startTime=document.getElementById('start-time').value;
+  const weight=parseFloat(document.getElementById('weight').value)||0;
+  const goal=document.getElementById('goal').value;
+  if(!startTime){alert('Please select a start time');return;}
+  const[sh,sm]=startTime.split(':').map(Number);
+  let fh=16,eh=8;
+  if(method==='18:6'){fh=18;eh=6;}
+  else if(method==='20:4'){fh=20;eh=4;}
+  else if(method==='14:10'){fh=14;eh=10;}
+  else if(method==='OMAD'){fh=23;eh=1;}
+  else if(method==='5:2'){fh='2 days';eh='5 days';}
+  const pad=n=>n.toString().padStart(2,'0');
+  let efH,efM,eeH,eeM;
+  if(method!=='5:2'){
+    efH=(sh+fh)%24;efM=sm;
+    eeH=(efH+eh)%24;eeM=sm;
+  }
+  let html='<h3>Your '+method+' Schedule</h3>';
+  if(method==='5:2'){
+    html+='<div class="result-row"><span>Fasting Days</span><span>2 days/week (500-600 cal)</span></div>';
+    html+='<div class="result-row"><span>Eating Days</span><span>5 days/week (normal)</span></div>';
+    html+='<div class="result-row"><span>Suggested Fast Days</span><span>Tuesday & Friday</span></div>';
+  }else{
+    html+='<div class="result-row"><span>Fasting Window</span><span>'+pad(sh)+':'+pad(sm)+' — '+pad(efH)+':'+pad(efM)+' ('+fh+'h)</span></div>';
+    html+='<div class="result-row"><span>Eating Window</span><span>'+pad(efH)+':'+pad(efM)+' — '+pad(eeH)+':'+pad(eeM)+' ('+eh+'h)</span></div>';
+  }
+  if(weight){
+    const mult=goal==='weight-loss'?22:goal==='muscle-gain'?30:26;
+    html+='<div class="result-row"><span>Est. Daily Calories</span><span>~'+Math.round(weight*mult)+' kcal</span></div>';
+  }
+  html+='<div class="result-row"><span>Primary Goal</span><span>'+goal.replace('-',' ').replace(/\b\w/g,l=>l.toUpperCase())+'</span></div>';
+  if(goal==='weight-loss') html+='<div class="tip-box"><strong>Tip:</strong> Eating earlier in the day (e.g., 10 AM – 6 PM) may improve fat loss and insulin sensitivity.</div>';
+  else if(goal==='muscle-gain') html+='<div class="tip-box"><strong>Tip:</strong> Prioritize protein during your eating window — aim for 1.6–2.2g per kg body weight.</div>';
+  document.getElementById('result').innerHTML=html;
+  document.getElementById('result').classList.add('show');
+}
+function selectMethod(m){
+  document.getElementById('method').value=m;
+  document.querySelectorAll('.schedule-card').forEach(c=>{c.classList.remove('active');c.setAttribute('aria-checked','false');});
+  event.currentTarget.classList.add('active');
+  event.currentTarget.setAttribute('aria-checked','true');
+}
+function startTimer(){if(isRunning)return;isRunning=true;timerInterval=setInterval(()=>{seconds++;updateTimer();},1000);}
+function stopTimer(){isRunning=false;clearInterval(timerInterval);}
+function resetTimer(){stopTimer();seconds=0;updateTimer();}
+function updateTimer(){
+  const h=Math.floor(seconds/3600),m=Math.floor((seconds%3600)/60),s=seconds%60;
+  document.getElementById('timer').textContent=[h,m,s].map(n=>n.toString().padStart(2,'0')).join(':');
+}
 </script>
-
 </body>
 </html>
