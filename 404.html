@@ -1,62 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | BMI Tool</title>
-    <meta name="description" content="Oops, this page ran away like my motivation on a Monday morning.">
-    <link rel="canonical" href="https://bmitool.org/404.html">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,sans-serif}
-        body{background:#f0f4f8;color:#1a202c;line-height:1.7;min-height:100vh;display:flex;flex-direction:column}
-        .container{max-width:800px;margin:0 auto;padding:20px;flex:1;display:flex;flex-direction:column;justify-content:center}
-        nav{background:#fff;padding:15px 20px;text-align:center;border-bottom:1px solid #e2e8f0}
-        nav a{color:#667eea;text-decoration:none;font-weight:600;margin:0 12px;font-size:0.9rem}
-        .error-box{text-align:center;padding:60px 20px}
-        .error-box h1{font-size:5rem;color:#667eea;margin-bottom:10px}
-        .error-box h2{font-size:1.5rem;color:#2d3748;margin-bottom:20px}
-        .error-box p{color:#4a5568;margin-bottom:30px;font-size:1.1rem}
-        .error-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-        .error-links a{padding:12px 24px;background:#667eea;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;transition:background 0.2s}
-        .error-links a:hover{background:#764ba2}
-        footer{text-align:center;padding:30px;color:#718096;font-size:0.9rem}
-        footer a{color:#667eea;text-decoration:none}
-        @media(max-width:600px){.error-box h1{font-size:3.5rem}}
-    </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
-<style>.ad-container{min-height:90px;background:#f8f9fa;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:1.5rem 0;text-align:center}.ad-container p{color:#aaa;font-size:.8rem;margin:0}.ad-container ins{display:block;width:100%;min-height:90px}</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | BMI Tool</title>
+<meta name="description" content="Oops, this page ran away like my motivation on a Monday morning.">
+<link rel="canonical" href="https://bmitool.org/404.html">
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 4px 20px rgba(0,0,0,.08)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.4rem}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:#ccfbf1}
+.container{max-width:700px;margin:0 auto;padding:3rem 1rem;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.error-icon{font-size:5rem;margin-bottom:1rem;opacity:.8}
+.error-code{font-size:8rem;font-weight:800;color:var(--primary);line-height:1;opacity:.15;position:absolute;top:20%;left:50%;transform:translateX(-50%);z-index:0;pointer-events:none}
+.error-box{position:relative;z-index:1}
+.error-box h1{font-size:1.8rem;margin-bottom:.8rem;color:var(--text)}
+.error-box p{color:var(--text-light);margin-bottom:2rem;font-size:1.05rem;max-width:450px}
+.error-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.8rem}
+.error-links a{padding:.7rem 1.4rem;background:var(--primary);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:.9rem;transition:all .2s}
+.error-links a:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 4px 12px rgba(13,148,136,.3)}
+.error-links a.secondary{background:#fff;color:var(--primary);border:2px solid var(--primary)}
+.error-links a.secondary:hover{background:var(--primary);color:#fff}
+.site-footer{text-align:center;padding:2rem 1rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.error-icon{font-size:3.5rem}}
+</style>
 </head>
 <body>
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
-</nav>
-<div class="container">
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
-    <div class="error-box">
-        <h1>404</h1>
-        <h2>This page ran away like my motivation on a Monday morning.</h2>
-        <p>I have checked under the couch, behind the fridge, and in that drawer where I keep random cables. It is not there either.</p>
-        <div class="error-links">
-            <a href="/">BMI Calculator</a>
-            <a href="/how-to-use.html">How to Use</a>
-            <a href="/bmi-chart.html">BMI Chart</a>
-            <a href="/health-risks.html">Health Risks</a>
-            <a href="/about.html">About</a>
-        </div>
-    </div>
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html">About</a>
 </div>
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+</div>
+</nav>
+
+<div class="container">
+<div class="error-code">404</div>
+<div class="error-box">
+<div class="error-icon">🤷</div>
+<h1>This page ran away like my motivation on a Monday morning.</h1>
+<p>I checked under the couch, behind the fridge, and in that drawer where I keep random cables. It is not there either.</p>
+<div class="error-links">
+<a href="/">BMI Calculator</a>
+<a href="/bmi-chart.html" class="secondary">BMI Chart</a>
+<a href="/blog/" class="secondary">Blog</a>
+<a href="/faq.html" class="secondary">FAQ</a>
+</div>
+</div>
+</div>
+
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:6px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a></p>
 </footer>
+
 </body>
 </html>

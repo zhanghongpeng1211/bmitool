@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fastingtool.org/sitemap.xml
+Sitemap: https://bmitool.org/sitemap.xml

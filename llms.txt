@@ -1,39 +1,39 @@
-# FastingTool — Intermittent Fasting Calculator & Guide
+# BMI Tool — Body Mass Index Calculator & Health Guide
 
-> FastingTool is a free online calculator and educational resource for intermittent fasting. We help users plan fasting schedules, track fasting windows, and understand the science behind time-restricted eating.
+> BMI Tool is a free online calculator and educational resource for understanding Body Mass Index. We help users calculate their BMI accurately and learn what the number means for their health.
 
 ## Site Overview
 
-- **Domain**: https://fastingtool.org
-- **Contact**: contact@fastingtool.org
+- **Domain**: https://bmitool.org
+- **Contact**: bmitool.org@gmail.com
 - **Primary Language**: English
 - **Site Type**: Health tool + educational content
-- **Last Updated**: 2026-05-03
+- **Last Updated**: 2026-05-07
 
 ## Key Pages
 
 ### Tools
-- [Home / Calculator](https://fastingtool.org/) — Calculate personalized fasting schedules for 16:8, 18:6, 20:4, 5:2, and OMAD methods. Includes a fasting timer.
+- [Home / Calculator](https://bmitool.org/) — Calculate BMI with metric or imperial units. Instant results with personalized insights.
+- [BMI Chart](https://bmitool.org/bmi-chart.html) — Standard weight ranges by height, metric and imperial.
 
 ### Guides
-- [What Is Intermittent Fasting?](https://fastingtool.org/what-is-intermittent-fasting.html) — Complete beginner's guide covering mechanisms, benefits, and safety.
-- [Fasting Methods Compared](https://fastingtool.org/fasting-methods-guide.html) — Side-by-side comparison of 14:10, 16:8, 18:6, 20:4, OMAD, and 5:2.
-- [How to Break Your Fast](https://fastingtool.org/breaking-your-fast.html) — Best foods, common mistakes, and sample meals for ending a fast safely.
-- [FAQ](https://fastingtool.org/faq.html) — Answers to common questions about muscle loss, coffee, exercise, metabolism, and more.
+- [How to Use](https://bmitool.org/how-to-use.html) — Step-by-step guide for accurate height and weight measurement.
+- [Health Risks](https://bmitool.org/health-risks.html) — What different BMI levels mean for your long-term health.
+- [FAQ](https://bmitool.org/faq.html) — Common questions about BMI accuracy, muscle mass, kids, seniors, and more.
 
-### Blog
-- [Blog Index](https://fastingtool.org/blog/)
-- [Fasting Myths Debunked](https://fastingtool.org/blog/fasting-myths.html)
-- [Common Fasting Mistakes](https://fastingtool.org/blog/common-mistakes.html)
+### Articles
+- [What Is BMI and Why It Matters](https://bmitool.org/blog/what-is-bmi-and-why-it-matters.html)
+- [How to Lower Your BMI Safely](https://bmitool.org/blog/how-to-lower-bmi-safely.html)
+- [5 BMI Myths Debunked](https://bmitool.org/blog/bmi-myths-debunked.html)
+- [How I Maintained a Healthy BMI for 3 Years](https://bmitool.org/blog/maintain-healthy-bmi.html)
+- [Better Than BMI: 3 Alternative Tools](https://bmitool.org/blog/bmi-alternatives.html)
+- [BMI for Kids Guide](https://bmitool.org/blog/bmi-for-children-guide.html)
+- [BMI for Seniors](https://bmitool.org/bmi-for-seniors.html)
+- [BMI vs Body Fat Percentage](https://bmitool.org/bmi-vs-body-fat.html)
+- [How to Lower Your BMI: 7 Changes](https://bmitool.org/how-to-lower-bmi.html)
 
 ## Content Policy
 
 - All health claims are backed by peer-reviewed research where possible.
-- We do not provide medical advice. Users should consult healthcare professionals before starting any fasting regimen.
+- We do not provide medical advice. Users should consult healthcare professionals.
 - No personal health data is collected or stored.
-
-## Technical
-
-- Built with semantic HTML5 and ARIA accessibility labels.
-- Mobile-first responsive design.
-- No tracking cookies required for core functionality.

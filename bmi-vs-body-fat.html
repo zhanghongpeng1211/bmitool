@@ -1,171 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI vs Body Fat Percentage: Which Should You Trust?</title>
-    <meta name="description" content="My gym buddy has BMI 27 and 12% body fat. I have BMI 24 and 22% body fat. The numbers lie. Here is what actually matters.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://bmitool.org/bmi-vs-body-fat.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="BMI vs Body Fat Percentage: Which Should You Trust?">
-    <meta property="og:description" content="Why BMI can be misleading and how body fat percentage gives a better picture.">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"BMI vs Body Fat Percentage: Which Should You Trust?","author":{"@type":"Organization","name":"BMI Tool"},"publisher":{"@type":"Organization","name":"BMI Tool"},"datePublished":"2026-05-07"}
-    </script>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI vs Body Fat Percentage: Which Should You Trust?</title>
+<meta name="description" content="My gym buddy has BMI 27 and 12% body fat. I have BMI 24 and 22% body fat. The numbers lie. Here is what actually matters.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bmitool.org/bmi-vs-body-fat.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BMI vs Body Fat Percentage: Which Should You Trust?">
+<meta property="og:description" content="Why BMI can be misleading and how body fat percentage gives a better picture.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"BMI vs Body Fat Percentage: Which Should You Trust?","author":{"@type":"Organization","name":"BMI Tool"},"publisher":{"@type":"Organization","name":"BMI Tool"},"datePublished":"2026-05-07"}
+</script>
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
+.site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.container{max-width:850px;margin:0 auto;padding:1.5rem 1rem}
+.card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
+.card h1{color:var(--primary);font-size:1.6rem;margin-bottom:.5rem;font-weight:700}
+.card h2{color:var(--primary);font-size:1.25rem;margin:1.5rem 0 .8rem;font-weight:700}
+.card p{margin-bottom:1rem}
+.card ul{margin-left:1.5rem;margin-bottom:1rem}
+.card li{margin-bottom:.4rem}
+.blog-meta{color:var(--text-light);font-size:.9rem;margin-bottom:1.5rem}
+.chart-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.9rem}
+.chart-table th{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:12px 10px;text-align:left;font-weight:600}
+.chart-table td{padding:10px;border-bottom:1px solid var(--border)}
+.chart-table tr:hover{background:#f1f5f9}
+.cta-card{background:linear-gradient(135deg,var(--primary-light),#fff);border:2px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;margin:2rem 0}
+.cta-card h3{color:var(--primary);margin-bottom:.5rem}
+.cta-btn{display:inline-block;background:var(--primary);color:#fff;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700;transition:all .2s}
+.cta-btn:hover{background:var(--primary-dark)}
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.card{padding:1.2rem}.chart-table{font-size:.8rem}}
+</style>
 </head>
 <body>
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
+
+<header class="site-header">
+<h1>BMI vs Body Fat</h1>
+<p>Which metric actually tells the truth about your health?</p>
+</header>
+
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html">About</a>
+</div>
+</div>
 </nav>
-<div class="container">
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
+<main class="container">
 
-<!-- AdSense Leaderboard -->
-<div class="ad-container leaderboard">
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
+<article class="card">
+<h1>BMI vs Body Fat Percentage: Which Should You Trust?</h1>
+<p class="blog-meta">Published May 7, 2026 · 8 min read</p>
+
+<p>My gym buddy Mike is 5'10", 190 pounds, BMI 27.3. Overweight, according to the chart. He also has 12% body fat and visible abs. Meanwhile, I am 5'10", 170 pounds, BMI 24.4. Normal weight. But my body fat is 22% and I get winded climbing two flights of stairs.</p>
+
+<p>Same height. Similar BMI. Completely different bodies. This is why BMI drives me crazy sometimes. It is not wrong, but it is incomplete. Like using a ruler to measure temperature. Wrong tool for the job.</p>
+
+<h2>What BMI Actually Measures</h2>
+<p>BMI = weight (kg) / height (m) squared. That is it. Two variables. Height and weight. Nothing about muscle, fat, bone density, or where you carry your weight.</p>
+
+<p>It was invented in the 1830s by a Belgian mathematician named Adolphe Quetelet. Not a doctor. Not a nutritionist. A mathematician who wanted to describe "the average man." It was never meant to assess individual health. We just started using it that way because it is easy.</p>
+
+<p>And it is easy. That is the appeal. You need a scale and a tape measure. No fancy equipment. No calipers. No DEXA scan. But easy does not mean accurate for everyone.</p>
+
+<h2>What Body Fat Percentage Measures</h2>
+<p>Body fat percentage tells you what portion of your total weight is fat mass versus lean mass (muscle, bone, organs, water). This matters because fat mass and lean mass behave very differently metabolically.</p>
+
+<p>Two people at the same weight and height can have vastly different body compositions:</p>
+
+<ul>
+<li><strong>Athlete:</strong> 190 lbs, 12% body fat = 167 lbs lean mass, 23 lbs fat</li>
+<li><strong>Sedentary:</strong> 190 lbs, 30% body fat = 133 lbs lean mass, 57 lbs fat</li>
+</ul>
+
+<p>Same BMI. Same weight. The athlete has 2.5x more muscle and less than half the fat. Their health risks are completely different. BMI cannot see this.</p>
+
+<h2>Healthy Body Fat Ranges</h2>
+<p>These are generally accepted ranges, though they vary by source:</p>
+
+<table class="chart-table">
+<thead>
+<tr><th>Category</th><th>Men</th><th>Women</th></tr>
+</thead>
+<tbody>
+<tr><td>Essential fat</td><td>2-5%</td><td>10-13%</td></tr>
+<tr><td>Athletes</td><td>6-13%</td><td>14-20%</td></tr>
+<tr><td>Fitness</td><td>14-17%</td><td>21-24%</td></tr>
+<tr><td>Average</td><td>18-24%</td><td>25-31%</td></tr>
+<tr><td>Obese</td><td>25%+</td><td>32%+</td></tr>
+</tbody>
+</table>
+
+<p>I am at 22% as a guy. "Average" range. Not terrible, not great. Mike at 12% is "athlete" range. He works out 5 days a week. I work out... occasionally. The numbers match our lifestyles.</p>
+
+<h2>How to Measure Body Fat (From Cheap to Expensive)</h2>
+
+<p><strong>1. Visual estimation (free).</strong> Look in the mirror. Compare to online photo charts. Not precise, but surprisingly close if you are honest with yourself. I thought I was 18%. I was 22%. Delusion is common.</p>
+
+<p><strong>2. Skin calipers ($10-20).</strong> Pinch skin at specific points, measure thickness. Cheap but requires practice. My girlfriend tried to measure me. We got three different results in five minutes. User error is real.</p>
+
+<p><strong>3. Bioelectrical impedance scales ($30-100).</strong> Send a weak electrical current through your body. Fat resists more than muscle. Convenient but affected by hydration. Drink a gallon of water and your reading changes. I measure first thing in the morning for consistency.</p>
+
+<p><strong>4. DEXA scan ($50-150).</strong> Gold standard. X-ray based, measures fat, muscle, and bone density separately. I did one last year. Worth every penny. Found out my left leg has more muscle than my right. Weird but interesting.</p>
+
+<p><strong>5. Bod Pod ($50-100).</strong> Air displacement plethysmography. Fancy name for measuring how much air your body displaces. Accurate but hard to find.</p>
+
+<h2>When BMI Works (And When It Does Not)</h2>
+
+<p><strong>BMI works for:</strong> Sedentary adults with average muscle mass. Most people, basically. If you do not lift weights, do not play sports, and have a desk job, BMI is probably accurate enough.</p>
+
+<p><strong>BMI fails for:</strong> Athletes, bodybuilders, pregnant women, elderly individuals, and people with unusual muscle mass. Also fails for people who carry weight primarily in their hips (pear-shaped) versus belly (apple-shaped).</p>
+
+<p>I have a friend who is 5'4", 140 lbs, BMI 24. Normal. But she carries all her weight in her hips and thighs. Her waist is tiny. Her health markers are excellent. BMI says she is fine, and she actually is. But another friend at the same BMI carries it all in his belly. His blood pressure is elevated. Same number, different reality.</p>
+
+<h2>The Bottom Line</h2>
+<p>Use BMI as a starting point. It is free, fast, and directionally correct for most people. But if you are athletic, elderly, or just want a better picture, add body fat percentage and waist circumference.</p>
+
+<p>My current approach: BMI monthly, body fat quarterly, DEXA scan annually. Total cost: about $150/year. Way cheaper than one doctor visit for a preventable condition.</p>
+
+<blockquote style="border-left:4px solid var(--primary);padding-left:1rem;margin:1.5rem 0;color:var(--text-light);font-style:italic">
+"BMI tells you if you are heavy. Body fat percentage tells you if that heaviness is a problem." — Me, just now, but it sounds wise
+</blockquote>
+
+<div class="cta-card">
+<h3>Start With Your BMI</h3>
+<a href="/" class="cta-btn">Calculate Now →</a>
 </div>
 
-<article>
-    <h1>BMI vs Body Fat Percentage: Which Should You Trust?</h1>
-    <p class="blog-meta">Published May 7, 2026 · 8 min read</p>
-
-    <p>My gym buddy Mike is 5'10", 190 pounds, BMI 27.3. Overweight, according to the chart. He also has 12% body fat and visible abs. Meanwhile, I am 5'10", 170 pounds, BMI 24.4. Normal weight. But my body fat is 22% and I get winded climbing two flights of stairs.</p>
-
-    <p>Same height. Similar BMI. Completely different bodies. This is why BMI drives me crazy sometimes. It is not wrong, but it is incomplete. Like using a ruler to measure temperature. Wrong tool for the job.</p>
-
-    <h2>What BMI Actually Measures</h2>
-    <p>BMI = weight (kg) / height (m) squared. That is it. Two variables. Height and weight. Nothing about muscle, fat, bone density, or where you carry your weight.</p>
-
-    <p>It was invented in the 1830s by a Belgian mathematician named Adolphe Quetelet. Not a doctor. Not a nutritionist. A mathematician who wanted to describe "the average man." It was never meant to assess individual health. We just started using it that way because it is easy.</p>
-
-    <p>And it is easy. That is the appeal. You need a scale and a tape measure. No fancy equipment. No calipers. No DEXA scan. But easy does not mean accurate for everyone.</p>
-
-    <h2>What Body Fat Percentage Measures</h2>
-    <p>Body fat percentage tells you what portion of your total weight is fat mass versus lean mass (muscle, bone, organs, water). This matters because fat mass and lean mass behave very differently metabolically.</p>
-
-    <p>Two people at the same weight and height can have vastly different body compositions:</p>
-
-    <ul>
-        <li><strong>Athlete:</strong> 190 lbs, 12% body fat = 167 lbs lean mass, 23 lbs fat</li>
-        <li><strong>Sedentary:</strong> 190 lbs, 30% body fat = 133 lbs lean mass, 57 lbs fat</li>
-    </ul>
-
-    <p>Same BMI. Same weight. The athlete has 2.5x more muscle and less than half the fat. Their health risks are completely different. BMI cannot see this.</p>
-
-    <!-- AdSense Medium Rectangle -->
-    <div class="ad-container rectangle">
-        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <h2>Healthy Body Fat Ranges</h2>
-    <p>These are generally accepted ranges, though they vary by source:</p>
-
-    <table class="chart-table">
-        <thead>
-            <tr><th>Category</th><th>Men</th><th>Women</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>Essential fat</td><td>2-5%</td><td>10-13%</td></tr>
-            <tr><td>Athletes</td><td>6-13%</td><td>14-20%</td></tr>
-            <tr><td>Fitness</td><td>14-17%</td><td>21-24%</td></tr>
-            <tr><td>Average</td><td>18-24%</td><td>25-31%</td></tr>
-            <tr><td>Obese</td><td>25%+</td><td>32%+</td></tr>
-        </tbody>
-    </table>
-
-    <p>I am at 22% as a guy. "Average" range. Not terrible, not great. Mike at 12% is "athlete" range. He works out 5 days a week. I work out... occasionally. The numbers match our lifestyles.</p>
-
-    <h2>How to Measure Body Fat (From Cheap to Expensive)</h2>
-
-    <p><strong>1. Visual estimation (free).</strong> Look in the mirror. Compare to online photo charts. Not precise, but surprisingly close if you are honest with yourself. I thought I was 18%. I was 22%. Delusion is common.</p>
-
-    <p><strong>2. Skin calipers ($10-20).</strong> Pinch skin at specific points, measure thickness. Cheap but requires practice. My girlfriend tried to measure me. We got three different results in five minutes. User error is real.</p>
-
-    <p><strong>3. Bioelectrical impedance scales ($30-100).</strong> Send a weak electrical current through your body. Fat resists more than muscle. Convenient but affected by hydration. Drink a gallon of water and your reading changes. I measure first thing in the morning for consistency.</p>
-
-    <p><strong>4. DEXA scan ($50-150).</strong> Gold standard. X-ray based, measures fat, muscle, and bone density separately. I did one last year. Worth every penny. Found out my left leg has more muscle than my right. Weird but interesting.</p>
-
-    <p><strong>5. Bod Pod ($50-100).</strong> Air displacement plethysmography. Fancy name for measuring how much air your body displaces. Accurate but hard to find.</p>
-
-    <h2>When BMI Works (And When It Does Not)</h2>
-
-    <p><strong>BMI works for:</strong> Sedentary adults with average muscle mass. Most people, basically. If you do not lift weights, do not play sports, and have a desk job, BMI is probably accurate enough.</p>
-
-    <p><strong>BMI fails for:</strong> Athletes, bodybuilders, pregnant women, elderly individuals, and people with unusual muscle mass. Also fails for people who carry weight primarily in their hips (pear-shaped) versus belly (apple-shaped).</p>
-
-    <p>I have a friend who is 5'4", 140 lbs, BMI 24. Normal. But she carries all her weight in her hips and thighs. Her waist is tiny. Her health markers are excellent. BMI says she is fine, and she actually is. But another friend at the same BMI carries it all in his belly. His blood pressure is elevated. Same number, different reality.</p>
-
-    <h2>The Bottom Line</h2>
-    <p>Use BMI as a starting point. It is free, fast, and directionally correct for most people. But if you are athletic, elderly, or just want a better picture, add body fat percentage and waist circumference.</p>
-
-    <p>My current approach: BMI monthly, body fat quarterly, DEXA scan annually. Total cost: about $150/year. Way cheaper than one doctor visit for a preventable condition.</p>
-
-    <blockquote>
-        "BMI tells you if you are heavy. Body fat percentage tells you if that heaviness is a problem." — Me, just now, but it sounds wise
-    </blockquote>
-
-    <div class="cta-card">
-        <h3>Start With Your BMI</h3>
-        <a href="/" class="cta-btn">Calculate Now →</a>
-    </div>
-
-    <!-- AdSense Medium Rectangle Bottom -->
-    <div class="ad-container rectangle">
-        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- Affiliate Products -->
-    <div class="affiliate-block">
-        <h3>🛒 Body Fat Measurement Tools</h3>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">⚖️</div>
-                <span>Smart Scale with Body Fat</span><br>
-                <a href="https://www.amazon.com/dp/XXXX?tag=XXXX-20" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
-            </div>
-            <div class="product-card">
-                <div class="product-img">📏</div>
-                <span>Body Fat Calipers</span><br>
-                <a href="https://www.amazon.com/dp/XXXX?tag=XXXX-20" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
-            </div>
-            <div class="product-card">
-                <div class="product-img">📏</div>
-                <span>Measuring Tape</span><br>
-                <a href="https://www.amazon.com/dp/XXXX?tag=XXXX-20" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
-            </div>
-        </div>
-    </div>
-
-    <p style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;color:#718096;font-size:0.9rem">
-        <strong>Disclaimer:</strong> This article provides general information. Always consult a licensed healthcare professional for personalized assessment.
-    </p>
+<p style="margin-top:30px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-light);font-size:0.9rem">
+<strong>Disclaimer:</strong> This article provides general information. Always consult a licensed healthcare professional for personalized assessment.
+</p>
 </article>
 
-</div>
+<div class="ad-placeholder">Advertisement Placeholder</div>
 
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
-    <button onclick="document.getElementById('cookieBanner').style.display='none'">Got it</button>
-</div>
+</main>
 
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
 
 </body>

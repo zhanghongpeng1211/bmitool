@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI for Kids: Why You Can't Use the Same Calculator | BMI Tool Blog</title>
+<meta name="description" content="My sister panicked when her 8-year-old's BMI said overweight. Turns out kids are measured completely differently. Here's what parents need to know.">
+<link rel="canonical" href="https://bmitool.org/blog/bmi-for-children-guide.html">
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
+.site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+.container{max-width:750px;margin:0 auto;padding:1.5rem 1rem}
+.card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
+.card h1{color:var(--primary);font-size:1.6rem;margin-bottom:.5rem;font-weight:700}
+.card h2{color:var(--primary);font-size:1.25rem;margin:1.5rem 0 .8rem;font-weight:700}
+.card h3{color:var(--text);font-size:1.1rem;margin:1.2rem 0 .5rem;font-weight:600}
+.card p{margin-bottom:1rem}
+.card ul,.card ol{margin-left:1.5rem;margin-bottom:1rem}
+.card li{margin-bottom:.4rem}
+.blog-meta{color:var(--text-light);font-size:.9rem;margin-bottom:1.5rem}
+.intro{background:var(--primary-light);padding:1.2rem;border-radius:10px;margin:1rem 0;border-left:4px solid var(--primary)}
+.intro p{margin-bottom:0}
+.tip-box{background:#fff8e1;border-left:4px solid #f59e0b;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.tip-box strong{color:#d97706}
+.warning-box{background:#fef2f2;border-left:4px solid #ef4444;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.warning-box strong{color:#dc2626}
+.tool-box{background:#eff6ff;border-left:4px solid #3b82f6;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.tool-box h3{color:#1d4ed8;margin-top:0}
+.habit-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.habit-box h3{color:#15803d;margin-top:0}
+.myth-box{background:#fef2f2;border-left:4px solid #ef4444;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.myth-box h3{color:#dc2626;margin-top:0}
+.truth-box{background:#f0fdf4;border-left:4px solid #22c55e;padding:1.2rem;border-radius:8px;margin:1rem 0}
+.truth-box h3{color:#15803d;margin-top:0}
+.cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:1.5rem;border-radius:var(--radius);text-align:center;margin:1.5rem 0}
+.cta a{display:inline-block;background:#fff;color:var(--primary);padding:.7rem 1.4rem;border-radius:25px;text-decoration:none;font-weight:700;margin-top:.5rem;transition:all .2s}
+.cta a:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+.breadcrumb{font-size:.85rem;color:var(--text-light);margin-bottom:1.5rem}
+.breadcrumb a{color:var(--primary);text-decoration:none}
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.card{padding:1.2rem}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+<h1>📝 BMI Health Blog</h1>
+<p>Real stories, honest advice, no fluff</p>
+</header>
+
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/" class="active">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html">About</a>
+</div>
+</div>
+</nav>
+
+<main class="container">
+
+<div class="breadcrumb">
+<a href="/">Home</a> › <a href="/blog/">Blog</a> › BMI for Kids
+</div>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
+<article class="card">
+<h1>BMI for Kids: Why You Can't Use the Same Calculator</h1>
+<p class="blog-meta">Published May 7, 2026 · 6 min read</p>
+
+<div class="intro">
+<p><strong>Family drama:</strong> My sister called me in tears last year. Her 8-year-old daughter's school sent home a "health report" saying the kid was "overweight" based on BMI. My niece is a gymnast. She has abs. She can do a back handspring. But the number said 85th percentile and my sister lost her mind.</p>
+</div>
+
+<p>Here's what I had to explain to her — and what every parent needs to understand: <strong>adult BMI and child BMI are completely different animals.</strong> Using an adult calculator for a kid is like using a shoe size chart for hats. Wrong tool, wrong results, unnecessary panic.</p>
+
+<h2>Why Kids Need a Different System</h2>
+
+<p>Kids aren't just small adults. Their bodies are actively growing, changing, and doing weird things that grown-up bodies don't do. A 10-year-old's "normal" BMI might be 18, while a 15-year-old's is 22. Both can be perfectly healthy.</p>
+
+<p>Here's why:</p>
+
+<ul>
+<li><strong>Growth spurts:</strong> Kids gain weight before they gain height. It's called "adiposity rebound" and it's totally normal. A kid might look "chubby" at 6, then shoot up 6 inches at 7 and thin out completely.</li>
+<li><strong>Puberty changes everything:</strong> Pre-pubescent kids and post-pubescent teens have completely different body compositions. Same age, totally different metrics.</li>
+<li><strong>Boys vs. girls:</strong> At age 12, girls and boys have nearly identical BMIs. By age 16, girls typically have higher body fat percentages. The charts account for this.</li>
+</ul>
+
+<h2>Percentiles, Not Categories</h2>
+
+<p>Adults get categories: underweight, normal, overweight, obese. Kids get percentiles. Here's what they mean:</p>
+
+<ul>
+<li><strong>Below 5th percentile:</strong> Underweight. Might need nutritional evaluation.</li>
+<li><strong>5th to 85th percentile:</strong> Healthy weight. This is where most kids should be.</li>
+<li><strong>85th to 95th percentile:</strong> Overweight. Not an emergency, but worth monitoring.</li>
+<li><strong>Above 95th percentile:</strong> Obese. Time for a conversation with the pediatrician.</li>
+</ul>
+
+<p>My niece? 85th percentile. Technically "overweight." But she's also in the 90th percentile for height and has visible muscle definition from gymnastics. Her pediatrician laughed at the school report and said she was perfectly healthy.</p>
+
+<div class="tip-box">
+<strong>💡 Pro tip:</strong> A single BMI reading means almost nothing for kids. What matters is the trend over time. If your kid has been at the 70th percentile for three years, that's their normal. If they jump from 50th to 90th in six months, that's worth investigating.
+</div>
+
+<h2>The School BMI Report Problem</h2>
+
+<p>Many schools now send home BMI reports as part of "health screenings." In theory, this helps identify kids at risk. In practice? It causes a lot of unnecessary anxiety.</p>
+
+<p>Here's what schools typically get wrong:</p>
+
+<ul>
+<li><strong>No context:</strong> They measure once, in the middle of the day, with kids wearing clothes and shoes. That's not accurate.</li>
+<li><strong>No trend data:</strong> One measurement tells you nothing. A kid who was 50th percentile last year and 55th this year is fine. A kid who was 50th and is now 85th might need attention.</li>
+<li><strong>No muscle assessment:</strong> Athletes routinely get flagged as "overweight" because muscle weighs more than fat. My niece is the perfect example.</li>
+<li><strong>Shaming language:</strong> Some reports use words like "obese" without explaining what that means medically. An 8-year-old reading "you are obese" can cause lasting body image issues.</li>
+</ul>
+
+<p>My sister's school sent home a letter that said "Your child is in the overweight category. Please consult a physician." No explanation of percentiles. No mention that 85th percentile is a wide range. Just a scary label.</p>
+
+<h2>What Parents Should Actually Do</h2>
+
+<p>If your kid's school sends home a BMI report, here's how to handle it without panicking:</p>
+
+<ol>
+<li><strong>Look at the trend, not the number.</strong> Where were they last year? Two years ago? Kids grow in spurts. One data point is meaningless.</li>
+<li><strong>Consider the whole picture.</strong> Are they active? Eating reasonably well? Sleeping enough? Growing normally? Those matter more than BMI.</li>
+<li><strong>Talk to your pediatrician, not the internet.</strong> Your doctor knows your kid's history. Some random BMI calculator doesn't.</li>
+<li><strong>Never shame your kid about their weight.</strong> Even if the number is genuinely concerning, focus on health and habits, not appearance. Kids who feel bad about their bodies don't take care of them — they hide, avoid exercise, and develop eating disorders.</li>
+</ol>
+
+<h2>When to Actually Worry</h2>
+
+<p>Most school BMI reports are false alarms. But sometimes they're right. Here's when to take it seriously:</p>
+
+<ul>
+<li><strong>Consistent upward trend:</strong> If your kid has climbed percentiles steadily over 2+ years, something has changed.</li>
+<li><strong>Above 95th percentile with symptoms:</strong> Snoring, joint pain, fatigue, or pre-diabetes markers. These need medical attention.</li>
+<li><strong>Rapid weight gain without height gain:</strong> If they're gaining weight but not getting taller, that's unusual and worth checking.</li>
+<li><strong>Family history:</strong> If obesity, diabetes, or heart disease runs in your family, earlier intervention makes sense.</li>
+</ul>
+
+<h2>Healthy Habits for Kids (Without Making It Weird)</h2>
+
+<p>The goal isn't to put your kid on a diet. The goal is to build habits that last a lifetime. Here's what works:</p>
+
+<ul>
+<li><strong>Family meals:</strong> Kids who eat with their family regularly have better diets. It's not about the food — it's about the structure.</li>
+<li><strong>Limit sugary drinks:</strong> This is the easiest win. Soda, juice, sports drinks. Replace with water and the calorie difference is massive.</li>
+<li><strong>Active play, not "exercise":</strong> Kids shouldn't be doing structured workouts. They should be playing. Bike riding, swimming, tag, climbing trees. Movement disguised as fun.</li>
+<li><strong>Sleep:</strong> Kids need 9-11 hours. Sleep deprivation increases hunger hormones. Tired kids eat more junk.</li>
+<li><strong>No food as reward or punishment:</strong> "Eat your vegetables and you get dessert" teaches kids that vegetables are punishment and dessert is the prize. Bad long-term messaging.</li>
+</ul>
+
+<h2>Bottom Line</h2>
+
+<p>Child BMI is a screening tool, not a verdict. It needs context, trends, and professional interpretation. One number on a school report doesn't define your kid's health.</p>
+
+<p>My niece is still doing gymnastics. Still has abs. Still at the 85th percentile. And still perfectly healthy, according to her doctor who actually knows her. The school report went in the recycling bin where it belonged.</p>
+
+<div class="cta">
+<h3>Use the right calculator</h3>
+<p>Our adult BMI calculator is free and accurate — for adults. For kids, talk to your pediatrician about age-appropriate charts.</p>
+<a href="/">Adult BMI Calculator →</a>
+</div>
+</article>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
+</main>
+
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+</footer>
+
+</body>
+</html>

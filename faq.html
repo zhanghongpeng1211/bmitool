@@ -3,115 +3,166 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intermittent Fasting FAQ: Common Questions Answered | FastingTool</title>
-<meta name="description" content="Got questions about intermittent fasting? We answer the most common questions about hunger, muscle loss, coffee, exercise, and more.">
-<link rel="canonical" href="https://fastingtool.org/faq.html">
+<title>BMI FAQ: Common Questions Answered | BMI Tool</title>
+<meta name="description" content="Got questions about BMI? We answer the most common questions about calculation accuracy, health risks, muscle mass, and more.">
+<link rel="canonical" href="https://bmitool.org/faq.html">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Will intermittent fasting make me lose muscle?", "acceptedAnswer": {"@type": "Answer", "text": "No, if you eat enough protein during your eating window. Studies show that intermittent fasting preserves muscle mass when combined with resistance training and adequate protein intake (1.6-2.2g per kg body weight)."}},
-    {"@type": "Question", "name": "Can I drink coffee while fasting?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, black coffee is fine during fasting. It contains zero calories and may even enhance fat burning. Just avoid adding sugar, milk, or cream."}},
-    {"@type": "Question", "name": "How long does it take to see results?", "acceptedAnswer": {"@type": "Answer", "text": "Most people notice changes within 2-4 weeks. Initial weight loss is often water weight, followed by steady fat loss. Consistency matters more than perfection."}}
+    {"@type": "Question", "name": "Does muscle affect BMI accuracy?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. BMI cannot distinguish between muscle and fat. Athletes and bodybuilders may have a high BMI despite low body fat. For most people, BMI is accurate enough as a screening tool."}},
+    {"@type": "Question", "name": "How often should I check my BMI?", "acceptedAnswer": {"@type": "Answer", "text": "Every 3-6 months for most people. Monthly if you are actively changing weight. Daily weighing is not recommended due to normal water weight fluctuations."}},
+    {"@type": "Question", "name": "Is BMI different for children?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Children and teens use BMI-for-age percentiles, not adult categories. This calculator is designed for adults 18-65."}}
   ]
 }
 </script>
 <style>
-:root{--primary:#1a5f3f;--secondary:#2d8a5e;--accent:#e8f5e9;--text:#1b2e1b;--bg:#f6f9f6;--card:#fff;--border:#c8e6c9}
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:2.5rem 1rem;text-align:center}
-header h1{font-size:1.9rem;font-weight:800}
-nav{background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.logo{font-weight:800;color:var(--primary);font-size:1.15rem;text-decoration:none}
-.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
-.nav-links a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500}
-.nav-links a:hover{color:var(--primary)}
-.container{max-width:750px;margin:0 auto;padding:1.5rem 1.2rem}
-.faq-item{background:var(--card);border-radius:12px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid var(--border)}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
+.site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;margin-top:.5rem}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+.container{max-width:750px;margin:0 auto;padding:1.5rem 1rem}
+.faq-item{background:var(--card);border-radius:var(--radius);padding:1.5rem;margin-bottom:1rem;box-shadow:var(--shadow);border:1px solid var(--border)}
 .faq-item h3{color:var(--primary);font-size:1.1rem;margin-bottom:.5rem;font-weight:700}
 .faq-item p{color:#444}
 .faq-item p:last-child{margin-bottom:0}
-.cta-box{background:linear-gradient(135deg,var(--accent),#fff);border:2px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;margin:2rem 0}
-.cta-box a{display:inline-block;background:var(--primary);color:#fff;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700;margin-top:.6rem}
-footer{text-align:center;padding:2.5rem 1rem 2rem;color:#666;font-size:.85rem;border-top:1px solid #e0e0e0;margin-top:2rem;background:#fff}
-footer a{color:var(--secondary);text-decoration:none;margin:0 .6rem}
-@media(max-width:480px){header h1{font-size:1.5rem}.faq-item{padding:1.2rem}}
+.cta-box{background:linear-gradient(135deg,var(--primary-light),#fff);border:2px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;margin:2rem 0}
+.cta-box a{display:inline-block;background:var(--primary);color:#fff;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700;margin-top:.6rem;transition:all .2s}
+.cta-box a:hover{background:var(--primary-dark)}
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.faq-item{padding:1.2rem}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
-<style>.ad-container{min-height:90px;background:#f8f9fa;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:1.5rem 0;text-align:center}.ad-container p{color:#aaa;font-size:.8rem;margin:0}.ad-container ins{display:block;width:100%;min-height:90px}</style>
 </head>
 <body>
-<header><h1>Frequently Asked Questions</h1><p>Real answers, no guru nonsense</p></header>
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
+
+<header class="site-header">
+<h1>Frequently Asked Questions</h1>
+<p>Real answers, no medical jargon</p>
+</header>
+
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html" class="active">FAQ</a>
+<a href="/about.html">About</a>
+</div>
+</div>
 </nav>
+
 <main class="container">
 
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
 <div class="faq-item">
-<h3>Will intermittent fasting make me lose muscle?</h3>
-<p>No — if you eat enough protein during your eating window. Studies consistently show that intermittent fasting preserves muscle mass when combined with resistance training and adequate protein intake (aim for 1.6–2.2g per kg of body weight). The spike in Human Growth Hormone during fasting actually helps protect muscle tissue. I've maintained all my strength while cutting 15 pounds. Just don't skip the gym and don't skip the protein.</p>
+<h3>Does muscle affect BMI accuracy?</h3>
+<p>Yes — BMI cannot tell the difference between muscle and fat. A bodybuilder at 200 pounds and 10% body fat has the same BMI as a sedentary person at 200 pounds and 30% body fat. Obviously not the same health profile.</p>
+<p>For competitive athletes, BMI is basically useless. But here is the thing: most of us are not competitive athletes. For the average person who does not deadlift 400 pounds, BMI is actually pretty accurate at predicting health risks. If you are muscular and your BMI says overweight, add a waist measurement or body fat test for context.</p>
 </div>
 
 <div class="faq-item">
-<h3>Can I drink coffee while fasting?</h3>
-<p>Yes. Black coffee is basically calorie-free and won't break your fast. In fact, caffeine can enhance fat oxidation and suppress appetite. I drink two cups every morning during my fast. Just don't add sugar, milk, cream, or those flavored syrups. If you absolutely need something, a splash of unsweetened almond milk (under 20 calories) is generally considered acceptable, though purists will disagree. The almond milk police haven't arrested me yet.</p>
+<h3>How often should I check my BMI?</h3>
+<p>Every 3-6 months for most people. Monthly if you are actively losing or gaining weight. Daily is pointless — your weight fluctuates 1-2 kg just from water, salt, and digestion.</p>
+<p>I weigh myself every Saturday at 7:30 AM. Same scale, same time, same underwear (clean, obviously). This removes daily noise and shows real trends. Last month I thought I gained 2 kg in a week. Turns out I was just constipated. TMI? Maybe. But accurate data matters.</p>
 </div>
 
 <div class="faq-item">
-<h3>How long does it take to see results?</h3>
-<p>Most people notice something within 2–4 weeks. The first week is often water weight as your body depletes glycogen stores. By week 3, actual fat loss becomes visible in the mirror and on the scale. But here's the thing — results vary wildly based on what you eat during your feeding window. Fast for 16 hours then eat 4,000 calories of junk? You'll get nowhere. Fast for 16 hours and eat sensibly? You'll see steady progress. Consistency beats perfection every time.</p>
+<h3>Is BMI different for children?</h3>
+<p>Completely different. Kids use BMI-for-age percentiles, not adult categories. A 10-year-old's "normal" BMI might be 18, while a 15-year-old's is 22. Both can be perfectly healthy. This calculator is for adults 18-65. For kids, talk to a pediatrician about age-appropriate charts.</p>
 </div>
 
 <div class="faq-item">
-<h3>What about breakfast being the most important meal?</h3>
-<p>That idea came from a 1917 magazine article, not science. There's no evidence that eating breakfast boosts metabolism or causes weight gain if skipped. Your body doesn't know what time it is. It knows nutrients and energy balance. If you're not hungry at 8 AM, don't force yourself to eat. I haven't eaten breakfast in three years and my blood work is better than ever.</p>
+<h3>Can I use BMI during pregnancy?</h3>
+<p>Absolutely not. Pregnancy weight gain is normal and necessary. BMI is irrelevant here. Like using a rain gauge to measure snowfall. Wrong tool for the job. Focus on your doctor's guidance instead.</p>
 </div>
 
 <div class="faq-item">
-<h3>Can I exercise while fasting?</h3>
-<p>Absolutely. Many people — myself included — prefer fasted workouts. Your body burns more fat during exercise when insulin is low. That said, high-intensity workouts might feel harder until you're fat-adapted (usually 2–3 weeks). Start with moderate cardio or light weights. If you feel dizzy or weak, eat something. Don't be a hero. A banana won't ruin your life.</p>
+<h3>Why does my BMI say overweight when I feel fine?</h3>
+<p>Because BMI does not measure fitness, muscle, or how you feel. It measures weight relative to height. That is it. One data point. You can feel fine and still have elevated blood pressure or creeping cholesterol. Use BMI as a signal, not a verdict. Get the blood work. Check your waist. Talk to your doctor.</p>
 </div>
 
 <div class="faq-item">
-<h3>Will fasting slow down my metabolism?</h3>
-<p>Short-term fasting (up to 48–72 hours) either maintains or slightly increases metabolic rate. The "starvation mode" myth applies to chronic under-eating, not intermittent fasting. Your body isn't stupid — it knows the difference between "no food for 16 hours" and "no food for weeks." Studies show metabolic rate can increase by 3.6–14% during short fasts, likely due to increased norepinephrine.</p>
+<h3>What is the best time to measure weight?</h3>
+<p>Morning, after bathroom, before eating or drinking. Your body is basically empty then. Any other time, you are carrying food, water, and regret. Also measure in the morning for height — your spine compresses during the day. I am literally 1.5 cm shorter at 8 PM than at 8 AM.</p>
 </div>
 
 <div class="faq-item">
-<h3>What if I feel hungry all the time?</h3>
-<p>The first 3–5 days are the hardest. Your body is used to eating on a schedule, and it throws a tantrum when you change it. Hunger comes in waves — it doesn't build linearly. Drink water, drink black coffee, stay busy. By day 7, most people report that the hunger pangs either disappear or become mild background noise. If you're still miserable after two weeks, maybe IF isn't for you. And that's okay.</p>
+<h3>Does BMI work for older adults?</h3>
+<p>Sort of, but the "normal" range shifts. After 65, BMI 23-27 may actually be healthier than 18.5-22 because low weight means muscle loss and bone density issues. My dad's doctor wants him at BMI 25, not 22. Biology changes. The rules change with it.</p>
 </div>
 
 <div class="faq-item">
-<h3>Can I take medications while fasting?</h3>
-<p>Always follow your doctor's instructions. Some medications need to be taken with food. Don't risk your health for a diet. If your medication requires food, consider a shorter fasting window (14:10) or time your medication during your eating window. Talk to your physician — they can help you adapt the schedule safely.</p>
-</div>
-
-<div class="faq-item">
-<h3>Does zero-calorie sweetener break a fast?</h3>
-<p>Technically, pure stevia or monk fruit won't spike insulin. But here's the catch — sweeteners can trigger cravings for some people. Your brain tastes sweetness and expects calories. When none arrive, it sometimes compensates by making you hungrier later. I avoid all sweeteners during my fast just to be safe. Plain water, black coffee, plain tea. Boring? Yes. Effective? Also yes.</p>
+<h3>Is BMI outdated?</h3>
+<p>Partially true. We do have better tools: DEXA scans, bioelectrical impedance, waist-to-hip ratio. But those are either expensive, inconvenient, or require trained professionals. BMI is free and takes 10 seconds. It is like a thermometer — it does not tell you what disease you have, just that something might be worth checking.</p>
 </div>
 
 <div class="cta-box">
 <h3>Still Have Questions?</h3>
-<p>Try our calculator to see how intermittent fasting fits your daily routine.</p>
+<p>Calculate your BMI and see where you stand.</p>
 <a href="/">Try the Calculator →</a>
 </div>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
 </main>
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
+
 </body>
 </html>

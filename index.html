@@ -3,244 +3,389 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Intermittent Fasting Calculator & Schedule Planner | {domain}</title>
-<meta name="description" content="Free intermittent fasting calculator. Plan your 16:8, 18:6, 20:4, or 5:2 fasting schedule with built-in timer, personalized recommendations, and science-backed guides.">
-<meta name="keywords" content="intermittent fasting calculator, 16 8 fasting schedule, IF timer, fasting window calculator, OMAD planner, intermittent fasting guide">
-<link rel="canonical" href="https://{domain}">
-<meta property="og:title" content="Intermittent Fasting Calculator & Schedule Planner">
-<meta property="og:description" content="Plan your fasting window, eating schedule, and track progress — all in one free tool.">
-<meta property="og:url" content="https://{domain}">
+<title>BMI Calculator | Free Body Mass Index Tool</title>
+<meta name="description" content="Free BMI calculator with metric and imperial units. Instant results with personalized health insights. No signup required.">
+<meta name="keywords" content="BMI calculator, body mass index, BMI chart, healthy weight, BMI tool">
+<link rel="canonical" href="https://bmitool.org/">
+<meta property="og:title" content="BMI Calculator | Free Body Mass Index Tool">
+<meta property="og:description" content="Calculate your BMI instantly. Free, private, and accurate.">
+<meta property="og:url" content="https://bmitool.org/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Intermittent Fasting Calculator",
-  "url": "https://{domain}",
-  "description": "Calculate and plan your intermittent fasting schedule with timer support",
+  "name": "BMI Calculator",
+  "url": "https://bmitool.org",
+  "description": "Calculate your Body Mass Index with metric or imperial units",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "author": {"@type": "Organization", "name": "FastingTool", "email": "contact@fastingtool.org"}
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
 }
 </script>
 <style>
-:root{--primary:#1a5f3f;--secondary:#2d8a5e;--accent:#e8f5e9;--text:#1b2e1b;--bg:#f6f9f6;--card:#fff;--border:#c8e6c9;--danger:#c62828;--warning:#f9a825}
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--secondary:#f97316;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--success:#22c55e;--warning:#f59e0b;--danger:#ef4444;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--shadow-lg:0 10px 40px rgba(0,0,0,.1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;font-size:16px}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:3rem 1rem 2.5rem;text-align:center;position:relative;overflow:hidden}
-header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 1px);background-size:24px 24px;opacity:.4;pointer-events:none}
-header h1{font-size:2.2rem;margin-bottom:.6rem;position:relative;z-index:1;font-weight:800;letter-spacing:-.5px}
-header p{opacity:.92;max-width:600px;margin:0 auto;font-size:1.1rem;position:relative;z-index:1}
-nav{background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.logo{font-weight:800;color:var(--primary);font-size:1.15rem;text-decoration:none}
-.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
-.nav-links a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--primary)}
-.container{max-width:800px;margin:0 auto;padding:1.2rem}
-.card{background:var(--card);border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border)}
-.card h2{color:var(--primary);font-size:1.35rem;margin-bottom:1.2rem;font-weight:700}
-label{display:block;margin:1rem 0 .35rem;font-weight:600;font-size:.95rem}
-input,select{width:100%;padding:.8rem 1rem;border:1.5px solid #e0e0e0;border-radius:10px;font-size:1rem;transition:border-color .2s;background:#fafafa}
-input:focus,select:focus{outline:none;border-color:var(--secondary);background:#fff}
-.btn{background:var(--primary);color:#fff;border:none;padding:1rem 1.8rem;border-radius:10px;font-size:1.05rem;cursor:pointer;width:100%;margin-top:1.2rem;font-weight:700;transition:all .2s;box-shadow:0 4px 12px rgba(26,95,63,.25)}
-.btn:hover{background:var(--secondary);transform:translateY(-1px);box-shadow:0 6px 16px rgba(26,95,63,.3)}
-.btn:active{transform:translateY(0)}
-.result{background:var(--accent);padding:1.4rem;border-radius:12px;margin-top:1.2rem;display:none;border-left:5px solid var(--primary);animation:fadeIn .4s ease}
-.result.show{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.result h3{color:var(--primary);margin-bottom:.8rem;font-size:1.15rem}
-.result-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed #b7e4c7;font-size:.95rem}
-.result-row:last-child{border-bottom:none;font-weight:700;color:var(--primary);font-size:1.05rem;margin-top:.3rem;padding-top:.5rem}
-.timer-section{text-align:center;padding:1.5rem 0}
-.timer-display{font-size:3.2rem;color:var(--primary);font-weight:800;margin:1rem 0;font-variant-numeric:tabular-nums;letter-spacing:2px;font-family:'SF Mono',monospace}
-.timer-controls{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
-.timer-controls button{flex:1;min-width:110px;padding:.85rem 1.2rem;border:none;border-radius:10px;cursor:pointer;font-weight:700;font-size:.95rem;transition:all .2s}
-.start-btn{background:var(--primary);color:#fff;box-shadow:0 3px 10px rgba(26,95,63,.25)}
-.start-btn:hover{background:var(--secondary)}
-.stop-btn{background:var(--danger);color:#fff}
-.stop-btn:hover{background:#b71c1c}
-.reset-btn{background:#78909c;color:#fff}
-.reset-btn:hover{background:#546e7a}
-.schedule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:1.2rem}
-.schedule-card{border:2px solid var(--border);border-radius:12px;padding:1.2rem;text-align:center;cursor:pointer;transition:all .2s;background:#fafafa}
-.schedule-card:hover,.schedule-card.active{border-color:var(--primary);background:var(--accent);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.schedule-card h3{margin-bottom:.4rem;color:var(--primary);font-size:1.1rem}
-.schedule-card p{font-size:.85rem;color:#555;line-height:1.4}
-.tip-box{background:#fff8e1;border-left:4px solid var(--warning);padding:1rem 1.2rem;border-radius:8px;margin-top:1rem;font-size:.9rem;color:#5d4037}
-.tip-box strong{color:#f57f17}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+
+/* Header */
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem 3rem;text-align:center;position:relative;overflow:hidden}
+.site-header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;opacity:.5;pointer-events:none}
+.site-header h1{font-size:2rem;font-weight:800;margin-bottom:.5rem;position:relative;z-index:1;letter-spacing:-.5px}
+.site-header p{opacity:.9;max-width:500px;margin:0 auto;font-size:1.05rem;position:relative;z-index:1}
+
+/* Navigation */
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.4rem}
+.logo svg{width:24px;height:24px}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+
+/* Layout */
+.container{max-width:800px;margin:0 auto;padding:1.5rem 1rem}
+
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);padding:1.8rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h2{color:var(--primary);font-size:1.25rem;margin-bottom:1.2rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+
+/* Unit Toggle */
+.unit-toggle{display:flex;gap:0;background:var(--bg);border-radius:10px;padding:4px;margin-bottom:1.5rem;width:fit-content;border:1px solid var(--border)}
+.unit-toggle button{flex:1;padding:.6rem 1.4rem;border:none;background:transparent;color:var(--text-light);font-weight:600;font-size:.9rem;cursor:pointer;border-radius:8px;transition:all .2s}
+.unit-toggle button.active{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(13,148,136,.3)}
+.unit-toggle button:hover:not(.active){color:var(--text)}
+
+/* Form */
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;margin-bottom:.4rem;font-weight:600;font-size:.9rem;color:var(--text)}
+.form-group .hint{font-size:.8rem;color:var(--text-light);margin-top:.2rem}
+input[type="number"],input[type="text"]{width:100%;padding:.85rem 1rem;border:2px solid var(--border);border-radius:10px;font-size:1rem;transition:all .2s;background:#fafafa;color:var(--text)}
+input:focus{outline:none;border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(13,148,136,.1)}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+/* Button */
+.btn-primary{background:var(--primary);color:#fff;border:none;padding:1rem 2rem;border-radius:10px;font-size:1.05rem;cursor:pointer;width:100%;font-weight:700;transition:all .2s;box-shadow:0 4px 12px rgba(13,148,136,.25);margin-top:.5rem}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(13,148,136,.35)}
+.btn-primary:active{transform:translateY(0)}
+
+/* Result */
+.result-area{margin-top:1.5rem;padding:1.5rem;border-radius:var(--radius);display:none;animation:fadeIn .4s ease;border:2px solid transparent}
+.result-area.show{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+.result-bmi{font-size:3rem;font-weight:800;text-align:center;margin-bottom:.5rem;line-height:1}
+.result-label{text-align:center;font-size:1.1rem;font-weight:600;margin-bottom:1rem}
+.result-details{background:rgba(255,255,255,.6);border-radius:10px;padding:1rem;margin-top:1rem}
+.result-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed rgba(0,0,0,.08);font-size:.9rem}
+.result-row:last-child{border-bottom:none}
+.result-row span:first-child{color:var(--text-light)}
+.result-row span:last-child{font-weight:600}
+
+/* BMI Colors */
+.bmi-underweight{color:var(--warning);border-color:var(--warning)!important;background:#fffbeb}
+.bmi-normal{color:var(--success);border-color:var(--success)!important;background:#f0fdf4}
+.bmi-overweight{color:#f97316;border-color:#f97316!important;background:#fff7ed}
+.bmi-obese{color:var(--danger);border-color:var(--danger)!important;background:#fef2f2}
+
+/* BMI Meter */
+.meter-container{margin:1.5rem 0;position:relative}
+.meter-bar{height:12px;border-radius:6px;background:linear-gradient(90deg,#fbbf24 0%,#22c55e 35%,#22c55e 65%,#f97316 80%,#ef4444 100%);position:relative}
+.meter-marker{position:absolute;top:-6px;width:24px;height:24px;background:#fff;border:3px solid var(--text);border-radius:50%;transform:translateX(-50%);box-shadow:0 2px 6px rgba(0,0,0,.2);transition:left .5s ease}
+.meter-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-light);margin-top:.5rem}
+
+/* Quick Links */
+.quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+.quick-link{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-decoration:none;color:var(--text);transition:all .2s;display:block}
+.quick-link:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:var(--shadow)}
+.quick-link h3{font-size:1rem;color:var(--primary);margin-bottom:.3rem}
+.quick-link p{font-size:.85rem;color:var(--text-light);line-height:1.4}
+
+/* Article Preview */
 .article-preview{margin-top:1.5rem}
-.article-preview h3{color:var(--primary);margin-bottom:.8rem;font-size:1.1rem}
-.article-preview a{display:block;color:var(--secondary);text-decoration:none;padding:.6rem 0;border-bottom:1px solid #eee;transition:color .2s}
-.article-preview a:hover{color:var(--primary);text-decoration:underline}
+.article-preview a{display:flex;align-items:center;gap:.8rem;color:var(--text);text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--border);transition:all .2s}
+.article-preview a:hover{color:var(--primary);padding-left:.5rem}
 .article-preview a:last-child{border-bottom:none}
-footer{text-align:center;padding:2.5rem 1rem 2rem;color:#666;font-size:.85rem;border-top:1px solid #e0e0e0;margin-top:2rem;background:#fff}
-footer a{color:var(--secondary);text-decoration:none;margin:0 .6rem}
-footer a:hover{text-decoration:underline}
-@media(max-width:480px){header h1{font-size:1.6rem}header p{font-size:.95rem}.timer-display{font-size:2.4rem}.card{padding:1.2rem}.nav-links{gap:.8rem}}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.article-preview .arrow{color:var(--primary);font-weight:700}
+
+/* Ad Placeholder */
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+
+/* Footer */
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.site-footer a:hover{text-decoration:underline}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}
+.nav-inner{flex-direction:column;gap:.5rem;padding:.5rem}
+.nav-links{justify-content:center}
+.input-row{grid-template-columns:1fr}
+.quick-links{grid-template-columns:1fr}
+.result-bmi{font-size:2.5rem}
+}
+
+/* BMI Calculator Mobile Optimizations */
+@media(max-width:640px){
+.timer-display{font-size:2.2rem}
+.schedule-grid{grid-template-columns:1fr 1fr}
+.schedule-card{padding:.8rem}
+.schedule-card h3{font-size:.95rem}
+.schedule-card p{font-size:.8rem}
+}
+@media(max-width:400px){
+.schedule-grid{grid-template-columns:1fr}
+.site-header h1{font-size:1.2rem}
+.result-bmi{font-size:1.8rem}
+.unit-toggle button{padding:.4rem .8rem;font-size:.75rem}
+}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
-<style>.ad-container{min-height:90px;background:#f8f9fa;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:1.5rem 0;text-align:center}.ad-container p{color:#aaa;font-size:.8rem;margin:0}.ad-container ins{display:block;width:100%;min-height:90px}</style>
 </head>
 <body>
-<header>
-<h1>Intermittent Fasting Calculator</h1>
-<p>Plan your fasting window, eating schedule, and track your progress — all in one free tool backed by science.</p>
+
+<header class="site-header">
+<h1>⚖️ BMI Calculator</h1>
+<p>Free, instant, and private. Calculate your Body Mass Index in seconds.</p>
 </header>
 
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
+BMI Tool
+</a>
+<div class="nav-links">
+<a href="/" class="active">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/how-to-use.html">How to Use</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html">About</a>
+</div>
+</div>
 </nav>
 
 <main class="container">
 
-<section class="card" aria-labelledby="calc-heading">
-<h2 id="calc-heading">Set Up Your Fasting Schedule</h2>
+<div class="ad-placeholder">Advertisement Placeholder</div>
 
-<label for="method">Choose Your Fasting Method</label>
-<select id="method" aria-label="Select fasting method">
-<option value="16:8">16:8 — Fast 16 hours, eat 8 hours (Most Popular)</option>
-<option value="18:6">18:6 — Fast 18 hours, eat 6 hours (Intermediate)</option>
-<option value="20:4">20:4 — Fast 20 hours, eat 4 hours (Warrior Diet)</option>
-<option value="14:10">14:10 — Fast 14 hours, eat 10 hours (Beginner Friendly)</option>
-<option value="5:2">5:2 — Eat normally 5 days, restrict 2 days</option>
-<option value="OMAD">OMAD — One Meal A Day</option>
-</select>
+<section class="card">
+<h2>📊 Calculate Your BMI</h2>
 
-<label for="start-time">When Do You Want to Start Fasting?</label>
-<input type="time" id="start-time" value="20:00" aria-label="Fasting start time">
+<div class="unit-toggle">
+<button class="active" onclick="setUnit('metric')" id="btn-metric">Metric (cm, kg)</button>
+<button onclick="setUnit('imperial')" id="btn-imperial">Imperial (ft, lb)</button>
+</div>
 
-<label for="weight">Your Weight (kg, optional)</label>
-<input type="number" id="weight" placeholder="e.g. 70" min="20" max="300" step="0.1" aria-label="Weight in kilograms">
+<div id="metric-form">
+<div class="form-group">
+<label for="height-cm">Height</label>
+<input type="number" id="height-cm" placeholder="e.g. 175" min="50" max="300" step="0.1">
+<div class="hint">Enter height in centimeters</div>
+</div>
+<div class="form-group">
+<label for="weight-kg">Weight</label>
+<input type="number" id="weight-kg" placeholder="e.g. 70" min="10" max="500" step="0.1">
+<div class="hint">Enter weight in kilograms</div>
+</div>
+</div>
 
-<label for="goal">Primary Goal</label>
-<select id="goal" aria-label="Primary goal">
-<option value="weight-loss">Weight Loss</option>
-<option value="maintenance">Maintenance</option>
-<option value="muscle-gain">Muscle Gain / Body Recomposition</option>
-<option value="health">General Health & Longevity</option>
-</select>
+<div id="imperial-form" style="display:none">
+<div class="input-row">
+<div class="form-group">
+<label for="height-ft">Height (feet)</label>
+<input type="number" id="height-ft" placeholder="e.g. 5" min="1" max="8">
+</div>
+<div class="form-group">
+<label for="height-in">Height (inches)</label>
+<input type="number" id="height-in" placeholder="e.g. 9" min="0" max="11">
+</div>
+</div>
+<div class="form-group">
+<label for="weight-lb">Weight</label>
+<input type="number" id="weight-lb" placeholder="e.g. 160" min="20" max="1000" step="0.1">
+<div class="hint">Enter weight in pounds</div>
+</div>
+</div>
 
-<button class="btn" onclick="calculateSchedule()" aria-label="Calculate fasting schedule">Calculate My Schedule</button>
+<button class="btn-primary" onclick="calculateBMI()">Calculate BMI</button>
 
-<div id="result" class="result" role="status" aria-live="polite"></div>
+<div id="result" class="result-area">
+<div class="result-bmi" id="bmi-value">--</div>
+<div class="result-label" id="bmi-category">--</div>
+
+<div class="meter-container">
+<div class="meter-bar"></div>
+<div class="meter-marker" id="meter-marker" style="left:0%"></div>
+<div class="meter-labels">
+<span>16</span><span>18.5</span><span>25</span><span>30</span><span>40</span>
+</div>
+</div>
+
+<div class="result-details">
+<div class="result-row"><span>Healthy weight range</span><span id="healthy-range">--</span></div>
+<div class="result-row"><span>Ideal weight for your height</span><span id="ideal-weight">--</span></div>
+<div class="result-row"><span>Ponderal Index</span><span id="ponderal">--</span></div>
+</div>
+
+<p style="margin-top:1rem;font-size:.85rem;color:var(--text-light);text-align:center">BMI is a screening tool, not a diagnosis. Consult a healthcare provider for personalized advice.</p>
+</div>
 </section>
 
-<section class="card" aria-labelledby="timer-heading">
-<h2 id="timer-heading">Fasting Timer</h2>
-<div class="timer-section">
-<div class="timer-display" id="timer" aria-label="Fasting timer display">00:00:00</div>
-<div class="timer-controls">
-<button class="start-btn" onclick="startTimer()" aria-label="Start fasting timer">Start Fasting</button>
-<button class="stop-btn" onclick="stopTimer()" aria-label="Stop fasting timer">Stop</button>
-<button class="reset-btn" onclick="resetTimer()" aria-label="Reset fasting timer">Reset</button>
-</div>
-</div>
-</section>
-
-<section class="card" aria-labelledby="methods-heading">
-<h2 id="methods-heading">Popular Fasting Methods</h2>
-<div class="schedule-grid" role="radiogroup" aria-label="Fasting method selection">
-<div class="schedule-card active" tabindex="0" role="radio" aria-checked="true" onclick="selectMethod('16:8')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('16:8')">
-<h3>16:8</h3>
-<p>Skip breakfast. Eat lunch & dinner. Best for beginners.</p>
-</div>
-<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('18:6')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('18:6')">
-<h3>18:6</h3>
-<p>Tighter window. Faster fat loss. Good for experienced fasters.</p>
-</div>
-<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('20:4')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('20:4')">
-<h3>20:4</h3>
-<p>Warrior style. One big meal. Maximum autophagy benefits.</p>
-</div>
-<div class="schedule-card" tabindex="0" role="radio" aria-checked="false" onclick="selectMethod('5:2')" onkeydown="if(event.key==='Enter'||event.key===' ')selectMethod('5:2')">
-<h3>5:2</h3>
-<p>Normal eating 5 days. 500-600 calories on 2 days.</p>
-</div>
+<section class="card">
+<h2>📚 Learn More</h2>
+<div class="quick-links">
+<a href="/bmi-chart.html" class="quick-link">
+<h3>BMI Chart</h3>
+<p>See healthy weight ranges for your height at a glance.</p>
+</a>
+<a href="/health-risks.html" class="quick-link">
+<h3>Health Risks</h3>
+<p>Understand what your BMI means for your long-term health.</p>
+</a>
+<a href="/how-to-use.html" class="quick-link">
+<h3>How to Measure</h3>
+<p>Get accurate height and weight measurements every time.</p>
+</a>
+<a href="/blog/" class="quick-link">
+<h3>Health Blog</h3>
+<p>Articles, tips, and real stories about managing your weight.</p>
+</a>
 </div>
 </section>
 
-<section class="card article-preview" aria-labelledby="read-more">
-<h2 id="read-more">Learn More About Intermittent Fasting</h2>
-<a href="/what-is-intermittent-fasting.html">→ What Is Intermittent Fasting? The Complete Science-Backed Guide</a>
-<a href="/fasting-methods-guide.html">→ Intermittent Fasting Methods Compared: Which One Fits Your Lifestyle?</a>
-<a href="/breaking-your-fast.html">→ How to Break Your Fast Without Feeling Terrible</a>
-<a href="/faq.html">→ Frequently Asked Questions About Intermittent Fasting</a>
-<a href="/blog/">→ Browse All Articles & Research Updates</a>
+<section class="card article-preview">
+<h2>📝 Latest from the Blog</h2>
+<a href="/blog/what-is-bmi-and-why-it-matters.html"><span class="arrow">→</span> What Is BMI and Why It Actually Matters</a>
+<a href="/blog/how-to-lower-bmi-safely.html"><span class="arrow">→</span> How to Lower Your BMI Without Losing Your Mind</a>
+<a href="/blog/bmi-myths-debunked.html"><span class="arrow">→</span> 5 BMI Myths Everyone Believes (And Why They're Wrong)</a>
+<a href="/blog/maintain-healthy-bmi.html"><span class="arrow">→</span> How I Maintained a Healthy BMI for 3 Years</a>
+<a href="/blog/"><span class="arrow">→</span> Browse All Articles</a>
 </section>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
 
 </main>
 
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
 
 <script>
-let timerInterval=null,seconds=0,isRunning=false;
-function calculateSchedule(){
-  const method=document.getElementById('method').value;
-  const startTime=document.getElementById('start-time').value;
-  const weight=parseFloat(document.getElementById('weight').value)||0;
-  const goal=document.getElementById('goal').value;
-  if(!startTime){alert('Please select a start time');return;}
-  const[sh,sm]=startTime.split(':').map(Number);
-  let fh=16,eh=8;
-  if(method==='18:6'){fh=18;eh=6;}
-  else if(method==='20:4'){fh=20;eh=4;}
-  else if(method==='14:10'){fh=14;eh=10;}
-  else if(method==='OMAD'){fh=23;eh=1;}
-  else if(method==='5:2'){fh='2 days';eh='5 days';}
-  const pad=n=>n.toString().padStart(2,'0');
-  let efH,efM,eeH,eeM;
-  if(method!=='5:2'){
-    efH=(sh+fh)%24;efM=sm;
-    eeH=(efH+eh)%24;eeM=sm;
-  }
-  let html='<h3>Your '+method+' Schedule</h3>';
-  if(method==='5:2'){
-    html+='<div class="result-row"><span>Fasting Days</span><span>2 days/week (500-600 cal)</span></div>';
-    html+='<div class="result-row"><span>Eating Days</span><span>5 days/week (normal)</span></div>';
-    html+='<div class="result-row"><span>Suggested Fast Days</span><span>Tuesday & Friday</span></div>';
-  }else{
-    html+='<div class="result-row"><span>Fasting Window</span><span>'+pad(sh)+':'+pad(sm)+' — '+pad(efH)+':'+pad(efM)+' ('+fh+'h)</span></div>';
-    html+='<div class="result-row"><span>Eating Window</span><span>'+pad(efH)+':'+pad(efM)+' — '+pad(eeH)+':'+pad(eeM)+' ('+eh+'h)</span></div>';
-  }
-  if(weight){
-    const mult=goal==='weight-loss'?22:goal==='muscle-gain'?30:26;
-    html+='<div class="result-row"><span>Est. Daily Calories</span><span>~'+Math.round(weight*mult)+' kcal</span></div>';
-  }
-  html+='<div class="result-row"><span>Primary Goal</span><span>'+goal.replace('-',' ').replace(/\b\w/g,l=>l.toUpperCase())+'</span></div>';
-  if(goal==='weight-loss') html+='<div class="tip-box"><strong>Tip:</strong> Eating earlier in the day (e.g., 10 AM – 6 PM) may improve fat loss and insulin sensitivity.</div>';
-  else if(goal==='muscle-gain') html+='<div class="tip-box"><strong>Tip:</strong> Prioritize protein during your eating window — aim for 1.6–2.2g per kg body weight.</div>';
-  document.getElementById('result').innerHTML=html;
-  document.getElementById('result').classList.add('show');
+let currentUnit = 'metric';
+
+function setUnit(unit){
+  currentUnit = unit;
+  document.getElementById('btn-metric').classList.toggle('active', unit==='metric');
+  document.getElementById('btn-imperial').classList.toggle('active', unit==='imperial');
+  document.getElementById('metric-form').style.display = unit==='metric' ? 'block' : 'none';
+  document.getElementById('imperial-form').style.display = unit==='imperial' ? 'block' : 'none';
+  document.getElementById('result').classList.remove('show');
 }
-function selectMethod(m){
-  document.getElementById('method').value=m;
-  document.querySelectorAll('.schedule-card').forEach(c=>{c.classList.remove('active');c.setAttribute('aria-checked','false');});
-  event.currentTarget.classList.add('active');
-  event.currentTarget.setAttribute('aria-checked','true');
+
+function calculateBMI(){
+  let height, weight, bmi;
+
+  if(currentUnit === 'metric'){
+    height = parseFloat(document.getElementById('height-cm').value);
+    weight = parseFloat(document.getElementById('weight-kg').value);
+    if(!height || !weight || height<=0 || weight<=0){alert('Please enter valid height and weight');return;}
+    bmi = weight / Math.pow(height/100, 2);
+  } else {
+    const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+    const inc = parseFloat(document.getElementById('height-in').value) || 0;
+    height = (ft * 12 + inc) * 2.54;
+    weight = parseFloat(document.getElementById('weight-lb').value);
+    if(!height || !weight || height<=0 || weight<=0){alert('Please enter valid height and weight');return;}
+    bmi = (weight / Math.pow(height/100, 2)) * 0.453592;
+  }
+
+  bmi = Math.round(bmi * 10) / 10;
+  displayResult(bmi, height, weight);
 }
-function startTimer(){if(isRunning)return;isRunning=true;timerInterval=setInterval(()=>{seconds++;updateTimer();},1000);}
-function stopTimer(){isRunning=false;clearInterval(timerInterval);}
-function resetTimer(){stopTimer();seconds=0;updateTimer();}
-function updateTimer(){
-  const h=Math.floor(seconds/3600),m=Math.floor((seconds%3600)/60),s=seconds%60;
-  document.getElementById('timer').textContent=[h,m,s].map(n=>n.toString().padStart(2,'0')).join(':');
+
+function displayResult(bmi, heightCm, weightKg){
+  const result = document.getElementById('result');
+  const valueEl = document.getElementById('bmi-value');
+  const catEl = document.getElementById('bmi-category');
+  const marker = document.getElementById('meter-marker');
+
+  let category, className, color;
+  if(bmi < 18.5){category='Underweight';className='bmi-underweight';color='#f59e0b';}
+  else if(bmi < 25){category='Normal Weight';className='bmi-normal';color='#22c55e';}
+  else if(bmi < 30){category='Overweight';className='bmi-overweight';color='#f97316';}
+  else{category='Obese';className='bmi-obese';color='#ef4444';}
+
+  result.className = 'result-area show ' + className;
+  valueEl.textContent = bmi;
+  valueEl.style.color = color;
+  catEl.textContent = category;
+  catEl.style.color = color;
+
+  // Meter position (16 to 40 range)
+  let pct = ((bmi - 16) / (40 - 16)) * 100;
+  pct = Math.max(0, Math.min(100, pct));
+  marker.style.left = pct + '%';
+  marker.style.borderColor = color;
+
+  // Healthy range
+  const minH = Math.round(18.5 * Math.pow(heightCm/100, 2) * 10) / 10;
+  const maxH = Math.round(24.9 * Math.pow(heightCm/100, 2) * 10) / 10;
+  const unit = currentUnit==='metric'?'kg':'lbs';
+  const factor = currentUnit==='metric'?1:2.20462;
+  document.getElementById('healthy-range').textContent = 
+    Math.round(minH*factor*10)/10 + ' - ' + Math.round(maxH*factor*10)/10 + ' ' + unit;
+
+  // Ideal weight (BMI 22)
+  const ideal = Math.round(22 * Math.pow(heightCm/100, 2) * factor * 10) / 10;
+  document.getElementById('ideal-weight').textContent = ideal + ' ' + unit;
+
+  // Ponderal Index
+  const pi = Math.round(weightKg / (heightCm/100) * 10) / 10;
+  document.getElementById('ponderal').textContent = pi + ' kg/m';
 }
 </script>
+
 </body>
 </html>

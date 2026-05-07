@@ -3,65 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About FastingTool | Our Mission & Story</title>
-<meta name="description" content="FastingTool is a free intermittent fasting calculator and resource hub built to help people simplify their health journey with science-backed tools and honest guidance.">
-<link rel="canonical" href="https://fastingtool.org/about.html">
+<title>About BMI Tool | Our Mission & Story</title>
+<meta name="description" content="BMI Tool is a free Body Mass Index calculator and health resource built to help people understand their weight status with honest, science-backed guidance.">
+<link rel="canonical" href="https://bmitool.org/about.html">
 <style>
-:root{--primary:#1a5f3f;--secondary:#2d8a5e;--accent:#e8f5e9;--text:#1b2e1b;--bg:#f6f9f6;--card:#fff;--border:#c8e6c9}
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
-header{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;padding:2.5rem 1rem;text-align:center}
-header h1{font-size:1.9rem;font-weight:800}
-nav{background:#fff;border-bottom:1px solid var(--border);padding:.6rem 1rem;position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem}
-.logo{font-weight:800;color:var(--primary);font-size:1.15rem;text-decoration:none}
-.nav-links{display:flex;gap:1.2rem;flex-wrap:wrap}
-.nav-links a{color:var(--text);text-decoration:none;font-size:.9rem;font-weight:500}
-.nav-links a:hover{color:var(--primary)}
-.container{max-width:750px;margin:0 auto;padding:1.5rem 1.2rem}
-article{background:var(--card);border-radius:14px;padding:2rem;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid var(--border)}
-article h2{color:var(--primary);font-size:1.3rem;margin:1.5rem 0 .6rem;font-weight:700}
-article p{margin-bottom:1rem;text-align:justify}
-footer{text-align:center;padding:2.5rem 1rem 2rem;color:#666;font-size:.85rem;border-top:1px solid #e0e0e0;margin-top:2rem;background:#fff}
-footer a{color:var(--secondary);text-decoration:none;margin:0 .6rem}
-@media(max-width:480px){header h1{font-size:1.5rem}article{padding:1.2rem}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
+.site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+.container{max-width:750px;margin:0 auto;padding:1.5rem 1rem}
+.card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
+.card h2{color:var(--primary);font-size:1.3rem;margin:1.5rem 0 .8rem;font-weight:700}
+.card h2:first-child{margin-top:0}
+.card p{margin-bottom:1rem;text-align:justify}
+.card a{color:var(--primary);text-decoration:none;font-weight:500}
+.card a:hover{text-decoration:underline}
+.email-box{background:var(--primary-light);padding:1.2rem;border-radius:10px;text-align:center;border-left:4px solid var(--primary);margin:1.5rem 0}
+.email-box a{color:var(--primary-dark);font-weight:700;font-size:1.1rem;text-decoration:none}
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.card{padding:1.2rem}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX" crossorigin="anonymous"></script>
-<style>.ad-container{min-height:90px;background:#f8f9fa;border:1px dashed #ddd;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:1.5rem 0;text-align:center}.ad-container p{color:#aaa;font-size:.8rem;margin:0}.ad-container ins{display:block;width:100%;min-height:90px}</style>
 </head>
 <body>
-<header><h1>About FastingTool</h1></header>
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
+
+<header class="site-header">
+<h1>About BMI Tool</h1>
+<p>Free tools. Honest information. No fluff.</p>
+</header>
+
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html" class="active">About</a>
+</div>
+</div>
 </nav>
+
 <main class="container">
-<article>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
+<article class="card">
 <h2>Why We Built This</h2>
-<p>I started intermittent fasting three years ago after failing at literally every other diet. Keto left me exhausted. Calorie counting turned every meal into math homework. Then a friend mentioned he just... skipped breakfast. That was the entire secret. No apps, no subscriptions, no magic supplements.</p>
-<p>But when I went looking for tools to plan my schedule, everything was either bloated with ads, locked behind paywalls, or pushing supplements I didn't need. So I built FastingTool — a clean, free calculator that does one thing well: helps you figure out when to eat and when to fast.</p>
+<p>I started paying attention to my weight after my uncle was diagnosed with type 2 diabetes. His doctor said his BMI had been elevated for a decade. "Just a number," he used to say. Turns out that number mattered.</p>
+<p>When I went looking for a simple BMI calculator, everything was either buried in ads, required signup, or tried to sell me supplements. So I built BMI Tool — a clean, free calculator that does one thing well: tells you your BMI and what it means.</p>
 
 <h2>What We Believe</h2>
-<p>Health information shouldn't be confusing. If you need a PhD to understand a diet, it's probably not sustainable. We write like we're talking to a friend at the gym — honest, direct, no fluff. Every article on this site is based on peer-reviewed research or personal experience (clearly labeled which is which).</p>
-<p>We don't sell supplements. We don't push affiliate products. We don't collect your data to sell to marketers. This site exists because I wish it had existed when I started my fasting journey.</p>
+<p>Health information should not be confusing. If you need a PhD to understand a calculator, it is probably not useful. We write like we are talking to a friend — honest, direct, no fluff. Every article is based on peer-reviewed research or clearly labeled personal experience.</p>
+<p>We do not sell supplements. We do not push affiliate products as the main content. We do not collect your health data. This site exists because I wish it had existed when my uncle needed it.</p>
 
 <h2>Who This Is For</h2>
-<p>FastingTool is for anyone curious about intermittent fasting but overwhelmed by the noise online. Whether you're a total beginner trying 16:8 for the first time or an experienced faster optimizing your OMAD schedule, you'll find practical tools and real talk here.</p>
+<p>BMI Tool is for anyone curious about their weight status but overwhelmed by the noise online. Whether you are checking your BMI for the first time or tracking trends over months, you will find practical tools and real talk here.</p>
 
 <h2>Get In Touch</h2>
-<p>Have feedback, found a bug, or want to suggest a feature? We'd love to hear from you. Drop us a line at <a href="mailto:contact@fastingtool.org">contact@fastingtool.org</a>.</p>
+<p>Have feedback, found a bug, or want to suggest a feature? We would love to hear from you.</p>
+<div class="email-box">
+<p style="margin-bottom:.3rem;font-size:.9rem;color:var(--text-light)">Send us an email at</p>
+<a href="mailto:bmitool.org@gmail.com">bmitool.org@gmail.com</a>
+</div>
+<p style="font-size:.9rem;color:var(--text-light)"><strong>Note:</strong> We do not provide medical advice. If you have health concerns, please consult a qualified healthcare professional.</p>
 </article>
+
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
 </main>
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
+
 </body>
 </html>

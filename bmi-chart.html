@@ -1,162 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Chart 2026 | Standard Weight Ranges by Height</title>
-    <meta name="description" content="Complete BMI chart for adults. Find your healthy weight range based on height. WHO standard categories with color coding.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://bmitool.org/bmi-chart.html">
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="BMI Chart 2026 | Standard Weight Ranges">
-    <meta property="og:description" content="Complete BMI chart for adults. Find your healthy weight range.">
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Article","headline":"BMI Chart 2026 | Standard Weight Ranges by Height","author":{"@type":"Organization","name":"BMI Tool"},"publisher":{"@type":"Organization","name":"BMI Tool"},"datePublished":"2026-05-07"}
-    </script>
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        .chart-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.9rem}
-        .chart-table th{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#fff;padding:10px;text-align:left}
-        .chart-table td{padding:10px;border-bottom:1px solid #e2e8f0}
-        .chart-table tr:hover{background:#f7fafc}
-        @media(max-width:600px){.chart-table{font-size:0.75rem}.chart-table td,.chart-table th{padding:6px}}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Chart 2026 | Standard Weight Ranges by Height</title>
+<meta name="description" content="Complete BMI chart for adults. Find your healthy weight range based on height. WHO standard categories with color coding.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bmitool.org/bmi-chart.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BMI Chart 2026 | Standard Weight Ranges">
+<meta property="og:description" content="Complete BMI chart for adults. Find your healthy weight range.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"BMI Chart 2026 | Standard Weight Ranges by Height","author":{"@type":"Organization","name":"BMI Tool"},"publisher":{"@type":"Organization","name":"BMI Tool"},"datePublished":"2026-05-07"}
+</script>
+<style>
+:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
+.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
+.site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
+.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
+.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
+.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
+.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
+.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+.container{max-width:900px;margin:0 auto;padding:1.5rem 1rem}
+.card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
+.card h1{color:var(--primary);font-size:1.6rem;margin-bottom:.5rem;font-weight:700}
+.card h2{color:var(--primary);font-size:1.25rem;margin:1.5rem 0 .8rem;font-weight:700}
+.card p{margin-bottom:1rem}
+.card ul{margin-left:1.5rem;margin-bottom:1rem}
+.card li{margin-bottom:.4rem}
+.blog-meta{color:var(--text-light);font-size:.9rem;margin-bottom:1.5rem}
+.chart-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.9rem}
+.chart-table th{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;padding:12px 10px;text-align:left;font-weight:600}
+.chart-table td{padding:10px;border-bottom:1px solid var(--border)}
+.chart-table tr:hover{background:#f1f5f9}
+.chart-table .underweight{background:#fef3c7}
+.chart-table .normal{background:#d1fae5}
+.chart-table .overweight{background:#fed7aa}
+.chart-table .obese{background:#fecaca}
+.cta-card{background:linear-gradient(135deg,var(--primary-light),#fff);border:2px solid var(--border);border-radius:var(--radius);padding:1.5rem;text-align:center;margin:2rem 0}
+.cta-card h3{color:var(--primary);margin-bottom:.5rem}
+.cta-btn{display:inline-block;background:var(--primary);color:#fff;padding:.8rem 1.6rem;border-radius:8px;text-decoration:none;font-weight:700;transition:all .2s}
+.cta-btn:hover{background:var(--primary-dark)}
+.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
+.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
+.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
+.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
+@media(max-width:640px){
+.site-header{padding:1.8rem 1rem 2rem}
+.site-header h1{font-size:1.4rem}
+.site-header p{font-size:.95rem}
+.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
+.logo{font-size:1.1rem}
+.nav-links{gap:.1rem;justify-content:center;width:100%}
+.nav-links a{padding:.4rem .5rem;font-size:.8rem}
+.container{padding:1rem .8rem}
+.card{padding:1.2rem;border-radius:10px}
+.card h1{font-size:1.3rem}
+.card h2{font-size:1.1rem}
+.input-row{grid-template-columns:1fr;gap:.8rem}
+input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
+.btn-primary{padding:.85rem;font-size:1rem}
+.result-bmi{font-size:2.2rem}
+.result-area{padding:1rem}
+.meter-marker{width:20px;height:20px}
+.quick-links{grid-template-columns:1fr}
+.unit-toggle{width:100%}
+.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
+.chart-table{font-size:.78rem}
+.chart-table td,.chart-table th{padding:8px 6px}
+.chart-table{display:block;overflow-x:auto;white-space:nowrap}
+.blog-item{padding:1rem}
+.faq-item{padding:1rem}
+.error-code{font-size:4rem}
+.error-icon{font-size:3rem}
+.error-links a{padding:.6rem 1rem;font-size:.85rem}
+.email-box a{font-size:1rem}
+.ad-placeholder{padding:1.5rem;min-height:70px}
+.site-footer{padding:1.5rem 1rem}
+}.chart-table{font-size:.8rem}.chart-table td,.chart-table th{padding:8px 6px}.card{padding:1.2rem}}
+</style>
 </head>
 <body>
-<nav aria-label="Main navigation">
-    <a href="/">Calculator</a>
-    <a href="/how-to-use.html">How to Use</a>
-    <a href="/bmi-chart.html">BMI Chart</a>
-    <a href="/health-risks.html">Health Risks</a>
-    <a href="/blog.html">Blog</a>
-    <a href="/faq.html">FAQ</a>
-    <a href="/about.html">About</a>
+
+<header class="site-header">
+<h1>BMI Chart 2026</h1>
+<p>Standard weight ranges by height — metric and imperial</p>
+</header>
+
+<nav class="site-nav">
+<div class="nav-inner">
+<a href="/" class="logo">⚖️ BMI Tool</a>
+<div class="nav-links">
+<a href="/">Calculator</a>
+<a href="/bmi-chart.html" class="active">BMI Chart</a>
+<a href="/health-risks.html">Health Risks</a>
+<a href="/blog/">Blog</a>
+<a href="/faq.html">FAQ</a>
+<a href="/about.html">About</a>
+</div>
+</div>
 </nav>
-<div class="container">
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
 
+<main class="container">
 
-<!-- AdSense Leaderboard -->
-<div class="ad-container leaderboard">
-    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+<div class="ad-placeholder">Advertisement Placeholder</div>
+
+<article class="card">
+<h1>BMI Chart 2026: Standard Weight Ranges by Height</h1>
+<p class="blog-meta">Published May 7, 2026 · 6 min read</p>
+
+<p>When I worked at the nutrition clinic in 2023, the most common question was not "how do I calculate BMI?" It was "what should I actually weigh?" People do not want formulas. They want a chart they can look at, point to, and say "there, that is my range."</p>
+
+<p>This page gives exactly that. Two charts — one metric, one imperial. Color-coded because staring at raw numbers is boring and confusing.</p>
+
+<h2>How to Read These Charts</h2>
+<p>Find your height in the left column. Look across to see your weight range. The colors mean:</p>
+<ul>
+<li><span style="background:#fef3c7;padding:2px 8px;border-radius:4px;font-size:.85rem">Yellow</span> = Underweight (BMI < 18.5)</li>
+<li><span style="background:#d1fae5;padding:2px 8px;border-radius:4px;font-size:.85rem">Green</span> = Normal (BMI 18.5-24.9)</li>
+<li><span style="background:#fed7aa;padding:2px 8px;border-radius:4px;font-size:.85rem">Orange</span> = Overweight (BMI 25-29.9)</li>
+<li><span style="background:#fecaca;padding:2px 8px;border-radius:4px;font-size:.85rem">Red</span> = Obese (BMI 30+)</li>
+</ul>
+
+<h2>Metric Chart (cm / kg)</h2>
+<table class="chart-table">
+<thead>
+<tr><th>Height</th><th class="underweight">Underweight</th><th class="normal">Normal</th><th class="overweight">Overweight</th><th class="obese">Obese</th></tr>
+</thead>
+<tbody>
+<tr><td>150 cm (4'11")</td><td>< 41.6 kg</td><td>41.6 - 56.0 kg</td><td>56.1 - 67.5 kg</td><td>> 67.5 kg</td></tr>
+<tr><td>155 cm (5'1")</td><td>< 44.4 kg</td><td>44.4 - 59.8 kg</td><td>59.9 - 72.3 kg</td><td>> 72.3 kg</td></tr>
+<tr><td>160 cm (5'3")</td><td>< 47.4 kg</td><td>47.4 - 63.7 kg</td><td>63.8 - 76.8 kg</td><td>> 76.8 kg</td></tr>
+<tr><td>165 cm (5'5")</td><td>< 50.3 kg</td><td>50.3 - 67.8 kg</td><td>67.9 - 81.7 kg</td><td>> 81.7 kg</td></tr>
+<tr><td>170 cm (5'7")</td><td>< 53.5 kg</td><td>53.5 - 71.9 kg</td><td>72.0 - 86.7 kg</td><td>> 86.7 kg</td></tr>
+<tr><td>175 cm (5'9")</td><td>< 56.7 kg</td><td>56.7 - 76.2 kg</td><td>76.3 - 91.9 kg</td><td>> 91.9 kg</td></tr>
+<tr><td>180 cm (5'11")</td><td>< 60.0 kg</td><td>60.0 - 80.7 kg</td><td>80.8 - 97.2 kg</td><td>> 97.2 kg</td></tr>
+<tr><td>185 cm (6'1")</td><td>< 63.3 kg</td><td>63.3 - 85.2 kg</td><td>85.3 - 102.6 kg</td><td>> 102.6 kg</td></tr>
+<tr><td>190 cm (6'3")</td><td>< 66.8 kg</td><td>66.8 - 89.9 kg</td><td>90.0 - 108.3 kg</td><td>> 108.3 kg</td></tr>
+</tbody>
+</table>
+
+<h2>Imperial Chart (ft/in / lbs)</h2>
+<table class="chart-table">
+<thead>
+<tr><th>Height</th><th class="underweight">Underweight</th><th class="normal">Normal</th><th class="overweight">Overweight</th><th class="obese">Obese</th></tr>
+</thead>
+<tbody>
+<tr><td>5'0" (152 cm)</td><td>< 92 lbs</td><td>92 - 124 lbs</td><td>125 - 149 lbs</td><td>> 149 lbs</td></tr>
+<tr><td>5'3" (160 cm)</td><td>< 104 lbs</td><td>104 - 140 lbs</td><td>141 - 169 lbs</td><td>> 169 lbs</td></tr>
+<tr><td>5'5" (165 cm)</td><td>< 111 lbs</td><td>111 - 149 lbs</td><td>150 - 180 lbs</td><td>> 180 lbs</td></tr>
+<tr><td>5'7" (170 cm)</td><td>< 118 lbs</td><td>118 - 158 lbs</td><td>159 - 191 lbs</td><td>> 191 lbs</td></tr>
+<tr><td>5'9" (175 cm)</td><td>< 125 lbs</td><td>125 - 168 lbs</td><td>169 - 202 lbs</td><td>> 202 lbs</td></tr>
+<tr><td>5'11" (180 cm)</td><td>< 132 lbs</td><td>132 - 178 lbs</td><td>179 - 214 lbs</td><td>> 214 lbs</td></tr>
+<tr><td>6'1" (185 cm)</td><td>< 140 lbs</td><td>140 - 188 lbs</td><td>189 - 226 lbs</td><td>> 226 lbs</td></tr>
+<tr><td>6'3" (190 cm)</td><td>< 147 lbs</td><td>147 - 198 lbs</td><td>199 - 239 lbs</td><td>> 239 lbs</td></tr>
+</tbody>
+</table>
+
+<h2>What These Numbers Do Not Tell You</h2>
+<p>I saw patients obsess over these charts at the clinic. Like, genuinely stressed because they were 0.5 kg into the orange zone. Here is what the chart cannot see:</p>
+
+<p><strong>Muscle vs. fat.</strong> A muscular person may fall in "overweight" while being very healthy. The chart treats a bodybuilder and a couch potato the same if they have the same height and weight. Which is ridiculous, but that is how BMI works.</p>
+
+<p><strong>Fat distribution.</strong> Belly fat is way more dangerous than hip fat. BMI cannot tell where your fat lives. Two people with identical BMI can have completely different health risks based on waist size.</p>
+
+<p><strong>Age matters.</strong> Older adults may benefit from slightly higher BMI (22-27) for bone health. My grandmother at BMI 21 was frail. At BMI 24, she was stronger and healthier. Her doctor actually wanted her to gain weight.</p>
+
+<p><strong>Ethnicity.</strong> Asian populations often have higher health risks at lower BMI thresholds. The standard WHO chart is based largely on European populations. If you are Asian, your "normal" might actually be lower.</p>
+
+<div class="cta-card">
+<h3>Calculate Your Exact BMI</h3>
+<a href="/" class="cta-btn">Use the Calculator →</a>
 </div>
 
-<article>
-    <h1>BMI Chart 2026: Standard Weight Ranges by Height</h1>
-    <p class="blog-meta">Published May 7, 2026 · 6 min read</p>
-
-    <p>When I worked at the nutrition clinic in 2023, the most common question was not "how do I calculate BMI?" It was "what should I actually weigh?" People do not want formulas. They want a chart they can look at, point to, and say "there, that is my range."</p>
-
-    <p>This page gives exactly that. Two charts—one metric, one imperial. Color-coded because staring at raw numbers is boring and confusing.</p>
-
-    <h2>How to Read These Charts</h2>
-    <p>Find your height in the left column. Look across to see your weight range. The colors mean:</p>
-    <ul>
-        <li><span style="background:#fef3c7;padding:2px 6px;border-radius:4px">Yellow</span> = Underweight (BMI &lt; 18.5). Might need to gain some.</li>
-        <li><span style="background:#d1fae5;padding:2px 6px;border-radius:4px">Green</span> = Normal (BMI 18.5-24.9). The sweet spot for most adults.</li>
-        <li><span style="background:#fed7aa;padding:2px 6px;border-radius:4px">Orange</span> = Overweight (BMI 25-29.9). Time to pay attention.</li>
-        <li><span style="background:#fecaca;padding:2px 6px;border-radius:4px">Red</span> = Obese (BMI 30+). Talk to a doctor.</li>
-    </ul>
-
-    <h2>Metric Chart (cm / kg)</h2>
-    <table class="chart-table">
-        <thead>
-            <tr><th>Height</th><th class="underweight">Underweight</th><th class="normal">Normal</th><th class="overweight">Overweight</th><th class="obese">Obese</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>150 cm (4'11")</td><td>&lt; 41.6 kg</td><td>41.6 - 56.0 kg</td><td>56.1 - 67.5 kg</td><td>&gt; 67.5 kg</td></tr>
-            <tr><td>155 cm (5'1")</td><td>&lt; 44.4 kg</td><td>44.4 - 59.8 kg</td><td>59.9 - 72.3 kg</td><td>&gt; 72.3 kg</td></tr>
-            <tr><td>160 cm (5'3")</td><td>&lt; 47.4 kg</td><td>47.4 - 63.7 kg</td><td>63.8 - 76.8 kg</td><td>&gt; 76.8 kg</td></tr>
-            <tr><td>165 cm (5'5")</td><td>&lt; 50.3 kg</td><td>50.3 - 67.8 kg</td><td>67.9 - 81.7 kg</td><td>&gt; 81.7 kg</td></tr>
-            <tr><td>170 cm (5'7")</td><td>&lt; 53.5 kg</td><td>53.5 - 71.9 kg</td><td>72.0 - 86.7 kg</td><td>&gt; 86.7 kg</td></tr>
-            <tr><td>175 cm (5'9")</td><td>&lt; 56.7 kg</td><td>56.7 - 76.2 kg</td><td>76.3 - 91.9 kg</td><td>&gt; 91.9 kg</td></tr>
-            <tr><td>180 cm (5'11")</td><td>&lt; 60.0 kg</td><td>60.0 - 80.7 kg</td><td>80.8 - 97.2 kg</td><td>&gt; 97.2 kg</td></tr>
-            <tr><td>185 cm (6'1")</td><td>&lt; 63.3 kg</td><td>63.3 - 85.2 kg</td><td>85.3 - 102.6 kg</td><td>&gt; 102.6 kg</td></tr>
-            <tr><td>190 cm (6'3")</td><td>&lt; 66.8 kg</td><td>66.8 - 89.9 kg</td><td>90.0 - 108.3 kg</td><td>&gt; 108.3 kg</td></tr>
-        </tbody>
-    </table>
-
-    <!-- AdSense Medium Rectangle -->
-    <div class="ad-container rectangle">
-        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <h2>Imperial Chart (ft/in / lbs)</h2>
-    <table class="chart-table">
-        <thead>
-            <tr><th>Height</th><th class="underweight">Underweight</th><th class="normal">Normal</th><th class="overweight">Overweight</th><th class="obese">Obese</th></tr>
-        </thead>
-        <tbody>
-            <tr><td>5'0" (152 cm)</td><td>&lt; 92 lbs</td><td>92 - 124 lbs</td><td>125 - 149 lbs</td><td>&gt; 149 lbs</td></tr>
-            <tr><td>5'3" (160 cm)</td><td>&lt; 104 lbs</td><td>104 - 140 lbs</td><td>141 - 169 lbs</td><td>&gt; 169 lbs</td></tr>
-            <tr><td>5'5" (165 cm)</td><td>&lt; 111 lbs</td><td>111 - 149 lbs</td><td>150 - 180 lbs</td><td>&gt; 180 lbs</td></tr>
-            <tr><td>5'7" (170 cm)</td><td>&lt; 118 lbs</td><td>118 - 158 lbs</td><td>159 - 191 lbs</td><td>&gt; 191 lbs</td></tr>
-            <tr><td>5'9" (175 cm)</td><td>&lt; 125 lbs</td><td>125 - 168 lbs</td><td>169 - 202 lbs</td><td>&gt; 202 lbs</td></tr>
-            <tr><td>5'11" (180 cm)</td><td>&lt; 132 lbs</td><td>132 - 178 lbs</td><td>179 - 214 lbs</td><td>&gt; 214 lbs</td></tr>
-            <tr><td>6'1" (185 cm)</td><td>&lt; 140 lbs</td><td>140 - 188 lbs</td><td>189 - 226 lbs</td><td>&gt; 226 lbs</td></tr>
-            <tr><td>6'3" (190 cm)</td><td>&lt; 147 lbs</td><td>147 - 198 lbs</td><td>199 - 239 lbs</td><td>&gt; 239 lbs</td></tr>
-        </tbody>
-    </table>
-
-    <h2>What These Numbers Do Not Tell You</h2>
-    <p>I saw patients obsess over these charts at the clinic. Like, genuinely stressed because they were 0.5 kg into the orange zone. Here is what the chart cannot see:</p>
-
-    <p><strong>Muscle vs. fat.</strong> A muscular person may fall in "overweight" while being very healthy. The chart treats a bodybuilder and a couch potato the same if they have the same height and weight. Which is ridiculous, but that is how BMI works.</p>
-
-    <p><strong>Fat distribution.</strong> Belly fat is way more dangerous than hip fat. BMI cannot tell where your fat lives. Two people with identical BMI can have completely different health risks based on waist size.</p>
-
-    <p><strong>Age matters.</strong> Older adults may benefit from slightly higher BMI (22-27) for bone health. My grandmother at BMI 21 was frail. At BMI 24, she was stronger and healthier. Her doctor actually wanted her to gain weight.</p>
-
-    <p><strong>Ethnicity.</strong> Asian populations often have higher health risks at lower BMI thresholds. The standard WHO chart is based largely on European populations. If you are Asian, your "normal" might actually be lower.</p>
-
-    <div class="cta-card">
-        <h3>Calculate Your Exact BMI</h3>
-        <a href="/" class="cta-btn">Use the Calculator →</a>
-    </div>
-
-    <!-- AdSense Medium Rectangle Bottom -->
-    <div class="ad-container rectangle">
-        <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-XXXX" data-ad-slot="XXXX"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <!-- Affiliate Products -->
-    <div class="affiliate-block">
-        <h3>🛒 Recommended Products</h3>
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-img">⚖️</div>
-                <span>Digital Scale</span><br>
-                <a href="https://www.amazon.com/dp/XXXX?tag=XXXX-20" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
-            </div>
-            <div class="product-card">
-                <div class="product-img">📏</div>
-                <span>Measuring Tape</span><br>
-                <a href="https://www.amazon.com/dp/XXXX?tag=XXXX-20" target="_blank" rel="nofollow sponsored">View on Amazon →</a>
-            </div>
-        </div>
-    </div>
-
-    <p style="margin-top:30px;padding-top:20px;border-top:1px solid #e2e8f0;color:#718096;font-size:0.9rem">
-        <strong>Disclaimer:</strong> This chart provides general guidance. Always consult a licensed healthcare professional for personalized assessment.
-    </p>
+<p style="margin-top:30px;padding-top:20px;border-top:1px solid var(--border);color:var(--text-light);font-size:0.9rem">
+<strong>Disclaimer:</strong> This chart provides general guidance. Always consult a licensed healthcare professional for personalized assessment.
+</p>
 </article>
 
-</div>
+<div class="ad-placeholder">Advertisement Placeholder</div>
 
-<!-- Cookie Banner -->
-<div class="cookie-banner" id="cookieBanner">
-    <p>We use cookies for analytics and advertising. By continuing, you agree to our <a href="/privacy.html">Privacy Policy</a>.</p>
-    <button onclick="document.getElementById('cookieBanner').style.display='none'">Got it</button>
-</div>
+</main>
 
-<div class="ad-container" aria-label="Advertisement"><p>Advertisement</p><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="SLOT_BOTTOM" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
-<footer>
-    <p>© 2026 BMI Tool. All rights reserved.</p>
-    <p style="margin-top:8px"><a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | <a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a></p>
-    <p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
+<footer class="site-footer">
+<p>© 2026 BMI Tool. All rights reserved.</p>
+<p style="margin-top:8px">
+<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
+<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
+</p>
+<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
 </footer>
 
 </body>

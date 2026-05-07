@@ -3,29 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service | BMI Tool</title>
-<meta name="description" content="Terms of service for BMI Tool. By using our site, you agree to these terms. Please read them carefully.">
-<link rel="canonical" href="https://bmitool.org/terms.html">
+<title>BMI Health Blog | Articles, Tips & Real Stories</title>
+<meta name="description" content="Read honest articles about BMI, weight management, and healthy living. Real stories, no fluff.">
+<link rel="canonical" href="https://bmitool.org/blog/">
 <style>
 :root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
 .site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
 .site-header h1{font-size:1.9rem;font-weight:800}
+.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
 .site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
 .logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
 .nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
 .nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
 .nav-links a:hover{color:var(--primary);background:var(--primary-light)}
-.container{max-width:750px;margin:0 auto;padding:1.5rem 1rem}
+.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+.container{max-width:850px;margin:0 auto;padding:1.5rem 1rem}
 .card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
-.card h2{color:var(--primary);font-size:1.2rem;margin:1.5rem 0 .6rem;font-weight:700}
-.card p{margin-bottom:1rem}
-.card ul{margin-left:1.8rem;margin-bottom:1rem}
-.card li{margin-bottom:.4rem}
-.card a{color:var(--primary);text-decoration:none}
-.card a:hover{text-decoration:underline}
+.blog-list{display:grid;gap:1rem}
+.blog-item{background:var(--card);border-radius:var(--radius);padding:1.5rem;box-shadow:var(--shadow);border:1px solid var(--border);transition:all .2s}
+.blog-item:hover{border-color:var(--primary);transform:translateY(-2px)}
+.blog-item a{text-decoration:none;color:var(--text);display:block}
+.blog-item h3{color:var(--primary);font-size:1.15rem;margin-bottom:.4rem;font-weight:700}
+.blog-item p{color:var(--text-light);font-size:.9rem;line-height:1.5}
+.blog-item .meta{color:var(--text-light);font-size:.8rem;margin-top:.5rem}
 .ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
 .site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
 .site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
@@ -62,13 +65,21 @@ input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
 .email-box a{font-size:1rem}
 .ad-placeholder{padding:1.5rem;min-height:70px}
 .site-footer{padding:1.5rem 1rem}
-}.card{padding:1.2rem}}
+}.blog-item{padding:1.2rem}}
+
+/* Blog Index Mobile */
+@media(max-width:640px){
+.blog-item h3{font-size:1rem}
+.blog-item p{font-size:.85rem}
+.blog-item .meta{font-size:.75rem}
+}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-<h1>Terms of Service</h1>
+<h1>📝 BMI Health Blog</h1>
+<p>Real stories, honest advice, no fluff</p>
 </header>
 
 <nav class="site-nav">
@@ -78,7 +89,7 @@ input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
 <a href="/">Calculator</a>
 <a href="/bmi-chart.html">BMI Chart</a>
 <a href="/health-risks.html">Health Risks</a>
-<a href="/blog/">Blog</a>
+<a href="/blog/" class="active">Blog</a>
 <a href="/faq.html">FAQ</a>
 <a href="/about.html">About</a>
 </div>
@@ -89,37 +100,61 @@ input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
 
 <div class="ad-placeholder">Advertisement Placeholder</div>
 
-<article class="card">
-<p><strong>Last updated:</strong> May 7, 2026</p>
-<p>Please read these Terms of Service carefully before using BMI Tool. By accessing or using our website, you agree to be bound by these terms.</p>
+<div class="card">
+<h2 style="color:var(--primary);font-size:1.3rem;margin-bottom:1.2rem;font-weight:700">All Articles</h2>
 
-<h2>1. Not Medical Advice</h2>
-<p>The content on BMI Tool is for informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider before beginning any weight management program.</p>
+<div class="blog-list">
 
-<h2>2. Use of the Calculator</h2>
-<p>Our BMI calculator provides estimates based on general formulas. Individual results may vary. The calculator is provided "as is" without warranties of any kind. We are not responsible for any health outcomes resulting from your use of this tool.</p>
+<div class="blog-item">
+<a href="/blog/what-is-bmi-and-why-it-matters.html">
+<h3>What Is BMI and Why It Actually Matters</h3>
+<p>I used to think BMI was just another number doctors threw around. Then my uncle ignored his for ten years and ended up with type 2 diabetes. Here is what that number actually means.</p>
+<span class="meta">May 7, 2026 · 8 min read</span>
+</a>
+</div>
 
-<h2>3. Intellectual Property</h2>
-<p>All content on BMI Tool, including text, graphics, logos, and code, is the property of BMI Tool and is protected by copyright laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+<div class="blog-item">
+<a href="/blog/how-to-lower-bmi-safely.html">
+<h3>How to Lower Your BMI Without Losing Your Mind</h3>
+<p>I tried keto, fasting, and cabbage soup. Here is what actually worked for lowering my BMI — without making me miserable.</p>
+<span class="meta">May 7, 2026 · 9 min read</span>
+</a>
+</div>
 
-<h2>4. User Conduct</h2>
-<p>You agree not to use BMI Tool for any unlawful purpose or in any way that could damage, disable, or impair our service. This includes attempting to gain unauthorized access to our systems or interfering with other users' access.</p>
+<div class="blog-item">
+<a href="/blog/bmi-myths-debunked.html">
+<h3>5 BMI Myths Everyone Believes (And Why They're Wrong)</h3>
+<p>Muscle weighs more than fat? BMI is outdated? Here are the dumbest things people believe about BMI — and the truth behind them.</p>
+<span class="meta">May 7, 2026 · 7 min read</span>
+</a>
+</div>
 
-<h2>5. Third-Party Links</h2>
-<p>BMI Tool may contain links to third-party websites. We do not control and are not responsible for the content or practices of these websites. Visiting them is at your own risk.</p>
+<div class="blog-item">
+<a href="/blog/maintain-healthy-bmi.html">
+<h3>How I Maintained a Healthy BMI for 3 Years (Without Counting Calories)</h3>
+<p>I hate calorie tracking apps. Here is the lazy person's guide to keeping your BMI in check without becoming a spreadsheet nerd.</p>
+<span class="meta">May 7, 2026 · 8 min read</span>
+</a>
+</div>
 
-<h2>6. Limitation of Liability</h2>
-<p>To the fullest extent permitted by law, BMI Tool shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of our website.</p>
+<div class="blog-item">
+<a href="/blog/bmi-alternatives.html">
+<h3>Better Than BMI: 3 Tools That Actually Measure Health</h3>
+<p>BMI called me overweight during my powerlifting phase. I had visible abs. Here are the alternatives my trainer made me use.</p>
+<span class="meta">May 7, 2026 · 7 min read</span>
+</a>
+</div>
 
-<h2>7. Changes to Terms</h2>
-<p>We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting. Your continued use of BMI Tool constitutes acceptance of the revised terms.</p>
+<div class="blog-item">
+<a href="/blog/bmi-for-children-guide.html">
+<h3>BMI for Kids: Why You Can't Use the Same Calculator</h3>
+<p>My sister panicked when her 8-year-old's BMI said overweight. Turns out kids are measured completely differently. Here is what parents need to know.</p>
+<span class="meta">May 7, 2026 · 6 min read</span>
+</a>
+</div>
 
-<h2>8. Governing Law</h2>
-<p>These terms shall be governed by and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.</p>
-
-<h2>9. Contact</h2>
-<p>If you have questions about these terms, please contact us at <a href="mailto:bmitool.org@gmail.com">bmitool.org@gmail.com</a>.</p>
-</article>
+</div>
+</div>
 
 <div class="ad-placeholder">Advertisement Placeholder</div>
 
