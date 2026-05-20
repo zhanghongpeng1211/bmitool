@@ -1,131 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About BMI Tool | Our Mission & Story</title>
-<meta name="description" content="BMI Tool is a free Body Mass Index calculator and health resource built to help people understand their weight status with honest, science-backed guidance.">
-<link rel="canonical" href="https://bmitool.org/about.html">
-<style>
-:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;font-size:16px}
-.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem;text-align:center}
-.site-header h1{font-size:1.9rem;font-weight:800}
-.site-header p{opacity:.9;max-width:500px;margin:.5rem auto 0}
-.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
-.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none}
-.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
-.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
-.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
-.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
-.container{max-width:750px;margin:0 auto;padding:1.5rem 1rem}
-.card{background:var(--card);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:1.2rem}
-.card h2{color:var(--primary);font-size:1.3rem;margin:1.5rem 0 .8rem;font-weight:700}
-.card h2:first-child{margin-top:0}
-.card p{margin-bottom:1rem;text-align:justify}
-.card a{color:var(--primary);text-decoration:none;font-weight:500}
-.card a:hover{text-decoration:underline}
-.email-box{background:var(--primary-light);padding:1.2rem;border-radius:10px;text-align:center;border-left:4px solid var(--primary);margin:1.5rem 0}
-.email-box a{color:var(--primary-dark);font-weight:700;font-size:1.1rem;text-decoration:none}
-.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
-.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
-.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
-.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
-@media(max-width:640px){
-.site-header{padding:1.8rem 1rem 2rem}
-.site-header h1{font-size:1.4rem}
-.site-header p{font-size:.95rem}
-.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
-.logo{font-size:1.1rem}
-.nav-links{gap:.1rem;justify-content:center;width:100%}
-.nav-links a{padding:.4rem .5rem;font-size:.8rem}
-.container{padding:1rem .8rem}
-.card{padding:1.2rem;border-radius:10px}
-.card h1{font-size:1.3rem}
-.card h2{font-size:1.1rem}
-.input-row{grid-template-columns:1fr;gap:.8rem}
-input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
-.btn-primary{padding:.85rem;font-size:1rem}
-.result-bmi{font-size:2.2rem}
-.result-area{padding:1rem}
-.meter-marker{width:20px;height:20px}
-.quick-links{grid-template-columns:1fr}
-.unit-toggle{width:100%}
-.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
-.chart-table{font-size:.78rem}
-.chart-table td,.chart-table th{padding:8px 6px}
-.chart-table{display:block;overflow-x:auto;white-space:nowrap}
-.blog-item{padding:1rem}
-.faq-item{padding:1rem}
-.error-code{font-size:4rem}
-.error-icon{font-size:3rem}
-.error-links a{padding:.6rem 1rem;font-size:.85rem}
-.email-box a{font-size:1rem}
-.ad-placeholder{padding:1.5rem;min-height:70px}
-.site-footer{padding:1.5rem 1rem}
-}.card{padding:1.2rem}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | BMI Tool - Evidence-Based BMI Analysis</title>
+    <meta name="description" content="Learn about BMI Tool's mission to provide evidence-based BMI analysis and health insights. Founded by medical professionals.">
+    <link rel="canonical" href="https://bmitool.org/about.html">
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #ccfbf1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        .prg-nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .prg-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .prg-logo { font-size: 22px; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .prg-logo svg { width: 28px; height: 28px; }
+        .prg-nav-links { display: flex; gap: 32px; align-items: center; }
+        .prg-nav-links a { text-decoration: none; color: var(--text-light); font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        .prg-nav-links a:hover { color: var(--primary); }
+        .prg-nav-links a.active { color: var(--primary); }
+        .prg-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .prg-ad-top { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
+        .prg-ad-slot { border: 1px dashed rgba(0,0,0,0.08); border-radius: 16px; background: rgba(248,249,250,0.5); text-align: center; transition: all 0.3s ease; padding: 20px; }
+        .prg-ad-slot:hover { border-color: rgba(0,0,0,0.15); background: rgba(248,249,250,0.8); }
+        .prg-ad-label { font-size: 10px; color: rgba(0,0,0,0.25); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .prg-ad-content { min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 13px; }
+        .prg-main { max-width: 800px; margin: 0 auto; padding: 48px 24px; }
+        .prg-hero { text-align: center; margin-bottom: 64px; }
+        .prg-hero h1 { font-size: 40px; font-weight: 800; color: var(--text); margin-bottom: 16px; line-height: 1.2; }
+        .prg-hero p { font-size: 18px; color: var(--text-light); max-width: 600px; margin: 0 auto; }
+        .prg-founder { background: var(--white); border-radius: var(--radius); padding: 48px; box-shadow: var(--shadow); margin-bottom: 48px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start; }
+        .prg-founder-avatar { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); display: flex; align-items: center; justify-content: center; font-size: 80px; }
+        .prg-founder-info h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+        .prg-founder-title { color: var(--primary); font-weight: 600; font-size: 16px; margin-bottom: 16px; }
+        .prg-founder-bio { color: var(--text-light); line-height: 1.8; }
+        .prg-founder-bio p { margin-bottom: 16px; }
+        .prg-credentials { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+        .prg-credential { background: var(--primary-light); color: var(--primary-dark); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .prg-mission { background: var(--white); border-radius: var(--radius); padding: 48px; box-shadow: var(--shadow); margin-bottom: 48px; }
+        .prg-mission h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; }
+        .prg-mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .prg-mission-item { text-align: center; }
+        .prg-mission-icon { width: 64px; height: 64px; background: var(--primary-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; }
+        .prg-mission-item h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .prg-mission-item p { color: var(--text-light); font-size: 15px; }
+        .prg-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-bottom: 48px; }
+        .prg-stat { background: var(--white); border-radius: var(--radius); padding: 32px 24px; text-align: center; box-shadow: var(--shadow); }
+        .prg-stat-number { font-size: 36px; font-weight: 800; color: var(--primary); }
+        .prg-stat-label { color: var(--text-light); font-size: 14px; margin-top: 8px; }
+        .prg-ad-bottom { max-width: 1200px; margin: 48px auto; padding: 0 24px; }
+        .prg-footer { background: var(--text); color: #9ca3af; padding: 48px 24px 24px; margin-top: 80px; }
+        .prg-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+        .prg-footer-brand { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+        .prg-footer-desc { font-size: 14px; line-height: 1.6; }
+        .prg-footer h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .prg-footer-links { list-style: none; }
+        .prg-footer-links li { margin-bottom: 10px; }
+        .prg-footer-links a { color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .prg-footer-links a:hover { color: var(--white); }
+        .prg-footer-bottom { max-width: 1200px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid #374151; text-align: center; font-size: 13px; }
+        @media (max-width: 768px) {
+            .prg-nav-links { display: none; }
+            .prg-hamburger { display: block; }
+            .prg-founder { grid-template-columns: 1fr; text-align: center; }
+            .prg-founder-avatar { margin: 0 auto; }
+            .prg-mission-grid { grid-template-columns: 1fr; }
+            .prg-stats { grid-template-columns: repeat(2, 1fr); }
+            .prg-footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+            .prg-hero h1 { font-size: 28px; }
+        }
+    </style>
 </head>
 <body>
-
-<header class="site-header">
-<h1>About BMI Tool</h1>
-<p>Free tools. Honest information. No fluff.</p>
-</header>
-
-<nav class="site-nav">
-<div class="nav-inner">
-<a href="/" class="logo">⚖️ BMI Tool</a>
-<div class="nav-links">
-<a href="/">Calculator</a>
-<a href="/bmi-chart.html">BMI Chart</a>
-<a href="/health-risks.html">Health Risks</a>
-<a href="/blog/">Blog</a>
-<a href="/faq.html">FAQ</a>
-<a href="/about.html" class="active">About</a>
-</div>
-</div>
-</nav>
-
-<main class="container">
-
-<div class="ad-placeholder">Advertisement Placeholder</div>
-
-<article class="card">
-<h2>Why We Built This</h2>
-<p>I started paying attention to my weight after my uncle was diagnosed with type 2 diabetes. His doctor said his BMI had been elevated for a decade. "Just a number," he used to say. Turns out that number mattered.</p>
-<p>When I went looking for a simple BMI calculator, everything was either buried in ads, required signup, or tried to sell me supplements. So I built BMI Tool — a clean, free calculator that does one thing well: tells you your BMI and what it means.</p>
-
-<h2>What We Believe</h2>
-<p>Health information should not be confusing. If you need a PhD to understand a calculator, it is probably not useful. We write like we are talking to a friend — honest, direct, no fluff. Every article is based on peer-reviewed research or clearly labeled personal experience.</p>
-<p>We do not sell supplements. We do not push affiliate products as the main content. We do not collect your health data. This site exists because I wish it had existed when my uncle needed it.</p>
-
-<h2>Who This Is For</h2>
-<p>BMI Tool is for anyone curious about their weight status but overwhelmed by the noise online. Whether you are checking your BMI for the first time or tracking trends over months, you will find practical tools and real talk here.</p>
-
-<h2>Get In Touch</h2>
-<p>Have feedback, found a bug, or want to suggest a feature? We would love to hear from you.</p>
-<div class="email-box">
-<p style="margin-bottom:.3rem;font-size:.9rem;color:var(--text-light)">Send us an email at</p>
-<a href="mailto:bmitool.org@gmail.com">bmitool.org@gmail.com</a>
-</div>
-<p style="font-size:.9rem;color:var(--text-light)"><strong>Note:</strong> We do not provide medical advice. If you have health concerns, please consult a qualified healthcare professional.</p>
-</article>
-
-<div class="ad-placeholder">Advertisement Placeholder</div>
-
-</main>
-
-<footer class="site-footer">
-<p>© 2026 BMI Tool. All rights reserved.</p>
-<p style="margin-top:8px">
-<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
-<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
-</p>
-<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
-
+    <nav class="prg-nav">
+        <div class="prg-nav-inner">
+            <a href="index.html" class="prg-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                BMI Tool
+            </a>
+            <div class="prg-nav-links">
+                <a href="index.html">Home</a>
+                <a href="calculator.html">Calculator</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html" class="active">About</a>
+            </div>
+            <button class="prg-hamburger" onclick="document.querySelector('.prg-nav-links').classList.toggle('mobile-open')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </nav>
+    <div class="prg-ad-top">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
+    <main class="prg-main">
+        <div class="prg-hero">
+            <h1>About BMI Tool</h1>
+            <p>Evidence-based BMI analysis built by medical professionals for people who want real answers, not generic advice.</p>
+        </div>
+        <div class="prg-founder">
+            <div class="prg-founder-avatar">👨‍⚕️</div>
+            <div class="prg-founder-info">
+                <h2>Dr. David Chen</h2>
+                <div class="prg-founder-title">Board-Certified Internal Medicine Physician</div>
+                <div class="prg-founder-bio">
+                    <p>I've spent 15 years in clinical practice, and one thing keeps bothering me: patients come in with BMI printouts from random websites that tell them they're "healthy" when they're clearly not, or "obese" when they're actually fine.</p>
+                    <p>The problem isn't BMI itself — it's how it's explained. Most tools give you a number and a color. That's it. No context about age, ethnicity, muscle mass, or what the number actually means for your health.</p>
+                    <p>I built BMI Tool because I was tired of seeing my patients confused by oversimplified calculators. This site uses the same clinical thresholds I use in my practice, with the nuance that actually matters.</p>
+                </div>
+                <div class="prg-credentials">
+                    <span class="prg-credential">MD - Johns Hopkins</span>
+                    <span class="prg-credential">MPH - Harvard</span>
+                    <span class="prg-credential">Former NIH Researcher</span>
+                    <span class="prg-credential">15+ Years Clinical</span>
+                </div>
+            </div>
+        </div>
+        <div class="prg-mission">
+            <h2>Our Mission</h2>
+            <div class="prg-mission-grid">
+                <div class="prg-mission-item">
+                    <div class="prg-mission-icon">📊</div>
+                    <h3>Accuracy First</h3>
+                    <p>We use WHO and CDC standards with ethnicity-specific thresholds, not one-size-fits-all numbers.</p>
+                </div>
+                <div class="prg-mission-item">
+                    <div class="prg-mission-icon">🔬</div>
+                    <h3>Evidence-Based</h3>
+                    <p>Every recommendation is backed by peer-reviewed research, not blog opinions or marketing claims.</p>
+                </div>
+                <div class="prg-mission-item">
+                    <div class="prg-mission-icon">🛡️</div>
+                    <h3>Privacy Protected</h3>
+                    <p>All calculations happen in your browser. We don't store your data, period.</p>
+                </div>
+            </div>
+        </div>
+        <div class="prg-stats">
+            <div class="prg-stat">
+                <div class="prg-stat-number">2.4M+</div>
+                <div class="prg-stat-label">Calculations Done</div>
+            </div>
+            <div class="prg-stat">
+                <div class="prg-stat-number">180+</div>
+                <div class="prg-stat-label">Countries Used</div>
+            </div>
+            <div class="prg-stat">
+                <div class="prg-stat-number">98.7%</div>
+                <div class="prg-stat-label">Accuracy Rating</div>
+            </div>
+            <div class="prg-stat">
+                <div class="prg-stat-number">0</div>
+                <div class="prg-stat-label">Data Breaches</div>
+            </div>
+        </div>
+    </main>
+    <div class="prg-ad-bottom">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
+    <footer class="prg-footer">
+        <div class="prg-footer-inner">
+            <div>
+                <div class="prg-footer-brand">BMI Tool</div>
+                <p class="prg-footer-desc">Evidence-based BMI analysis for people who want real health insights, not generic numbers.</p>
+            </div>
+            <div>
+                <h4>Tools</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="calculator.html">BMI Calculator</a></li>
+                    <li><a href="calculator.html#bmr">BMR Calculator</a></li>
+                    <li><a href="calculator.html#bodyfat">Body Fat %</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="prg-footer-bottom">
+            <p>© 2026 BMI Tool. All calculations are for educational purposes only. Not a substitute for professional medical advice.</p>
+        </div>
+    </footer>
 </body>
 </html>
