@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator | Comprehensive Health Assessment - BMI Tool</title>
+    <meta name="description" content="Free comprehensive BMI calculator with 6 professional tabs: BMI assessment, metabolic analysis, body composition, trend tracking, goal planning, and report export. Evidence-based health insights.">
+    <link rel="canonical" href="https://bmitool.org/calculator.html">
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #ccfbf1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+
+        .prg-nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .prg-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .prg-logo { font-size: 22px; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .prg-logo svg { width: 28px; height: 28px; }
+        .prg-nav-links { display: flex; gap: 32px; align-items: center; }
+        .prg-nav-links a { text-decoration: none; color: var(--text-light); font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        .prg-nav-links a:hover { color: var(--primary); }
+        .prg-nav-links a.active { color: var(--primary); }
+        .prg-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+
+        .prg-ad-top { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
+        .prg-ad-slot { border: 1px dashed rgba(0,0,0,0.08); border-radius: 16px; background: rgba(248,249,250,0.5); text-align: center; transition: all 0.3s ease; padding: 20px; }
+        .prg-ad-slot:hover { border-color: rgba(0,0,0,0.15); background: rgba(248,249,250,0.8); }
+        .prg-ad-label { font-size: 10px; color: rgba(0,0,0,0.25); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .prg-ad-content { min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 13px; }
+
+        .prg-main { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+        .prg-hero { text-align: center; margin-bottom: 48px; }
+        .prg-hero h1 { font-size: 40px; font-weight: 800; margin-bottom: 16px; }
+        .prg-hero p { font-size: 18px; color: var(--text-light); max-width: 700px; margin: 0 auto; }
+
+        /* Tab Navigation */
+        .prg-tabs { display: flex; gap: 8px; margin-bottom: 32px; overflow-x: auto; padding-bottom: 8px; }
+        .prg-tab { padding: 12px 24px; border-radius: 50px; background: var(--white); border: 2px solid var(--border); color: var(--text-light); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
+        .prg-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .prg-tab.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+        .prg-tab svg { width: 16px; height: 16px; margin-right: 6px; vertical-align: middle; }
+
+        /* Tab Content */
+        .prg-tab-content { display: none; }
+        .prg-tab-content.active { display: block; }
+
+        /* Input Form */
+        .prg-form { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-form-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .prg-form-group { display: flex; flex-direction: column; }
+        .prg-form-group label { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+        .prg-form-group input, .prg-form-group select { padding: 12px 16px; border: 2px solid var(--border); border-radius: 12px; font-size: 16px; outline: none; transition: border-color 0.2s; }
+        .prg-form-group input:focus, .prg-form-group select:focus { border-color: var(--primary); }
+        .prg-form-group .prg-hint { font-size: 12px; color: var(--text-light); margin-top: 4px; }
+
+        .prg-btn { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 14px 32px; border: none; border-radius: 50px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; margin-top: 24px; }
+        .prg-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(13,148,136,0.3); }
+
+        /* Results Cards */
+        .prg-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 32px; }
+        .prg-result-card { background: var(--white); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); text-align: center; }
+        .prg-result-card .prg-result-value { font-size: 48px; font-weight: 800; margin-bottom: 8px; }
+        .prg-result-card .prg-result-label { font-size: 14px; color: var(--text-light); margin-bottom: 12px; }
+        .prg-result-card .prg-result-status { display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+        .prg-status-normal { background: #dcfce7; color: #166534; }
+        .prg-status-warning { background: #fef3c7; color: #92400e; }
+        .prg-status-danger { background: #fee2e2; color: #991b1b; }
+
+        /* BMI Gauge */
+        .prg-gauge { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-gauge-bar { height: 24px; border-radius: 12px; background: linear-gradient(90deg, #3b82f6 0%, #22c55e 25%, #eab308 50%, #f97316 75%, #ef4444 100%); position: relative; margin: 24px 0; }
+        .prg-gauge-marker { position: absolute; top: -8px; width: 4px; height: 40px; background: var(--text); border-radius: 2px; transform: translateX(-50%); transition: left 0.5s ease; }
+        .prg-gauge-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-light); }
+
+        /* Detailed Analysis */
+        .prg-analysis { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-analysis h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+        .prg-analysis-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .prg-analysis-item { padding: 20px; border-radius: 12px; background: var(--bg); }
+        .prg-analysis-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+        .prg-analysis-item p { font-size: 14px; color: var(--text-light); }
+        .prg-analysis-item .prg-analysis-value { font-size: 28px; font-weight: 700; color: var(--primary); margin-top: 8px; }
+
+        /* History Table */
+        .prg-history { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-history h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+        .prg-history-table { width: 100%; border-collapse: collapse; }
+        .prg-history-table th { text-align: left; padding: 12px; font-size: 13px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--border); }
+        .prg-history-table td { padding: 16px 12px; border-bottom: 1px solid var(--border); }
+        .prg-history-table tr:hover { background: var(--bg); }
+
+        /* Goal Planning */
+        .prg-goal { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-goal h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+        .prg-goal-timeline { display: flex; gap: 16px; margin-top: 24px; }
+        .prg-goal-step { flex: 1; text-align: center; padding: 20px; border-radius: 12px; background: var(--bg); position: relative; }
+        .prg-goal-step::after { content: '→'; position: absolute; right: -12px; top: 50%; transform: translateY(-50%); color: var(--primary); font-size: 20px; }
+        .prg-goal-step:last-child::after { display: none; }
+        .prg-goal-step .prg-step-week { font-size: 12px; color: var(--text-light); margin-bottom: 8px; }
+        .prg-goal-step .prg-step-weight { font-size: 20px; font-weight: 700; color: var(--primary); }
+
+        /* Report Export */
+        .prg-report { background: var(--white); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); margin-bottom: 32px; }
+        .prg-report h2 { font-size: 24px; font-weight: 700; margin-bottom: 24px; }
+        .prg-report-actions { display: flex; gap: 16px; }
+        .prg-report-btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; }
+        .prg-report-btn.primary { background: var(--primary); color: var(--white); }
+        .prg-report-btn.secondary { background: var(--bg); color: var(--text); border: 2px solid var(--border); }
+        .prg-report-btn:hover { transform: translateY(-2px); }
+
+        .prg-ad-bottom { max-width: 1200px; margin: 48px auto; padding: 0 24px; }
+
+        .prg-footer { background: var(--text); color: #9ca3af; padding: 48px 24px 24px; margin-top: 80px; }
+        .prg-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+        .prg-footer-brand { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+        .prg-footer-desc { font-size: 14px; line-height: 1.6; }
+        .prg-footer h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .prg-footer-links { list-style: none; }
+        .prg-footer-links li { margin-bottom: 10px; }
+        .prg-footer-links a { color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .prg-footer-links a:hover { color: var(--white); }
+        .prg-footer-bottom { max-width: 1200px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid #374151; text-align: center; font-size: 13px; }
+
+        @media (max-width: 768px) {
+            .prg-nav-links { display: none; }
+            .prg-hamburger { display: block; }
+            .prg-form-grid { grid-template-columns: 1fr; }
+            .prg-results { grid-template-columns: 1fr; }
+            .prg-analysis-grid { grid-template-columns: 1fr; }
+            .prg-hero h1 { font-size: 28px; }
+            .prg-tabs { overflow-x: scroll; }
+            .prg-footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="prg-nav">
+        <div class="prg-nav-inner">
+            <a href="index.html" class="prg-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                BMI Tool
+            </a>
+            <div class="prg-nav-links">
+                <a href="index.html">Home</a>
+                <a href="calculator.html" class="active">Calculator</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+            <button class="prg-hamburger" onclick="document.querySelector('.prg-nav-links').classList.toggle('mobile-open')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="prg-ad-top">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
+
+    <main class="prg-main">
+        <div class="prg-hero">
+            <h1>Comprehensive BMI Assessment</h1>
+            <p>6 professional analysis tabs based on WHO and CDC standards. Get evidence-based insights into your body composition, metabolism, and health risks.</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="prg-tabs">
+            <button class="prg-tab active" onclick="switchTab('bmi')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                BMI Assessment
+            </button>
+            <button class="prg-tab" onclick="switchTab('metabolic')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Metabolic Analysis
+            </button>
+            <button class="prg-tab" onclick="switchTab('bodycomp')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                Body Composition
+            </button>
+            <button class="prg-tab" onclick="switchTab('trends')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+                Trend Tracking
+            </button>
+            <button class="prg-tab" onclick="switchTab('goals')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                Goal Planning
+            </button>
+            <button class="prg-tab" onclick="switchTab('report')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                Report Export
+            </button>
+        </div>
+
+        <!-- Input Form -->
+        <div class="prg-form">
+            <div class="prg-form-grid">
+                <div class="prg-form-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height" placeholder="e.g., 175" min="100" max="250">
+                    <span class="prg-hint">Or 5'9" = 175cm</span>
+                </div>
+                <div class="prg-form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight" placeholder="e.g., 70" min="30" max="300">
+                    <span class="prg-hint">Or 154 lbs = 70kg</span>
+                </div>
+                <div class="prg-form-group">
+                    <label>Age</label>
+                    <input type="number" id="age" placeholder="e.g., 30" min="2" max="120">
+                </div>
+                <div class="prg-form-group">
+                    <label>Gender</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="prg-form-group">
+                    <label>Activity Level</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary (little/no exercise)</option>
+                        <option value="1.375">Lightly Active (1-3 days/week)</option>
+                        <option value="1.55" selected>Moderately Active (3-5 days/week)</option>
+                        <option value="1.725">Very Active (6-7 days/week)</option>
+                        <option value="1.9">Extra Active (physical job)</option>
+                    </select>
+                </div>
+                <div class="prg-form-group">
+                    <label>Ethnicity (for BMI thresholds)</label>
+                    <select id="ethnicity">
+                        <option value="standard">Standard (WHO)</option>
+                        <option value="asian">Asian (Lower thresholds)</option>
+                    </select>
+                    <span class="prg-hint">Asian populations have lower risk thresholds</span>
+                </div>
+            </div>
+            <button class="prg-btn" onclick="calculateAll()">Calculate Comprehensive Analysis</button>
+        </div>
+
+        <!-- Tab 1: BMI Assessment -->
+        <div id="tab-bmi" class="prg-tab-content active">
+            <div class="prg-results" id="bmiResults">
+                <div class="prg-result-card">
+                    <div class="prg-result-value" id="bmiValue">--</div>
+                    <div class="prg-result-label">Your BMI</div>
+                    <span class="prg-result-status prg-status-normal" id="bmiStatus">Enter data to calculate</span>
+                </div>
+                <div class="prg-result-card">
+                    <div class="prg-result-value" id="bmiPrime">--</div>
+                    <div class="prg-result-label">BMI Prime</div>
+                    <span class="prg-result-status prg-status-normal" id="bmiPrimeStatus">BMI / 25</span>
+                </div>
+                <div class="prg-result-card">
+                    <div class="prg-result-value" id="ponderal">--</div>
+                    <div class="prg-result-label">Ponderal Index</div>
+                    <span class="prg-result-status prg-status-normal" id="ponderalStatus">kg/m³</span>
+                </div>
+            </div>
+            <div class="prg-gauge">
+                <h2>BMI Classification Gauge</h2>
+                <div class="prg-gauge-bar">
+                    <div class="prg-gauge-marker" id="bmiMarker" style="left: 0%;"></div>
+                </div>
+                <div class="prg-gauge-labels">
+                    <span>Underweight<br>&lt;18.5</span>
+                    <span>Normal<br>18.5-24.9</span>
+                    <span>Overweight<br>25-29.9</span>
+                    <span>Obese I<br>30-34.9</span>
+                    <span>Obese II+<br>≥35</span>
+                </div>
+                <p style="margin-top: 24px; color: var(--text-light); font-size: 14px;">
+                    <strong>Note:</strong> Asian ethnicity uses lower thresholds: Normal 18.5-22.9, Overweight 23-24.9, Obese ≥25 
+                    <a href="faq.html" style="color: var(--primary);">Learn more →</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Tab 2: Metabolic Analysis -->
+        <div id="tab-metabolic" class="prg-tab-content">
+            <div class="prg-analysis">
+                <h2>Metabolic Profile</h2>
+                <div class="prg-analysis-grid">
+                    <div class="prg-analysis-item">
+                        <h3>Basal Metabolic Rate (BMR)</h3>
+                        <p>Calories burned at complete rest</p>
+                        <div class="prg-analysis-value" id="bmrValue">-- kcal/day</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Total Daily Energy Expenditure (TDEE)</h3>
+                        <p>Total calories burned per day</p>
+                        <div class="prg-analysis-value" id="tdeeValue">-- kcal/day</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Maintenance Calories</h3>
+                        <p>To maintain current weight</p>
+                        <div class="prg-analysis-value" id="maintenanceValue">-- kcal/day</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Weight Loss Target</h3>
+                        <p>500 cal deficit for 1 lb/week loss</p>
+                        <div class="prg-analysis-value" id="lossValue">-- kcal/day</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Body Composition -->
+        <div id="tab-bodycomp" class="prg-tab-content">
+            <div class="prg-analysis">
+                <h2>Body Composition Estimates</h2>
+                <div class="prg-analysis-grid">
+                    <div class="prg-analysis-item">
+                        <h3>Estimated Body Fat %</h3>
+                        <p>Based on Deurenberg formula</p>
+                        <div class="prg-analysis-value" id="bodyFatValue">--%</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Lean Body Mass</h3>
+                        <p>Weight minus estimated fat mass</p>
+                        <div class="prg-analysis-value" id="lbmValue">-- kg</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Healthy Weight Range</h3>
+                        <p>For your height</p>
+                        <div class="prg-analysis-value" id="healthyWeight">-- - -- kg</div>
+                    </div>
+                    <div class="prg-analysis-item">
+                        <h3>Ideal Weight (Devine)</h3>
+                        <p>Standard medical formula</p>
+                        <div class="prg-analysis-value" id="idealWeight">-- kg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Trend Tracking -->
+        <div id="tab-trends" class="prg-tab-content">
+            <div class="prg-history">
+                <h2>Calculation History</h2>
+                <p style="color: var(--text-light); margin-bottom: 24px;">Your recent calculations are saved locally in your browser for comparison.</p>
+                <table class="prg-history-table" id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Weight</th>
+                            <th>BMI</th>
+                            <th>Status</th>
+                            <th>Change</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: var(--text-light);">No history yet. Calculate your BMI to start tracking.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="prg-btn" onclick="clearHistory()" style="margin-top: 16px; background: var(--text-light);">Clear History</button>
+            </div>
+        </div>
+
+        <!-- Tab 5: Goal Planning -->
+        <div id="tab-goals" class="prg-tab-content">
+            <div class="prg-goal">
+                <h2>Weight Goal Timeline</h2>
+                <p style="color: var(--text-light); margin-bottom: 24px;">Based on a safe 0.5-1 kg (1-2 lbs) per week weight loss rate.</p>
+                <div class="prg-form-grid" style="margin-bottom: 24px;">
+                    <div class="prg-form-group">
+                        <label>Target Weight (kg)</label>
+                        <input type="number" id="targetWeight" placeholder="e.g., 65">
+                    </div>
+                    <div class="prg-form-group">
+                        <label>Weekly Loss Rate</label>
+                        <select id="lossRate">
+                            <option value="0.25">Conservative (0.25 kg/week)</option>
+                            <option value="0.5" selected>Moderate (0.5 kg/week)</option>
+                            <option value="0.75">Aggressive (0.75 kg/week)</option>
+                            <option value="1">Very Aggressive (1 kg/week)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="prg-btn" onclick="calculateGoals()">Calculate Timeline</button>
+                <div class="prg-goal-timeline" id="goalTimeline" style="margin-top: 32px;">
+                    <!-- Generated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 6: Report Export -->
+        <div id="tab-report" class="prg-tab-content">
+            <div class="prg-report">
+                <h2>Export Your Health Report</h2>
+                <p style="color: var(--text-light); margin-bottom: 24px;">Download a comprehensive PDF report with all your metrics, analysis, and recommendations.</p>
+                <div class="prg-report-actions">
+                    <button class="prg-report-btn primary" onclick="generateReport()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        Download PDF Report
+                    </button>
+                    <button class="prg-report-btn secondary" onclick="shareResults()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+                        Share Results Link
+                    </button>
+                </div>
+                <div id="shareUrl" style="margin-top: 24px; padding: 16px; background: var(--bg); border-radius: 12px; display: none;">
+                    <p style="font-size: 14px; color: var(--text-light); margin-bottom: 8px;">Share this link:</p>
+                    <code id="shareLink" style="display: block; padding: 12px; background: var(--white); border-radius: 8px; word-break: break-all; font-size: 13px;"></code>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="prg-ad-bottom">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
+
+    <footer class="prg-footer">
+        <div class="prg-footer-inner">
+            <div>
+                <div class="prg-footer-brand">BMI Tool</div>
+                <p class="prg-footer-desc">Evidence-based BMI analysis for people who want real health insights, not generic numbers.</p>
+            </div>
+            <div>
+                <h4>Tools</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="calculator.html">BMI Calculator</a></li>
+                    <li><a href="calculator.html#bmr">BMR Calculator</a></li>
+                    <li><a href="calculator.html#bodyfat">Body Fat %</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="prg-footer-bottom">
+            <p>© 2026 BMI Tool. All calculations are for educational purposes only. Not a substitute for professional medical advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.prg-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.prg-tab-content').forEach(c => c.classList.remove('active'));
+            event.target.closest('.prg-tab').classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        // BMI Calculation
+        function calculateBMI(weight, height) {
+            return weight / ((height / 100) ** 2);
+        }
+
+        // BMR Calculation (Mifflin-St Jeor)
+        function calculateBMR(weight, height, age, gender) {
+            if (gender === 'male') {
+                return (10 * weight) + (6.25 * height) - (5 * age) + 5;
+            } else {
+                return (10 * weight) + (6.25 * height) - (5 * age) - 161;
+            }
+        }
+
+        // Body Fat % (Deurenberg formula)
+        function calculateBodyFat(bmi, age, gender) {
+            const sex = gender === 'male' ? 1 : 0;
+            return (1.20 * bmi) + (0.23 * age) - (10.8 * sex) - 5.4;
+        }
+
+        // Get BMI Status
+        function getBMIStatus(bmi, ethnicity) {
+            if (ethnicity === 'asian') {
+                if (bmi < 18.5) return { text: 'Underweight', class: 'prg-status-warning' };
+                if (bmi < 23) return { text: 'Normal', class: 'prg-status-normal' };
+                if (bmi < 25) return { text: 'Overweight', class: 'prg-status-warning' };
+                return { text: 'Obese', class: 'prg-status-danger' };
+            } else {
+                if (bmi < 18.5) return { text: 'Underweight', class: 'prg-status-warning' };
+                if (bmi < 25) return { text: 'Normal', class: 'prg-status-normal' };
+                if (bmi < 30) return { text: 'Overweight', class: 'prg-status-warning' };
+                if (bmi < 35) return { text: 'Obese Class I', class: 'prg-status-danger' };
+                if (bmi < 40) return { text: 'Obese Class II', class: 'prg-status-danger' };
+                return { text: 'Obese Class III', class: 'prg-status-danger' };
+            }
+        }
+
+        // Main Calculate Function
+        function calculateAll() {
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = parseFloat(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const activity = parseFloat(document.getElementById('activity').value);
+            const ethnicity = document.getElementById('ethnicity').value;
+
+            if (!height || !weight || !age) {
+                alert('Please fill in height, weight, and age');
+                return;
+            }
+
+            // BMI
+            const bmi = calculateBMI(weight, height);
+            const bmiStatus = getBMIStatus(bmi, ethnicity);
+            document.getElementById('bmiValue').textContent = bmi.toFixed(1);
+            document.getElementById('bmiStatus').textContent = bmiStatus.text;
+            document.getElementById('bmiStatus').className = 'prg-result-status ' + bmiStatus.class;
+
+            // BMI Prime
+            const bmiPrime = bmi / 25;
+            document.getElementById('bmiPrime').textContent = bmiPrime.toFixed(2);
+            document.getElementById('bmiPrimeStatus').textContent = bmiPrime <= 1 ? 'Healthy' : 'Above optimal';
+            document.getElementById('bmiPrimeStatus').className = 'prg-result-status ' + (bmiPrime <= 1 ? 'prg-status-normal' : 'prg-status-warning');
+
+            // Ponderal Index
+            const ponderal = weight / ((height / 100) ** 3);
+            document.getElementById('ponderal').textContent = ponderal.toFixed(1);
+
+            // Gauge Marker
+            const gaugePercent = Math.min(Math.max((bmi / 40) * 100, 0), 100);
+            document.getElementById('bmiMarker').style.left = gaugePercent + '%';
+
+            // BMR & TDEE
+            const bmr = calculateBMR(weight, height, age, gender);
+            const tdee = bmr * activity;
+            document.getElementById('bmrValue').textContent = Math.round(bmr) + ' kcal/day';
+            document.getElementById('tdeeValue').textContent = Math.round(tdee) + ' kcal/day';
+            document.getElementById('maintenanceValue').textContent = Math.round(tdee) + ' kcal/day';
+            document.getElementById('lossValue').textContent = Math.round(tdee - 500) + ' kcal/day';
+
+            // Body Composition
+            const bodyFat = calculateBodyFat(bmi, age, gender);
+            const lbm = weight * (1 - bodyFat / 100);
+            const healthyMin = 18.5 * ((height / 100) ** 2);
+            const healthyMax = 24.9 * ((height / 100) ** 2);
+            const idealWeight = gender === 'male' ? 50 + 0.9 * (height - 152) : 45.5 + 0.9 * (height - 152);
+
+            document.getElementById('bodyFatValue').textContent = bodyFat.toFixed(1) + '%';
+            document.getElementById('lbmValue').textContent = lbm.toFixed(1) + ' kg';
+            document.getElementById('healthyWeight').textContent = healthyMin.toFixed(1) + ' - ' + healthyMax.toFixed(1) + ' kg';
+            document.getElementById('idealWeight').textContent = idealWeight.toFixed(1) + ' kg';
+
+            // Save to history
+            saveToHistory(weight, bmi, bmiStatus.text);
+
+            // Update URL for sharing
+            const params = new URLSearchParams({ h: height, w: weight, a: age, g: gender, act: activity, eth: ethnicity });
+            history.replaceState(null, null, '?' + params.toString());
+        }
+
+        // History Management
+        function saveToHistory(weight, bmi, status) {
+            let history = JSON.parse(localStorage.getItem('bmiHistory') || '[]');
+            const entry = {
+                date: new Date().toLocaleDateString(),
+                weight: weight,
+                bmi: bmi.toFixed(1),
+                status: status
+            };
+            history.unshift(entry);
+            if (history.length > 10) history = history.slice(0, 10);
+            localStorage.setItem('bmiHistory', JSON.stringify(history));
+            renderHistory();
+        }
+
+        function renderHistory() {
+            const history = JSON.parse(localStorage.getItem('bmiHistory') || '[]');
+            const tbody = document.getElementById('historyBody');
+            if (history.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-light);">No history yet. Calculate your BMI to start tracking.</td></tr>';
+                return;
+            }
+            let html = '';
+            history.forEach((entry, i) => {
+                const prev = history[i + 1];
+                const change = prev ? (entry.bmi - prev.bmi).toFixed(1) : '--';
+                const changeText = change === '--' ? '--' : (change > 0 ? '+' + change : change);
+                html += '<tr><td>' + entry.date + '</td><td>' + entry.weight + ' kg</td><td>' + entry.bmi + '</td><td>' + entry.status + '</td><td>' + changeText + '</td></tr>';
+            });
+            tbody.innerHTML = html;
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('bmiHistory');
+            renderHistory();
+        }
+
+        // Goal Planning
+        function calculateGoals() {
+            const currentWeight = parseFloat(document.getElementById('weight').value);
+            const targetWeight = parseFloat(document.getElementById('targetWeight').value);
+            const lossRate = parseFloat(document.getElementById('lossRate').value);
+
+            if (!currentWeight || !targetWeight) {
+                alert('Please enter current weight (in form above) and target weight');
+                return;
+            }
+
+            const diff = currentWeight - targetWeight;
+            const weeks = Math.ceil(diff / lossRate);
+            const timeline = document.getElementById('goalTimeline');
+            let html = '';
+
+            for (let i = 0; i <= Math.min(weeks, 12); i++) {
+                const weekWeight = currentWeight - (i * lossRate);
+                if (weekWeight < targetWeight) break;
+                html += '<div class="prg-goal-step"><div class="prg-step-week">Week ' + i + '</div><div class="prg-step-weight">' + weekWeight.toFixed(1) + ' kg</div></div>';
+            }
+
+            if (weeks > 12) {
+                html += '<div class="prg-goal-step"><div class="prg-step-week">...</div><div class="prg-step-weight">' + targetWeight + ' kg</div></div>';
+            }
+
+            timeline.innerHTML = html;
+        }
+
+        // Share Results
+        function shareResults() {
+            const url = window.location.href;
+            document.getElementById('shareLink').textContent = url;
+            document.getElementById('shareUrl').style.display = 'block';
+            navigator.clipboard.writeText(url);
+        }
+
+        // Generate Report (simplified - would need jsPDF library for full implementation)
+        function generateReport() {
+            alert('PDF generation would be implemented with jsPDF library. This is a placeholder for the full report export feature.');
+        }
+
+        // Load from URL params
+        function loadFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('h')) document.getElementById('height').value = params.get('h');
+            if (params.has('w')) document.getElementById('weight').value = params.get('w');
+            if (params.has('a')) document.getElementById('age').value = params.get('a');
+            if (params.has('g')) document.getElementById('gender').value = params.get('g');
+            if (params.has('act')) document.getElementById('activity').value = params.get('act');
+            if (params.has('eth')) document.getElementById('ethnicity').value = params.get('eth');
+            if (params.has('h') && params.has('w')) calculateAll();
+        }
+
+        // Init
+        renderHistory();
+        loadFromUrl();
+    </script>
+</body>
+</html>
