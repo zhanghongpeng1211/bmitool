@@ -1,391 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator | Free Body Mass Index Tool</title>
-<meta name="description" content="Free BMI calculator with metric and imperial units. Instant results with personalized health insights. No signup required.">
-<meta name="keywords" content="BMI calculator, body mass index, BMI chart, healthy weight, BMI tool">
-<link rel="canonical" href="https://bmitool.org/">
-<meta property="og:title" content="BMI Calculator | Free Body Mass Index Tool">
-<meta property="og:description" content="Calculate your BMI instantly. Free, private, and accurate.">
-<meta property="og:url" content="https://bmitool.org/">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "BMI Calculator",
-  "url": "https://bmitool.org",
-  "description": "Calculate your Body Mass Index with metric or imperial units",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "Any",
-  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
-}
-</script>
-<style>
-:root{--primary:#0d9488;--primary-dark:#0f766e;--primary-light:#ccfbf1;--secondary:#f97316;--text:#1e293b;--text-light:#64748b;--bg:#f8fafc;--card:#fff;--border:#e2e8f0;--success:#22c55e;--warning:#f59e0b;--danger:#ef4444;--radius:12px;--shadow:0 1px 3px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);--shadow-lg:0 10px 40px rgba(0,0,0,.1)}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:16px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Tool | Free Evidence-Based BMI Calculator & Health Analysis</title>
+    <meta name="description" content="Free comprehensive BMI calculator with 6 professional analysis tabs. Evidence-based health insights from a board-certified physician. Privacy-first, no data collection.">
+    <link rel="canonical" href="https://bmitool.org/">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "BMI Tool",
+        "description": "Evidence-based BMI calculator with comprehensive health analysis",
+        "url": "https://bmitool.org",
+        "applicationCategory": "HealthApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --primary: #0d9488;
+            --primary-dark: #0f766e;
+            --primary-light: #ccfbf1;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #f8fafc;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 16px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
 
-/* Header */
-.site-header{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:#fff;padding:2.5rem 1rem 3rem;text-align:center;position:relative;overflow:hidden}
-.site-header::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px;opacity:.5;pointer-events:none}
-.site-header h1{font-size:2rem;font-weight:800;margin-bottom:.5rem;position:relative;z-index:1;letter-spacing:-.5px}
-.site-header p{opacity:.9;max-width:500px;margin:0 auto;font-size:1.05rem;position:relative;z-index:1}
+        .prg-nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .prg-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .prg-logo { font-size: 22px; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .prg-logo svg { width: 28px; height: 28px; }
+        .prg-nav-links { display: flex; gap: 32px; align-items: center; }
+        .prg-nav-links a { text-decoration: none; color: var(--text-light); font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        .prg-nav-links a:hover { color: var(--primary); }
+        .prg-nav-links a.active { color: var(--primary); }
+        .prg-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
 
-/* Navigation */
-.site-nav{background:#fff;border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.05)}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:.5rem 1rem}
-.logo{font-weight:800;color:var(--primary);font-size:1.2rem;text-decoration:none;display:flex;align-items:center;gap:.4rem}
-.logo svg{width:24px;height:24px}
-.nav-links{display:flex;gap:.2rem;flex-wrap:wrap}
-.nav-links a{color:var(--text-light);text-decoration:none;font-size:.88rem;font-weight:500;padding:.5rem .8rem;border-radius:6px;transition:all .2s}
-.nav-links a:hover{color:var(--primary);background:var(--primary-light)}
-.nav-links a.active{color:var(--primary);background:var(--primary-light);font-weight:600}
+        /* Hero Section */
+        .prg-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 80px 24px; text-align: center; }
+        .prg-hero-inner { max-width: 800px; margin: 0 auto; }
+        .prg-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .prg-hero p { font-size: 20px; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .prg-hero-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+        .prg-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 50px; font-size: 14px; }
+        .prg-hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--primary); padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; transition: transform 0.2s, box-shadow 0.2s; }
+        .prg-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
 
-/* Layout */
-.container{max-width:800px;margin:0 auto;padding:1.5rem 1rem}
+        /* Ad Top */
+        .prg-ad-top { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
+        .prg-ad-slot { border: 1px dashed rgba(0,0,0,0.08); border-radius: 16px; background: rgba(248,249,250,0.5); text-align: center; transition: all 0.3s ease; padding: 20px; }
+        .prg-ad-slot:hover { border-color: rgba(0,0,0,0.15); background: rgba(248,249,250,0.8); }
+        .prg-ad-label { font-size: 10px; color: rgba(0,0,0,0.25); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+        .prg-ad-content { min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 13px; }
 
-/* Cards */
-.card{background:var(--card);border-radius:var(--radius);padding:1.8rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border:1px solid var(--border)}
-.card h2{color:var(--primary);font-size:1.25rem;margin-bottom:1.2rem;font-weight:700;display:flex;align-items:center;gap:.5rem}
+        /* Features */
+        .prg-features { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
+        .prg-features h2 { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 48px; }
+        .prg-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .prg-feature { background: var(--white); border-radius: var(--radius); padding: 40px 32px; box-shadow: var(--shadow); text-align: center; transition: transform 0.2s; }
+        .prg-feature:hover { transform: translateY(-6px); }
+        .prg-feature-icon { width: 64px; height: 64px; background: var(--primary-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
+        .prg-feature h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .prg-feature p { color: var(--text-light); font-size: 15px; line-height: 1.6; }
 
-/* Unit Toggle */
-.unit-toggle{display:flex;gap:0;background:var(--bg);border-radius:10px;padding:4px;margin-bottom:1.5rem;width:fit-content;border:1px solid var(--border)}
-.unit-toggle button{flex:1;padding:.6rem 1.4rem;border:none;background:transparent;color:var(--text-light);font-weight:600;font-size:.9rem;cursor:pointer;border-radius:8px;transition:all .2s}
-.unit-toggle button.active{background:var(--primary);color:#fff;box-shadow:0 2px 8px rgba(13,148,136,.3)}
-.unit-toggle button:hover:not(.active){color:var(--text)}
+        /* Mini Calculator */
+        .prg-mini-calc { max-width: 800px; margin: 0 auto 80px; padding: 0 24px; }
+        .prg-mini-calc-inner { background: var(--white); border-radius: var(--radius); padding: 48px; box-shadow: var(--shadow); }
+        .prg-mini-calc h2 { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+        .prg-mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .prg-mini-grid input, .prg-mini-grid select { padding: 12px 16px; border: 2px solid var(--border); border-radius: 12px; font-size: 16px; outline: none; width: 100%; }
+        .prg-mini-grid input:focus { border-color: var(--primary); }
+        .prg-mini-btn { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
+        .prg-mini-btn:hover { transform: translateY(-2px); }
+        .prg-mini-result { margin-top: 24px; padding: 24px; background: var(--bg); border-radius: 12px; text-align: center; display: none; }
+        .prg-mini-result.show { display: block; }
+        .prg-mini-result-value { font-size: 36px; font-weight: 800; color: var(--primary); }
+        .prg-mini-result-label { color: var(--text-light); margin-top: 8px; }
 
-/* Form */
-.form-group{margin-bottom:1.2rem}
-.form-group label{display:block;margin-bottom:.4rem;font-weight:600;font-size:.9rem;color:var(--text)}
-.form-group .hint{font-size:.8rem;color:var(--text-light);margin-top:.2rem}
-input[type="number"],input[type="text"]{width:100%;padding:.85rem 1rem;border:2px solid var(--border);border-radius:10px;font-size:1rem;transition:all .2s;background:#fafafa;color:var(--text)}
-input:focus{outline:none;border-color:var(--primary);background:#fff;box-shadow:0 0 0 3px rgba(13,148,136,.1)}
-.input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+        /* Tool CTA Card */
+        .prg-tool-cta { max-width: 800px; margin: 0 auto 80px; padding: 0 24px; }
+        .prg-tool-cta-inner { background: linear-gradient(135deg, var(--primary-light) 0%, #e0f2fe 100%); border-radius: var(--radius); padding: 48px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+        .prg-tool-cta h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+        .prg-tool-cta p { color: var(--text-light); margin-bottom: 20px; }
+        .prg-tool-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--white); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
+        .prg-tool-cta-btn:hover { transform: translateY(-2px); }
+        .prg-tool-cta-icon { font-size: 64px; }
 
-/* Button */
-.btn-primary{background:var(--primary);color:#fff;border:none;padding:1rem 2rem;border-radius:10px;font-size:1.05rem;cursor:pointer;width:100%;font-weight:700;transition:all .2s;box-shadow:0 4px 12px rgba(13,148,136,.25);margin-top:.5rem}
-.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:0 6px 20px rgba(13,148,136,.35)}
-.btn-primary:active{transform:translateY(0)}
+        /* Articles Section */
+        .prg-articles { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
+        .prg-articles-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+        .prg-articles h2 { font-size: 32px; font-weight: 800; }
+        .prg-articles-all { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .prg-articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+        .prg-article-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; }
+        .prg-article-card:hover { transform: translateY(-6px); }
+        .prg-article-img { height: 180px; background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+        .prg-article-body { padding: 24px; }
+        .prg-article-tag { display: inline-block; background: var(--primary-light); color: var(--primary-dark); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .prg-article-card h3 { font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
+        .prg-article-excerpt { color: var(--text-light); font-size: 14px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-/* Result */
-.result-area{margin-top:1.5rem;padding:1.5rem;border-radius:var(--radius);display:none;animation:fadeIn .4s ease;border:2px solid transparent}
-.result-area.show{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        /* Ad Middle */
+        .prg-ad-middle { max-width: 1200px; margin: 0 auto 48px; padding: 0 24px; }
 
-.result-bmi{font-size:3rem;font-weight:800;text-align:center;margin-bottom:.5rem;line-height:1}
-.result-label{text-align:center;font-size:1.1rem;font-weight:600;margin-bottom:1rem}
-.result-details{background:rgba(255,255,255,.6);border-radius:10px;padding:1rem;margin-top:1rem}
-.result-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px dashed rgba(0,0,0,.08);font-size:.9rem}
-.result-row:last-child{border-bottom:none}
-.result-row span:first-child{color:var(--text-light)}
-.result-row span:last-child{font-weight:600}
+        /* Ad Bottom */
+        .prg-ad-bottom { max-width: 1200px; margin: 48px auto; padding: 0 24px; }
 
-/* BMI Colors */
-.bmi-underweight{color:var(--warning);border-color:var(--warning)!important;background:#fffbeb}
-.bmi-normal{color:var(--success);border-color:var(--success)!important;background:#f0fdf4}
-.bmi-overweight{color:#f97316;border-color:#f97316!important;background:#fff7ed}
-.bmi-obese{color:var(--danger);border-color:var(--danger)!important;background:#fef2f2}
+        /* Footer */
+        .prg-footer { background: var(--text); color: #9ca3af; padding: 48px 24px 24px; }
+        .prg-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
+        .prg-footer-brand { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+        .prg-footer-desc { font-size: 14px; line-height: 1.6; }
+        .prg-footer h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+        .prg-footer-links { list-style: none; }
+        .prg-footer-links li { margin-bottom: 10px; }
+        .prg-footer-links a { color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+        .prg-footer-links a:hover { color: var(--white); }
+        .prg-footer-bottom { max-width: 1200px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid #374151; text-align: center; font-size: 13px; }
 
-/* BMI Meter */
-.meter-container{margin:1.5rem 0;position:relative}
-.meter-bar{height:12px;border-radius:6px;background:linear-gradient(90deg,#fbbf24 0%,#22c55e 35%,#22c55e 65%,#f97316 80%,#ef4444 100%);position:relative}
-.meter-marker{position:absolute;top:-6px;width:24px;height:24px;background:#fff;border:3px solid var(--text);border-radius:50%;transform:translateX(-50%);box-shadow:0 2px 6px rgba(0,0,0,.2);transition:left .5s ease}
-.meter-labels{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-light);margin-top:.5rem}
-
-/* Quick Links */
-.quick-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
-.quick-link{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:1.2rem;text-decoration:none;color:var(--text);transition:all .2s;display:block}
-.quick-link:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:var(--shadow)}
-.quick-link h3{font-size:1rem;color:var(--primary);margin-bottom:.3rem}
-.quick-link p{font-size:.85rem;color:var(--text-light);line-height:1.4}
-
-/* Article Preview */
-.article-preview{margin-top:1.5rem}
-.article-preview a{display:flex;align-items:center;gap:.8rem;color:var(--text);text-decoration:none;padding:.8rem 0;border-bottom:1px solid var(--border);transition:all .2s}
-.article-preview a:hover{color:var(--primary);padding-left:.5rem}
-.article-preview a:last-child{border-bottom:none}
-.article-preview .arrow{color:var(--primary);font-weight:700}
-
-/* Ad Placeholder */
-.ad-placeholder{background:var(--bg);border:2px dashed var(--border);border-radius:var(--radius);padding:2rem;text-align:center;margin:1.5rem 0;color:var(--text-light);font-size:.85rem;min-height:90px;display:flex;align-items:center;justify-content:center}
-
-/* Footer */
-.site-footer{text-align:center;padding:2.5rem 1rem 2rem;color:var(--text-light);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;background:#fff}
-.site-footer a{color:var(--primary);text-decoration:none;margin:0 .5rem}
-.site-footer a:hover{text-decoration:underline}
-.affiliate-note{font-size:.8rem;color:var(--text-light);margin-top:.8rem;opacity:.8}
-
-@media(max-width:640px){
-.site-header{padding:1.8rem 1rem 2rem}
-.site-header h1{font-size:1.4rem}
-.site-header p{font-size:.95rem}
-.nav-inner{flex-direction:column;gap:.3rem;padding:.4rem}
-.logo{font-size:1.1rem}
-.nav-links{gap:.1rem;justify-content:center;width:100%}
-.nav-links a{padding:.4rem .5rem;font-size:.8rem}
-.container{padding:1rem .8rem}
-.card{padding:1.2rem;border-radius:10px}
-.card h1{font-size:1.3rem}
-.card h2{font-size:1.1rem}
-.input-row{grid-template-columns:1fr;gap:.8rem}
-input[type="number"],input[type="text"]{padding:.7rem;font-size:.95rem}
-.btn-primary{padding:.85rem;font-size:1rem}
-.result-bmi{font-size:2.2rem}
-.result-area{padding:1rem}
-.meter-marker{width:20px;height:20px}
-.quick-links{grid-template-columns:1fr}
-.unit-toggle{width:100%}
-.unit-toggle button{padding:.5rem 1rem;font-size:.8rem}
-.chart-table{font-size:.78rem}
-.chart-table td,.chart-table th{padding:8px 6px}
-.chart-table{display:block;overflow-x:auto;white-space:nowrap}
-.blog-item{padding:1rem}
-.faq-item{padding:1rem}
-.error-code{font-size:4rem}
-.error-icon{font-size:3rem}
-.error-links a{padding:.6rem 1rem;font-size:.85rem}
-.email-box a{font-size:1rem}
-.ad-placeholder{padding:1.5rem;min-height:70px}
-.site-footer{padding:1.5rem 1rem}
-}
-.nav-inner{flex-direction:column;gap:.5rem;padding:.5rem}
-.nav-links{justify-content:center}
-.input-row{grid-template-columns:1fr}
-.quick-links{grid-template-columns:1fr}
-.result-bmi{font-size:2.5rem}
-}
-
-/* BMI Calculator Mobile Optimizations */
-@media(max-width:640px){
-.timer-display{font-size:2.2rem}
-.schedule-grid{grid-template-columns:1fr 1fr}
-.schedule-card{padding:.8rem}
-.schedule-card h3{font-size:.95rem}
-.schedule-card p{font-size:.8rem}
-}
-@media(max-width:400px){
-.schedule-grid{grid-template-columns:1fr}
-.site-header h1{font-size:1.2rem}
-.result-bmi{font-size:1.8rem}
-.unit-toggle button{padding:.4rem .8rem;font-size:.75rem}
-}
-</style>
+        @media (max-width: 768px) {
+            .prg-nav-links { display: none; }
+            .prg-hamburger { display: block; }
+            .prg-hero h1 { font-size: 32px; }
+            .prg-features-grid { grid-template-columns: 1fr; }
+            .prg-mini-grid { grid-template-columns: 1fr 1fr; }
+            .prg-tool-cta-inner { grid-template-columns: 1fr; text-align: center; }
+            .prg-articles-grid { grid-template-columns: 1fr; }
+            .prg-footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
+        }
+    </style>
 </head>
 <body>
+    <nav class="prg-nav">
+        <div class="prg-nav-inner">
+            <a href="index.html" class="prg-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                BMI Tool
+            </a>
+            <div class="prg-nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="calculator.html">Calculator</a>
+                <a href="blog/index.html">Blog</a>
+                <a href="faq.html">FAQ</a>
+                <a href="about.html">About</a>
+            </div>
+            <button class="prg-hamburger" onclick="document.querySelector('.prg-nav-links').classList.toggle('mobile-open')">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+        </div>
+    </nav>
 
-<header class="site-header">
-<h1>⚖️ BMI Calculator</h1>
-<p>Free, instant, and private. Calculate your Body Mass Index in seconds.</p>
-</header>
+    <section class="prg-hero">
+        <div class="prg-hero-inner">
+            <h1>Understand Your Body,<br>Not Just Your Number</h1>
+            <p>The only BMI calculator that gives you context. 6 professional analysis tabs based on real clinical standards.</p>
+            <div class="prg-hero-badges">
+                <span class="prg-hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    100% Private
+                </span>
+                <span class="prg-hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                    Doctor-Reviewed
+                </span>
+                <span class="prg-hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                    No Data Stored
+                </span>
+            </div>
+            <a href="calculator.html" class="prg-hero-cta">
+                Start Comprehensive Analysis
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
 
-<nav class="site-nav">
-<div class="nav-inner">
-<a href="/" class="logo">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M12 6v6l4 2"/></svg>
-BMI Tool
-</a>
-<div class="nav-links">
-<a href="/" class="active">Calculator</a>
-<a href="/bmi-chart.html">BMI Chart</a>
-<a href="/health-risks.html">Health Risks</a>
-<a href="/how-to-use.html">How to Use</a>
-<a href="/blog/">Blog</a>
-<a href="/faq.html">FAQ</a>
-<a href="/about.html">About</a>
-</div>
-</div>
-</nav>
+    <div class="prg-ad-top">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
 
-<main class="container">
+    <section class="prg-features">
+        <h2>6 Professional Analysis Tabs</h2>
+        <div class="prg-features-grid">
+            <div class="prg-feature">
+                <div class="prg-feature-icon">📊</div>
+                <h3>BMI Assessment</h3>
+                <p>Standard WHO classification with ethnicity-specific thresholds for Asian populations.</p>
+            </div>
+            <div class="prg-feature">
+                <div class="prg-feature-icon">⚡</div>
+                <h3>Metabolic Analysis</h3>
+                <p>BMR and TDEE calculations using the clinically validated Mifflin-St Jeor equation.</p>
+            </div>
+            <div class="prg-feature">
+                <div class="prg-feature-icon">🎯</div>
+                <h3>Body Composition</h3>
+                <p>Estimated body fat %, lean mass, and healthy weight ranges based on your metrics.</p>
+            </div>
+            <div class="prg-feature">
+                <div class="prg-feature-icon">📈</div>
+                <h3>Trend Tracking</h3>
+                <p>Local storage saves your history. Compare changes over time, privately.</p>
+            </div>
+            <div class="prg-feature">
+                <div class="prg-feature-icon">🎯</div>
+                <h3>Goal Planning</h3>
+                <p>Realistic weight loss timelines based on safe 0.5-1 kg per week targets.</p>
+            </div>
+            <div class="prg-feature">
+                <div class="prg-feature-icon">📄</div>
+                <h3>Report Export</h3>
+                <p>Download comprehensive PDF reports or share results via secure link.</p>
+            </div>
+        </div>
+    </section>
 
-<div class="ad-placeholder">Advertisement Placeholder</div>
+    <section class="prg-mini-calc">
+        <div class="prg-mini-calc-inner">
+            <h2>Quick BMI Check</h2>
+            <div class="prg-mini-grid">
+                <input type="number" id="quickHeight" placeholder="Height (cm)">
+                <input type="number" id="quickWeight" placeholder="Weight (kg)">
+                <select id="quickGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <select id="quickEthnicity">
+                    <option value="standard">Standard</option>
+                    <option value="asian">Asian</option>
+                </select>
+            </div>
+            <button class="prg-mini-btn" onclick="quickCalculate()">Calculate BMI</button>
+            <div class="prg-mini-result" id="quickResult">
+                <div class="prg-mini-result-value" id="quickBMI">--</div>
+                <div class="prg-mini-result-label" id="quickStatus">Enter your details above</div>
+            </div>
+        </div>
+    </section>
 
-<section class="card">
-<h2>📊 Calculate Your BMI</h2>
+    <div class="prg-ad-middle">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
 
-<div class="unit-toggle">
-<button class="active" onclick="setUnit('metric')" id="btn-metric">Metric (cm, kg)</button>
-<button onclick="setUnit('imperial')" id="btn-imperial">Imperial (ft, lb)</button>
-</div>
+    <section class="prg-tool-cta">
+        <div class="prg-tool-cta-inner">
+            <div>
+                <h2>Want the Full Picture?</h2>
+                <p>Our comprehensive calculator includes metabolic rate, body composition estimates, trend tracking, and personalized goal planning — all in one place.</p>
+                <a href="calculator.html" class="prg-tool-cta-btn">
+                    Try Full Analysis
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+            <div class="prg-tool-cta-icon">🧮</div>
+        </div>
+    </section>
 
-<div id="metric-form">
-<div class="form-group">
-<label for="height-cm">Height</label>
-<input type="number" id="height-cm" placeholder="e.g. 175" min="50" max="300" step="0.1">
-<div class="hint">Enter height in centimeters</div>
-</div>
-<div class="form-group">
-<label for="weight-kg">Weight</label>
-<input type="number" id="weight-kg" placeholder="e.g. 70" min="10" max="500" step="0.1">
-<div class="hint">Enter weight in kilograms</div>
-</div>
-</div>
+    <section class="prg-articles">
+        <div class="prg-articles-header">
+            <h2>Latest Health Insights</h2>
+            <a href="blog/index.html" class="prg-articles-all">View All →</a>
+        </div>
+        <div class="prg-articles-grid" id="articlesGrid">
+            <!-- Articles loaded dynamically -->
+        </div>
+    </section>
 
-<div id="imperial-form" style="display:none">
-<div class="input-row">
-<div class="form-group">
-<label for="height-ft">Height (feet)</label>
-<input type="number" id="height-ft" placeholder="e.g. 5" min="1" max="8">
-</div>
-<div class="form-group">
-<label for="height-in">Height (inches)</label>
-<input type="number" id="height-in" placeholder="e.g. 9" min="0" max="11">
-</div>
-</div>
-<div class="form-group">
-<label for="weight-lb">Weight</label>
-<input type="number" id="weight-lb" placeholder="e.g. 160" min="20" max="1000" step="0.1">
-<div class="hint">Enter weight in pounds</div>
-</div>
-</div>
+    <div class="prg-ad-bottom">
+        <div class="prg-ad-slot">
+            <div class="prg-ad-label">Advertisement</div>
+            <div class="prg-ad-content">Ad Space - 728x90</div>
+        </div>
+    </div>
 
-<button class="btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+    <footer class="prg-footer">
+        <div class="prg-footer-inner">
+            <div>
+                <div class="prg-footer-brand">BMI Tool</div>
+                <p class="prg-footer-desc">Evidence-based BMI analysis for people who want real health insights, not generic numbers.</p>
+            </div>
+            <div>
+                <h4>Tools</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="calculator.html">BMI Calculator</a></li>
+                    <li><a href="calculator.html#bmr">BMR Calculator</a></li>
+                    <li><a href="calculator.html#bodyfat">Body Fat %</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Resources</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="blog/index.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <ul class="prg-footer-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Use</a></li>
+                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="prg-footer-bottom">
+            <p>© 2026 BMI Tool. All calculations are for educational purposes only. Not a substitute for professional medical advice.</p>
+        </div>
+    </footer>
 
-<div id="result" class="result-area">
-<div class="result-bmi" id="bmi-value">--</div>
-<div class="result-label" id="bmi-category">--</div>
+    <script>
+        function quickCalculate() {
+            const height = parseFloat(document.getElementById('quickHeight').value);
+            const weight = parseFloat(document.getElementById('quickWeight').value);
+            const ethnicity = document.getElementById('quickEthnicity').value;
 
-<div class="meter-container">
-<div class="meter-bar"></div>
-<div class="meter-marker" id="meter-marker" style="left:0%"></div>
-<div class="meter-labels">
-<span>16</span><span>18.5</span><span>25</span><span>30</span><span>40</span>
-</div>
-</div>
+            if (!height || !weight) {
+                alert('Please enter height and weight');
+                return;
+            }
 
-<div class="result-details">
-<div class="result-row"><span>Healthy weight range</span><span id="healthy-range">--</span></div>
-<div class="result-row"><span>Ideal weight for your height</span><span id="ideal-weight">--</span></div>
-<div class="result-row"><span>Ponderal Index</span><span id="ponderal">--</span></div>
-</div>
+            const bmi = weight / ((height / 100) ** 2);
+            let status, color;
 
-<p style="margin-top:1rem;font-size:.85rem;color:var(--text-light);text-align:center">BMI is a screening tool, not a diagnosis. Consult a healthcare provider for personalized advice.</p>
-</div>
-</section>
+            if (ethnicity === 'asian') {
+                if (bmi < 18.5) { status = 'Underweight'; color = '#f59e0b'; }
+                else if (bmi < 23) { status = 'Normal'; color = '#22c55e'; }
+                else if (bmi < 25) { status = 'Overweight'; color = '#f59e0b'; }
+                else { status = 'Obese'; color = '#ef4444'; }
+            } else {
+                if (bmi < 18.5) { status = 'Underweight'; color = '#f59e0b'; }
+                else if (bmi < 25) { status = 'Normal'; color = '#22c55e'; }
+                else if (bmi < 30) { status = 'Overweight'; color = '#f59e0b'; }
+                else { status = 'Obese'; color = '#ef4444'; }
+            }
 
-<section class="card">
-<h2>📚 Learn More</h2>
-<div class="quick-links">
-<a href="/bmi-chart.html" class="quick-link">
-<h3>BMI Chart</h3>
-<p>See healthy weight ranges for your height at a glance.</p>
-</a>
-<a href="/health-risks.html" class="quick-link">
-<h3>Health Risks</h3>
-<p>Understand what your BMI means for your long-term health.</p>
-</a>
-<a href="/how-to-use.html" class="quick-link">
-<h3>How to Measure</h3>
-<p>Get accurate height and weight measurements every time.</p>
-</a>
-<a href="/blog/" class="quick-link">
-<h3>Health Blog</h3>
-<p>Articles, tips, and real stories about managing your weight.</p>
-</a>
-</div>
-</section>
+            document.getElementById('quickBMI').textContent = bmi.toFixed(1);
+            document.getElementById('quickBMI').style.color = color;
+            document.getElementById('quickStatus').textContent = status + ' | Click for full analysis';
+            document.getElementById('quickResult').classList.add('show');
 
-<section class="card article-preview">
-<h2>📝 Latest from the Blog</h2>
-<a href="/blog/what-is-bmi-and-why-it-matters.html"><span class="arrow">→</span> What Is BMI and Why It Actually Matters</a>
-<a href="/blog/how-to-lower-bmi-safely.html"><span class="arrow">→</span> How to Lower Your BMI Without Losing Your Mind</a>
-<a href="/blog/bmi-myths-debunked.html"><span class="arrow">→</span> 5 BMI Myths Everyone Believes (And Why They're Wrong)</a>
-<a href="/blog/maintain-healthy-bmi.html"><span class="arrow">→</span> How I Maintained a Healthy BMI for 3 Years</a>
-<a href="/blog/"><span class="arrow">→</span> Browse All Articles</a>
-</section>
+            // Save to localStorage for full calculator
+            localStorage.setItem('quickBMI', JSON.stringify({ height, weight, ethnicity }));
+        }
 
-<div class="ad-placeholder">Advertisement Placeholder</div>
+        // Load articles from articles.json
+        async function loadArticles() {
+            try {
+                const response = await fetch('articles.json');
+                const articles = await response.json();
+                const grid = document.getElementById('articlesGrid');
+                const recent = articles.slice(0, 3);
 
-</main>
+                const emojiMap = {'article': '📄', 'research': '🔬', 'guide': '📋', 'journal': '📝'};
 
-<footer class="site-footer">
-<p>© 2026 BMI Tool. All rights reserved.</p>
-<p style="margin-top:8px">
-<a href="/">Home</a> | <a href="/about.html">About</a> | <a href="/contact.html">Contact</a> | 
-<a href="/privacy.html">Privacy</a> | <a href="/terms.html">Terms</a> | <a href="/disclaimer.html">Disclaimer</a>
-</p>
-<p class="affiliate-note">This site contains affiliate links. We may earn a commission at no extra cost to you.</p>
-</footer>
+                let html = '';
+                recent.forEach(article => {
+                    html += '<a href="' + ('blog/' + article.slug + '.html' || 'blog/' + article.slug + '.html') + '" class="prg-article-card">';
+                    html += '<div class="prg-article-img">' + (emojiMap[article.category] || '📄') + '</div>';
+                    html += '<div class="prg-article-body">';
+                    html += '<span class="prg-article-tag">' + (article.category || 'article') + '</span>';
+                    html += '<h3>' + article.title + '</h3>';
+                    html += '<p class="prg-article-excerpt">' + (article.excerpt || '') + '</p>';
+                    html += '</div></a>';
+                });
 
-<script>
-let currentUnit = 'metric';
+                if (recent.length === 0) {
+                    html = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-light);">Articles coming soon. Check back later!</p>';
+                }
 
-function setUnit(unit){
-  currentUnit = unit;
-  document.getElementById('btn-metric').classList.toggle('active', unit==='metric');
-  document.getElementById('btn-imperial').classList.toggle('active', unit==='imperial');
-  document.getElementById('metric-form').style.display = unit==='metric' ? 'block' : 'none';
-  document.getElementById('imperial-form').style.display = unit==='imperial' ? 'block' : 'none';
-  document.getElementById('result').classList.remove('show');
-}
+                grid.innerHTML = html;
+            } catch (e) {
+                console.error('Failed to load articles:', e);
+            }
+        }
 
-function calculateBMI(){
-  let height, weight, bmi;
-
-  if(currentUnit === 'metric'){
-    height = parseFloat(document.getElementById('height-cm').value);
-    weight = parseFloat(document.getElementById('weight-kg').value);
-    if(!height || !weight || height<=0 || weight<=0){alert('Please enter valid height and weight');return;}
-    bmi = weight / Math.pow(height/100, 2);
-  } else {
-    const ft = parseFloat(document.getElementById('height-ft').value) || 0;
-    const inc = parseFloat(document.getElementById('height-in').value) || 0;
-    height = (ft * 12 + inc) * 2.54;
-    weight = parseFloat(document.getElementById('weight-lb').value);
-    if(!height || !weight || height<=0 || weight<=0){alert('Please enter valid height and weight');return;}
-    bmi = (weight / Math.pow(height/100, 2)) * 0.453592;
-  }
-
-  bmi = Math.round(bmi * 10) / 10;
-  displayResult(bmi, height, weight);
-}
-
-function displayResult(bmi, heightCm, weightKg){
-  const result = document.getElementById('result');
-  const valueEl = document.getElementById('bmi-value');
-  const catEl = document.getElementById('bmi-category');
-  const marker = document.getElementById('meter-marker');
-
-  let category, className, color;
-  if(bmi < 18.5){category='Underweight';className='bmi-underweight';color='#f59e0b';}
-  else if(bmi < 25){category='Normal Weight';className='bmi-normal';color='#22c55e';}
-  else if(bmi < 30){category='Overweight';className='bmi-overweight';color='#f97316';}
-  else{category='Obese';className='bmi-obese';color='#ef4444';}
-
-  result.className = 'result-area show ' + className;
-  valueEl.textContent = bmi;
-  valueEl.style.color = color;
-  catEl.textContent = category;
-  catEl.style.color = color;
-
-  // Meter position (16 to 40 range)
-  let pct = ((bmi - 16) / (40 - 16)) * 100;
-  pct = Math.max(0, Math.min(100, pct));
-  marker.style.left = pct + '%';
-  marker.style.borderColor = color;
-
-  // Healthy range
-  const minH = Math.round(18.5 * Math.pow(heightCm/100, 2) * 10) / 10;
-  const maxH = Math.round(24.9 * Math.pow(heightCm/100, 2) * 10) / 10;
-  const unit = currentUnit==='metric'?'kg':'lbs';
-  const factor = currentUnit==='metric'?1:2.20462;
-  document.getElementById('healthy-range').textContent = 
-    Math.round(minH*factor*10)/10 + ' - ' + Math.round(maxH*factor*10)/10 + ' ' + unit;
-
-  // Ideal weight (BMI 22)
-  const ideal = Math.round(22 * Math.pow(heightCm/100, 2) * factor * 10) / 10;
-  document.getElementById('ideal-weight').textContent = ideal + ' ' + unit;
-
-  // Ponderal Index
-  const pi = Math.round(weightKg / (heightCm/100) * 10) / 10;
-  document.getElementById('ponderal').textContent = pi + ' kg/m';
-}
-</script>
-
+        loadArticles();
+    </script>
 </body>
 </html>
