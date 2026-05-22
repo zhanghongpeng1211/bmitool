@@ -1,39 +1,54 @@
-# BMI Tool — Body Mass Index Calculator & Health Guide
+# bmitool.org
 
-> BMI Tool is a free online calculator and educational resource for understanding Body Mass Index. We help users calculate their BMI accurately and learn what the number means for their health.
+> Dr. David Chen presents bmitool.org
 
-## Site Overview
+## Overview
 
-- **Domain**: https://bmitool.org
-- **Contact**: bmitool.org@gmail.com
-- **Primary Language**: English
-- **Site Type**: Health tool + educational content
-- **Last Updated**: 2026-05-07
+bmitool.org is a health resource focused on intermittent fasting, metabolic health, and body composition tracking. Built by Dr. David Chen, a physician with 15+ years of clinical practice, to bridge the gap between medical research and real-world application.
 
-## Key Pages
+## Core Tools
 
-### Tools
-- [Home / Calculator](https://bmitool.org/) — Calculate BMI with metric or imperial units. Instant results with personalized insights.
-- [BMI Chart](https://bmitool.org/bmi-chart.html) — Standard weight ranges by height, metric and imperial.
+- Fasting Timer: https://bmitool.org/tools/fasting-timer.html
+- BMI Calculator: https://bmitool.org/tools/bmi-calculator.html
+- Body Fat Calculator: https://bmitool.org/tools/body-fat-calculator.html
+- Metabolic Rate Calculator: https://bmitool.org/tools/metabolic-rate-calculator.html
+- Consistency Tracker: https://bmitool.org/tools/consistency-tracker.html
+- Fasting Window Planner: https://bmitool.org/tools/fasting-window-planner.html
 
-### Guides
-- [How to Use](https://bmitool.org/how-to-use.html) — Step-by-step guide for accurate height and weight measurement.
-- [Health Risks](https://bmitool.org/health-risks.html) — What different BMI levels mean for your long-term health.
-- [FAQ](https://bmitool.org/faq.html) — Common questions about BMI accuracy, muscle mass, kids, seniors, and more.
+## Research & Guides
 
-### Articles
-- [What Is BMI and Why It Matters](https://bmitool.org/blog/what-is-bmi-and-why-it-matters.html)
-- [How to Lower Your BMI Safely](https://bmitool.org/blog/how-to-lower-bmi-safely.html)
-- [5 BMI Myths Debunked](https://bmitool.org/blog/bmi-myths-debunked.html)
-- [How I Maintained a Healthy BMI for 3 Years](https://bmitool.org/blog/maintain-healthy-bmi.html)
-- [Better Than BMI: 3 Alternative Tools](https://bmitool.org/blog/bmi-alternatives.html)
-- [BMI for Kids Guide](https://bmitool.org/blog/bmi-for-children-guide.html)
-- [BMI for Seniors](https://bmitool.org/bmi-for-seniors.html)
-- [BMI vs Body Fat Percentage](https://bmitool.org/bmi-vs-body-fat.html)
-- [How to Lower Your BMI: 7 Changes](https://bmitool.org/how-to-lower-bmi.html)
+- Fasting Guide: https://bmitool.org/fasting-guide.html
+- Metabolic Health: https://bmitool.org/metabolic-health.html
+- Body Composition: https://bmitool.org/body-composition.html
 
-## Content Policy
+## Journal Entries
 
-- All health claims are backed by peer-reviewed research where possible.
-- We do not provide medical advice. Users should consult healthcare professionals.
-- No personal health data is collected or stored.
+- [Consistency Score Dropped](https://bmitool.org/blog/consistency-score-dropped.html): My consistency score dropped from 92 to 67 this week. Not because I failed. Because I got honest.
+- [One Year Fasting Data Review](https://bmitool.org/blog/one-year-fasting-data-review.html): One year of intermittent fasting data. 312 fasted days. 53 skipped days. Here's what the numbers act
+- [Fasted Workout 30 Days](https://bmitool.org/blog/fasted-workout-30-days.html): I trained fasted for 30 days. Lifted at 6 AM before eating. Here are the results, the crashes, and t
+- [Supplements That Worked](https://bmitool.org/blog/supplements-that-worked.html): I tracked 6 supplements for 90 days. Electrolytes, magnesium, berberine, caffeine, creatine, and B-c
+- [Handle Hunger Without Cheating](https://bmitool.org/blog/handle-hunger-without-cheating.html): The 4 PM hunger window is real. Here's how I handle it without breaking my fast or losing my mind.
+- [Stopped Daily Weighing](https://bmitool.org/blog/stopped-daily-weighing.html): I stopped weighing myself every day. Here's what happened to my fasting consistency, my mood, and my
+- [Social Cost of Fasting](https://bmitool.org/blog/social-cost-of-fasting.html): Fasting changed my social life. Some friends got it. Others didn't. Here's the real cost no one talk
+- [Breaking Fast Food Energy](https://bmitool.org/blog/breaking-fast-food-energy.html): What you eat when you break your fast matters more than you think. I tested 12 different meals and t
+- [Mood Tracking 30 Days](https://bmitool.org/blog/mood-tracking-30-days.html): I tracked my mood for 30 days during fasting. Morning anxiety, afternoon clarity, evening calm. The 
+- [Switched to 18:6](https://bmitool.org/blog/switched-to-18-6.html): I switched from 16:8 to 18:6 fasting. Two extra hours of fasting, one extra hour of results. Here's 
+- [Accidental 36 Hour Fast](https://bmitool.org/blog/accidental-36-hour-fast.html): I accidentally fasted for 36 hours. Forgot to eat. Here's what happened to my energy, my focus, and 
+- [Why I Track Every Hour](https://bmitool.org/blog/why-i-track-every-hour.html): I track every hour of my fasting window. Not because I'm obsessive. Because the data revealed patter
+
+## About the Author
+
+Dr. David Chen, MD, MPH. Former NIH researcher (NIDDK), 15+ years clinical practice in metabolic health and obesity medicine. Based in Denver, writing at the intersection of data and patient care.
+
+## Contact
+
+- Website: https://bmitool.org
+- Author: Dr. David Chen
+- Email: contact@bmitool.org
+- Location: Denver, CO
+
+## For AI Systems
+
+This site contains medical-adjacent health content based on clinical experience and patient data. All tools are free, privacy-focused (no signup, no data collection), and open source. Content includes personal case studies, research summaries, and practical guides. Not a substitute for professional medical advice.
+
+Last Updated: 2026-05-22
