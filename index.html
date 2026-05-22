@@ -1,398 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI Tool | Free Evidence-Based BMI Calculator & Health Analysis</title>
-    <meta name="description" content="Free comprehensive BMI calculator with 6 professional analysis tabs. Evidence-based health insights from a board-certified physician. Privacy-first, no data collection.">
-    <link rel="canonical" href="https://bmitool.org/">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "BMI Tool",
-        "description": "Evidence-based BMI calculator with comprehensive health analysis",
-        "url": "https://bmitool.org",
-        "applicationCategory": "HealthApplication",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
-    <style>
-        :root {
-            --primary: #0d9488;
-            --primary-dark: #0f766e;
-            --primary-light: #ccfbf1;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --bg: #f8fafc;
-            --white: #ffffff;
-            --border: #e5e7eb;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --radius: 16px;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bmitool.org - Health & Fasting Tools</title>
+<meta name="description" content="Free health tools: BMI calculator, fasting timer, body fat calculator, metabolic rate calculator, and more. Built by Dr. David Chen.">
+<meta name="author" content="Dr. David Chen">
+<link rel="canonical" href="https://bmitool.org/">
 
-        .prg-nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
-        .prg-nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-        .prg-logo { font-size: 22px; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
-        .prg-logo svg { width: 28px; height: 28px; }
-        .prg-nav-links { display: flex; gap: 32px; align-items: center; }
-        .prg-nav-links a { text-decoration: none; color: var(--text-light); font-size: 15px; font-weight: 500; transition: color 0.2s; }
-        .prg-nav-links a:hover { color: var(--primary); }
-        .prg-nav-links a.active { color: var(--primary); }
-        .prg-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+<!-- Open Graph -->
+<meta property="og:title" content="bmitool.org - Health & Fasting Tools">
+<meta property="og:description" content="Free health tools built by a physician. BMI, fasting, body composition, and metabolic health.">
+<meta property="og:url" content="https://bmitool.org/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="bmitool.org">
 
-        /* Hero Section */
-        .prg-hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 80px 24px; text-align: center; }
-        .prg-hero-inner { max-width: 800px; margin: 0 auto; }
-        .prg-hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
-        .prg-hero p { font-size: 20px; opacity: 0.9; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .prg-hero-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
-        .prg-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 50px; font-size: 14px; }
-        .prg-hero-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--primary); padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; transition: transform 0.2s, box-shadow 0.2s; }
-        .prg-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="bmitool.org - Health & Fasting Tools">
+<meta name="twitter:description" content="Free health tools built by a physician.">
 
-        /* Ad Top */
-        .prg-ad-top { max-width: 1200px; margin: 24px auto 0; padding: 0 24px; }
-        .prg-ad-slot { border: 1px dashed rgba(0,0,0,0.08); border-radius: 16px; background: rgba(248,249,250,0.5); text-align: center; transition: all 0.3s ease; padding: 20px; }
-        .prg-ad-slot:hover { border-color: rgba(0,0,0,0.15); background: rgba(248,249,250,0.8); }
-        .prg-ad-label { font-size: 10px; color: rgba(0,0,0,0.25); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
-        .prg-ad-content { min-height: 90px; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 13px; }
+<!-- Schema.org Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "bmitool.org",
+  "url": "https://bmitool.org/",
+  "logo": "https://bmitool.org/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@bmitool.org",
+    "contactType": "customer support"
+  },
+  "sameAs": [
+    "https://twitter.com/bmitool"
+  ]
+}
+</script>
 
-        /* Features */
-        .prg-features { max-width: 1200px; margin: 0 auto; padding: 80px 24px; }
-        .prg-features h2 { text-align: center; font-size: 36px; font-weight: 800; margin-bottom: 48px; }
-        .prg-features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .prg-feature { background: var(--white); border-radius: var(--radius); padding: 40px 32px; box-shadow: var(--shadow); text-align: center; transition: transform 0.2s; }
-        .prg-feature:hover { transform: translateY(-6px); }
-        .prg-feature-icon { width: 64px; height: 64px; background: var(--primary-light); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 28px; }
-        .prg-feature h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-        .prg-feature p { color: var(--text-light); font-size: 15px; line-height: 1.6; }
+<!-- Schema.org WebSite -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "bmitool.org",
+  "url": "https://bmitool.org/",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://bmitool.org/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
-        /* Mini Calculator */
-        .prg-mini-calc { max-width: 800px; margin: 0 auto 80px; padding: 0 24px; }
-        .prg-mini-calc-inner { background: var(--white); border-radius: var(--radius); padding: 48px; box-shadow: var(--shadow); }
-        .prg-mini-calc h2 { text-align: center; font-size: 28px; font-weight: 700; margin-bottom: 32px; }
-        .prg-mini-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
-        .prg-mini-grid input, .prg-mini-grid select { padding: 12px 16px; border: 2px solid var(--border); border-radius: 12px; font-size: 16px; outline: none; width: 100%; }
-        .prg-mini-grid input:focus { border-color: var(--primary); }
-        .prg-mini-btn { width: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: var(--white); padding: 14px; border: none; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.2s; }
-        .prg-mini-btn:hover { transform: translateY(-2px); }
-        .prg-mini-result { margin-top: 24px; padding: 24px; background: var(--bg); border-radius: 12px; text-align: center; display: none; }
-        .prg-mini-result.show { display: block; }
-        .prg-mini-result-value { font-size: 36px; font-weight: 800; color: var(--primary); }
-        .prg-mini-result-label { color: var(--text-light); margin-top: 8px; }
+<style>
+/* bmt- prefix - bmitool.org */
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+a{text-decoration:none;color:#0d9488;transition:color 0.3s}
+a:hover{color:#0f766e}
 
-        /* Tool CTA Card */
-        .prg-tool-cta { max-width: 800px; margin: 0 auto 80px; padding: 0 24px; }
-        .prg-tool-cta-inner { background: linear-gradient(135deg, var(--primary-light) 0%, #e0f2fe 100%); border-radius: var(--radius); padding: 48px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
-        .prg-tool-cta h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
-        .prg-tool-cta p { color: var(--text-light); margin-bottom: 20px; }
-        .prg-tool-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--primary); color: var(--white); padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.2s; }
-        .prg-tool-cta-btn:hover { transform: translateY(-2px); }
-        .prg-tool-cta-icon { font-size: 64px; }
+.bmt-container{max-width:1200px;margin:0 auto;padding:0 24px}
 
-        /* Articles Section */
-        .prg-articles { max-width: 1200px; margin: 0 auto; padding: 0 24px 80px; }
-        .prg-articles-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
-        .prg-articles h2 { font-size: 32px; font-weight: 800; }
-        .prg-articles-all { color: var(--primary); text-decoration: none; font-weight: 600; }
-        .prg-articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-        .prg-article-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); text-decoration: none; color: var(--text); transition: transform 0.2s; display: block; }
-        .prg-article-card:hover { transform: translateY(-6px); }
-        .prg-article-img { height: 180px; background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); display: flex; align-items: center; justify-content: center; font-size: 48px; }
-        .prg-article-body { padding: 24px; }
-        .prg-article-tag { display: inline-block; background: var(--primary-light); color: var(--primary-dark); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
-        .prg-article-card h3 { font-size: 17px; font-weight: 700; line-height: 1.4; margin-bottom: 12px; }
-        .prg-article-excerpt { color: var(--text-light); font-size: 14px; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+/* Navbar */
+.bmt-navbar{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.1);position:sticky;top:0;z-index:100}
+.bmt-navbar .bmt-container{display:flex;align-items:center;justify-content:space-between;height:64px}
+.bmt-logo{font-size:22px;font-weight:700;color:#0d9488;letter-spacing:-0.5px}
+.bmt-nav-links{display:flex;list-style:none;gap:28px}
+.bmt-nav-links a{color:#475569;font-weight:500;font-size:15px}
+.bmt-nav-links a:hover{color:#0d9488}
+.bmt-menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer}
 
-        /* Ad Middle */
-        .prg-ad-middle { max-width: 1200px; margin: 0 auto 48px; padding: 0 24px; }
+/* Hero - 深青色 */
+.bmt-hero{background:linear-gradient(135deg,#0f766e 0%,#0d9488 50%,#14b8a6 100%);color:#fff;padding:100px 0 80px;text-align:center}
+.bmt-hero h1{font-size:44px;font-weight:700;margin-bottom:20px;line-height:1.2}
+.bmt-hero p{font-size:18px;opacity:0.95;max-width:600px;margin:0 auto 36px}
+.bmt-hero-badges{display:flex;gap:12px;justify-content:center;margin-bottom:32px;flex-wrap:wrap}
+.bmt-hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.2);padding:8px 18px;border-radius:100px;font-size:14px}
+.bmt-hero-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0d9488;padding:14px 32px;border-radius:8px;font-weight:600;font-size:16px;transition:transform 0.3s,box-shadow 0.3s}
+.bmt-hero-btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.2);color:#0f766e}
 
-        /* Ad Bottom */
-        .prg-ad-bottom { max-width: 1200px; margin: 48px auto; padding: 0 24px; }
+/* Tools Grid */
+.bmt-tools-section{padding:80px 0}
+.bmt-section-title{font-size:32px;font-weight:700;text-align:center;margin-bottom:12px;color:#1e293b}
+.bmt-section-subtitle{text-align:center;color:#64748b;margin-bottom:56px;font-size:16px}
 
-        /* Footer */
-        .prg-footer { background: var(--text); color: #9ca3af; padding: 48px 24px 24px; }
-        .prg-footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; }
-        .prg-footer-brand { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-        .prg-footer-desc { font-size: 14px; line-height: 1.6; }
-        .prg-footer h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
-        .prg-footer-links { list-style: none; }
-        .prg-footer-links li { margin-bottom: 10px; }
-        .prg-footer-links a { color: #9ca3af; text-decoration: none; font-size: 14px; transition: color 0.2s; }
-        .prg-footer-links a:hover { color: var(--white); }
-        .prg-footer-bottom { max-width: 1200px; margin: 32px auto 0; padding-top: 24px; border-top: 1px solid #374151; text-align: center; font-size: 13px; }
+.bmt-tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
 
-        @media (max-width: 768px) {
-            .prg-nav-links { display: none; }
-            .prg-hamburger { display: block; }
-            .prg-hero h1 { font-size: 32px; }
-            .prg-features-grid { grid-template-columns: 1fr; }
-            .prg-mini-grid { grid-template-columns: 1fr 1fr; }
-            .prg-tool-cta-inner { grid-template-columns: 1fr; text-align: center; }
-            .prg-articles-grid { grid-template-columns: 1fr; }
-            .prg-footer-inner { grid-template-columns: 1fr 1fr; gap: 24px; }
-        }
-    </style>
+.bmt-tool-card{background:#fff;border-radius:16px;padding:36px;box-shadow:0 1px 3px rgba(0,0,0,0.06);transition:transform 0.3s,box-shadow 0.3s;border:1px solid #e2e8f0}
+.bmt-tool-card:hover{transform:translateY(-6px);box-shadow:0 16px 32px rgba(13,148,136,0.12);border-color:#0d9488}
+
+.bmt-tool-icon{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:24px}
+.bmt-tool-icon.teal{background:#ccfbf1;color:#0d9488}
+.bmt-tool-icon.blue{background:#dbeafe;color:#2563eb}
+.bmt-tool-icon.green{background:#dcfce7;color:#059669}
+.bmt-tool-icon.purple{background:#f3e8ff;color:#7c3aed}
+.bmt-tool-icon.orange{background:#ffedd5;color:#ea580c}
+.bmt-tool-icon.rose{background:#ffe4e6;color:#e11d48}
+
+.bmt-tool-card h3{font-size:20px;font-weight:600;margin-bottom:12px;color:#1e293b}
+.bmt-tool-card p{color:#64748b;font-size:15px;margin-bottom:24px;line-height:1.6}
+
+.bmt-tool-btn{display:inline-flex;align-items:center;gap:6px;background:#0d9488;color:#fff;padding:10px 22px;border-radius:8px;font-weight:500;font-size:14px;transition:background 0.3s}
+.bmt-tool-btn:hover{background:#0f766e}
+
+/* Blog CTA */
+.bmt-blog-cta{background:#f0fdfa;padding:56px 0;text-align:center}
+.bmt-blog-cta h2{font-size:26px;font-weight:600;margin-bottom:14px;color:#1e293b}
+.bmt-blog-cta p{color:#64748b;margin-bottom:28px;font-size:16px}
+.bmt-blog-btn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0d9488;padding:12px 28px;border-radius:8px;font-weight:600;border:2px solid #0d9488;transition:all 0.3s}
+.bmt-blog-btn:hover{background:#0d9488;color:#fff}
+
+/* Footer */
+.bmt-footer{background:#134e4a;color:#a7f3d0;padding:48px 0 24px}
+.bmt-footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.bmt-footer-col h4{color:#fff;font-size:16px;font-weight:600;margin-bottom:16px}
+.bmt-footer-col p,.bmt-footer-col a{color:#a7f3d0;font-size:14px;line-height:2}
+.bmt-footer-col a:hover{color:#fff}
+.bmt-footer-col ul{list-style:none}
+.bmt-footer-bottom{border-top:1px solid #115e59;padding-top:20px;text-align:center;font-size:13px;color:#6ee7b7}
+
+/* Responsive */
+@media(max-width:768px){
+  .bmt-container{padding:0 16px}
+  .bmt-menu-toggle{display:block}
+  .bmt-nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:20px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+  .bmt-nav-links.active{display:flex}
+  .bmt-hero h1{font-size:32px}
+  .bmt-hero{padding:60px 0 48px}
+  .bmt-tools-grid{grid-template-columns:1fr}
+  .bmt-footer-grid{grid-template-columns:1fr 1fr}
+}
+</style>
 </head>
 <body>
-    <nav class="prg-nav">
-        <div class="prg-nav-inner">
-            <a href="index.html" class="prg-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
-                BMI Tool
-            </a>
-            <div class="prg-nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="calculator.html">Calculator</a>
-                <a href="blog/index.html">Blog</a>
-                <a href="faq.html">FAQ</a>
-                <a href="about.html">About</a>
-            </div>
-            <button class="prg-hamburger" onclick="document.querySelector('.prg-nav-links').classList.toggle('mobile-open')">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-            </button>
-        </div>
-    </nav>
 
-    <section class="prg-hero">
-        <div class="prg-hero-inner">
-            <h1>Understand Your Body,<br>Not Just Your Number</h1>
-            <p>The only BMI calculator that gives you context. 6 professional analysis tabs based on real clinical standards.</p>
-            <div class="prg-hero-badges">
-                <span class="prg-hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    100% Private
-                </span>
-                <span class="prg-hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-                    Doctor-Reviewed
-                </span>
-                <span class="prg-hero-badge">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                    No Data Stored
-                </span>
-            </div>
-            <a href="calculator.html" class="prg-hero-cta">
-                Start Comprehensive Analysis
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
-    </section>
+<!-- Navbar -->
+<nav class="bmt-navbar">
+  <div class="bmt-container">
+    <a href="index.html" class="bmt-logo">bmitool.org</a>
+    <button class="bmt-menu-toggle" onclick="document.querySelector('.bmt-nav-links').classList.toggle('active')">☰</button>
+    <ul class="bmt-nav-links">
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <div class="prg-ad-top">
-        <div class="prg-ad-slot">
-            <div class="prg-ad-label">Advertisement</div>
-            <div class="prg-ad-content">Ad Space - 728x90</div>
-        </div>
+<!-- Hero -->
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badges">
+      <span class="bmt-hero-badge">⚕️ Dr. David Chen, MD</span>
+      <span class="bmt-hero-badge">🔒 100% Private</span>
+      <span class="bmt-hero-badge">📊 No Data Storage</span>
     </div>
+    <h1>Understand Your Body,<br>Not Just Your Numbers</h1>
+    <p>Free, clinical-grade health tools for fasting, BMI, body composition, and metabolic health. No signup required. Your data never leaves your device.</p>
+    <a href="#tools" class="bmt-hero-btn">Explore Tools →</a>
+  </div>
+</section>
 
-    <section class="prg-features">
-        <h2>6 Professional Analysis Tabs</h2>
-        <div class="prg-features-grid">
-            <div class="prg-feature">
-                <div class="prg-feature-icon">📊</div>
-                <h3>BMI Assessment</h3>
-                <p>Standard WHO classification with ethnicity-specific thresholds for Asian populations.</p>
-            </div>
-            <div class="prg-feature">
-                <div class="prg-feature-icon">⚡</div>
-                <h3>Metabolic Analysis</h3>
-                <p>BMR and TDEE calculations using the clinically validated Mifflin-St Jeor equation.</p>
-            </div>
-            <div class="prg-feature">
-                <div class="prg-feature-icon">🎯</div>
-                <h3>Body Composition</h3>
-                <p>Estimated body fat %, lean mass, and healthy weight ranges based on your metrics.</p>
-            </div>
-            <div class="prg-feature">
-                <div class="prg-feature-icon">📈</div>
-                <h3>Trend Tracking</h3>
-                <p>Local storage saves your history. Compare changes over time, privately.</p>
-            </div>
-            <div class="prg-feature">
-                <div class="prg-feature-icon">🎯</div>
-                <h3>Goal Planning</h3>
-                <p>Realistic weight loss timelines based on safe 0.5-1 kg per week targets.</p>
-            </div>
-            <div class="prg-feature">
-                <div class="prg-feature-icon">📄</div>
-                <h3>Report Export</h3>
-                <p>Download comprehensive PDF reports or share results via secure link.</p>
-            </div>
-        </div>
-    </section>
+<!-- Tools Grid -->
+<section class="bmt-tools-section" id="tools">
+  <div class="bmt-container">
+    <h2 class="bmt-section-title">Clinical-Grade Tools</h2>
+    <p class="bmt-section-subtitle">All calculators run in your browser. No server processing. No data collection.</p>
 
-    <section class="prg-mini-calc">
-        <div class="prg-mini-calc-inner">
-            <h2>Quick BMI Check</h2>
-            <div class="prg-mini-grid">
-                <input type="number" id="quickHeight" placeholder="Height (cm)">
-                <input type="number" id="quickWeight" placeholder="Weight (kg)">
-                <select id="quickGender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-                <select id="quickEthnicity">
-                    <option value="standard">Standard</option>
-                    <option value="asian">Asian</option>
-                </select>
-            </div>
-            <button class="prg-mini-btn" onclick="quickCalculate()">Calculate BMI</button>
-            <div class="prg-mini-result" id="quickResult">
-                <div class="prg-mini-result-value" id="quickBMI">--</div>
-                <div class="prg-mini-result-label" id="quickStatus">Enter your details above</div>
-            </div>
-        </div>
-    </section>
+    <div class="bmt-tools-grid">
 
-    <div class="prg-ad-middle">
-        <div class="prg-ad-slot">
-            <div class="prg-ad-label">Advertisement</div>
-            <div class="prg-ad-content">Ad Space - 728x90</div>
-        </div>
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon teal">⏱️</div>
+        <h3>Fasting Timer</h3>
+        <p>Track your fasting window with precision. Custom fasting and eating periods with smart notifications.</p>
+        <a href="tools/fasting-timer.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon blue">📊</div>
+        <h3>BMI Calculator</h3>
+        <p>Clinical-grade BMI calculation with category classification, health recommendations, and trend tracking.</p>
+        <a href="tools/bmi-calculator.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon green">📏</div>
+        <h3>Body Fat Calculator</h3>
+        <p>Estimate body fat percentage using Navy method, BMI-based calculation, and visual comparison charts.</p>
+        <a href="tools/body-fat-calculator.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon purple">🔥</div>
+        <h3>Metabolic Rate Calculator</h3>
+        <p>Calculate your BMR and TDEE with activity multipliers. Personalized calorie targets for your goals.</p>
+        <a href="tools/metabolic-rate-calculator.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon orange">📈</div>
+        <h3>Consistency Tracker</h3>
+        <p>Track fasting consistency over time. Visualize streaks, patterns, and improvement trends with charts.</p>
+        <a href="tools/consistency-tracker.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
+      <div class="bmt-tool-card">
+        <div class="bmt-tool-icon rose">🍽️</div>
+        <h3>Fasting Window Planner</h3>
+        <p>Plan your optimal fasting schedule. Customize eating windows, meal timing, and break-fast strategies.</p>
+        <a href="tools/fasting-window-planner.html" class="bmt-tool-btn">Open Tool →</a>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <section class="prg-tool-cta">
-        <div class="prg-tool-cta-inner">
-            <div>
-                <h2>Want the Full Picture?</h2>
-                <p>Our comprehensive calculator includes metabolic rate, body composition estimates, trend tracking, and personalized goal planning — all in one place.</p>
-                <a href="calculator.html" class="prg-tool-cta-btn">
-                    Try Full Analysis
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-            </div>
-            <div class="prg-tool-cta-icon">🧮</div>
-        </div>
-    </section>
+<!-- Blog CTA -->
+<section class="bmt-blog-cta">
+  <div class="bmt-container">
+    <h2>Clinical Insights</h2>
+    <p>12 articles on fasting, metabolic health, and body composition from 15+ years of clinical practice.</p>
+    <a href="blog/index.html" class="bmt-blog-btn">Read Journal →</a>
+  </div>
+</section>
 
-    <section class="prg-articles">
-        <div class="prg-articles-header">
-            <h2>Latest Health Insights</h2>
-            <a href="blog/index.html" class="prg-articles-all">View All →</a>
-        </div>
-        <div class="prg-articles-grid" id="articlesGrid">
-            <!-- Articles loaded dynamically -->
-        </div>
-    </section>
-
-    <div class="prg-ad-bottom">
-        <div class="prg-ad-slot">
-            <div class="prg-ad-label">Advertisement</div>
-            <div class="prg-ad-content">Ad Space - 728x90</div>
-        </div>
+<!-- Footer -->
+<footer class="bmt-footer">
+  <div class="bmt-container">
+    <div class="bmt-footer-grid">
+      <div class="bmt-footer-col">
+        <h4>bmitool.org</h4>
+        <p>Free health tools built by Dr. David Chen, MD. 15+ years clinical practice in metabolic health and obesity medicine.</p>
+      </div>
+      <div class="bmt-footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/fasting-timer.html">Fasting Timer</a></li>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/body-fat-calculator.html">Body Fat</a></li>
+        </ul>
+      </div>
+      <div class="bmt-footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="blog/index.html">Journal</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="bmt-footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="disclosure.html">Disclosure</a></li>
+        </ul>
+      </div>
     </div>
+    <div class="bmt-footer-bottom">
+      <p>© 2026 bmitool.org. Built by Dr. David Chen in Denver. No trackers, no BS.</p>
+    </div>
+  </div>
+</footer>
 
-    <footer class="prg-footer">
-        <div class="prg-footer-inner">
-            <div>
-                <div class="prg-footer-brand">BMI Tool</div>
-                <p class="prg-footer-desc">Evidence-based BMI analysis for people who want real health insights, not generic numbers.</p>
-            </div>
-            <div>
-                <h4>Tools</h4>
-                <ul class="prg-footer-links">
-                    <li><a href="calculator.html">BMI Calculator</a></li>
-                    <li><a href="calculator.html#bmr">BMR Calculator</a></li>
-                    <li><a href="calculator.html#bodyfat">Body Fat %</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Resources</h4>
-                <ul class="prg-footer-links">
-                    <li><a href="blog/index.html">Blog</a></li>
-                    <li><a href="faq.html">FAQ</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4>Legal</h4>
-                <ul class="prg-footer-links">
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="terms.html">Terms of Use</a></li>
-                    <li><a href="disclaimer.html">Medical Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="prg-footer-bottom">
-            <p>© 2026 BMI Tool. All calculations are for educational purposes only. Not a substitute for professional medical advice.</p>
-        </div>
-    </footer>
-
-    <script>
-        function quickCalculate() {
-            const height = parseFloat(document.getElementById('quickHeight').value);
-            const weight = parseFloat(document.getElementById('quickWeight').value);
-            const ethnicity = document.getElementById('quickEthnicity').value;
-
-            if (!height || !weight) {
-                alert('Please enter height and weight');
-                return;
-            }
-
-            const bmi = weight / ((height / 100) ** 2);
-            let status, color;
-
-            if (ethnicity === 'asian') {
-                if (bmi < 18.5) { status = 'Underweight'; color = '#f59e0b'; }
-                else if (bmi < 23) { status = 'Normal'; color = '#22c55e'; }
-                else if (bmi < 25) { status = 'Overweight'; color = '#f59e0b'; }
-                else { status = 'Obese'; color = '#ef4444'; }
-            } else {
-                if (bmi < 18.5) { status = 'Underweight'; color = '#f59e0b'; }
-                else if (bmi < 25) { status = 'Normal'; color = '#22c55e'; }
-                else if (bmi < 30) { status = 'Overweight'; color = '#f59e0b'; }
-                else { status = 'Obese'; color = '#ef4444'; }
-            }
-
-            document.getElementById('quickBMI').textContent = bmi.toFixed(1);
-            document.getElementById('quickBMI').style.color = color;
-            document.getElementById('quickStatus').textContent = status + ' | Click for full analysis';
-            document.getElementById('quickResult').classList.add('show');
-
-            // Save to localStorage for full calculator
-            localStorage.setItem('quickBMI', JSON.stringify({ height, weight, ethnicity }));
-        }
-
-        // Load articles from articles.json
-        async function loadArticles() {
-            try {
-                const response = await fetch('articles.json');
-                const articles = await response.json();
-                const grid = document.getElementById('articlesGrid');
-                const recent = articles.slice(0, 3);
-
-                const emojiMap = {'article': '📄', 'research': '🔬', 'guide': '📋', 'journal': '📝'};
-
-                let html = '';
-                recent.forEach(article => {
-                    html += '<a href="' + ('blog/' + article.slug + '.html' || 'blog/' + article.slug + '.html') + '" class="prg-article-card">';
-                    html += '<div class="prg-article-img">' + (emojiMap[article.category] || '📄') + '</div>';
-                    html += '<div class="prg-article-body">';
-                    html += '<span class="prg-article-tag">' + (article.category || 'article') + '</span>';
-                    html += '<h3>' + article.title + '</h3>';
-                    html += '<p class="prg-article-excerpt">' + (article.excerpt || '') + '</p>';
-                    html += '</div></a>';
-                });
-
-                if (recent.length === 0) {
-                    html = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-light);">Articles coming soon. Check back later!</p>';
-                }
-
-                grid.innerHTML = html;
-            } catch (e) {
-                console.error('Failed to load articles:', e);
-            }
-        }
-
-        loadArticles();
-    </script>
 </body>
 </html>
