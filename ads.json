@@ -1,0 +1,17 @@
+{
+  "site": "bmitool.org",
+  "enabled": true,
+  "slots": {
+    "homepage_top": {"enabled": false, "type": "placeholder", "size": "728x90"},
+    "homepage_middle": {"enabled": false, "type": "placeholder", "size": "728x90"},
+    "homepage_bottom": {"enabled": false, "type": "placeholder", "size": "728x90"},
+    "article_middle": {"enabled": false, "type": "placeholder", "size": "300x250"},
+    "article_bottom": {"enabled": false, "type": "placeholder", "size": "728x90"},
+    "blog_index_1": {"enabled": false, "type": "placeholder", "size": "728x90"},
+    "blog_index_2": {"enabled": false, "type": "placeholder", "size": "728x90"}
+  },
+  "networks": {
+    "adsense": {"enabled": false, "client_id": ""},
+    "amazon": {"enabled": false, "tracking_id": ""}
+  }
+}
