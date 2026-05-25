@@ -1,0 +1,185 @@
+{
+  "site": "bmitool.org",
+  "domain": "bmitool.org",
+  "css_prefix": "bmt-",
+  "persona": {
+    "name": "Dr. David Chen",
+    "alternate_names": [
+      "D. Chen",
+      "David Chen",
+      "Dr. Chen",
+      "— Chen"
+    ],
+    "title": "Board-Certified Internal Medicine Physician",
+    "credentials": {
+      "md": "Johns Hopkins University School of Medicine",
+      "mph": "Harvard T.H. Chan School of Public Health",
+      "board_cert": "American Board of Internal Medicine"
+    },
+    "experience": "15+ years clinical practice",
+    "former_position": "NIH National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)",
+    "specialization": "Metabolic health, obesity medicine, preventive care",
+    "ethnicity": "Chinese-American",
+    "location": "United States",
+    "email": "privacy@bmitool.org",
+    "writing_style": "data-driven, clinically grounded, personal case examples, occasional frustration with oversimplified health information",
+    "tone": "serious but accessible, authoritative but not condescending",
+    "signature_variants": [
+      "— Dr. David Chen",
+      "— D. Chen",
+      "— David Chen",
+      "— Dr. Chen",
+      "— Chen"
+    ],
+    "personal_details": {
+      "mother_mentioned": true,
+      "mother_bmi_reference": "BMI 23.4, pre-diabetic",
+      "clinical_patient_stories": true,
+      "frustration_with_system": true
+    }
+  },
+  "site_info": {
+    "name": "BMITool.org",
+    "tagline": "Clinical-Grade BMI Calculators & Metabolic Health Resources",
+    "description": "Evidence-based BMI analysis with ethnicity-specific thresholds, pediatric percentiles, and metabolic health assessments.",
+    "type": "health_tool",
+    "language": "en",
+    "theme_color": "#0d9488",
+    "theme_color_dark": "#115e59",
+    "theme_color_light": "#ccfbf1",
+    "accent_color": "#f59e0b",
+    "year_established": 2026,
+    "target_audience": "Global English-speaking adults seeking clinical-grade health calculators",
+    "ymyl": true,
+    "medical_disclaimer_required": true
+  },
+  "tools": [
+    {
+      "name": "BMI Calculator",
+      "slug": "bmi-calculator",
+      "path": "tools/bmi-calculator.html",
+      "description": "Standard BMI with WHO/CDC categories, health risk assessment, and ethnicity-specific thresholds"
+    },
+    {
+      "name": "Pediatric BMI Calculator",
+      "slug": "pediatric-bmi",
+      "path": "tools/pediatric-bmi.html",
+      "description": "Age and sex-specific BMI percentiles for children 2-19 years with CDC growth chart integration"
+    },
+    {
+      "name": "Asian BMI Threshold",
+      "slug": "asian-bmi",
+      "path": "tools/asian-bmi.html",
+      "description": "Lower BMI cutoffs for metabolic risk in Asian populations per WHO Western Pacific guidelines"
+    },
+    {
+      "name": "BMI + Waist Circumference",
+      "slug": "bmi-waist",
+      "path": "tools/bmi-waist.html",
+      "description": "Combined metabolic risk assessment using BMI and waist-to-height ratio"
+    },
+    {
+      "name": "BMI Trend Tracker",
+      "slug": "bmi-trend",
+      "path": "tools/bmi-trend.html",
+      "description": "Long-term BMI tracking with visual trends, goal setting, and clinical milestone markers"
+    },
+    {
+      "name": "Ideal Weight Range",
+      "slug": "ideal-weight",
+      "path": "tools/ideal-weight.html",
+      "description": "Healthy weight range based on BMI 18.5-24.9 with frame size adjustment"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Home",
+      "path": "index.html"
+    },
+    {
+      "name": "Blog Index",
+      "path": "blog/index.html"
+    },
+    {
+      "name": "About",
+      "path": "about.html"
+    },
+    {
+      "name": "FAQ",
+      "path": "faq.html"
+    },
+    {
+      "name": "Contact",
+      "path": "contact.html"
+    },
+    {
+      "name": "Privacy Policy",
+      "path": "privacy.html"
+    },
+    {
+      "name": "Terms of Service",
+      "path": "terms.html"
+    },
+    {
+      "name": "Disclosure",
+      "path": "disclosure.html"
+    },
+    {
+      "name": "Disclaimer",
+      "path": "disclaimer.html"
+    },
+    {
+      "name": "Site Map",
+      "path": "sitemap.html"
+    },
+    {
+      "name": "404",
+      "path": "404.html"
+    }
+  ],
+  "content_rules": {
+    "article_count_target": 13,
+    "date_staggering": true,
+    "ai_detection_check": true,
+    "no_brand_comparison": true,
+    "style_consistency_check": true,
+    "internal_linking": true,
+    "human_features": [
+      "memory_fuzzy_expressions",
+      "emotional_contradictions",
+      "mid_interruption",
+      "typos_unfixed",
+      "irrelevant_details",
+      "abrupt_endings"
+    ]
+  },
+  "ads": {
+    "enabled": true,
+    "config_file": "ads.json",
+    "slots": [
+      "homepage_top",
+      "homepage_middle",
+      "homepage_bottom",
+      "article_middle",
+      "article_bottom",
+      "blog_index_1",
+      "blog_index_2"
+    ]
+  },
+  "seo": {
+    "sitemap_xml": "sitemap.xml",
+    "llms_txt": "llms.txt",
+    "robots_txt": "robots.txt",
+    "canonical_urls": true,
+    "schema_org": true,
+    "json_ld": true,
+    "open_graph": false
+  },
+  "sticky_features": {
+    "save_calculation": true,
+    "share_result": true,
+    "export_report": true,
+    "compare_previous": true,
+    "local_storage": true
+  }
+}
