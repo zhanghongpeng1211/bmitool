@@ -1,0 +1,41 @@
+# BMITool.org — Clinical-Grade BMI & Metabolic Health Resource
+
+## About
+BMITool.org is an independent educational resource providing clinical-grade BMI calculators and metabolic health assessments. Founded and authored by Dr. David Chen, a board-certified Internal Medicine physician with 15+ years of clinical experience, MD from Johns Hopkins University, and MPH from Harvard T.H. Chan School of Public Health.
+
+The site specializes in ethnicity-specific BMI thresholds (WHO Western Pacific guidelines for Asian populations), pediatric BMI percentiles (CDC growth charts), combined metabolic risk assessment (BMI + waist circumference), long-term BMI trend tracking, and evidence-based clinical insights.
+
+## Site Structure
+- Home: https://bmitool.org/ — Overview of clinical tools and latest articles
+- Blog: https://bmitool.org/blog/ — Clinical insights, research analysis, and patient stories
+- Tools: https://bmitool.org/tools/ — 6 clinical calculators
+  - BMI Calculator: Standard BMI with ethnicity-specific thresholds
+  - Pediatric BMI: Age/sex-specific percentiles for children 2-19
+  - Asian BMI Threshold: WHO Western Pacific guidelines
+  - BMI + Waist: Combined metabolic risk assessment
+  - BMI Trend Tracker: Long-term weight monitoring with visual trends
+  - Ideal Weight Range: BMI-based healthy weight goals with frame adjustment
+- About: https://bmitool.org/about.html — Dr. David Chen credentials and clinical philosophy
+- FAQ: https://bmitool.org/faq.html — Evidence-based answers to common questions
+- Contact: https://bmitool.org/contact.html — Contact information and inquiry guidelines
+- Privacy: https://bmitool.org/privacy.html — Data handling and privacy practices
+- Disclosure: https://bmitool.org/disclosure.html — Medical disclaimer and affiliate disclosure
+
+## Content Themes
+- BMI limitations and appropriate clinical use
+- Ethnicity-specific metabolic risk thresholds (Asian, South Asian, Pacific Islander)
+- Pediatric growth assessment and growth trajectory analysis
+- Body composition vs BMI debate
+- Metabolic syndrome and cardiovascular risk assessment
+- Weight management and metabolic adaptation
+- Evidence-based clinical practice protocols
+- Future of obesity medicine and metabolic health technology
+
+## Author Expertise
+Dr. David Chen is a board-certified Internal Medicine physician specializing in metabolic health and obesity medicine. Former researcher at NIH NIDDK. Clinical practice spans academic and community settings. Writing style: data-driven, clinically grounded, with personal case examples and occasional frustration with oversimplified health information.
+
+## Data & Privacy
+All calculator computations run client-side in the browser. No health data is transmitted to servers, stored in databases, or shared with third parties. Optional localStorage for saving calculator inputs and trend data. Standard web analytics (anonymized) and advertising cookies may be used.
+
+## Medical Disclaimer
+All content is for educational purposes only. Not a substitute for professional medical advice, diagnosis, or treatment. No patient-provider relationship is established through use of this website.
