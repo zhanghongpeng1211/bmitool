@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Disallow: /tools/*.json
+Disallow: /private/
+Sitemap: https://bmitool.org/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Block AI crawlers that don't respect robots.txt
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
