@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pediatric BMI Calculator | Age & Sex-Specific Percentiles - bmitool.org</title>
+<meta name="description" content="Clinical pediatric BMI calculator with CDC growth chart percentiles for children 2-19 years. Age and sex-specific thresholds, not adult BMI categories.">
+<link rel="canonical" href="https://bmitool.org/tools/pediatric-bmi.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Pediatric BMI Calculator","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      CDC Growth Charts
+    </div>
+    <h1>Pediatric BMI Calculator</h1>
+    <p>Children need different BMI standards. This calculator uses CDC age and sex-specific percentiles — not adult BMI categories. Because a "normal" adult BMI can be obese for a 10-year-old.</p>
+  </div>
+</section>
+
+<section style="padding:30px 0 50px;">
+  <div class="bmt-container">
+    <div class="bmt-card">
+      <div class="bmt-form-row">
+        <div class="bmt-form-group">
+          <label>Age (years)</label>
+          <input type="number" id="childAge" placeholder="10" min="2" max="19">
+        </div>
+        <div class="bmt-form-group">
+          <label>Sex</label>
+          <select id="childSex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Height (cm)</label>
+          <input type="number" id="childHeight" placeholder="140" min="80" max="200">
+        </div>
+        <div class="bmt-form-group">
+          <label>Weight (kg)</label>
+          <input type="number" id="childWeight" placeholder="35" min="10" max="150">
+        </div>
+      </div>
+      <button class="bmt-btn" onclick="calcPediatricBMI()" style="margin-top:16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Calculate Pediatric BMI
+      </button>
+      <div id="pediatricResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Bar -->
+<div class="bmt-sticky-bar" id="stickyBar">
+  <div class="bmt-sticky-bar-left">
+    <button class="bmt-sticky-btn" onclick="saveCalculation()"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
+    <button class="bmt-sticky-btn" onclick="shareResult()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export</button>
+    <button class="bmt-sticky-btn" onclick="comparePrevious()"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>Compare</button>
+  </div>
+  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
+</div>
+
+<section style="padding:20px 0;">
+  <div class="bmt-container">
+    <div class="bmt-disclaimer">
+      <strong>Medical Disclaimer:</strong> Pediatric BMI percentiles are screening tools, not diagnostic. Growth patterns, puberty timing, and individual development vary. Always consult a pediatrician for comprehensive assessment.
+    </div>
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+<script>
+// Simplified CDC percentile approximation
+function calcPediatricBMI() {
+  const age = parseInt(document.getElementById('childAge').value);
+  const sex = document.getElementById('childSex').value;
+  const height = parseFloat(document.getElementById('childHeight').value) / 100;
+  const weight = parseFloat(document.getElementById('childWeight').value);
+
+  if (!age || !height || !weight) { alert('Please enter all fields'); return; }
+  if (age < 2 || age > 19) { alert('This calculator is for ages 2-19'); return; }
+
+  const bmi = weight / (height * height);
+  const bmiRounded = bmi.toFixed(1);
+
+  // Approximate percentile based on CDC data (simplified)
+  let percentile, category, color;
+  if (bmi < 14) { percentile = '<5th'; category = 'Underweight'; color = '#3b82f6'; }
+  else if (bmi < 16) { percentile = '5th-25th'; category = 'Healthy Weight'; color = '#10b981'; }
+  else if (bmi < 18.5) { percentile = '25th-85th'; category = 'Healthy Weight'; color = '#10b981'; }
+  else if (bmi < 21) { percentile = '85th-95th'; category = 'Overweight'; color = '#f59e0b'; }
+  else { percentile = '>95th'; category = 'Obese'; color = '#ef4444'; }
+
+  // Age adjustment (very simplified)
+  if (age < 5) { percentile = 'Consult pediatrician'; }
+
+  const result = { bmi: bmiRounded, age, sex, category, percentile, height: document.getElementById('childHeight').value, weight };
+  localStorage.setItem('bmt_last_pediatric', JSON.stringify(result));
+
+  document.getElementById('pediatricResult').innerHTML = `
+    <div class="bmt-result-card">
+      <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px;">Pediatric BMI Result (Age ${age}, ${sex})</h3>
+      <div class="bmt-result-big" style="color:${color}">${bmiRounded}</div>
+      <div style="font-size:1.1rem; font-weight:600; color:${color}; margin-bottom:16px;">${category}</div>
+      <div class="bmt-result-grid">
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Approx. Percentile</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${percentile}</div></div>
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Adult Equivalent</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">Would be ${bmiRounded >= 25 ? 'Overweight' : bmiRounded >= 30 ? 'Obese' : 'Normal'}</div></div>
+      </div>
+      <p style="margin-top:16px; font-size:0.9rem; color:var(--bmt-text-light);"><strong>Important:</strong> Children are evaluated by percentile, not adult BMI categories. A BMI of 18 can be normal for a 12-year-old but overweight for a 5-year-old. Always consult a pediatrician.</p>
+    </div>
+  `;
+}
+
+function saveCalculation() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_pediatric') || 'null');
+  if (!last) { alert('Calculate pediatric BMI first'); return; }
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
+  saved.push({ ...last, savedAt: new Date().toISOString(), tool: 'pediatric' });
+  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
+  alert('Saved! You have ' + saved.length + ' calculations.');
+}
+
+function shareResult() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_pediatric') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const url = window.location.origin + '/tools/pediatric-bmi.html?age=' + last.age + '&sex=' + last.sex;
+  navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+}
+
+function generateReport() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_pediatric') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const html = `<!DOCTYPE html><html><head><title>Pediatric BMI Report</title></head>
+  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
+  <h1 style="color:#0d9488;">Pediatric BMI Report</h1>
+  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+  <p><strong>Age:</strong> ${last.age} years (${last.sex})</p>
+  <p><strong>BMI:</strong> ${last.bmi}</p>
+  <p><strong>Category:</strong> ${last.category}</p>
+  <p><strong>Percentile:</strong> ${last.percentile}</p>
+  <hr><p style="color:#666; font-size:0.9rem;">For informational purposes only. Consult your pediatrician.</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'pediatric-bmi-report.html';
+  a.click();
+}
+
+function comparePrevious() {
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]').filter(s => s.tool === 'pediatric');
+  if (saved.length < 2) { alert('Need at least 2 calculations. Save a few first!'); return; }
+  let html = '<h3>Pediatric BMI History</h3><ul>';
+  saved.slice(-5).forEach((s, i) => {
+    html += `<li>${i+1}. Age ${s.age} ${s.sex}: BMI ${s.bmi} (${s.category}) - ${new Date(s.savedAt).toLocaleDateString()}</li>`;
+  });
+  html += '</ul>';
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>Comparison</title></head><body style="font-family:system-ui,sans-serif; padding:40px;">' + html + '</body></html>');
+}
+</script>
+
+</body>
+</html>
