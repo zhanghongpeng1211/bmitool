@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator | Clinical-Grade with Health Assessment - bmitool.org</title>
+<meta name="description" content="Clinical-grade BMI calculator with WHO/CDC categories, health risk assessment, ethnicity-specific thresholds, and personalized recommendations. Built by Dr. David Chen, MD.">
+<link rel="canonical" href="https://bmitool.org/tools/bmi-calculator.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Clinical BMI Calculator","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI Threshold</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      WHO/CDC Standards
+    </div>
+    <h1>Clinical BMI Calculator</h1>
+    <p>Standard BMI calculation with health risk assessment, ethnicity-specific thresholds, and clinical context. Because a number without interpretation is just a number.</p>
+  </div>
+</section>
+
+<section style="padding:30px 0 50px;">
+  <div class="bmt-container">
+    <div class="bmt-card">
+      <div class="bmt-form-row">
+        <div class="bmt-form-group">
+          <label>Height (cm)</label>
+          <input type="number" id="height" placeholder="175" min="100" max="250">
+        </div>
+        <div class="bmt-form-group">
+          <label>Weight (kg)</label>
+          <input type="number" id="weight" placeholder="70" min="20" max="300">
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="35" min="2" max="120">
+        </div>
+        <div class="bmt-form-group">
+          <label>Ethnicity (for threshold adjustment)</label>
+          <select id="ethnicity">
+            <option value="general">General Population</option>
+            <option value="asian">Asian (WHO Western Pacific)</option>
+            <option value="pacific">Pacific Islander</option>
+          </select>
+        </div>
+      </div>
+      <button class="bmt-btn" onclick="calcBMI()" style="margin-top:16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Calculate BMI
+      </button>
+      <div id="bmiResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Bar -->
+<div class="bmt-sticky-bar" id="stickyBar">
+  <div class="bmt-sticky-bar-left">
+    <button class="bmt-sticky-btn" onclick="saveCalculation()"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
+    <button class="bmt-sticky-btn" onclick="shareResult()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export</button>
+    <button class="bmt-sticky-btn" onclick="comparePrevious()"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>Compare</button>
+  </div>
+  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
+</div>
+
+<section style="padding:20px 0;">
+  <div class="bmt-container">
+    <div class="bmt-disclaimer">
+      <strong>Medical Disclaimer:</strong> BMI is a screening tool, not a diagnostic of body fatness or health. Muscle mass, bone density, and fat distribution are not captured. Always consult your healthcare provider for comprehensive assessment.
+    </div>
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+<script>
+function calcBMI() {
+  const height = parseFloat(document.getElementById('height').value) / 100;
+  const weight = parseFloat(document.getElementById('weight').value);
+  const age = parseInt(document.getElementById('age').value);
+  const ethnicity = document.getElementById('ethnicity').value;
+
+  if (!height || !weight) { alert('Please enter height and weight'); return; }
+
+  const bmi = weight / (height * height);
+  const bmiRounded = bmi.toFixed(1);
+
+  // Ethnicity-specific thresholds
+  let thresholds = { underweight: 18.5, normal: 24.9, overweight: 29.9 };
+  if (ethnicity === 'asian') { thresholds = { underweight: 18.5, normal: 22.9, overweight: 27.5 }; }
+  if (ethnicity === 'pacific') { thresholds = { underweight: 18.5, normal: 26, overweight: 32 }; }
+
+  let category, risk, color;
+  if (bmi < thresholds.underweight) { category = 'Underweight'; risk = 'Malnutrition risk, osteoporosis'; color = '#3b82f6'; }
+  else if (bmi < thresholds.normal) { category = 'Normal weight'; risk = 'Lowest health risk'; color = '#10b981'; }
+  else if (bmi < thresholds.overweight) { category = 'Overweight'; risk = 'Moderate health risk'; color = '#f59e0b'; }
+  else { category = 'Obese'; risk = 'High health risk'; color = '#ef4444'; }
+
+  const idealLow = (18.5 * height * height).toFixed(1);
+  const idealHigh = (thresholds.normal * height * height).toFixed(1);
+
+  const result = { bmi: bmiRounded, category, height: document.getElementById('height').value, weight, ethnicity, age };
+  localStorage.setItem('bmt_last_bmi', JSON.stringify(result));
+
+  document.getElementById('bmiResult').innerHTML = `
+    <div class="bmt-result-card">
+      <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px;">Your BMI Result</h3>
+      <div class="bmt-result-big" style="color:${color}">${bmiRounded}</div>
+      <div style="font-size:1.1rem; font-weight:600; color:${color}; margin-bottom:16px;">${category}</div>
+      <div class="bmt-result-grid">
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Health Risk</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${risk}</div></div>
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Healthy Range</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${idealLow}-${idealHigh} kg</div></div>
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Threshold Used</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${ethnicity === 'asian' ? 'Asian (WHO WP)' : ethnicity === 'pacific' ? 'Pacific Islander' : 'WHO/CDC'}</div></div>
+      </div>
+      <p style="margin-top:16px; font-size:0.9rem; color:var(--bmt-text-light);">BMI does not account for muscle mass, bone density, or fat distribution. Athletes and elderly may have misleading results.</p>
+    </div>
+  `;
+}
+
+function saveCalculation() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
+  if (!last) { alert('Calculate BMI first'); return; }
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
+  saved.push({ ...last, savedAt: new Date().toISOString(), tool: 'bmi' });
+  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
+  alert('Saved! You have ' + saved.length + ' calculations.');
+}
+
+function shareResult() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
+  if (!last) { alert('Calculate BMI first'); return; }
+  const url = window.location.origin + '/tools/bmi-calculator.html?h=' + last.height + '&w=' + last.weight;
+  navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+}
+
+function generateReport() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
+  if (!last) { alert('Calculate BMI first'); return; }
+  const html = `<!DOCTYPE html><html><head><title>BMI Report - BMITool</title></head>
+  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
+  <h1 style="color:#0d9488;">BMI Clinical Report</h1>
+  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+  <p><strong>BMI:</strong> ${last.bmi}</p>
+  <p><strong>Category:</strong> ${last.category}</p>
+  <p><strong>Threshold:</strong> ${last.ethnicity}</p>
+  <hr><p style="color:#666; font-size:0.9rem;">For informational purposes only. Consult your healthcare provider.</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'bmi-report.html';
+  a.click();
+}
+
+function comparePrevious() {
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]').filter(s => s.tool === 'bmi');
+  if (saved.length < 2) { alert('Need at least 2 BMI calculations. Save a few first!'); return; }
+  let html = '<h3>BMI History</h3><ul>';
+  saved.slice(-5).forEach((s, i) => {
+    html += `<li>${i+1}. BMI ${s.bmi} (${s.category}) - ${new Date(s.savedAt).toLocaleDateString()}</li>`;
+  });
+  html += '</ul>';
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>BMI Comparison</title></head><body style="font-family:system-ui,sans-serif; padding:40px;">' + html + '</body></html>');
+}
+</script>
+
+</body>
+</html>
