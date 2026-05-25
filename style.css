@@ -1,0 +1,144 @@
+/* bmitool.org - Clinical BMI Resource */
+:root {
+  --bmt-primary: #0d9488;
+  --bmt-primary-light: #ccfbf1;
+  --bmt-primary-dark: #115e59;
+  --bmt-secondary: #14b8a6;
+  --bmt-accent: #f59e0b;
+  --bmt-text: #1e293b;
+  --bmt-text-light: #64748b;
+  --bmt-bg: #f0fdfa;
+  --bmt-white: #ffffff;
+  --bmt-sidebar: #f8fafc;
+  --bmt-radius: 10px;
+  --bmt-shadow: 0 2px 8px rgba(13,148,136,0.08);
+  --bmt-shadow-lg: 0 8px 24px rgba(13,148,136,0.12);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:var(--bmt-bg); color:var(--bmt-text); line-height:1.6; }
+
+/* Layout: Left Sidebar */
+.bmt-layout { display:flex; min-height:100vh; }
+.bmt-sidebar { width:280px; background:var(--bmt-sidebar); border-right:1px solid #e2e8f0; position:fixed; height:100vh; overflow-y:auto; padding:24px 0; z-index:100; }
+.bmt-sidebar-logo { display:flex; align-items:center; gap:10px; padding:0 24px 20px; font-weight:800; font-size:1.15rem; color:var(--bmt-primary-dark); text-decoration:none; border-bottom:1px solid #e2e8f0; margin-bottom:16px; }
+.bmt-sidebar-logo svg { width:28px; height:28px; }
+.bmt-sidebar-section { padding:0 16px; margin-bottom:20px; }
+.bmt-sidebar-title { font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--bmt-text-light); margin-bottom:8px; padding:0 8px; font-weight:700; }
+.bmt-sidebar-link { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; color:var(--bmt-text); text-decoration:none; font-size:0.9rem; transition:all 0.2s; position:relative; }
+.bmt-sidebar-link:hover { background:var(--bmt-primary-light); color:var(--bmt-primary-dark); }
+.bmt-sidebar-link.active { background:var(--bmt-primary-light); color:var(--bmt-primary-dark); font-weight:600; }
+.bmt-sidebar-link.active::before { content:''; position:absolute; left:0; top:8px; bottom:8px; width:3px; background:var(--bmt-primary); border-radius:0 3px 3px 0; }
+.bmt-sidebar-link svg { width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:2; flex-shrink:0; }
+.bmt-sidebar-footer { padding:16px; margin-top:auto; border-top:1px solid #e2e8f0; font-size:0.8rem; color:var(--bmt-text-light); }
+
+/* Main Content */
+.bmt-main { margin-left:280px; flex:1; min-height:100vh; }
+.bmt-container { max-width:900px; margin:0 auto; padding:0 32px; }
+
+/* Hero */
+.bmt-hero { background:linear-gradient(135deg, var(--bmt-primary-light) 0%, var(--bmt-white) 60%); padding:60px 0 40px; }
+.bmt-hero h1 { font-size:2.4rem; font-weight:800; color:var(--bmt-primary-dark); margin-bottom:16px; line-height:1.2; }
+.bmt-hero p { font-size:1.1rem; color:var(--bmt-text-light); max-width:600px; margin-bottom:24px; }
+.bmt-hero-badge { display:inline-flex; align-items:center; gap:6px; background:var(--bmt-white); padding:8px 16px; border-radius:20px; font-size:0.85rem; color:var(--bmt-primary-dark); border:1px solid var(--bmt-primary-light); margin-bottom:20px; font-weight:600; }
+
+/* Tool List - Clinical Cards */
+.bmt-tool-list { display:grid; gap:16px; }
+.bmt-tool-item { display:flex; align-items:flex-start; gap:16px; background:var(--bmt-white); border-radius:var(--bmt-radius); padding:20px 24px; box-shadow:var(--bmt-shadow); border:1px solid #e2e8f0; transition:all 0.2s; position:relative; text-decoration:none; color:var(--bmt-text); }
+.bmt-tool-item:hover { border-color:var(--bmt-primary); box-shadow:var(--bmt-shadow-lg); }
+.bmt-tool-item:hover::before { content:''; position:absolute; left:0; top:12px; bottom:12px; width:3px; background:var(--bmt-primary); border-radius:0 3px 3px 0; }
+.bmt-tool-icon { width:48px; height:48px; background:var(--bmt-primary-light); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.bmt-tool-icon svg { width:24px; height:24px; stroke:var(--bmt-primary); fill:none; stroke-width:2; }
+.bmt-tool-content { flex:1; }
+.bmt-tool-content h3 { font-size:1.1rem; color:var(--bmt-primary-dark); margin-bottom:4px; font-weight:700; }
+.bmt-tool-content p { font-size:0.9rem; color:var(--bmt-text-light); line-height:1.5; }
+.bmt-tool-arrow { color:var(--bmt-primary); opacity:0; transition:opacity 0.2s; font-weight:700; }
+.bmt-tool-item:hover .bmt-tool-arrow { opacity:1; }
+
+/* Buttons */
+.bmt-btn { background:var(--bmt-primary); color:var(--bmt-white); border:none; padding:12px 24px; border-radius:var(--bmt-radius); font-size:1rem; font-weight:600; cursor:pointer; transition:all 0.2s; display:inline-flex; align-items:center; gap:8px; text-decoration:none; }
+.bmt-btn:hover { background:var(--bmt-primary-dark); transform:translateY(-1px); }
+.bmt-btn-secondary { background:var(--bmt-primary-light); color:var(--bmt-primary-dark); }
+.bmt-btn-secondary:hover { background:#99f6e4; }
+
+/* Cards */
+.bmt-card { background:var(--bmt-white); border-radius:var(--bmt-radius); padding:24px; box-shadow:var(--bmt-shadow); border:1px solid #e2e8f0; }
+
+/* Forms */
+.bmt-form-group { margin-bottom:20px; }
+.bmt-form-group label { display:block; font-weight:600; margin-bottom:8px; color:var(--bmt-text); font-size:0.95rem; }
+.bmt-form-group input, .bmt-form-group select { width:100%; padding:12px 14px; border:2px solid #e2e8f0; border-radius:var(--bmt-radius); font-size:1rem; transition:all 0.2s; }
+.bmt-form-group input:focus, .bmt-form-group select:focus { outline:none; border-color:var(--bmt-primary); box-shadow:0 0 0 3px rgba(13,148,136,0.1); }
+.bmt-form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+
+/* Results */
+.bmt-result-card { background:linear-gradient(135deg, var(--bmt-primary-light), var(--bmt-white)); border-radius:var(--bmt-radius); padding:24px; margin-top:20px; border:1px solid var(--bmt-primary-light); }
+.bmt-result-big { font-size:2.2rem; font-weight:800; color:var(--bmt-primary); margin-bottom:12px; }
+.bmt-result-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px; margin-top:16px; }
+.bmt-result-item { background:var(--bmt-white); padding:16px; border-radius:var(--bmt-radius); text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.04); }
+
+/* Tabs */
+.bmt-tabs { display:flex; background:var(--bmt-primary-light); overflow-x:auto; scrollbar-width:none; }
+.bmt-tabs::-webkit-scrollbar { display:none; }
+.bmt-tab { flex:1; min-width:140px; padding:14px 10px; text-align:center; cursor:pointer; border:none; background:transparent; font-weight:600; font-size:0.85rem; color:var(--bmt-text-light); transition:all 0.3s; display:flex; flex-direction:column; align-items:center; gap:6px; position:relative; }
+.bmt-tab svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; }
+.bmt-tab:hover { color:var(--bmt-primary); }
+.bmt-tab.active { color:var(--bmt-primary); background:var(--bmt-white); }
+.bmt-tab.active::after { content:''; position:absolute; bottom:0; left:20%; right:20%; height:3px; background:var(--bmt-primary); border-radius:3px 3px 0 0; }
+.bmt-tab-content { display:none; padding:28px; }
+.bmt-tab-content.active { display:block; animation:bmtFadeIn 0.3s ease; }
+@keyframes bmtFadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+/* Blog */
+.bmt-blog-list { display:grid; gap:16px; }
+.bmt-blog-card { display:flex; gap:16px; background:var(--bmt-white); border-radius:var(--bmt-radius); padding:16px; box-shadow:var(--bmt-shadow); border:1px solid #e2e8f0; transition:all 0.2s; text-decoration:none; color:var(--bmt-text); }
+.bmt-blog-card:hover { border-color:var(--bmt-primary); }
+.bmt-blog-meta { display:flex; gap:12px; font-size:0.8rem; color:var(--bmt-text-light); margin-bottom:6px; }
+.bmt-blog-card h3 { font-size:1.05rem; color:var(--bmt-primary-dark); margin-bottom:4px; }
+.bmt-blog-card p { font-size:0.85rem; color:var(--bmt-text-light); line-height:1.5; }
+
+/* Article */
+.bmt-article-header { background:linear-gradient(135deg, var(--bmt-primary-light), var(--bmt-white)); padding:40px 0; }
+.bmt-article-body { max-width:720px; margin:0 auto; padding:40px 32px; font-size:1.05rem; line-height:1.8; }
+.bmt-article-body h2 { color:var(--bmt-primary-dark); margin:32px 0 16px; font-size:1.3rem; font-weight:700; }
+.bmt-article-body p { margin-bottom:16px; }
+.bmt-article-body ul { margin:16px 0; padding-left:24px; }
+.bmt-article-body li { margin-bottom:8px; }
+
+/* Sticky Bar */
+.bmt-sticky-bar { position:fixed; bottom:0; left:280px; right:0; background:var(--bmt-white); border-top:1px solid #e2e8f0; padding:12px 32px; display:flex; gap:16px; align-items:center; justify-content:space-between; z-index:90; box-shadow:0 -4px 20px rgba(0,0,0,0.05); }
+.bmt-sticky-bar-left { display:flex; gap:12px; align-items:center; }
+.bmt-sticky-btn { background:var(--bmt-primary-light); color:var(--bmt-primary-dark); border:none; padding:8px 16px; border-radius:20px; font-size:0.85rem; font-weight:600; cursor:pointer; transition:all 0.2s; display:inline-flex; align-items:center; gap:6px; }
+.bmt-sticky-btn:hover { background:var(--bmt-primary); color:var(--bmt-white); }
+.bmt-sticky-btn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2; }
+
+/* Disclaimer */
+.bmt-disclaimer { background:#fef3c7; border-left:4px solid #f59e0b; padding:16px 20px; border-radius:0 12px 12px 0; margin:20px 0; font-size:0.9rem; color:#92400e; }
+
+/* Ad slots */
+.bmt-ad-slot { width:100%; min-height:120px; background:var(--bmt-primary-light); border:2px dashed var(--bmt-primary); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--bmt-primary-dark); font-size:0.85rem; opacity:0.6; margin:20px 0; }
+
+/* Footer */
+.bmt-footer { background:var(--bmt-primary-dark); color:var(--bmt-white); padding:24px 32px; margin-top:60px; text-align:center; font-size:0.85rem; }
+.bmt-footer a { color:rgba(255,255,255,0.7); text-decoration:none; margin:0 12px; }
+.bmt-footer a:hover { color:var(--bmt-white); }
+
+/* Mobile */
+@media (max-width:768px) {
+  .bmt-sidebar { width:100%; position:relative; height:auto; border-right:none; border-bottom:1px solid #e2e8f0; padding:16px 0; }
+  .bmt-main { margin-left:0; }
+  .bmt-layout { flex-direction:column; }
+  .bmt-hero h1 { font-size:2rem; }
+  .bmt-form-row { grid-template-columns:1fr; }
+  .bmt-sticky-bar { left:0; }
+  .bmt-container { padding:0 16px; }
+}
+
+/* Utility */
+.bmt-text-center { text-align:center; }
+.bmt-mt-20 { margin-top:20px; }
+.bmt-mb-20 { margin-bottom:20px; }
+.bmt-hidden { display:none; }
+
+/* ===== 广告位隐藏机制 (规范6.2要求) ===== */
+.bmt-ad-slot { display: none; }
+.bmt-ad-slot.has-content { display: flex; }
