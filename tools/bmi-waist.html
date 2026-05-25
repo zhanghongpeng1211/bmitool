@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI + Waist Circumference Calculator | Combined Metabolic Risk - bmitool.org</title>
+<meta name="description" content="Combined BMI and waist circumference assessment for metabolic syndrome risk. More predictive than BMI alone for cardiovascular and diabetes risk.">
+<link rel="canonical" href="https://bmitool.org/tools/bmi-waist.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"BMI + Waist Circumference Calculator","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      IDF Metabolic Syndrome Criteria
+    </div>
+    <h1>BMI + Waist Circumference Calculator</h1>
+    <p>BMI alone misses visceral fat. Waist circumference captures abdominal obesity — the dangerous fat around organs. Combined assessment is more predictive of metabolic syndrome, diabetes, and cardiovascular risk than either measure alone.</p>
+  </div>
+</section>
+
+<section style="padding:30px 0 50px;">
+  <div class="bmt-container">
+    <div class="bmt-card">
+      <div class="bmt-form-row">
+        <div class="bmt-form-group">
+          <label>Height (cm)</label>
+          <input type="number" id="waistHeight" placeholder="175" min="100" max="250">
+        </div>
+        <div class="bmt-form-group">
+          <label>Weight (kg)</label>
+          <input type="number" id="waistWeight" placeholder="70" min="20" max="300">
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Waist Circumference (cm)</label>
+          <input type="number" id="waistCircumference" placeholder="85" min="50" max="200">
+        </div>
+        <div class="bmt-form-group">
+          <label>Sex</label>
+          <select id="waistSex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Ethnicity (for threshold)</label>
+          <select id="waistEthnicity">
+            <option value="general">General Population</option>
+            <option value="asian">Asian (IDF Criteria)</option>
+            <option value="south_asian">South Asian</option>
+          </select>
+        </div>
+        <div class="bmt-form-group">
+          <label>Age</label>
+          <input type="number" id="waistAge" placeholder="35" min="18" max="120">
+        </div>
+      </div>
+      <button class="bmt-btn" onclick="calcBMIWaist()" style="margin-top:16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Calculate Combined Risk
+      </button>
+      <div id="waistResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Bar -->
+<div class="bmt-sticky-bar" id="stickyBar">
+  <div class="bmt-sticky-bar-left">
+    <button class="bmt-sticky-btn" onclick="saveCalculation()"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
+    <button class="bmt-sticky-btn" onclick="shareResult()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export</button>
+    <button class="bmt-sticky-btn" onclick="comparePrevious()"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>Compare</button>
+  </div>
+  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
+</div>
+
+<section style="padding:20px 0;">
+  <div class="bmt-container">
+    <div class="bmt-disclaimer">
+      <strong>Medical Disclaimer:</strong> Waist circumference is a screening tool for abdominal obesity. Measurement technique (iliac crest level, after normal expiration) affects accuracy. Always consult your healthcare provider for comprehensive metabolic assessment.
+    </div>
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+<script>
+function calcBMIWaist() {
+  const height = parseFloat(document.getElementById('waistHeight').value) / 100;
+  const weight = parseFloat(document.getElementById('waistWeight').value);
+  const waist = parseFloat(document.getElementById('waistCircumference').value);
+  const sex = document.getElementById('waistSex').value;
+  const ethnicity = document.getElementById('waistEthnicity').value;
+  const age = parseInt(document.getElementById('waistAge').value);
+
+  if (!height || !weight || !waist) { alert('Please enter height, weight, and waist circumference'); return; }
+
+  const bmi = weight / (height * height);
+  const bmiRounded = bmi.toFixed(1);
+  const waistHeightRatio = (waist / (height * 100)).toFixed(2);
+
+  // IDF waist thresholds
+  let waistThreshold;
+  if (ethnicity === 'asian' || ethnicity === 'south_asian') {
+    waistThreshold = sex === 'male' ? 90 : 80;
+  } else {
+    waistThreshold = sex === 'male' ? 94 : 80; // Europid
+  }
+
+  const waistRisk = waist >= waistThreshold ? 'Elevated' : 'Normal';
+  const waistColor = waist >= waistThreshold ? '#ef4444' : '#10b981';
+
+  // Combined assessment
+  let combinedRisk, combinedColor;
+  if (bmi < 25 && waist < waistThreshold) { combinedRisk = 'Low metabolic risk'; combinedColor = '#10b981'; }
+  else if (bmi >= 25 && waist >= waistThreshold) { combinedRisk = 'High metabolic risk - metabolic syndrome likely'; combinedColor = '#dc2626'; }
+  else if (bmi >= 25 || waist >= waistThreshold) { combinedRisk = 'Moderate metabolic risk'; combinedColor = '#f59e0b'; }
+  else { combinedRisk = 'Low metabolic risk'; combinedColor = '#10b981'; }
+
+  const result = { bmi: bmiRounded, waist, waistHeightRatio, sex, ethnicity, combinedRisk, height: document.getElementById('waistHeight').value, weight };
+  localStorage.setItem('bmt_last_waist', JSON.stringify(result));
+
+  document.getElementById('waistResult').innerHTML = `
+    <div class="bmt-result-card">
+      <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px;">Combined Metabolic Risk Assessment</h3>
+      <div class="bmt-result-grid">
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">BMI</div><div style="font-size:1.3rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${bmiRounded}</div></div>
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Waist Circumference</div><div style="font-size:1.3rem; font-weight:700; color:${waistColor}; margin-top:4px;">${waist} cm</div><div style="font-size:0.75rem; color:var(--bmt-text-light);">${waistRisk} (threshold: ${waistThreshold}cm)</div></div>
+        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Waist-to-Height Ratio</div><div style="font-size:1.3rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${waistHeightRatio}</div><div style="font-size:0.75rem; color:var(--bmt-text-light);">Target: <0.5</div></div>
+      </div>
+      <div style="margin-top:16px; padding:16px; background:var(--bmt-primary-light); border-radius:var(--bmt-radius); text-align:center;">
+        <div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase; margin-bottom:4px;">Combined Risk Assessment</div>
+        <div style="font-size:1.2rem; font-weight:700; color:${combinedColor};">${combinedRisk}</div>
+      </div>
+      <p style="margin-top:16px; font-size:0.9rem; color:var(--bmt-text-light);"><strong>Why combined assessment matters:</strong> A "normal" BMI individual with elevated waist circumference can have metabolic abnormalities. Conversely, a muscular individual with elevated BMI but normal waist may have lower metabolic risk. Always measure at the iliac crest level after normal expiration.</p>
+    </div>
+  `;
+}
+
+function saveCalculation() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_waist') || 'null');
+  if (!last) { alert('Calculate combined risk first'); return; }
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
+  saved.push({ ...last, savedAt: new Date().toISOString(), tool: 'waist' });
+  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
+  alert('Saved! You have ' + saved.length + ' calculations.');
+}
+
+function shareResult() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_waist') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const url = window.location.origin + '/tools/bmi-waist.html?h=' + last.height + '&w=' + last.weight;
+  navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+}
+
+function generateReport() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_waist') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const html = `<!DOCTYPE html><html><head><title>BMI+Waist Report</title></head>
+  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
+  <h1 style="color:#0d9488;">Metabolic Risk Report</h1>
+  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+  <p><strong>BMI:</strong> ${last.bmi}</p>
+  <p><strong>Waist:</strong> ${last.waist} cm</p>
+  <p><strong>Waist-to-Height:</strong> ${last.waistHeightRatio}</p>
+  <p><strong>Risk:</strong> ${last.combinedRisk}</p>
+  <hr><p style="color:#666; font-size:0.9rem;">Based on IDF metabolic syndrome criteria. Consult your healthcare provider.</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'metabolic-risk-report.html';
+  a.click();
+}
+
+function comparePrevious() {
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]').filter(s => s.tool === 'waist');
+  if (saved.length < 2) { alert('Need at least 2 calculations. Save a few first!'); return; }
+  let html = '<h3>Waist+BMI History</h3><ul>';
+  saved.slice(-5).forEach((s, i) => {
+    html += `<li>${i+1}. BMI ${s.bmi}, Waist ${s.waist}cm → ${s.combinedRisk} - ${new Date(s.savedAt).toLocaleDateString()}</li>`;
+  });
+  html += '</ul>';
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>Comparison</title></head><body style="font-family:system-ui,sans-serif; padding:40px;">' + html + '</body></html>');
+}
+</script>
+
+</body>
+</html>
