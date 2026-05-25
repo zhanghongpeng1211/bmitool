@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ideal Weight Range Calculator | Healthy BMI-Based Weight Goals - bmitool.org</title>
+<meta name="description" content="Calculate your healthy weight range based on BMI 18.5-24.9 with frame size adjustment and clinical context. Built by Dr. David Chen, MD.">
+<link rel="canonical" href="https://bmitool.org/tools/ideal-weight.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Ideal Weight Range Calculator","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Frame Size Adjustment
+    </div>
+    <h1>Ideal Weight Range Calculator</h1>
+    <p>Calculate your healthy weight range based on BMI 18.5-24.9, with frame size adjustment and clinical context. Because a single "ideal weight" number is misleading — healthy ranges account for individual variation.</p>
+  </div>
+</section>
+
+<section style="padding:30px 0 50px;">
+  <div class="bmt-container">
+    <div class="bmt-card">
+      <div class="bmt-form-row">
+        <div class="bmt-form-group">
+          <label>Height (cm)</label>
+          <input type="number" id="idealHeight" placeholder="175" min="100" max="250">
+        </div>
+        <div class="bmt-form-group">
+          <label>Sex</label>
+          <select id="idealSex">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Frame Size</label>
+          <select id="idealFrame">
+            <option value="small">Small Frame (wrist < 6.5" M, < 5.5" F)</option>
+            <option value="medium" selected>Medium Frame</option>
+            <option value="large">Large Frame (wrist > 7.5" M, > 6.5" F)</option>
+          </select>
+        </div>
+        <div class="bmt-form-group">
+          <label>Current Weight (kg, optional)</label>
+          <input type="number" id="idealCurrentWeight" placeholder="75" min="20" max="300">
+        </div>
+      </div>
+      <button class="bmt-btn" onclick="calcIdealWeight()" style="margin-top:16px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        Calculate Ideal Weight Range
+      </button>
+      <div id="idealResult"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Bar -->
+<div class="bmt-sticky-bar" id="stickyBar">
+  <div class="bmt-sticky-bar-left">
+    <button class="bmt-sticky-btn" onclick="saveCalculation()"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
+    <button class="bmt-sticky-btn" onclick="shareResult()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export</button>
+    <button class="bmt-sticky-btn" onclick="comparePrevious()"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>Compare</button>
+  </div>
+  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
+</div>
+
+<section style="padding:20px 0;">
+  <div class="bmt-container">
+    <div class="bmt-disclaimer">
+      <strong>Medical Disclaimer:</strong> "Ideal weight" is a population-level concept. Muscle mass, bone density, fat distribution, and individual health markers are not captured by BMI. Frame size adjustment is approximate. Always consult your healthcare provider for personalized weight goals.
+    </div>
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+<script>
+function calcIdealWeight() {
+  const height = parseFloat(document.getElementById('idealHeight').value) / 100;
+  const sex = document.getElementById('idealSex').value;
+  const frame = document.getElementById('idealFrame').value;
+  const currentWeight = parseFloat(document.getElementById('idealCurrentWeight').value) || null;
+
+  if (!height) { alert('Please enter height'); return; }
+
+  // BMI-based weight range
+  const minWeight = (18.5 * height * height).toFixed(1);
+  const maxWeight = (24.9 * height * height).toFixed(1);
+  const midWeight = ((18.5 + 24.9) / 2 * height * height).toFixed(1);
+
+  // Frame size adjustment (approximate)
+  let frameAdjust = 0;
+  if (frame === 'small') frameAdjust = -2;
+  if (frame === 'large') frameAdjust = +3;
+
+  const adjMin = (parseFloat(minWeight) + frameAdjust).toFixed(1);
+  const adjMax = (parseFloat(maxWeight) + frameAdjust).toFixed(1);
+  const adjMid = ((parseFloat(adjMin) + parseFloat(adjMax)) / 2).toFixed(1);
+
+  // Current weight assessment
+  let currentAssessment = '';
+  let currentColor = '';
+  if (currentWeight) {
+    if (currentWeight < adjMin) { currentAssessment = 'Below healthy range'; currentColor = '#3b82f6'; }
+    else if (currentWeight <= adjMax) { currentAssessment = 'Within healthy range'; currentColor = '#10b981'; }
+    else { currentAssessment = 'Above healthy range'; currentColor = '#ef4444'; }
+  }
+
+  const result = { height: document.getElementById('idealHeight').value, sex, frame, minWeight: adjMin, maxWeight: adjMax, midWeight: adjMid, currentWeight };
+  localStorage.setItem('bmt_last_ideal', JSON.stringify(result));
+
+  let html = `<div class="bmt-result-card">
+    <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px;">Your Healthy Weight Range</h3>
+    <div class="bmt-result-big">${adjMin} - ${adjMax} kg</div>
+    <div style="font-size:1.1rem; font-weight:600; color:var(--bmt-primary-dark); margin-bottom:16px;">Target: ~${adjMid} kg</div>`;
+
+  if (currentWeight) {
+    html += `<div style="padding:16px; background:var(--bmt-primary-light); border-radius:var(--bmt-radius); margin-bottom:16px;">
+      <div style="font-size:0.9rem; color:var(--bmt-text-light); margin-bottom:4px;">Your Current Weight</div>
+      <div style="font-size:1.5rem; font-weight:700; color:${currentColor};">${currentWeight} kg</div>
+      <div style="font-size:0.9rem; color:${currentColor}; font-weight:600;">${currentAssessment}</div>
+    </div>`;
+  }
+
+  html += `<div class="bmt-result-grid">
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">BMI 18.5 (Lower)</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${minWeight} kg</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">BMI 24.9 (Upper)</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${maxWeight} kg</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Frame Adjustment</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${frameAdjust > 0 ? '+' : ''}${frameAdjust} kg</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Height</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${(height * 100).toFixed(0)} cm</div></div>
+  </div>
+  <p style="margin-top:16px; font-size:0.9rem; color:var(--bmt-text-light);"><strong>Important:</strong> This range is based on population-level BMI data. Athletes, elderly, pregnant women, and individuals with high muscle mass may have different healthy ranges. Frame size adjustment is approximate — measure your wrist circumference for more accuracy.</p>
+  </div>`;
+
+  document.getElementById('idealResult').innerHTML = html;
+}
+
+function saveCalculation() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_ideal') || 'null');
+  if (!last) { alert('Calculate ideal weight first'); return; }
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
+  saved.push({ ...last, savedAt: new Date().toISOString(), tool: 'ideal' });
+  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
+  alert('Saved! You have ' + saved.length + ' calculations.');
+}
+
+function shareResult() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_ideal') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const url = window.location.origin + '/tools/ideal-weight.html?h=' + last.height;
+  navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
+}
+
+function generateReport() {
+  const last = JSON.parse(localStorage.getItem('bmt_last_ideal') || 'null');
+  if (!last) { alert('Calculate first'); return; }
+  const html = `<!DOCTYPE html><html><head><title>Ideal Weight Report</title></head>
+  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
+  <h1 style="color:#0d9488;">Ideal Weight Range Report</h1>
+  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+  <p><strong>Height:</strong> ${last.height} cm</p>
+  <p><strong>Sex:</strong> ${last.sex}</p>
+  <p><strong>Frame:</strong> ${last.frame}</p>
+  <p><strong>Healthy Range:</strong> ${last.minWeight} - ${last.maxWeight} kg</p>
+  <p><strong>Target:</strong> ~${last.midWeight} kg</p>
+  ${last.currentWeight ? `<p><strong>Current:</strong> ${last.currentWeight} kg</p>` : ''}
+  <hr><p style="color:#666; font-size:0.9rem;">For informational purposes only. Consult your healthcare provider.</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ideal-weight-report.html';
+  a.click();
+}
+
+function comparePrevious() {
+  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]').filter(s => s.tool === 'ideal');
+  if (saved.length < 2) { alert('Need at least 2 calculations. Save a few first!'); return; }
+  let html = '<h3>Ideal Weight History</h3><ul>';
+  saved.slice(-5).forEach((s, i) => {
+    html += `<li>${i+1}. ${s.height}cm ${s.sex}: ${s.minWeight}-${s.maxWeight}kg (${s.frame} frame) - ${new Date(s.savedAt).toLocaleDateString()}</li>`;
+  });
+  html += '</ul>';
+  const w = window.open('', '_blank');
+  w.document.write('<html><head><title>Comparison</title></head><body style="font-family:system-ui,sans-serif; padding:40px;">' + html + '</body></html>');
+}
+</script>
+
+</body>
+</html>
