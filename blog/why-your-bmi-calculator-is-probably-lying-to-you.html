@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Your BMI Calculator Is Probably Lying to You | BMITool.org</title>
+<meta name="description" content="I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.">
+<link rel="canonical" href="https://bmitool.org/blog/why-your-bmi-calculator-is-probably-lying-to-you.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Why Your BMI Calculator Is Probably Lying to You","author":{"@type":"Person","name":"Dr. Chen"},"datePublished":"May 20, 2026","publisher":{"@type":"Organization","name":"BMITool.org"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-article-header">
+  <div class="bmt-container">
+    <div class="bmt-blog-meta" style="margin-bottom:12px;"><span>May 20, 2026</span><span>Clinical Insights</span></div>
+    <h1 style="font-size:2.2rem; color:var(--bmt-primary-dark); margin-bottom:16px;">Why Your BMI Calculator Is Probably Lying to You</h1>
+    <p style="color:var(--bmt-text-light); font-size:1.1rem;">I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.</p>
+  </div>
+</section>
+
+<section style="padding:40px 0;">
+  <div class="bmt-article-body">
+
+<p>I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong — and why I built this site.</p>
+
+<p>Last month, a 42-year-old male patient walked into my clinic. BMI 24.2. "Normal," according to every online calculator he'd used. But his fasting glucose was 118, triglycerides were 280, and his waist circumference was 102 cm. Metabolic syndrome, clear as day.</p>
+
+<p>"But my BMI is normal," he said. I see this every week.</p>
+
+<h2>The Problem with Simple BMI</h2>
+
+<p>Most online BMI calculators give you a number and a category. That's it. They don't tell you:</p>
+
+<ul>
+<li><strong>Muscle mass matters.</strong> A bodybuilder with 8% body fat can have a BMI of 30 — "obese."</li>
+<li><strong>Fat distribution matters more.</strong> Visceral fat (around organs) is metabolically active. Subcutaneous fat (under skin) is relatively benign. BMI can't distinguish them.</li>
+<li><strong>Ethnicity matters.</strong> Asian populations develop metabolic complications at BMI 23-24, not 25. The standard calculator doesn't know your ancestry.</li>
+<li><strong>Age matters.</strong> BMI thresholds should arguably be lower for older adults, not higher.</li>
+<li><strong>Sex matters.</strong> Women typically have higher body fat at the same BMI as men. This is physiological, not pathological.</li>
+</ul>
+
+<h2>What I Do Differently</h2>
+
+<p>In my clinic, I never use BMI alone. I combine it with waist circumference, body fat percentage (when available), and metabolic markers. But most people don't have access to a metabolic panel every month.</p>
+
+<p>So I built calculators that at least account for what we <em>can</em> measure at home: ethnicity, waist circumference, age, and sex. It's not perfect. But it's a hell of a lot better than a single number.</p>
+
+<p>The Asian BMI threshold calculator on this site? That's based on WHO Western Pacific guidelines and IDF consensus. Most American patients have never heard of it. Their doctors haven't either.</p>
+
+<h2>The Bottom Line</h2>
+
+<p>BMI is a population screening tool, not an individual diagnostic. It was invented by a Belgian mathematician in the 1830s — not a physician. He was studying "social physics," not medicine.</p>
+
+<p>Use it as a starting point. Not an endpoint. And if your BMI says "normal" but you feel terrible, trust your body. Get the full workup.</p>
+
+<p>— Dr. David Chen</p>
+
+<p style="font-size:0.9rem; color:var(--bmt-text-light); margin-top:32px;"><em>Dr. Chen is a board-certified Internal Medicine physician. This article reflects clinical observations and personal experience. For medical advice, consult your healthcare provider.</em></p>
+
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+</body>
+</html>
