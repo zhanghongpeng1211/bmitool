@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Trend Tracker | Long-Term Weight Monitoring - bmitool.org</title>
+<meta name="description" content="Track your BMI over time with visual trends, goal setting, and clinical milestone markers. Local storage, no signup required. Built by Dr. David Chen, MD.">
+<link rel="canonical" href="https://bmitool.org/tools/bmi-trend.html">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"BMI Trend Tracker","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+</script>
+</head>
+<body>
+
+<div class="bmt-layout">
+
+<aside class="bmt-sidebar">
+  <a href="/" class="bmt-sidebar-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+    BMITool
+  </a>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Clinical Tools</div>
+    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
+    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
+    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
+    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
+    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
+    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+  </div>
+  <div class="bmt-sidebar-section">
+    <div class="bmt-sidebar-title">Resources</div>
+    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
+    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
+    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+  </div>
+  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
+</aside>
+
+<main class="bmt-main">
+
+<section class="bmt-hero">
+  <div class="bmt-container">
+    <div class="bmt-hero-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Long-Term Tracking
+    </div>
+    <h1>BMI Trend Tracker</h1>
+    <p>Track your BMI over weeks, months, or years. Visual trends show patterns that single measurements miss. Set goals, mark milestones, and see the full picture of your metabolic health journey.</p>
+  </div>
+</section>
+
+<section style="padding:30px 0 50px;">
+  <div class="bmt-container">
+    <div class="bmt-card">
+      <div class="bmt-form-row">
+        <div class="bmt-form-group">
+          <label>Height (cm) — Fixed</label>
+          <input type="number" id="trendHeight" placeholder="175" min="100" max="250">
+        </div>
+        <div class="bmt-form-group">
+          <label>Current Weight (kg)</label>
+          <input type="number" id="trendWeight" placeholder="70" min="20" max="300">
+        </div>
+      </div>
+      <div class="bmt-form-row" style="margin-top:12px;">
+        <div class="bmt-form-group">
+          <label>Date</label>
+          <input type="date" id="trendDate">
+        </div>
+        <div class="bmt-form-group">
+          <label>Notes (optional)</label>
+          <input type="text" id="trendNote" placeholder="Started exercise program, diet change, etc.">
+        </div>
+      </div>
+      <div style="display:flex; gap:12px; margin-top:16px;">
+        <button class="bmt-btn" onclick="addTrendEntry()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Entry
+        </button>
+        <button class="bmt-btn bmt-btn-secondary" onclick="clearTrendData()">
+          Clear All Data
+        </button>
+      </div>
+      <div id="trendChart" style="margin-top:24px;"></div>
+      <div id="trendTable" style="margin-top:24px;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky Bar -->
+<div class="bmt-sticky-bar" id="stickyBar">
+  <div class="bmt-sticky-bar-left">
+    <button class="bmt-sticky-btn" onclick="exportTrendData()"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export CSV</button>
+    <button class="bmt-sticky-btn" onclick="shareTrend()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export Report</button>
+  </div>
+  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
+</div>
+
+<section style="padding:20px 0;">
+  <div class="bmt-container">
+    <div class="bmt-disclaimer">
+      <strong>Medical Disclaimer:</strong> BMI trends are most meaningful when measured consistently (same time of day, same scale, similar clothing). Weekly measurements are more informative than daily fluctuations. Always consult your healthcare provider for comprehensive weight management guidance.
+    </div>
+  </div>
+</section>
+
+<footer class="bmt-footer">
+  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
+  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+</footer>
+
+</main>
+</div>
+
+<script>
+// Load existing data
+let trendData = JSON.parse(localStorage.getItem('bmt_trend_data') || '[]');
+
+function addTrendEntry() {
+  const height = parseFloat(document.getElementById('trendHeight').value) / 100;
+  const weight = parseFloat(document.getElementById('trendWeight').value);
+  const date = document.getElementById('trendDate').value || new Date().toISOString().split('T')[0];
+  const note = document.getElementById('trendNote').value;
+
+  if (!height || !weight) { alert('Please enter height and weight'); return; }
+
+  const bmi = (weight / (height * height)).toFixed(1);
+
+  trendData.push({ date, weight, bmi, note, height: document.getElementById('trendHeight').value });
+  trendData.sort((a, b) => new Date(a.date) - new Date(b.date));
+  localStorage.setItem('bmt_trend_data', JSON.stringify(trendData));
+
+  renderTrend();
+  document.getElementById('trendWeight').value = '';
+  document.getElementById('trendNote').value = '';
+}
+
+function renderTrend() {
+  if (trendData.length === 0) {
+    document.getElementById('trendChart').innerHTML = '<p style="text-align:center; color:var(--bmt-text-light); padding:40px;">No data yet. Add your first entry above.</p>';
+    document.getElementById('trendTable').innerHTML = '';
+    return;
+  }
+
+  // Simple bar chart
+  const maxBMI = Math.max(...trendData.map(d => parseFloat(d.bmi)));
+  const minBMI = Math.min(...trendData.map(d => parseFloat(d.bmi)));
+  const range = maxBMI - minBMI || 1;
+
+  let chartHTML = '<div style="display:flex; align-items:flex-end; gap:4px; height:200px; padding:20px 0; border-bottom:2px solid #e2e8f0;">';
+  trendData.forEach((d, i) => {
+    const height = ((parseFloat(d.bmi) - minBMI) / range * 160) + 20;
+    const color = parseFloat(d.bmi) < 18.5 ? '#3b82f6' : parseFloat(d.bmi) < 25 ? '#10b981' : parseFloat(d.bmi) < 30 ? '#f59e0b' : '#ef4444';
+    chartHTML += `<div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div style="width:100%; background:${color}; border-radius:4px 4px 0 0; height:${height}px; min-height:4px; transition:all 0.3s;" title="BMI ${d.bmi} on ${d.date}"></div>
+      <div style="font-size:0.65rem; color:var(--bmt-text-light); transform:rotate(-45deg); white-space:nowrap;">${d.date.slice(5)}</div>
+    </div>`;
+  });
+  chartHTML += '</div>';
+
+  // Stats
+  const first = trendData[0];
+  const last = trendData[trendData.length - 1];
+  const change = (parseFloat(last.bmi) - parseFloat(first.bmi)).toFixed(1);
+  const changeText = change > 0 ? `+${change}` : change;
+  const changeColor = change < 0 ? '#10b981' : change > 0 ? '#ef4444' : '#64748b';
+
+  chartHTML += `<div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:16px;">
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light);">First BMI</div><div style="font-size:1.2rem; font-weight:700; color:var(--bmt-primary-dark);">${first.bmi}</div><div style="font-size:0.7rem; color:var(--bmt-text-light);">${first.date}</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light);">Latest BMI</div><div style="font-size:1.2rem; font-weight:700; color:var(--bmt-primary-dark);">${last.bmi}</div><div style="font-size:0.7rem; color:var(--bmt-text-light);">${last.date}</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light);">Change</div><div style="font-size:1.2rem; font-weight:700; color:${changeColor};">${changeText}</div><div style="font-size:0.7rem; color:var(--bmt-text-light);">over ${trendData.length} entries</div></div>
+    <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light);">Average</div><div style="font-size:1.2rem; font-weight:700; color:var(--bmt-primary-dark);">${(trendData.reduce((a, d) => a + parseFloat(d.bmi), 0) / trendData.length).toFixed(1)}</div></div>
+  </div>`;
+
+  document.getElementById('trendChart').innerHTML = chartHTML;
+
+  // Table
+  let tableHTML = '<table style="width:100%; border-collapse:collapse; margin-top:16px;"><thead><tr style="border-bottom:2px solid #e2e8f0;"><th style="text-align:left; padding:8px; font-size:0.85rem;">Date</th><th style="text-align:left; padding:8px; font-size:0.85rem;">Weight</th><th style="text-align:left; padding:8px; font-size:0.85rem;">BMI</th><th style="text-align:left; padding:8px; font-size:0.85rem;">Note</th><th style="text-align:right; padding:8px; font-size:0.85rem;">Action</th></tr></thead><tbody>';
+  trendData.slice().reverse().forEach((d, i) => {
+    const color = parseFloat(d.bmi) < 18.5 ? '#3b82f6' : parseFloat(d.bmi) < 25 ? '#10b981' : parseFloat(d.bmi) < 30 ? '#f59e0b' : '#ef4444';
+    tableHTML += `<tr style="border-bottom:1px solid #e2e8f0;">
+      <td style="padding:8px; font-size:0.9rem;">${d.date}</td>
+      <td style="padding:8px; font-size:0.9rem;">${d.weight} kg</td>
+      <td style="padding:8px; font-size:0.9rem; font-weight:600; color:${color};">${d.bmi}</td>
+      <td style="padding:8px; font-size:0.85rem; color:var(--bmt-text-light);">${d.note || '-'}</td>
+      <td style="padding:8px; text-align:right;"><button onclick="deleteEntry(${trendData.length - 1 - i})" style="background:none; border:none; color:#ef4444; cursor:pointer; font-size:0.85rem;">Delete</button></td>
+    </tr>`;
+  });
+  tableHTML += '</tbody></table>';
+  document.getElementById('trendTable').innerHTML = tableHTML;
+}
+
+function deleteEntry(index) {
+  trendData.splice(index, 1);
+  localStorage.setItem('bmt_trend_data', JSON.stringify(trendData));
+  renderTrend();
+}
+
+function clearTrendData() {
+  if (confirm('Delete all trend data? This cannot be undone.')) {
+    trendData = [];
+    localStorage.removeItem('bmt_trend_data');
+    renderTrend();
+  }
+}
+
+function exportTrendData() {
+  if (trendData.length === 0) { alert('No data to export'); return; }
+  let csv = 'Date,Weight(kg),BMI,Note
+';
+  trendData.forEach(d => {
+    csv += `${d.date},${d.weight},${d.bmi},"${d.note || ''}"
+`;
+  });
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'bmi-trend-data.csv';
+  a.click();
+}
+
+function shareTrend() {
+  const url = window.location.origin + '/tools/bmi-trend.html';
+  navigator.clipboard.writeText(url).then(() => alert('Trend tracker link copied!'));
+}
+
+function generateReport() {
+  if (trendData.length === 0) { alert('No data to report'); return; }
+  const first = trendData[0];
+  const last = trendData[trendData.length - 1];
+  const change = (parseFloat(last.bmi) - parseFloat(first.bmi)).toFixed(1);
+
+  const html = `<!DOCTYPE html><html><head><title>BMI Trend Report</title></head>
+  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
+  <h1 style="color:#0d9488;">BMI Trend Report</h1>
+  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
+  <p><strong>Entries:</strong> ${trendData.length}</p>
+  <p><strong>Period:</strong> ${first.date} to ${last.date}</p>
+  <p><strong>Starting BMI:</strong> ${first.bmi}</p>
+  <p><strong>Latest BMI:</strong> ${last.bmi}</p>
+  <p><strong>Change:</strong> ${change > 0 ? '+' : ''}${change}</p>
+  <hr><p style="color:#666; font-size:0.9rem;">For informational purposes only. Consult your healthcare provider.</p>
+  </body></html>`;
+  const blob = new Blob([html], {type:'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'bmi-trend-report.html';
+  a.click();
+}
+
+// Initialize
+renderTrend();
+</script>
+
+</body>
+</html>
