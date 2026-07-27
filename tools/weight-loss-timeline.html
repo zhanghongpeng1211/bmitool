@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weight Loss Timeline Calculator — Project Your Journey — BMITool.org</title>
+<meta name="description" content="Project your weight loss journey with realistic timelines based on your calorie deficit, metabolic data, and goal date. All calculations happen in your browser.">
+<link rel="canonical" href="https://bmitool.org/tools/weight-loss-timeline.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Weight Loss Timeline Calculator — BMITool.org">
+<meta property="og:description" content="Project your weight loss journey with realistic timelines. All private, all in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/tools/weight-loss-timeline.html">
+<meta property="og:image" content="https://bmitool.org/images/og-weight-loss-timeline.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Weight Loss Timeline Calculator — BMITool.org">
+<meta name="twitter:description" content="Project your weight loss journey with realistic timelines.">
+<meta name="twitter:image" content="https://bmitool.org/images/og-weight-loss-timeline.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Weight Loss Timeline Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "James 'Jamie' Whitfield", "url": "https://bmitool.org/about.html"},
+  "description": "Project weight loss timelines with calorie deficit modeling, metabolic adaptation, and realistic milestone tracking. All data stays in your browser.",
+  "featureList": "Calorie deficit modeling, Metabolic adaptation, Milestone tracking, Timeline chart, Export to CSV, Multiple scenarios"
+}
+</script>
+"""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://bmitool.org/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Weight Loss Timeline",
+      "item": "https://bmitool.org/tools/weight-loss-timeline.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.wlt-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.wlt-scenarios { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.wlt-scenario { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1rem; text-align: center; border: 2px solid transparent; }
+.wlt-scenario.active { border-color: var(--bmi-primary); }
+.wlt-scenario h4 { font-size: 0.875rem; color: var(--bmi-text-secondary); margin-bottom: 0.5rem; }
+.wlt-scenario .value { font-size: 1.5rem; font-weight: 700; color: var(--bmi-primary); }
+.wlt-scenario .detail { font-size: 0.75rem; color: var(--bmi-text-muted); margin-top: 0.25rem; }
+.wlt-milestones { margin-top: 2rem; }
+.wlt-milestone { display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--bmi-border); }
+.wlt-milestone-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--bmi-primary); flex-shrink: 0; }
+.wlt-milestone-date { font-weight: 600; min-width: 100px; }
+.wlt-chart-container { width: 100%; height: 350px; margin-top: 1.5rem; }
+.wlt-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.wlt-summary-item { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1rem; text-align: center; }
+.wlt-summary-item h4 { font-size: 0.75rem; color: var(--bmi-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.wlt-summary-item .value { font-size: 1.25rem; font-weight: 700; color: var(--bmi-text); }
+@media (max-width: 768px) { .wlt-layout { grid-template-columns: 1fr; } .wlt-scenarios { grid-template-columns: 1fr; } .wlt-summary { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>Weight Loss Timeline</h1>
+    <p>Project your weight loss journey with realistic timelines based on your calorie deficit, metabolic adaptation, and goal weight. See multiple scenarios side by side.</p>
+  </div>
+</header>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="tool_top"><span>Advertisement</span></div>
+</div>
+
+<main class="bmi-container" style="padding: 3rem 0;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="bmi-breadcrumb-sep">/</span>
+    <a href="index.html">Tools</a><span class="bmi-breadcrumb-sep">/</span>
+    <span>Weight Loss Timeline</span>
+  </nav>
+
+  <div class="wlt-layout">
+    <div>
+      <div class="bmi-tool-card">
+        <h2>Your Starting Point</h2>
+        <div class="bmi-tool-input-group">
+          <label>Current Weight (lbs)</label>
+          <input type="number" id="current-weight" placeholder="e.g. 185" min="80" max="600" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Goal Weight (lbs)</label>
+          <input type="number" id="goal-weight" placeholder="e.g. 160" min="80" max="600" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Height (inches)</label>
+          <input type="number" id="height-in" placeholder="e.g. 70" min="40" max="96" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="e.g. 38" min="18" max="100">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Sex</label>
+          <select id="sex"><option value="male">Male</option><option value="female">Female</option></select>
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Activity Level</label>
+          <select id="activity">
+            <option value="1.2">Sedentary (desk job, little exercise)</option>
+            <option value="1.375" selected>Lightly Active (1-3 days/week)</option>
+            <option value="1.55">Moderately Active (3-5 days/week)</option>
+            <option value="1.725">Very Active (6-7 days/week)</option>
+            <option value="1.9">Extremely Active (physical job + training)</option>
+          </select>
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Target Daily Calorie Deficit</label>
+          <input type="range" id="deficit-slider" min="250" max="1000" value="500" step="50" style="width:100%;">
+          <p style="font-size:0.875rem;color:var(--bmi-text-secondary);margin-top:0.25rem;">
+            Deficit: <strong id="deficit-display">500</strong> calories/day
+          </p>
+        </div>
+        <button class="bmi-tool-btn" onclick="calculateTimeline()">Calculate Timeline</button>
+        <div class="bmi-calc-actions" style="margin-top:1rem;">
+          <button class="bmi-tool-btn-secondary" onclick="saveScenario()">Save Scenario</button>
+          <button class="bmi-tool-btn-secondary" onclick="clearScenarios()">Clear History</button>
+          <button class="bmi-tool-btn-secondary" onclick="exportCSV()">Export CSV</button>
+        </div>
+        <div class="bmi-privacy-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>All data stays in your browser — we never see it.</span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <button class="bmi-tool-btn-secondary" onclick="copyToolLink()" style="display:flex;align-items:center;gap:0.5rem;" title="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+          <button class="bmi-tool-btn-secondary" onclick="shareOnTwitter()" style="display:flex;align-items:center;gap:0.5rem;" title="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div>
+      <div class="bmi-tool-card" id="result-panel" style="display:none;">
+        <h2>Your Timeline</h2>
+        <div class="wlt-summary">
+          <div class="wlt-summary-item"><h4>Total to Lose</h4><div class="value" id="total-loss">—</div></div>
+          <div class="wlt-summary-item"><h4>Weeks to Goal</h4><div class="value" id="weeks-goal">—</div></div>
+          <div class="wlt-summary-item"><h4>Goal Date</h4><div class="value" id="goal-date">—</div></div>
+          <div class="wlt-summary-item"><h4>Weekly Rate</h4><div class="value" id="weekly-rate">—</div></div>
+        </div>
+
+        <div class="wlt-scenarios">
+          <div class="wlt-scenario" id="scenario-aggressive">
+            <h4>Aggressive</h4>
+            <div class="value" id="agg-weeks">—</div>
+            <div class="detail" id="agg-date">—</div>
+            <div class="detail" style="color:var(--bmi-danger);">750 cal/day deficit</div>
+          </div>
+          <div class="wlt-scenario active" id="scenario-moderate">
+            <h4>Moderate</h4>
+            <div class="value" id="mod-weeks">—</div>
+            <div class="detail" id="mod-date">—</div>
+            <div class="detail" style="color:var(--bmi-primary);">500 cal/day deficit</div>
+          </div>
+          <div class="wlt-scenario" id="scenario-conservative">
+            <h4>Conservative</h4>
+            <div class="value" id="con-weeks">—</div>
+            <div class="detail" id="con-date">—</div>
+            <div class="detail" style="color:var(--bmi-success);">250 cal/day deficit</div>
+          </div>
+        </div>
+
+        <div class="wlt-chart-container">
+          <canvas id="wlt-chart"></canvas>
+        </div>
+
+        <div class="wlt-milestones" id="milestones-section">
+          <h3>Key Milestones</h3>
+          <div id="milestones-list"></div>
+        </div>
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top:1.5rem;">
+        <!-- How It Works -->
+  <div class="bmi-container" style="padding: 3rem 0;">
+    <div class="bmi-tool-card" style="max-width: 800px; margin: 0 auto;">
+      <h2>How It Works</h2>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1.5rem;">
+        This calculator projects your weight loss timeline using established metabolic equations. Here is the math behind the projection:
+      </p>
+      <h3 style="margin-top: 1.5rem;">Step 1: Calculate Your BMR</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        We use the <strong>Mifflin-St Jeor equation</strong>, which research shows is more accurate than the older Harris-Benedict formula for modern populations:
+      </p>
+      <div style="background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.5rem; font-family: var(--bmi-font-mono); font-size: 0.9375rem; margin-bottom: 1.5rem; line-height: 1.8;">
+        Men: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5<br>
+        Women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161
+      </div>
+      <h3 style="margin-top: 1.5rem;">Step 2: Apply Activity Multiplier</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        Your BMR is multiplied by an activity factor to get your Total Daily Energy Expenditure (TDEE):
+      </p>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>Sedentary (1.2): Desk job, little to no exercise</li>
+        <li>Lightly Active (1.375): Light exercise 1–3 days/week</li>
+        <li>Moderately Active (1.55): Moderate exercise 3–5 days/week</li>
+        <li>Very Active (1.725): Hard exercise 6–7 days/week</li>
+        <li>Extremely Active (1.9): Physical job + hard training</li>
+      </ul>
+      <h3 style="margin-top: 1.5rem;">Step 3: Model the Deficit</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        A pound of fat contains approximately <strong>3,500 calories</strong>. To lose 1 lb per week, you need a daily deficit of 500 calories. The timeline is calculated as:
+      </p>
+      <div style="background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.5rem; text-align: center; font-family: var(--bmi-font-mono); font-size: 1.125rem; margin-bottom: 1.5rem;">
+        Weeks to Goal = (Total lbs to lose × 3,500) ÷ (Daily deficit × 7)
+      </div>
+      <h3 style="margin-top: 1.5rem;">Metabolic Adaptation</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        As you lose weight, your BMR drops slightly because there is less body mass to maintain. The calculator applies a 5% metabolic adaptation factor to keep projections realistic. Very aggressive deficits (750+ cal/day) may trigger stronger adaptation and are harder to sustain.
+      </p>
+      <h3 style="margin-top: 1.5rem;">Practical Tips</h3>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem;">
+        <li>The "Moderate" scenario (500 cal/day deficit) is sustainable for most people and yields ~1 lb/week loss.</li>
+        <li>Aggressive deficits work short-term but increase muscle loss and rebound risk.</li>
+        <li>Save multiple scenarios to compare approaches. All data stays in your browser.</li>
+        <li>Plateaus are normal. If your weight stalls for 2+ weeks, recalculate with your new weight and adjust the deficit.</li>
+      </ul>
+    </div>
+  </div>
+      </div>
+
+      <div class="bmi-tool-card" id="saved-scenarios" style="display:none;margin-top:1.5rem;">
+        <h3>Saved Scenarios</h3>
+        <div id="scenarios-list"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bmi-ad-slot" data-ad-slot="tool_middle" style="margin-top:2rem;"><span>Advertisement</span></div>
+
+  <div class="bmi-article-footer" style="margin-top:3rem;">
+    <div class="bmi-related-articles">
+      <h3>Related Articles</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <img src="../images/blog/three-small-data-changes-moved-bmi.jpg" alt="Data changes moved BMI" width="60" height="45" loading="lazy">
+          <div><a href="../blog/three-small-data-changes-moved-bmi.html">Three Small Data Changes That Moved My BMI</a><span>June 1, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/tracked-bmi-90-days-spreadsheet.jpg" alt="90 day tracking" width="60" height="45" loading="lazy">
+          <div><a href="../blog/tracked-bmi-90-days-spreadsheet.html">I Tracked My BMI for 90 Days</a><span>April 2, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/heb-prepared-meals-30-days.jpg" alt="H-E-B meals" width="60" height="45" loading="lazy">
+          <div><a href="../blog/heb-prepared-meals-30-days.html">I Ate Only H-E-B Meals for 30 Days</a><span>April 28, 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-recommended-tools">
+      <h3>Recommended Tools</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item"><div><a href="bmi-calculator.html">BMI Calculator</a><span>Track your progress</span></div></div>
+        <div class="bmi-related-item"><div><a href="calorie-needs-calculator.html">Calorie Needs</a><span>Find your TDEE</span></div></div>
+        <div class="bmi-related-item"><div><a href="macro-split-planner.html">Macro Split</a><span>Plan your meals</span></div></div>
+        <div class="bmi-related-item"><div><a href="body-fat-estimator.html">Body Fat Estimator</a><span>Track composition</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="bmi-ad-slot" data-ad-slot="tool_bottom" style="margin-top:2rem;"><span>Advertisement</span></div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div><h4>Tools</h4><ul>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="weight-loss-timeline.html">Weight Loss Timeline</a></li>
+        <li><a href="body-fat-estimator.html">Body Fat Estimator</a></li>
+        <li><a href="ideal-weight-range.html">Ideal Weight Range</a></li>
+        <li><a href="calorie-needs-calculator.html">Calorie Needs</a></li>
+        <li><a href="macro-split-planner.html">Macro Split Planner</a></li>
+        <li><a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+      </ul></div>
+      <div><h4>Blog</h4><ul>
+        <li><a href="../blog/index.html">All Articles</a></li>
+        <li><a href="../blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+        <li><a href="../blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+        <li><a href="../blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+      </ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="../about.html">About Jamie</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul></div>
+    </div>
+    <div class="bmi-footer-bottom"><p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p></div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const STORAGE_KEY = 'wlt_scenarios';
+let currentData = null;
+
+document.getElementById('deficit-slider').addEventListener('input', function() {
+  document.getElementById('deficit-display').textContent = this.value;
+});
+
+function calculateBMR(weight, height, age, sex) {
+  // Mifflin-St Jeor
+  const w = weight * 0.453592;
+  const h = height * 2.54;
+  if (sex === 'male') return 10*w + 6.25*h - 5*age + 5;
+  return 10*w + 6.25*h - 5*age - 161;
+}
+
+function calculateTimeline() {
+  const cw = parseFloat(document.getElementById('current-weight').value);
+  const gw = parseFloat(document.getElementById('goal-weight').value);
+  const h = parseFloat(document.getElementById('height-in').value);
+  const age = parseInt(document.getElementById('age').value);
+  const sex = document.getElementById('sex').value;
+  const activity = parseFloat(document.getElementById('activity').value);
+  const deficit = parseInt(document.getElementById('deficit-slider').value);
+
+  if (!cw || !gw || !h || !age) { alert('Please fill in all fields'); return; }
+  if (gw >= cw) { alert('Goal weight must be less than current weight'); return; }
+
+  const bmr = calculateBMR(cw, h, age, sex);
+  const tdee = bmr * activity;
+  const totalLoss = cw - gw;
+  const weeks = (totalLoss * 3500) / (deficit * 7);
+  const goalDate = new Date();
+  goalDate.setDate(goalDate.getDate() + weeks * 7);
+
+  document.getElementById('total-loss').textContent = totalLoss.toFixed(1) + ' lbs';
+  document.getElementById('weeks-goal').textContent = Math.ceil(weeks) + ' weeks';
+  document.getElementById('goal-date').textContent = goalDate.toLocaleDateString('en-US', {month:'short', day:'numeric', year:'numeric'});
+  document.getElementById('weekly-rate').textContent = (totalLoss/weeks).toFixed(2) + ' lbs/week';
+
+  // Scenarios
+  const scenarios = [
+    { deficit: 750, id: 'agg', label: 'Aggressive' },
+    { deficit: 500, id: 'mod', label: 'Moderate' },
+    { deficit: 250, id: 'con', label: 'Conservative' }
+  ];
+
+  scenarios.forEach(s => {
+    const w = (totalLoss * 3500) / (s.deficit * 7);
+    const d = new Date();
+    d.setDate(d.getDate() + w * 7);
+    document.getElementById(s.id + '-weeks').textContent = Math.ceil(w) + ' wk';
+    document.getElementById(s.id + '-date').textContent = d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  });
+
+  // Generate projection data
+  const data = [];
+  let currentW = cw;
+  for (let week = 0; week <= Math.ceil(weeks) + 2; week++) {
+    // Metabolic adaptation: BMR drops slightly as weight drops
+    const adaptedBMR = calculateBMR(currentW, h, age, sex) * 0.95;
+    const adaptedTDEE = adaptedBMR * activity;
+    const actualDeficit = Math.min(deficit, adaptedTDEE - 800); // Don't go below 800
+    const weeklyLoss = (actualDeficit * 7) / 3500;
+    currentW = Math.max(currentW - weeklyLoss, gw);
+    data.push({ week, weight: currentW, date: new Date(goalDate.getTime() - (Math.ceil(weeks)-week)*7*24*60*60*1000) });
+    if (currentW <= gw) break;
+  }
+
+  currentData = { cw, gw, h, age, sex, activity, deficit, data, totalLoss, weeks };
+  document.getElementById('result-panel').style.display = 'block';
+
+  // Milestones
+  const milestones = [];
+  const milestoneWeights = [cw - totalLoss*0.25, cw - totalLoss*0.5, cw - totalLoss*0.75, gw];
+  milestoneWeights.forEach((mw, i) => {
+    const found = data.find(d => d.weight <= mw);
+    if (found) {
+      const labels = ['25% Lost', 'Halfway There', '75% Lost', 'Goal Reached'];
+      milestones.push({ label: labels[i], weight: mw.toFixed(1), date: found.date });
+    }
+  });
+
+  document.getElementById('milestones-list').innerHTML = milestones.map(m => `
+    <div class="wlt-milestone">
+      <div class="wlt-milestone-dot"></div>
+      <div class="wlt-milestone-date">${m.date.toLocaleDateString('en-US',{month:'short',day:'numeric'})}</div>
+      <div><strong>${m.label}</strong> — ${m.weight} lbs</div>
+    </div>
+  `).join('');
+
+  drawChart(data, cw, gw);
+}
+
+function drawChart(data, startW, goalW) {
+  const canvas = document.getElementById('wlt-chart');
+  const ctx = canvas.getContext('2d');
+  const container = canvas.parentElement;
+  canvas.width = container.clientWidth * 2;
+  canvas.height = 350 * 2;
+  canvas.style.width = container.clientWidth + 'px';
+  canvas.style.height = '350px';
+  ctx.scale(2, 2);
+
+  const w = container.clientWidth;
+  const h = 350;
+  const p = { t: 30, r: 30, b: 50, l: 50 };
+  const cw = w - p.l - p.r;
+  const ch = h - p.t - p.b;
+
+  ctx.clearRect(0, 0, w, h);
+
+  const minW = Math.min(goalW, ...data.map(d => d.weight)) - 2;
+  const maxW = Math.max(startW, ...data.map(d => d.weight)) + 2;
+  const range = maxW - minW;
+
+  // Grid
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = p.t + (ch * i / 4);
+    ctx.beginPath(); ctx.moveTo(p.l, y); ctx.lineTo(w - p.r, y); ctx.stroke();
+    ctx.fillStyle = '#64748b'; ctx.font = '12px Inter'; ctx.textAlign = 'right';
+    ctx.fillText((maxW - range * i / 4).toFixed(0), p.l - 8, y + 4);
+  }
+
+  // Goal line
+  const goalY = p.t + ch - ((goalW - minW) / range * ch);
+  ctx.strokeStyle = '#10b981'; ctx.setLineDash([5, 5]); ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(p.l, goalY); ctx.lineTo(w - p.r, goalY); ctx.stroke(); ctx.setLineDash([]);
+  ctx.fillStyle = '#10b981'; ctx.font = '12px Inter'; ctx.textAlign = 'left';
+  ctx.fillText('Goal: ' + goalW + ' lbs', w - p.r - 80, goalY - 5);
+
+  // Weight line
+  ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 3;
+  ctx.beginPath();
+  data.forEach((d, i) => {
+    const x = p.l + (cw * i / (data.length - 1));
+    const y = p.t + ch - ((d.weight - minW) / range * ch);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Points
+  data.forEach((d, i) => {
+    const x = p.l + (cw * i / (data.length - 1));
+    const y = p.t + ch - ((d.weight - minW) / range * ch);
+    ctx.fillStyle = '#7c3aed'; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'white'; ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI * 2); ctx.fill();
+  });
+
+  // X labels
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  const step = Math.max(1, Math.floor(data.length / 6));
+  data.forEach((d, i) => {
+    if (i % step === 0 || i === data.length - 1) {
+      const x = p.l + (cw * i / (data.length - 1));
+      ctx.fillText('Wk ' + d.week, x, h - 15);
+    }
+  });
+}
+
+function getScenarios() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+
+function saveScenario() {
+  if (!currentData) { alert('Calculate a timeline first'); return; }
+  const scenarios = getScenarios();
+  const name = prompt('Name this scenario (e.g., "Summer Cut 2026"):', 'Scenario ' + (scenarios.length + 1));
+  if (!name) return;
+  scenarios.push({ name, date: new Date().toISOString(), data: currentData });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(scenarios));
+  renderScenarios();
+}
+
+function clearScenarios() {
+  if (confirm('Clear all saved scenarios?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderScenarios();
+  }
+}
+
+function renderScenarios() {
+  const scenarios = getScenarios();
+  const section = document.getElementById('saved-scenarios');
+  if (scenarios.length === 0) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+  document.getElementById('scenarios-list').innerHTML = scenarios.map((s, i) => `
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--bmi-border);">
+      <div><strong>${s.name}</strong> <span style="color:var(--bmi-text-muted);font-size:0.875rem;">${s.data.cw}→${s.data.gw} lbs, ${Math.ceil(s.data.weeks)} weeks</span></div>
+      <button onclick="loadScenario(${i})" style="background:var(--bmi-primary);color:white;border:none;padding:0.5rem 1rem;border-radius:var(--bmi-radius);cursor:pointer;font-size:0.875rem;">Load</button>
+    </div>
+  `).join('');
+}
+
+function loadScenario(index) {
+  const scenarios = getScenarios();
+  const s = scenarios[index];
+  if (!s) return;
+  document.getElementById('current-weight').value = s.data.cw;
+  document.getElementById('goal-weight').value = s.data.gw;
+  document.getElementById('height-in').value = s.data.h;
+  document.getElementById('age').value = s.data.age;
+  document.getElementById('sex').value = s.data.sex;
+  document.getElementById('activity').value = s.data.activity;
+  document.getElementById('deficit-slider').value = s.data.deficit;
+  document.getElementById('deficit-display').textContent = s.data.deficit;
+  calculateTimeline();
+}
+
+function exportCSV() {
+  if (!currentData) { alert('Calculate a timeline first'); return; }
+  let csv = 'Week,Date,Projected Weight (lbs)\n';
+  currentData.data.forEach(d => {
+    csv += `${d.week},${d.date.toISOString().split('T')[0]},${d.weight.toFixed(1)}\n`;
+  });
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'weight-loss-timeline-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+renderScenarios();
+window.addEventListener('resize', () => { if (currentData) drawChart(currentData.data, currentData.cw, currentData.gw); });
+</script>
+
+<script>
+// Share functionality
+function copyToolLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('Link copied to clipboard!');
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  } catch (err) {
+    alert('Could not copy link. Please copy manually: ' + text);
+  }
+  document.body.removeChild(ta);
+}
+
+function shareOnTwitter() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent(document.title);
+  window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'width=550,height=420');
+}
+</script>
+
+</body>
+</html>
