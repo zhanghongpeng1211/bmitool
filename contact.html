@@ -3,93 +3,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | BMITool.org</title>
-<meta name="description" content="Contact BMITool.org. Questions about BMI calculations, metabolic health, or our clinical tools? Reach out to Dr. David Chen.">
+<title>Contact — BMITool.org</title>
+<meta name="description" content="Get in touch with Jamie Whitfield at BMITool.org. Email contact@bmitool.org. No professional services offered. Response time: one to two weeks.">
 <link rel="canonical" href="https://bmitool.org/contact.html">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta property="og:title" content="Contact — BMITool.org">
+<meta property="og:description" content="Get in touch with Jamie Whitfield at BMITool.org.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/contact.html">
+<meta property="og:image" content="https://bmitool.org/images/og-contact.jpg">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Contact — BMITool.org">
+<meta name="twitter:description" content="Get in touch with Jamie Whitfield at BMITool.org.">
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ContactPage","name":"Contact BMITool.org","url":"https://bmitool.org/contact.html"}
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact BMITool.org",
+  "url": "https://bmitool.org/contact.html",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "BMITool.org",
+    "url": "https://bmitool.org/",
+    "email": "contact@bmitool.org"
+  }
+}
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Contact",
+      "item": "https://bmitool.org/contact.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools/index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
-  </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
+</nav>
 
-<main class="bmt-main">
+<main style="padding: 3rem 0;">
+  <div class="bmi-container">
+    <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="bmi-breadcrumb-sep">/</span>
+      <span>Contact</span>
+    </nav>
 
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <h1>Get in Touch</h1>
-    <p>Questions about BMI calculations, metabolic health, or our clinical tools? I'd be glad to hear from you.</p>
-  </div>
-</section>
+    <div class="bmi-content" style="max-width: 700px; margin: 0 auto;">
+      <h1>Contact</h1>
+      <p>I read every email, but I'm slow. One person, one dog, too many spreadsheets.</p>
 
-<section style="padding:40px 0;">
-  <div class="bmt-container" style="max-width:700px;">
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
-        <div>
-          <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px; font-size:1.1rem;">Email</h3>
-          <p style="color:var(--bmt-text-light); margin-bottom:8px;"><a href="mailto:contact@bmitool.org" style="color:var(--bmt-primary); text-decoration:none;">contact@bmitool.org</a></p>
-          <p style="color:var(--bmt-text-light); font-size:0.85rem;">I typically respond within 2-3 business days. For medical emergencies, please call 911 or contact your healthcare provider directly.</p>
-        </div>
-        <div>
-          <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px; font-size:1.1rem;">Location</h3>
-          <p style="color:var(--bmt-text-light); margin-bottom:8px;">United States</p>
-          <p style="color:var(--bmt-text-light); font-size:0.85rem;">BMITool.org is an online resource. We do not have a physical office for walk-in visits.</p>
-        </div>
+      <div class="bmi-contact-info">
+        <p><strong>Email:</strong> <a href="mailto:contact@bmitool.org">contact@bmitool.org</a></p>
+        <p><strong>Location:</strong> East Austin, Texas (near Cesar Chavez)</p>
+        <p><strong>Response time:</strong> Generally one to two weeks, sometimes longer if I'm deep in a data rabbit hole or Pixel needs emergency vet attention.</p>
+      </div>
+
+      <h2>What I Can Help With</h2>
+      <ul>
+        <li>Questions about how the tools work or how to interpret your results</li>
+        <li>Bug reports (please include your browser and device — "it broke" is not helpful)</li>
+        <li>Suggestions for new tools or features</li>
+        <li>Corrections to articles (I make mistakes — tell me and I'll fix them)</li>
+        <li>Sharing your own health data story (I love featuring great stories from the community)</li>
+      </ul>
+
+      <h2>What I Cannot Help With</h2>
+      <ul>
+        <li>Medical advice, diagnosis, or treatment recommendations</li>
+        <li>Personalized diet or exercise plans</li>
+        <li>One-on-one coaching or consultation</li>
+        <li>Guest posts, sponsored content, or SEO partnerships</li>
+        <li>Link exchanges or "digital PR" requests</li>
+      </ul>
+
+      <div class="bmi-contact-disclaimer">
+        <p><strong>We do not offer professional services or consultation.</strong> If you would like to share your story, feel free to email us — we love featuring great stories from our community.</p>
       </div>
     </div>
+  </div>
+</main>
 
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h3 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.1rem;">What I Can Help With</h3>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li>Questions about BMI calculation methods and thresholds</li>
-        <li>Clarifications on ethnicity-specific BMI guidelines</li>
-        <li>Pediatric BMI percentile interpretation</li>
-        <li>Feedback on our calculators or clinical tools</li>
-        <li>Technical issues with the website</li>
-        <li>Collaboration inquiries for healthcare professionals</li>
-      </ul>
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/index.html">All Articles</a></li>
+          <li><a href="blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Jamie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
     </div>
-
-    <div class="bmt-card" style="background:#fef3c7; border:1px solid #f59e0b;">
-      <h3 style="color:#92400e; margin-bottom:12px; font-size:1.1rem;">Important Note</h3>
-      <p style="color:#92400e; font-size:0.9rem; line-height:1.6;"><strong>I cannot provide personalized medical advice via email.</strong> This is not a telemedicine service. For medical emergencies, call 911. For personalized medical guidance regarding your weight, metabolic health, or fitness, please consult your own healthcare provider.</p>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
     </div>
   </div>
-</section>
-
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
 </footer>
-
-</main>
-</div>
 
 </body>
 </html>
