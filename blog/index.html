@@ -3,169 +3,603 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Clinical BMI Insights & Metabolic Health - BMITool.org</title>
-<meta name="description" content="Evidence-based BMI analysis, metabolic health insights, and clinical perspectives from Dr. David Chen, MD. Asian BMI thresholds, pediatric BMI, and weight management science.">
+<title>Blog — Health Data Experiments From Austin — BMITool.org</title>
+<meta name="description" content="Self-experiments, data deep-dives, and the occasional rant about wellness culture — all from East Austin. Real numbers, real spreadsheets, real stories.">
 <link rel="canonical" href="https://bmitool.org/blog/">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Blog — Health Data Experiments From Austin — BMITool.org">
+<meta property="og:description" content="Self-experiments, data deep-dives, and the occasional rant about wellness culture — all from East Austin.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/blog/">
+<meta property="og:image" content="https://bmitool.org/images/og-blog.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog — BMITool.org">
+<meta name="twitter:description" content="Health data experiments and data deep-dives from East Austin.">
+<meta name="twitter:image" content="https://bmitool.org/images/og-blog.jpg">
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Blog","name":"BMITool Blog","url":"https://bmitool.org/blog/","author":{"@type":"Person","name":"Dr. David Chen"}}
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "BMITool.org Blog",
+  "url": "https://bmitool.org/blog/",
+  "description": "Health data experiments and insights from Austin, Texas",
+  "author": {
+    "@type": "Person",
+    "name": "James 'Jamie' Whitfield",
+    "url": "https://bmitool.org/about.html"
+  }
+}
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://bmitool.org/blog/"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../tools/index.html">Tools</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+</nav>
+
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>The Blog</h1>
+    <p>Self-experiments, data deep-dives, and the occasional rant about wellness culture. All from a guy in East Austin with too many spreadsheets and a dog who doesn't care about his BMI.</p>
   </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
+</header>
 
-<main class="bmt-main">
-
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <h1>Clinical Insights</h1>
-    <p>Evidence-based analysis of BMI, metabolic health, and weight management from a physician who's tired of oversimplified calculators.</p>
-  </div>
-</section>
-
-<section style="padding:40px 0;">
-  <div class="bmt-container">
-    <div class="bmt-blog-list">
-
-      <a href="./why-your-bmi-calculator-is-probably-lying-to-you.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 20, 2026</span><span>Clinical Insights</span></div>
-          <h3>Why Your BMI Calculator Is Probably Lying to You</h3>
-          <p>I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.</p>
-        </div>
-      </a>
-
-      <a href="./what-15-years-of-metabolic-data-actually-looks-like.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 18, 2026</span><span>Clinical Data</span></div>
-          <h3>What 15 Years of Metabolic Data Actually Looks Like</h3>
-          <p>After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context.</p>
-        </div>
-      </a>
-
-      <a href="./asian-bmi-threshold-why-american-doctors-get-it-wrong.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 15, 2026</span><span>Ethnicity & Health</span></div>
-          <h3>The Asian BMI Threshold: Why American Doctors Get It Wrong</h3>
-          <p>My mother has a BMI of 23.4. In American medicine, that's 'normal.' In reality, she's pre-diabetic with elevated triglycerides. Here's why.</p>
-        </div>
-      </a>
-
-      <a href="./pediatric-bmi-why-adult-calculators-harm-children.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 12, 2026</span><span>Pediatrics</span></div>
-          <h3>Pediatric BMI: Why Adult Calculators Harm Children</h3>
-          <p>A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not obese.</p>
-        </div>
-      </a>
-
-      <a href="./bmi-vs-body-fat-percentage-the-real-debate.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 10, 2026</span><span>Clinical Insights</span></div>
-          <h3>BMI vs Body Fat Percentage: The Real Debate</h3>
-          <p>Body fat percentage is more accurate than BMI. But it's also harder to measure, more expensive, and not always more clinically useful.</p>
-        </div>
-      </a>
-
-      <a href="./the-bmi-rebound-why-lost-weight-returns.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 8, 2026</span><span>Weight Management</span></div>
-          <h3>The BMI Rebound: Why Lost Weight Returns</h3>
-          <p>I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation is real.</p>
-        </div>
-      </a>
-
-      <a href="./waist-circumference-the-missing-piece.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 5, 2026</span><span>Clinical Insights</span></div>
-          <h3>Waist Circumference: The Missing Piece</h3>
-          <p>I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negotiable.</p>
-        </div>
-      </a>
-
-      <a href="./why-i-stop-telling-patients-their-ideal-weight.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>May 3, 2026</span><span>Clinical Practice</span></div>
-          <h3>Why I Stopped Telling Patients Their 'Ideal Weight'</h3>
-          <p>For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures.</p>
-        </div>
-      </a>
-
-      <a href="./metabolic-health-beyond-the-scale.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>April 30, 2026</span><span>Metabolic Health</span></div>
-          <h3>Metabolic Health: Beyond the Scale</h3>
-          <p>I have patients who weigh 200 pounds and are metabolically healthier than patients who weigh 150. Here's what actually determines metabolic health.</p>
-        </div>
-      </a>
-
-      <a href="./the-nih-study-that-changed-how-i-see-bmi.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>April 28, 2026</span><span>Research & Data</span></div>
-          <h3>The NIH Study That Changed How I See BMI</h3>
-          <p>During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in medical school.</p>
-        </div>
-      </a>
-
-      <a href="./bmi-calculators-for-athletes-why-they-fail.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>April 25, 2026</span><span>Sports Medicine</span></div>
-          <h3>BMI Calculators for Athletes: Why They Fail</h3>
-          <p>A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%.</p>
-        </div>
-      </a>
-
-      <a href="./how-i-use-bmi-in-my-clinic-real-protocol.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>April 22, 2026</span><span>Clinical Practice</span></div>
-          <h3>How I Use BMI in My Clinic: The Real Protocol</h3>
-          <p>After 15 years, I've developed a specific protocol for using BMI without falling into its traps. Here's exactly what I do during a new patient visit.</p>
-        </div>
-      </a>
-
-      <a href="./the-future-of-bmi-what-comes-next.html" class="bmt-blog-card">
-        <div style="flex:1;">
-          <div class="bmt-blog-meta"><span>April 20, 2026</span><span>Future of Medicine</span></div>
-          <h3>The Future of BMI: What Comes Next</h3>
-          <p>BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it.</p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
-</footer>
-
+<main class="bmi-container" style="padding-top: 1.5rem;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="bmi-breadcrumb-sep">/</span>
+    <span>Blog</span>
+  </nav>
 </main>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="blog_top"><span>Advertisement</span></div>
 </div>
 
+<main class="bmi-container" style="padding: 3rem 0;">
+  
+
+<!-- BLOG_ARTICLES_START -->
+
+
+
+
+
+
+
+
+
+
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <a href="./austin-heat-fitness-wearable-lies-2026.html" class="bmi-article-card">
+      <img src="../images/blog/austin-heat-fitness-wearable-lies-2026.jpg" alt="Austin Heat Fitness Wearable Lies 2026" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Austin Heat Fitness Wearable Lies 2026</h3>
+        <p>My fitness tracker said I burned 4,200 calories yesterday. I was so proud. I posted a screenshot in my group chat. My friend Sarah, who actually knows...</p>
+        <div class="bmi-article-meta">July 23, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./austin-heat-fitness-wearable-lies.html" class="bmi-article-card">
+      <img src="../images/blog/austin-heat-fitness-wearable-lies.jpg" alt="Austin Heat Fitness Wearable Lies" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Austin Heat Fitness Wearable Lies</h3>
+        <p>My Fitness Watch Said I Was 'Overreaching' During Austin's Hottest Week. It Was Wrong. James "Jamie" Whitfield I was halfway through my Tuesday mornin...</p>
+        <div class="bmi-article-meta">July 06, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./bmi-normal-but-feel-like-garbage.html" class="bmi-article-card">
+      <img src="../images/blog/bmi-normal-but-feel-like-garbage.jpg" alt="Bmi Normal But Feel Like Garbage" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Bmi Normal But Feel Like Garbage</h3>
+        <p>The scale in my bathroom is a liar. Not the digital kind of lie where you shift your weight to the left and shave off two pounds. I mean the deep, str...</p>
+        <div class="bmi-article-meta">July 06, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./my-fitness-tracker-said-i-burned-4200-calories.html" class="bmi-article-card">
+      <img src="../images/blog/my-fitness-tracker-said-i-burned-4200-calories.jpg" alt="My Fitness Tracker Said I Burned 4200 Calories" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>My Fitness Tracker Said I Burned 4200 Calories</h3>
+        <p>My Fitness Tracker Said I Burned 4,200 Calories. My Spreadsheet Said 2,890. The Truth Was Messier. 4,200. That's what my fitness watch told me I burne...</p>
+        <div class="bmi-article-meta">June 24, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./the-week-i-ate-nothing-but-food-truck-tacos.html" class="bmi-article-card">
+      <img src="../images/blog/the-week-i-ate-nothing-but-food-truck-tacos.jpg" alt="The Week I Ate Nothing But Food Truck Tacos" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The Week I Ate Nothing But Food Truck Tacos</h3>
+        <p>The Week I Ate Nothing But Food Truck Tacos — Here's What the Data Said I had a theory. A stupid theory, but a theory nonetheless. I call it the "Aust...</p>
+        <div class="bmi-article-meta">June 23, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./cant-afford-wegovy-alternatives-data.html" class="bmi-article-card">
+      <img src="../images/blog/cant-afford-wegovy-alternatives-data.jpg" alt="Can't Afford Wegovy? Here's What the Data Says" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Can't Afford Wegovy? Here's What the Data Says</h3>
+        <p>I spent two months digging through GLP-1 alternatives. Repurposed generics, supplements, and lifestyle interventions.</p>
+        <div class="bmi-article-meta">June 05, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./three-small-data-changes-moved-bmi.html" class="bmi-article-card">
+      <img src="../images/blog/three-small-data-changes-moved-bmi.jpg" alt="Three Small Data Changes That Moved My BMI" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Three Small Data Changes That Moved My BMI</h3>
+        <p>Three data hygiene fixes that moved my BMI from 26.8 to 25.9. No diet changes, no exercise fads. Just better data.</p>
+        <div class="bmi-article-meta">June 01, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./plant-based-trend-bmi-labels.html" class="bmi-article-card">
+      <img src="../images/blog/plant-based-trend-bmi-labels.jpg" alt="What the Plant-Based Trend Means for Your BMI" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>What the Plant-Based Trend Means for Your BMI</h3>
+        <p>I bought 20 plant-based products from H-E-B and compared them to animal-based equivalents. The sodium was shocking.</p>
+        <div class="bmi-article-meta">May 28, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./105f-austin-workout-data.html" class="bmi-article-card">
+      <img src="../images/blog/105f-austin-workout-data.jpg" alt="It's 105°F in Austin. How I Adjust My Workout Data." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>It's 105°F in Austin. How I Adjust My Workout Data.</h3>
+        <p>Your fitness tracker lies above 95°F. Here's how I adjust training and data for Austin summers.</p>
+        <div class="bmi-article-meta">May 22, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<div class="bmi-ad-slot has-content" data-ad-slot="blog_mid" style="width:100%;height:250px;margin:20px 0;grid-column:1/-1;"></div>
+<a href="./why-your-bmi-calculator-is-probably-lying-to-you.html" class="bmi-article-card">
+      <img src="../images/blog/why-your-bmi-calculator-is-probably-lying-to-you.jpg" alt="Why Your BMI Calculator Is Probably Lying to You" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Why Your BMI Calculator Is Probably Lying to You</h3>
+        <p>I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.</p>
+        <div class="bmi-article-meta">May 20, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./meal-prep-algorithm.html" class="bmi-article-card">
+      <img src="../images/blog/meal-prep-algorithm.jpg" alt="Meal Prep Did Not Work for Me. So I Built an Algorithm." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Meal Prep Did Not Work for Me. So I Built an Algorithm.</h3>
+        <p>Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.</p>
+        <div class="bmi-article-meta">May 18, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./what-15-years-of-metabolic-data-actually-looks-like.html" class="bmi-article-card">
+      <img src="../images/blog/what-15-years-of-metabolic-data-actually-looks-like.jpg" alt="What 15 Years of Metabolic Data Actually Looks Like" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>What 15 Years of Metabolic Data Actually Looks Like</h3>
+        <p>After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context.</p>
+        <div class="bmi-article-meta">May 18, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./asian-bmi-threshold-why-american-doctors-get-it-wrong.html" class="bmi-article-card">
+      <img src="../images/blog/asian-bmi-threshold-why-american-doctors-get-it-wrong.jpg" alt="The Asian BMI Threshold: Why American Doctors Get It Wrong" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The Asian BMI Threshold: Why American Doctors Get It Wrong</h3>
+        <p>My mother has a BMI of 23.4. In American medicine, that's 'normal.' In reality, she's pre-diabetic with elevated triglycerides. Here's why.</p>
+        <div class="bmi-article-meta">May 15, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./lost-40-pounds-data-same.html" class="bmi-article-card">
+      <img src="../images/blog/lost-40-pounds-data-same.jpg" alt="I Lost 40 Pounds but My Data Looks the Same" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Lost 40 Pounds but My Data Looks the Same</h3>
+        <p>The email I get every week: someone lost weight but their BMI barely moved. Here is why that happens.</p>
+        <div class="bmi-article-meta">May 14, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./pediatric-bmi-why-adult-calculators-harm-children.html" class="bmi-article-card">
+      <img src="../images/blog/pediatric-bmi-why-adult-calculators-harm-children.jpg" alt="Pediatric BMI: Why Adult Calculators Harm Children" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Pediatric BMI: Why Adult Calculators Harm Children</h3>
+        <p>A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not...</p>
+        <div class="bmi-article-meta">May 12, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./bmi-vs-body-fat-percentage-the-real-debate.html" class="bmi-article-card">
+      <img src="../images/blog/bmi-vs-body-fat-percentage-the-real-debate.jpg" alt="BMI vs Body Fat Percentage: The Real Debate" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>BMI vs Body Fat Percentage: The Real Debate</h3>
+        <p>Body fat percentage is more accurate than BMI. But it's also harder to measure accurately, more expensive, and not always more clinically useful. Here...</p>
+        <div class="bmi-article-meta">May 10, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./canyon-ranch-austin-spreadsheet.html" class="bmi-article-card">
+      <img src="../images/blog/canyon-ranch-austin-spreadsheet.jpg" alt="I Spent a Week at Canyon Ranch Austin" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Spent a Week at Canyon Ranch Austin</h3>
+        <p>I brought a spreadsheet to Canyon Ranch Austin. The data was fascinating, the experience was mixed, the cost was absurd.</p>
+        <div class="bmi-article-meta">May 10, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./the-bmi-rebound-why-lost-weight-returns.html" class="bmi-article-card">
+      <img src="../images/blog/the-bmi-rebound-why-lost-weight-returns.jpg" alt="The BMI Rebound: Why Lost Weight Returns" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The BMI Rebound: Why Lost Weight Returns</h3>
+        <p>I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation that follows weight los...</p>
+        <div class="bmi-article-meta">May 08, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<div class="bmi-ad-slot has-content" data-ad-slot="blog_mid" style="width:100%;height:250px;margin:20px 0;grid-column:1/-1;"></div>
+<a href="./another-bmi-post-ran-numbers.html" class="bmi-article-card">
+      <img src="../images/blog/another-bmi-post-ran-numbers.jpg" alt="Another BMI Post. But I Actually Ran the Numbers." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Another BMI Post. But I Actually Ran the Numbers.</h3>
+        <p>Another BMI post. I know. But I actually ran the numbers this time. NHANES data, DEXA correlations, and a lot of spreadsheets.</p>
+        <div class="bmi-article-meta">May 06, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./waist-circumference-the-missing-piece.html" class="bmi-article-card">
+      <img src="../images/blog/waist-circumference-the-missing-piece.jpg" alt="Waist Circumference: The Missing Piece" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Waist Circumference: The Missing Piece</h3>
+        <p>I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negoti...</p>
+        <div class="bmi-article-meta">May 05, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./why-i-stop-telling-patients-their-ideal-weight.html" class="bmi-article-card">
+      <img src="../images/blog/why-i-stop-telling-patients-their-ideal-weight.jpg" alt="Why I Stopped Telling Patients Their 'Ideal Weight'" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Why I Stopped Telling Patients Their 'Ideal Weight'</h3>
+        <p>For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures. I don't do that anym...</p>
+        <div class="bmi-article-meta">May 03, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./texas-nutrition-license-law.html" class="bmi-article-card">
+      <img src="../images/blog/texas-nutrition-license-law.jpg" alt="The New Texas Nutrition License Law Is Coming." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The New Texas Nutrition License Law Is Coming.</h3>
+        <p>The new Texas nutrition license law is coming. I crunched the numbers. It is a mess, but it is a mess with a spreadsheet.</p>
+        <div class="bmi-article-meta">May 02, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./metabolic-health-beyond-the-scale.html" class="bmi-article-card">
+      <img src="../images/blog/metabolic-health-beyond-the-scale.jpg" alt="Metabolic Health: Beyond the Scale" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Metabolic Health: Beyond the Scale</h3>
+        <p>I have patients who weigh 200 pounds and are metabolically healthier than patients who weigh 150. Here's what actually determines metabolic health.</p>
+        <div class="bmi-article-meta">April 30, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./heb-prepared-meals-30-days.html" class="bmi-article-card">
+      <img src="../images/blog/heb-prepared-meals-30-days.jpg" alt="I Ate Only H-E-B Prepared Meals for 30 Days" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Ate Only H-E-B Prepared Meals for 30 Days</h3>
+        <p>I ate only H-E-B prepared meals for 30 days and tracked everything. The sodium numbers were shocking.</p>
+        <div class="bmi-article-meta">April 28, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./the-nih-study-that-changed-how-i-see-bmi.html" class="bmi-article-card">
+      <img src="../images/blog/the-nih-study-that-changed-how-i-see-bmi.jpg" alt="The NIH Study That Changed How I See BMI" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The NIH Study That Changed How I See BMI</h3>
+        <p>During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in med...</p>
+        <div class="bmi-article-meta">April 28, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./bmi-calculators-for-athletes-why-they-fail.html" class="bmi-article-card">
+      <img src="../images/blog/bmi-calculators-for-athletes-why-they-fail.jpg" alt="BMI Calculators for Athletes: Why They Fail" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>BMI Calculators for Athletes: Why They Fail</h3>
+        <p>A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%. Here's why BMI is meaningl...</p>
+        <div class="bmi-article-meta">April 25, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./how-i-use-bmi-in-my-clinic-real-protocol.html" class="bmi-article-card">
+      <img src="../images/blog/how-i-use-bmi-in-my-clinic-real-protocol.jpg" alt="How I Use BMI in My Clinic: The Real Protocol" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>How I Use BMI in My Clinic: The Real Protocol</h3>
+        <p>After 15 years, I've developed a specific protocol for using BMI without falling into its traps. Here's exactly what I do during a new patient visit.</p>
+        <div class="bmi-article-meta">April 22, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<div class="bmi-ad-slot has-content" data-ad-slot="blog_mid" style="width:100%;height:250px;margin:20px 0;grid-column:1/-1;"></div>
+<a href="./rucking-yvo-warrior-month.html" class="bmi-article-card">
+      <img src="../images/blog/rucking-yvo-warrior-month.jpg" alt="I Tried Rucking With YVO Warrior for a Month." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Tried Rucking With YVO Warrior for a Month.</h3>
+        <p>Walking with 20 pounds on the Butler Trail. Heart rate data, body composition changes, and why BMI barely budged.</p>
+        <div class="bmi-article-meta">April 22, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./the-future-of-bmi-what-comes-next.html" class="bmi-article-card">
+      <img src="../images/blog/the-future-of-bmi-what-comes-next.jpg" alt="The Future of BMI: What Comes Next" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>The Future of BMI: What Comes Next</h3>
+        <p>BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it — and what's not ready yet.</p>
+        <div class="bmi-article-meta">April 20, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./moved-austin-resting-heart-rate.html" class="bmi-article-card">
+      <img src="../images/blog/moved-austin-resting-heart-rate.jpg" alt="I Moved to Austin and My Resting Heart Rate Changed" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Moved to Austin and My Resting Heart Rate Changed</h3>
+        <p>Moving from Denver to Austin changed my resting heart rate. I have the data, the graph, and some theories.</p>
+        <div class="bmi-article-meta">April 18, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./austin-fittest-city-data-problem.html" class="bmi-article-card">
+      <img src="../images/blog/austin-fittest-city-data-problem.jpg" alt="Why Austin's 'Fittest City' Label Is a Data Problem." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>Why Austin's 'Fittest City' Label Is a Data Problem.</h3>
+        <p>Austin keeps showing up on 'fittest city' lists. As a data guy who lives here, I have some questions about those rankings.</p>
+        <div class="bmi-article-meta">April 14, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./five-bmi-myths-tested.html" class="bmi-article-card">
+      <img src="../images/blog/five-bmi-myths-tested.jpg" alt="I Tested 5 Popular BMI Myths. Only 2 Were True." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Tested 5 Popular BMI Myths. Only 2 Were True.</h3>
+        <p>I tested 5 popular BMI myths with real data. Only 2 were true. NHANES data, DEXA correlations, and a lot of spreadsheets.</p>
+        <div class="bmi-article-meta">April 10, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./sxsw-2026-health-track.html" class="bmi-article-card">
+      <img src="../images/blog/sxsw-2026-health-track.jpg" alt="SXSW 2026 Had a Health Track. I Went." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>SXSW 2026 Had a Health Track. I Went.</h3>
+        <p>SXSW 2026 had a health track. I went. It was weird. Here is what happened when a data guy went to a wellness conference.</p>
+        <div class="bmi-article-meta">April 06, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+<a href="./tracked-bmi-90-days-spreadsheet.html" class="bmi-article-card">
+      <img src="../images/blog/tracked-bmi-90-days-spreadsheet.jpg" alt="I Tracked My BMI for 90 Days Straight." class="bmi-article-thumb" width="120" height="90" loading="lazy">
+      <div class="bmi-article-content">
+        <h3>I Tracked My BMI for 90 Days Straight.</h3>
+        <p>I tracked my BMI for 90 days straight. Here is the spreadsheet. Daily weigh-ins, moving averages, and the lying nature of daily numbers.</p>
+        <div class="bmi-article-meta">April 02, 2026</span>
+          <span>Health-data</span>
+          <span>1518 words</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+<!-- BLOG_ARTICLES_END -->
+
+  <div class="bmi-blog-dynamic" style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;"></div>
+
+<!-- Dynamic Article Loading -->
+<script>
+(function() {
+  const staticSlugs = ['cant-afford-wegovy-alternatives-data', 'three-small-data-changes-moved-bmi', 'plant-based-trend-bmi-labels', '105f-austin-workout-data', 'meal-prep-algorithm', 'lost-40-pounds-data-same', 'canyon-ranch-austin-spreadsheet', 'another-bmi-post-ran-numbers', 'texas-nutrition-license-law', 'heb-prepared-meals-30-days', 'rucking-yvo-warrior-month', 'moved-austin-resting-heart-rate', 'austin-fittest-city-data-problem', 'five-bmi-myths-tested', 'sxsw-2026-health-track'];
+
+  fetch('../articles.json')
+    .then(r => r.json())
+    .then(data => {
+      const container = document.querySelector('.bmi-blog-dynamic');
+      if (!container) return;
+
+      const remaining = data.filter(a => !staticSlugs.includes(a.slug)).sort((a,b) => b.date.localeCompare(a.date));
+      if (remaining.length === 0) return;
+
+      remaining.forEach(article => {
+        const date = new Date(article.date + 'T00:00:00');
+        const dateStr = date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+        const card = document.createElement('a');
+        card.href = article.slug + '.html';
+        card.className = 'bmi-article-card';
+        card.innerHTML = `
+          <img src="../images/blog/${article.slug}.jpg" alt="${article.title}" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+          <div class="bmi-article-content">
+            <h3>${article.title}</h3>
+            <p>${article.description || ''}</p>
+            <div class="bmi-article-meta">
+              <span>${dateStr}</span>
+              <span>${(article.category || '').charAt(0).toUpperCase() + (article.category || '').slice(1)}</span>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(e => console.log('Dynamic load skipped:', e));
+})();
+</script>
+</main>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="blog_bottom" style="margin-top: 2rem;">
+    <span>Advertisement</span>
+  </div>
+</div>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="../tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="../tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="../tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="../tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="../tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="../tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="index.html">All Articles</a></li>
+          <li><a href="tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="../about.html">About Jamie</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+          <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
 </body>
 </html>
