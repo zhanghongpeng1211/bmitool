@@ -3,63 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Page Not Found | BMITool.org</title>
-<meta name="description" content="Page not found. Return to BMITool.org for clinical-grade BMI calculators and metabolic health resources.">
+<title>Page Not Found — BMITool.org</title>
+<meta name="description" content="The page you are looking for does not exist. Return to BMITool.org homepage.">
 <link rel="canonical" href="https://bmitool.org/404.html">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta property="og:title" content="Page Not Found — BMITool.org">
+<meta property="og:description" content="The page you are looking for does not exist.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/404.html">
+<meta property="og:image" content="https://bmitool.org/images/og-default.jpg">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Page Not Found — BMITool.org">
+<meta name="twitter:description" content="The page you are looking for does not exist.">
+
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Page Not Found",
+      "item": "https://bmitool.org/404.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools/index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
-  </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
+</nav>
 
-<main class="bmt-main">
-
-<section style="padding:80px 0; text-align:center;">
-  <div class="bmt-container">
-    <div style="font-size:6rem; font-weight:800; color:var(--bmt-primary-light); margin-bottom:24px;">404</div>
-    <h1 style="font-size:2rem; color:var(--bmt-primary-dark); margin-bottom:16px;">Page Not Found</h1>
-    <p style="color:var(--bmt-text-light); font-size:1.1rem; max-width:500px; margin:0 auto 32px;">The page you're looking for doesn't exist or has been moved. Let's get you back on track.</p>
-    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-      <a href="/" class="bmt-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Back to Home
-      </a>
-      <a href="/tools/bmi-calculator.html" class="bmt-btn bmt-btn-secondary">BMI Calculator</a>
-      <a href="/blog/" class="bmt-btn bmt-btn-secondary">Read Blog</a>
+<main class="bmi-404">
+  <div class="bmi-container">
+    <h1>404</h1>
+    <p>This page doesn't exist. Like that diet you tried for three days and quit.</p>
+    <p style="margin-bottom: 2rem;">Maybe you mistyped the URL, or maybe I moved something and forgot to update the link. It happens. I'm one person with a dog and a spreadsheet habit.</p>
+    <a href="index.html" class="bmi-hero-cta">Go Home</a>
+    <div style="margin-top: 2rem;">
+      <a href="tools/index.html" style="margin-right: 1rem; color: var(--bmi-primary);">Browse Tools</a>
+      <a href="blog/index.html" style="color: var(--bmi-primary);">Read the Blog</a>
     </div>
   </div>
-</section>
-
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
-</footer>
-
 </main>
-</div>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/index.html">All Articles</a></li>
+          <li><a href="blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Jamie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
