@@ -3,258 +3,398 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator & Clinical Tools | Evidence-Based Health Analysis - bmitool.org</title>
-<meta name="description" content="Clinical-grade BMI calculators with ethnicity-specific thresholds, pediatric BMI percentiles, and metabolic health assessments. Built by Dr. David Chen, MD. No signup required.">
-<meta name="keywords" content="BMI calculator, body mass index, pediatric BMI, Asian BMI threshold, waist circumference, metabolic health, obesity calculator">
+<title>BMITool.org — Data-Driven Health Tools & Experiments</title>
+<meta name="description" content="Free BMI calculators, body composition trackers, and metabolic health insights from Austin, Texas. All data stays in your browser — we never see it.">
+<meta name="keywords" content="BMI calculator, body fat calculator, ideal weight, calorie calculator, health data, Austin Texas">
 <link rel="canonical" href="https://bmitool.org/">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<!-- Open Graph -->
+<meta property="og:title" content="BMITool.org — Data-Driven Health Tools & Experiments">
+<meta property="og:description" content="Free BMI calculators, body composition trackers, and metabolic health insights from Austin, Texas. All data stays in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/">
+<meta property="og:image" content="https://bmitool.org/images/og-home.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BMITool.org — Data-Driven Health Tools & Experiments">
+<meta name="twitter:description" content="Free BMI calculators, body composition trackers, and metabolic health insights from Austin, Texas.">
+<meta name="twitter:image" content="https://bmitool.org/images/og-home.jpg">
+
+<!-- Schema.org -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "BMITool.org",
   "url": "https://bmitool.org/",
+  "description": "Data-driven health tools and experiments from Austin, Texas",
   "author": {
     "@type": "Person",
-    "name": "Dr. David Chen",
-    "jobTitle": "Board-Certified Internal Medicine Physician",
-    "alumniOf": ["Johns Hopkins University", "Harvard T.H. Chan School of Public Health"]
+    "name": "James 'Jamie' Whitfield",
+    "jobTitle": "Health Data Analyst",
+    "url": "https://bmitool.org/about.html"
   }
 }
 </script>
-</head>
-<body>
-
-<div class="bmt-layout">
-
-<!-- Left Sidebar -->
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link active">
-      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      BMI Calculator
-    </a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link">
-      <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-      Pediatric BMI
-    </a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
-      Asian BMI Threshold
-    </a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link">
-      <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-      BMI + Waist Ratio
-    </a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link">
-      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      BMI Trend Tracker
-    </a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link">
-      <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>
-      Ideal Weight Range
-    </a>
-  </div>
-
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About Dr. Chen</a>
-  </div>
-
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Legal</div>
-    <a href="/privacy.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Privacy</a>
-    <a href="/terms.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Terms</a>
-    <a href="/disclosure.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Disclosure</a>
-  </div>
-
-  <div class="bmt-sidebar-footer">
-    &copy; 2026 BMITool.org<br>
-    <small>Not medical advice</small>
-  </div>
-</aside>
-
-<!-- Main Content -->
-<main class="bmt-main">
-
-<!-- Hero -->
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <div class="bmt-hero-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      Clinical-Grade Accuracy
-    </div>
-    <h1>Understand Your Body,<br>Not Just Your Numbers</h1>
-    <p>Evidence-based BMI analysis with ethnicity-specific thresholds, pediatric percentiles, and metabolic health assessments. Built by a physician who was tired of seeing patients confused by oversimplified calculators.</p>
-    <a href="/tools/bmi-calculator.html" class="bmt-btn">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      Calculate Your BMI
-    </a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-btn bmt-btn-secondary" style="margin-left:12px;">
-      Pediatric Calculator
-    </a>
-  </div>
-</section>
-
-<!-- Clinical Tools -->
-<section style="padding:40px 0;">
-  <div class="bmt-container">
-    <h2 style="font-size:1.5rem; color:var(--bmt-primary-dark); margin-bottom:24px; font-weight:700;">Clinical Tools</h2>
-    <div class="bmt-tool-list">
-      <a href="/tools/bmi-calculator.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>BMI Calculator</h3>
-          <p>Standard BMI with WHO/CDC categories, health risk assessment, and personalized recommendations based on clinical thresholds.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-      <a href="/tools/pediatric-bmi.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>Pediatric BMI Calculator</h3>
-          <p>Age and sex-specific BMI percentiles for children 2-19 years. CDC growth chart integration with clinical interpretation.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-      <a href="/tools/asian-bmi.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>Asian BMI Threshold</h3>
-          <p>Lower BMI cutoffs for metabolic risk in Asian populations (WHO Western Pacific guidelines). Ethnicity-specific health assessments.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-      <a href="/tools/bmi-waist.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>BMI + Waist Circumference</h3>
-          <p>Combined metabolic risk assessment using BMI and waist-to-height ratio. More predictive than BMI alone for cardiovascular risk.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-      <a href="/tools/bmi-trend.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>BMI Trend Tracker</h3>
-          <p>Long-term BMI tracking with visual trends, goal setting, and clinical milestone markers. Local storage, no signup required.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-      <a href="/tools/ideal-weight.html" class="bmt-tool-item">
-        <div class="bmt-tool-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg></div>
-        <div class="bmt-tool-content">
-          <h3>Ideal Weight Range</h3>
-          <p>Healthy weight range based on BMI 18.5-24.9 with frame size adjustment and clinical context for your height and build.</p>
-        </div>
-        <span class="bmt-tool-arrow">&rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Latest Articles -->
-<section style="padding:40px 0; background:var(--bmt-white);">
-  <div class="bmt-container">
-    <h2 style="font-size:1.5rem; color:var(--bmt-primary-dark); margin-bottom:24px; font-weight:700;">Clinical Insights</h2>
-    <div class="bmt-blog-list" id="latestArticles"></div>
-    <div class="bmt-text-center bmt-mt-20">
-      <a href="/blog/" class="bmt-btn">View All Articles</a>
-    </div>
-  </div>
-</section>
-
-<!-- Disclaimer -->
-<section style="padding:20px 0;">
-  <div class="bmt-container">
-    <div class="bmt-disclaimer">
-      <strong>Medical Disclaimer:</strong> These calculators provide estimates based on population-level data. Individual health assessment requires clinical examination. Always consult your healthcare provider for personalized medical advice.
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bmt-footer">
-  <a href="/">Home</a>
-  <a href="/blog/">Blog</a>
-  <a href="/faq.html">FAQ</a>
-  <a href="/about.html">About</a>
-  <a href="/privacy.html">Privacy</a>
-  <a href="/contact.html">Contact</a>
-  <br><br>
-  &copy; 2026 BMITool.org &middot; Built by Dr. David Chen &middot; Not medical advice
-</footer>
-
-<!-- Sticky Features Bar -->
-<div class="bmt-sticky-bar" id="stickyBar">
-  <div class="bmt-sticky-bar-left">
-    <button class="bmt-sticky-btn" onclick="saveCalculation()">
-      <svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
-      Save Calculation
-    </button>
-    <button class="bmt-sticky-btn" onclick="shareResult()">
-      <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-      Share Result
-    </button>
-    <button class="bmt-sticky-btn" onclick="generateReport()">
-      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      Export Report
-    </button>
-  </div>
-  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Your data stays on your device</span>
-</div>
-
-</main>
-</div>
-
-<script>
-// Load latest articles
-fetch('/articles.json')
-  .then(r => r.json())
-  .then(articles => {
-    const container = document.getElementById('latestArticles');
-    articles.slice(0, 3).forEach(a => {
-      container.innerHTML += `
-        <a href="/blog/${a.slug}.html" class="bmt-blog-card">
-          <div style="flex:1;">
-            <div class="bmt-blog-meta"><span>${a.date}</span><span>${a.category}</span></div>
-            <h3>${a.title}</h3>
-            <p>${a.excerpt}</p>
-          </div>
-        </a>
-      `;
-    });
-  })
-  .catch(() => {
-    document.getElementById('latestArticles').innerHTML = '<p style="text-align:center; color:var(--bmt-text-light);">Articles loading...</p>';
-  });
-
-// Sticky features
-function saveCalculation() {
-  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
-  const item = { date: new Date().toISOString(), type: 'homepage', url: window.location.href };
-  saved.push(item);
-  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
-  alert('Saved! View your history in any calculator tool.');
-}
-
-function shareResult() {
-  const url = window.location.origin + '/tools/bmi-calculator.html';
-  navigator.clipboard.writeText(url).then(() => alert('Calculator link copied!'));
-}
-
-function generateReport() {
-  alert('Open any calculator tool to generate a full metabolic health report.');
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    }
+  ]
 }
 </script>
 
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="tools/index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="bmi-hero">
+  <div class="bmi-container">
+    <div class="bmi-hero-content">
+      <h1>Your Body, By the Numbers</h1>
+      <p>Free health calculators that run entirely in your browser. No sign-ups. No data collection. Just the math, the charts, and the honest truth about what your metrics actually mean.</p>
+      <a href="tools/index.html" class="bmi-hero-cta">
+        Explore the Tools
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Hero Top -->
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="hero_top">
+    <span>Advertisement</span>
+  </div>
+</div>
+
+<!-- Tools Section -->
+<section style="padding: 4rem 0;">
+  <div class="bmi-container">
+    <div class="bmi-section-header">
+      <h2>Health Data Tools</h2>
+      <p>Seven calculators built for people who want to understand their numbers, not just see them. Every tool stores data locally in your browser.</p>
+    </div>
+    <div class="bmi-card-grid">
+      <a href="tools/bmi-calculator.html" class="bmi-card">
+        <div class="bmi-card-icon">📊</div>
+        <h3>BMI Calculator</h3>
+        <p>Calculate your Body Mass Index with instant category visualization and trend tracking over time.</p>
+        <span class="bmi-card-tag">Most Popular</span>
+      </a>
+      <a href="tools/weight-loss-timeline.html" class="bmi-card">
+        <div class="bmi-card-icon">📈</div>
+        <h3>Weight Loss Timeline</h3>
+        <p>Project your weight loss journey with realistic timelines based on your calorie deficit and metabolic data.</p>
+        <span class="bmi-card-tag">Planning</span>
+      </a>
+      <a href="tools/body-fat-estimator.html" class="bmi-card">
+        <div class="bmi-card-icon">🎯</div>
+        <h3>Body Fat Estimator</h3>
+        <p>Navy method and tape-measure based body fat percentage with visual charts and health category breakdown.</p>
+        <span class="bmi-card-tag">Accuracy</span>
+      </a>
+      <a href="tools/ideal-weight-range.html" class="bmi-card">
+        <div class="bmi-card-icon">⚖️</div>
+        <h3>Ideal Weight Range</h3>
+        <p>Compare four classic formulas (Robinson, Miller, Devine, Hamwi) to find your healthy weight window.</p>
+        <span class="bmi-card-tag">Comparison</span>
+      </a>
+      <a href="tools/calorie-needs-calculator.html" class="bmi-card">
+        <div class="bmi-card-icon">🔥</div>
+        <h3>Calorie Needs Calculator</h3>
+        <p>Harris-Benedict and Mifflin-St Jeor equations side by side, with climate and activity adjustments.</p>
+        <span class="bmi-card-tag">Metabolism</span>
+      </a>
+      <a href="tools/macro-split-planner.html" class="bmi-card">
+        <div class="bmi-card-icon">🥗</div>
+        <h3>Macro Split Planner</h3>
+        <p>Design your protein, carb, and fat distribution based on your goals, diet style, and training schedule.</p>
+        <span class="bmi-card-tag">Nutrition</span>
+      </a>
+      <a href="tools/waist-to-height-ratio.html" class="bmi-card">
+        <div class="bmi-card-icon">📏</div>
+        <h3>Waist-to-Height Ratio</h3>
+        <p>A simple tape-measure metric that often predicts metabolic risk better than BMI alone.</p>
+        <span class="bmi-card-tag">Screening</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Middle -->
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="middle">
+    <span>Advertisement</span>
+  </div>
+</div>
+
+<!-- Latest Articles Section -->
+<section style="padding: 4rem 0; background: var(--bmi-surface);">
+  <div class="bmi-container">
+    <div class="bmi-section-header">
+      <h2>Latest From the Blog</h2>
+      <p>Self-experiments, data deep-dives, and the occasional rant about wellness culture — all from East Austin.</p>
+    </div>
+    <!-- INDEX_ARTICLES_START -->
+
+
+
+
+
+
+
+
+      <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+
+      <a href="./blog/austin-heat-fitness-wearable-lies-2026.html" class="bmi-article-card">
+        <img src="./images/blog/austin-heat-fitness-wearable-lies-2026.jpg" alt="Austin Heat Fitness Wearable Lies 2026" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>Austin Heat Fitness Wearable Lies 2026</h3>
+          <p>My fitness tracker said I burned 4,200 calories yesterday. I was so proud. I posted a screenshot in my group chat. My friend Sarah, who actually knows...</p>
+          <div class="bmi-article-meta">July 23, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+<a href="./blog/austin-heat-fitness-wearable-lies.html" class="bmi-article-card">
+        <img src="./images/blog/austin-heat-fitness-wearable-lies.jpg" alt="Austin Heat Fitness Wearable Lies" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>Austin Heat Fitness Wearable Lies</h3>
+          <p>My Fitness Watch Said I Was 'Overreaching' During Austin's Hottest Week. It Was Wrong. James "Jamie" Whitfield I was halfway through my Tuesday mornin...</p>
+          <div class="bmi-article-meta">July 06, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+<a href="./blog/bmi-normal-but-feel-like-garbage.html" class="bmi-article-card">
+        <img src="./images/blog/bmi-normal-but-feel-like-garbage.jpg" alt="Bmi Normal But Feel Like Garbage" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>Bmi Normal But Feel Like Garbage</h3>
+          <p>The scale in my bathroom is a liar. Not the digital kind of lie where you shift your weight to the left and shave off two pounds. I mean the deep, str...</p>
+          <div class="bmi-article-meta">July 06, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+<a href="./blog/my-fitness-tracker-said-i-burned-4200-calories.html" class="bmi-article-card">
+        <img src="./images/blog/my-fitness-tracker-said-i-burned-4200-calories.jpg" alt="My Fitness Tracker Said I Burned 4200 Calories" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>My Fitness Tracker Said I Burned 4200 Calories</h3>
+          <p>My Fitness Tracker Said I Burned 4,200 Calories. My Spreadsheet Said 2,890. The Truth Was Messier. 4,200. That's what my fitness watch told me I burne...</p>
+          <div class="bmi-article-meta">June 24, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+<a href="./blog/the-week-i-ate-nothing-but-food-truck-tacos.html" class="bmi-article-card">
+        <img src="./images/blog/the-week-i-ate-nothing-but-food-truck-tacos.jpg" alt="The Week I Ate Nothing But Food Truck Tacos" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>The Week I Ate Nothing But Food Truck Tacos</h3>
+          <p>The Week I Ate Nothing But Food Truck Tacos — Here's What the Data Said I had a theory. A stupid theory, but a theory nonetheless. I call it the "Aust...</p>
+          <div class="bmi-article-meta">June 23, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+<a href="./blog/cant-afford-wegovy-alternatives-data.html" class="bmi-article-card">
+        <img src="./images/blog/cant-afford-wegovy-alternatives-data.jpg" alt="Can't Afford Wegovy? Here's What the Data Says" class="bmi-article-thumb" width="120" height="90" loading="lazy">
+        <div class="bmi-article-content">
+          <h3>Can't Afford Wegovy? Here's What the Data Says</h3>
+          <p>I spent two months digging through GLP-1 alternatives. Repurposed generics, supplements, and lifestyle interventions.</p>
+          <div class="bmi-article-meta">June 05, 2026</span>
+            <span>Health Data</span>
+            <span>1,518 words</span>
+          </div>
+        </div>
+      </a>
+      </div>
+
+
+
+
+
+
+
+
+<!-- INDEX_ARTICLES_END -->
+      <div style="text-align: center; margin-top: 2rem;">
+      <a href="blog/index.html" style="display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; color: var(--bmi-primary);">
+        View All 16 Articles
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats / Trust Section -->
+<section style="padding: 4rem 0;">
+  <div class="bmi-container">
+    <div class="bmi-section-header">
+      <h2>Why BMITool.org Is Different</h2>
+      <p>No sign-ups. No data collection. No "premium tier." Just tools that work.</p>
+    </div>
+    <div class="bmi-card-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+      <div class="bmi-card" style="text-align: center;">
+        <div class="bmi-card-icon" style="margin: 0 auto 1rem;">🔒</div>
+        <h3>100% Private</h3>
+        <p>All calculations happen in your browser. Your data never touches our servers.</p>
+      </div>
+      <div class="bmi-card" style="text-align: center;">
+        <div class="bmi-card-icon" style="margin: 0 auto 1rem;">📊</div>
+        <h3>Real Charts</h3>
+        <p>Every tool generates live Canvas/SVG charts — not static images. Save, export, or screenshot them.</p>
+      </div>
+      <div class="bmi-card" style="text-align: center;">
+        <div class="bmi-card-icon" style="margin: 0 auto 1rem;">💾</div>
+        <h3>Local History</h3>
+        <p>Your tracking data is saved in your browser's localStorage. Clear it anytime. We can't see it.</p>
+      </div>
+      <div class="bmi-card" style="text-align: center;">
+        <div class="bmi-card-icon" style="margin: 0 auto 1rem;">🧮</div>
+        <h3>Multiple Formulas</h3>
+        <p>Compare BMI, Navy body fat, four ideal weight formulas, and two calorie equations side by side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Teaser -->
+<section style="padding: 4rem 0; background: var(--bmi-surface);">
+  <div class="bmi-container">
+    <div class="bmi-section-header">
+      <h2>Common Questions</h2>
+    </div>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="bmi-faq-item">
+        <div class="bmi-faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+          <span>Is my data really private?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bmi-faq-answer">
+          <p>Yes. All calculations run in your browser using JavaScript. We don't have a database. We don't use cookies for tracking. We don't even have a server that processes your inputs. If you clear your browser data, your history disappears. That's the point.</p>
+        </div>
+      </div>
+      <div class="bmi-faq-item">
+        <div class="bmi-faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+          <span>Are these tools accurate?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bmi-faq-answer">
+          <p>They're as accurate as the formulas they use — which are the same formulas doctors and researchers use. BMI is a screening tool, not a diagnosis. Body fat estimators (like the Navy method) have a margin of error of ±3%. We show you the uncertainty, not just the number.</p>
+        </div>
+      </div>
+      <div class="bmi-faq-item">
+        <div class="bmi-faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+          <span>Why is this free?</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="bmi-faq-answer">
+          <p>I built these tools for myself first. Then I figured other people might find them useful. The site is supported by advertising (clearly labeled) and affiliate links to products I actually use. No paywalls, no "premium features," no data selling.</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="faq.html" style="font-weight: 600; color: var(--bmi-primary);">Read All FAQs →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Footer -->
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="footer">
+    <span>Advertisement</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/index.html">All Articles</a></li>
+          <li><a href="blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Jamie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.75rem;">Not medical advice. For entertainment and education only.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="ads-loader.js"></script>
 </body>
 </html>
