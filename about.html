@@ -3,111 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Dr. David Chen | BMITool.org</title>
-<meta name="description" content="Dr. David Chen is a board-certified Internal Medicine physician with 15+ years of clinical experience. MD from Johns Hopkins, MPH from Harvard. Former NIH NIDDK researcher.">
+<title>About Jamie Whitfield — BMITool.org</title>
+<meta name="description" content="James 'Jamie' Whitfield is a former fintech data analyst turned health data nerd. He runs BMITool.org from East Austin, tracking everything from BMI to burrito intake.">
 <link rel="canonical" href="https://bmitool.org/about.html">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta property="og:title" content="About Jamie Whitfield — BMITool.org">
+<meta property="og:description" content="Former fintech data analyst turned health data nerd. Running self-experiments and building free health calculators from East Austin, Texas.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://bmitool.org/about.html">
+<meta property="og:image" content="https://bmitool.org/images/about/author-jamie-whitfield.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Jamie Whitfield — BMITool.org">
+<meta name="twitter:description" content="Former fintech data analyst turned health data nerd. Running self-experiments from East Austin, Texas.">
+<meta name="twitter:image" content="https://bmitool.org/images/about/author-jamie-whitfield.jpg">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Dr. David Chen",
-  "jobTitle": "Board-Certified Internal Medicine Physician",
-  "alumniOf": [
-    {"@type": "CollegeOrUniversity", "name": "Johns Hopkins University School of Medicine"},
-    {"@type": "CollegeOrUniversity", "name": "Harvard T.H. Chan School of Public Health"}
-  ],
-  "worksFor": {"@type": "Organization", "name": "BMITool.org"},
-  "url": "https://bmitool.org/about.html",
-  "sameAs": [],
-  "description": "Board-certified Internal Medicine physician specializing in metabolic health and obesity medicine. 15+ years clinical experience. Former NIH NIDDK researcher."
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Person",
+    "name": "James 'Jamie' Whitfield",
+    "jobTitle": "Health Data Analyst & Founder of BMITool.org",
+    "url": "https://bmitool.org/about.html",
+    "image": "https://bmitool.org/images/about/author-jamie-whitfield.jpg",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Texas at Austin",
+      "sameAs": "https://www.utexas.edu/"
+    },
+    "knowsAbout": ["Data Visualization", "Health Metrics", "BMI Analysis", "Body Composition", "Metabolic Health", "Statistical Literacy"],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "BMITool.org",
+      "url": "https://bmitool.org/"
+    },
+    "homeLocation": {
+      "@type": "Place",
+      "name": "East Austin, Texas",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Austin",
+        "addressRegion": "TX",
+        "addressCountry": "US"
+      }
+    }
+  }
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://bmitool.org/about.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools/index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+</nav>
+
+<main style="padding: 3rem 0;">
+  <div class="bmi-container">
+    <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="bmi-breadcrumb-sep">/</span>
+      <span>About</span>
+    </nav>
+
+    <div class="bmi-content" style="max-width: 800px; margin: 0 auto;">
+      <div class="bmi-author-box" style="margin-bottom: 2rem;">
+        <img src="images/about/author-jamie-whitfield.jpg" alt="James Jamie Whitfield" class="bmi-author-avatar" width="80" height="80">
+        <div class="bmi-author-info">
+          <h4>James "Jamie" Whitfield</h4>
+          <p>Founder, BMITool.org — East Austin, Texas</p>
+        </div>
+      </div>
+
+      <h1>About Me</h1>
+      <p>I used to build dashboards for stock prices. Now I build dashboards for my own body. The transition wasn't planned — it was a slow slide from "I wonder what my resting heart rate is" to "I have 47 spreadsheets and a dog who thinks I'm insane."</p>
+
+      <p>I'm 38 years old, divorced, no kids, living in a small bungalow in East Austin near Cesar Chavez with my dog Pixel. She's a rescue mutt who sleeps under my desk while I stare at numbers. She's not impressed by my BMI.</p>
+
+      <h2>Education & Background</h2>
+      <p>I have a BS in Statistics from the University of Texas at Austin (class of 2010). After graduation, I spent eight years as a data analyst at a fintech startup in downtown Austin — building risk models, fraud detection algorithms, and the occasional dashboard that made executives feel smart. I left in 2022 when the startup got acquired and the culture shifted from "move fast and break things" to "move slow and have six meetings about breaking things."</p>
+
+      <p>Since then, I've been self-employed. I consult on data visualization for small businesses (mostly local Austin companies — Gevity, a metabolic health startup, was my first client). But BMITool.org is my main project. I built it because I was frustrated with health calculators that demanded my email address, sold my data, or buried the actual math behind paywalls.</p>
+
+      <h2>Why Health Data?</h2>
+      <p>In 2023, I gained about 20 pounds during a particularly stressful consulting project. I wasn't eating dramatically more — I was just eating worse, sleeping less, and moving barely at all. When I finally stepped on a scale, I was 198 pounds at 5'10". My BMI was 28.4. Not obese, but trending in a direction I didn't like.</p>
+
+      <p>Instead of joining a gym or downloading a diet app, I did what any data analyst would do: I built a spreadsheet. I tracked weight, steps, sleep, meals, mood, and (eventually) glucose. I ran correlations. I made pivot tables. I discovered that my weight gain correlated more strongly with sleep quality (r = -0.62) than with calorie intake (r = 0.31). That changed how I approached the problem.</p>
+
+      <p>I lost 35 pounds over 18 months. Not by following a diet. By following the data. I fixed my sleep first. Then I started walking more (East Austin is great for walking — flat, weird, full of taco trucks). Then I adjusted my protein intake. The weight came off slowly, boringly, and sustainably. I'm now around 172 pounds and my BMI sits in the 24-25 range depending on the week.</p>
+
+      <h2>What I Actually Know (And Don't)</h2>
+      <p>I'm not a doctor. I'm not a registered dietitian. I'm not a personal trainer. I'm a guy who knows how to read a study, spot a flawed methodology, and explain statistical concepts to people who don't care about p-values.</p>
+
+      <p>What I know: data visualization, basic biostatistics, how to design a self-experiment, how to read a PubMed abstract (not the full paper — I admit this), and how to build a web tool that doesn't steal your data.</p>
+
+      <p>What I don't know: endocrinology, pharmacology, sports medicine, nutrition science at a clinical level. When I write about those topics, I cite sources and admit uncertainty. If the data is ambiguous, I say so. If I'm guessing, I say so. I have no interest in pretending to be an expert I'm not.</p>
+
+      <h2>About This Site</h2>
+      <p>BMITool.org launched in early 2024 as a single-page BMI calculator. It has since grown to seven tools, sixteen blog posts, and about 5,000 monthly visitors. The site is built with plain HTML, CSS, and JavaScript — no frameworks, no trackers, no server-side processing. All calculations happen in your browser. Your data stays in your browser. I literally cannot see it even if I wanted to.</p>
+
+      <p>The site is hosted on GitHub Pages and costs me about $12 a year (domain registration). I make a small amount from advertising (clearly labeled banner ads) and occasional affiliate links to products I actually use (like my Garmin watch or the H-E-B brand protein powder). I don't do sponsored posts, brand partnerships, or "guest contributions" from SEO farms. If you see an article on this site, I wrote it.</p>
+
+      <h2>Life Outside Spreadsheets</h2>
+      <p>When I'm not tracking my own metrics, I play pickup basketball at the Austin Rec Center (poorly, once a week), hike the Barton Creek Greenbelt with Pixel, and eat an embarrassing amount of breakfast tacos. I listen to podcasts about data science, urban planning, and true crime — often while walking the Butler Hike-and-Bike Trail around Lady Bird Lake. I drink too much coffee at Mozart's Coffee Roasters on Lake Austin Boulevard, where the baristas know my order and don't ask why I'm typing numbers into a spreadsheet at 8 AM on a Sunday.</p>
+
+      <p>I also have a complicated relationship with my ex-wife's cooking. She was a genuinely great cook — healthy, flavorful, organized. I was a disaster in the kitchen. Now that I live alone, I oscillate between batch-cooking ground turkey like a responsible adult and eating H-E-B rotisserie chicken straight from the container while standing in front of the fridge. The data says I should cook more. The data is probably right.</p>
+
+      <p>If you want to get in touch, email me at <a href="mailto:contact@bmitool.org">contact@bmitool.org</a>. I read every email but I'm slow to respond — sometimes a week or two. I'm one person with a dog and a spreadsheet habit.</p>
+    </div>
+
+    <!-- Ad Slot: About Bottom -->
+    <div class="bmi-container" style="margin-top: 2rem;">
+      <div class="bmi-ad-slot" data-ad-slot="about_bottom">
+        <span>Advertisement</span>
+      </div>
+    </div>
   </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
+</main>
 
-<main class="bmt-main">
-
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <h1>About Dr. David Chen</h1>
-    <p>Board-certified Internal Medicine physician. 15+ years of clinical practice. Former NIH researcher. Tired of seeing patients confused by oversimplified health information.</p>
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/index.html">All Articles</a></li>
+          <li><a href="blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Jamie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
   </div>
-</section>
-
-<section style="padding:40px 0;">
-  <div class="bmt-container" style="max-width:800px;">
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Credentials & Background</h2>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li><strong>MD</strong> — Johns Hopkins University School of Medicine</li>
-        <li><strong>MPH</strong> — Harvard T.H. Chan School of Public Health</li>
-        <li><strong>Board Certification</strong> — American Board of Internal Medicine</li>
-        <li><strong>Former Researcher</strong> — NIH National Institute of Diabetes and Digestive and Kidney Diseases (NIDDK)</li>
-        <li><strong>Clinical Focus</strong> — Metabolic health, obesity medicine, preventive care</li>
-        <li><strong>15+ years</strong> of direct patient care across academic and community settings</li>
-      </ul>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Why I Built BMITool.org</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">I built this site because I was tired of seeing patients come to my clinic with misinformation from oversimplified online calculators. A BMI of 24.2 with a "normal" label while fasting glucose is 118. A parent panicking because an adult BMI calculator called their 8-year-old "obese." An Asian patient with a BMI of 23.4 being told they're "fine" while their metabolic panel says otherwise.</p>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">These calculators are free because health information should be accessible. They're clinical-grade because patients deserve accuracy. And they're transparent about limitations because no single number defines your health.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Clinical Philosophy</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">I don't believe in "ideal weight." I believe in metabolic health. I don't celebrate rapid weight loss. I emphasize sustainable behavior change. I don't use BMI as a diagnostic. I use it as one screening tool among many.</p>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">My approach combines population-level data with individual context: ethnicity, age, sex, body composition, family history, and metabolic markers. The calculators on this site reflect that approach. They're not perfect — no calculator is. But they're closer to clinical reality than anything you'll find on WebMD.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">About This Site</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;"><strong>BMITool.org</strong> is an independent educational resource. It is not affiliated with Johns Hopkins, Harvard, or the NIH. All calculators run entirely in your browser — your health data is never sent to our servers.</p>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">The site is supported by advertising and affiliate partnerships. Editorial content is independent of commercial relationships. I only recommend products or services that I believe will be genuinely helpful to readers.</p>
-    </div>
-
-    <div class="bmt-card" style="background:#fef3c7; border:1px solid #f59e0b;">
-      <h2 style="color:#92400e; margin-bottom:12px; font-size:1.1rem;">Important Disclaimer</h2>
-      <p style="color:#92400e; font-size:0.9rem; line-height:1.6;"><strong>This website does not create a patient-provider relationship.</strong> Dr. Chen is not your physician. Use of this site does not constitute medical consultation. For personalized medical advice, please consult your own healthcare provider. In case of emergency, call 911.</p>
-    </div>
-
-  </div>
-</section>
-
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
 </footer>
 
-</main>
-</div>
-
+<script src="ads-loader.js"></script>
 </body>
 </html>
