@@ -3,206 +3,713 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BMI Calculator | Clinical-Grade with Health Assessment - bmitool.org</title>
-<meta name="description" content="Clinical-grade BMI calculator with WHO/CDC categories, health risk assessment, ethnicity-specific thresholds, and personalized recommendations. Built by Dr. David Chen, MD.">
+<title>BMI Calculator — Free, Private, With Charts — BMITool.org</title>
+<meta name="description" content="Calculate your BMI instantly with visual category charts, trend tracking, and history storage — all in your browser. No data leaves your device.">
 <link rel="canonical" href="https://bmitool.org/tools/bmi-calculator.html">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="BMI Calculator — Free, Private, With Charts — BMITool.org">
+<meta property="og:description" content="Calculate your BMI instantly with visual category charts and trend tracking. All data stays in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/tools/bmi-calculator.html">
+<meta property="og:image" content="https://bmitool.org/images/og-bmi-calculator.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BMI Calculator — BMITool.org">
+<meta name="twitter:description" content="Calculate your BMI with charts and history tracking. All private.">
+<meta name="twitter:image" content="https://bmitool.org/images/og-bmi-calculator.jpg">
+
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Clinical BMI Calculator","applicationCategory":"HealthApplication","author":{"@type":"Person","name":"Dr. David Chen"}}
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BMI Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "James 'Jamie' Whitfield",
+    "url": "https://bmitool.org/about.html"
+  },
+  "description": "Free BMI calculator with visual category charts, trend tracking, and local history storage. No data leaves your browser.",
+  "featureList": "BMI calculation, Category visualization, Trend chart, History storage, Export to CSV, 7-day moving average"
+}
 </script>
+"""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://bmitool.org/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "BMI Calculator",
+      "item": "https://bmitool.org/tools/bmi-calculator.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.bmi-calc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.bmi-calc-inputs { display: flex; flex-direction: column; gap: 1.5rem; }
+.bmi-calc-result { background: var(--bmi-border-light); border-radius: var(--bmi-radius-lg); padding: 2rem; text-align: center; }
+.bmi-calc-number { font-size: 4rem; font-weight: 800; color: var(--bmi-primary); line-height: 1; }
+.bmi-calc-category { font-size: 1.25rem; font-weight: 600; margin-top: 0.5rem; }
+.bmi-calc-bar { width: 100%; height: 24px; background: linear-gradient(to right, #3b82f6 0%, #3b82f6 18.5%, #10b981 18.5%, #10b981 25%, #f59e0b 25%, #f59e0b 30%, #ef4444 30%, #ef4444 100%); border-radius: 12px; margin: 1.5rem 0; position: relative; }
+.bmi-calc-marker { position: absolute; top: -8px; width: 4px; height: 40px; background: var(--bmi-text); border-radius: 2px; transform: translateX(-50%); transition: left 0.5s ease; }
+.bmi-calc-legend { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--bmi-text-muted); }
+.bmi-calc-history { margin-top: 2rem; }
+.bmi-calc-history h3 { margin-bottom: 1rem; }
+.bmi-calc-table { width: 100%; font-size: 0.875rem; }
+.bmi-calc-table th, .bmi-calc-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--bmi-border); }
+.bmi-calc-table th { font-weight: 600; color: var(--bmi-text-secondary); }
+.bmi-calc-actions { display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.bmi-calc-chart-container { width: 100%; height: 300px; margin-top: 1.5rem; }
+.bmi-calc-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.bmi-calc-compare-item { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1rem; text-align: center; }
+.bmi-calc-compare-item h4 { font-size: 0.875rem; color: var(--bmi-text-secondary); margin-bottom: 0.5rem; }
+.bmi-calc-compare-item .value { font-size: 1.5rem; font-weight: 700; color: var(--bmi-primary); }
+@media (max-width: 768px) { .bmi-calc-layout { grid-template-columns: 1fr; } .bmi-calc-compare { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link active"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI Threshold</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
-  </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
+</nav>
 
-<main class="bmt-main">
-
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <div class="bmt-hero-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      WHO/CDC Standards
-    </div>
-    <h1>Clinical BMI Calculator</h1>
-    <p>Standard BMI calculation with health risk assessment, ethnicity-specific thresholds, and clinical context. Because a number without interpretation is just a number.</p>
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>BMI Calculator</h1>
+    <p>Calculate your Body Mass Index with instant visual feedback, track trends over time, and compare against standard categories. Your data never leaves your browser.</p>
   </div>
-</section>
+</header>
 
-<section style="padding:30px 0 50px;">
-  <div class="bmt-container">
-    <div class="bmt-card">
-      <div class="bmt-form-row">
-        <div class="bmt-form-group">
-          <label>Height (cm)</label>
-          <input type="number" id="height" placeholder="175" min="100" max="250">
-        </div>
-        <div class="bmt-form-group">
-          <label>Weight (kg)</label>
-          <input type="number" id="weight" placeholder="70" min="20" max="300">
-        </div>
-      </div>
-      <div class="bmt-form-row" style="margin-top:12px;">
-        <div class="bmt-form-group">
-          <label>Age</label>
-          <input type="number" id="age" placeholder="35" min="2" max="120">
-        </div>
-        <div class="bmt-form-group">
-          <label>Ethnicity (for threshold adjustment)</label>
-          <select id="ethnicity">
-            <option value="general">General Population</option>
-            <option value="asian">Asian (WHO Western Pacific)</option>
-            <option value="pacific">Pacific Islander</option>
-          </select>
-        </div>
-      </div>
-      <button class="bmt-btn" onclick="calcBMI()" style="margin-top:16px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        Calculate BMI
-      </button>
-      <div id="bmiResult"></div>
-    </div>
+<!-- Ad Slot: Article Top -->
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="tool_top">
+    <span>Advertisement</span>
   </div>
-</section>
-
-<!-- Sticky Bar -->
-<div class="bmt-sticky-bar" id="stickyBar">
-  <div class="bmt-sticky-bar-left">
-    <button class="bmt-sticky-btn" onclick="saveCalculation()"><svg viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Save</button>
-    <button class="bmt-sticky-btn" onclick="shareResult()"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
-    <button class="bmt-sticky-btn" onclick="generateReport()"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Export</button>
-    <button class="bmt-sticky-btn" onclick="comparePrevious()"><svg viewBox="0 0 24 24"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>Compare</button>
-  </div>
-  <span style="color:var(--bmt-text-light); font-size:0.8rem;">Data stays on your device</span>
 </div>
 
-<section style="padding:20px 0;">
-  <div class="bmt-container">
-    <div class="bmt-disclaimer">
-      <strong>Medical Disclaimer:</strong> BMI is a screening tool, not a diagnostic of body fatness or health. Muscle mass, bone density, and fat distribution are not captured. Always consult your healthcare provider for comprehensive assessment.
+<main class="bmi-container" style="padding: 3rem 0;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a>
+    <span class="bmi-breadcrumb-sep">/</span>
+    <a href="index.html">Tools</a>
+    <span class="bmi-breadcrumb-sep">/</span>
+    <span>BMI Calculator</span>
+  </nav>
+
+  <div class="bmi-calc-layout">
+    <div class="bmi-calc-inputs">
+      <div class="bmi-tool-card">
+        <h2>Enter Your Details</h2>
+        <div class="bmi-tool-input-group">
+          <label for="height">Height</label>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="number" id="height-ft" placeholder="ft" min="1" max="9" style="flex: 1;">
+            <input type="number" id="height-in" placeholder="in" min="0" max="11" style="flex: 1;">
+          </div>
+          <p style="font-size: 0.75rem; color: var(--bmi-text-muted); margin-top: 0.25rem;">Or enter total inches in the second box</p>
+        </div>
+        <div class="bmi-tool-input-group">
+          <label for="weight">Weight (lbs)</label>
+          <input type="number" id="weight" placeholder="e.g. 185" min="50" max="800" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label for="date">Date (optional, for tracking)</label>
+          <input type="date" id="date-input">
+        </div>
+        <button class="bmi-tool-btn" onclick="calculateBMI()">Calculate BMI</button>
+        <div class="bmi-calc-actions">
+          <button class="bmi-tool-btn-secondary" onclick="saveToHistory()">Save to History</button>
+          <button class="bmi-tool-btn-secondary" onclick="clearHistory()">Clear History</button>
+          <button class="bmi-tool-btn-secondary" onclick="exportCSV()">Export CSV</button>
+        </div>
+        <div class="bmi-privacy-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>All data stays in your browser — we never see it.</span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <button class="bmi-tool-btn-secondary" onclick="copyToolLink()" style="display:flex;align-items:center;gap:0.5rem;" title="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+          <button class="bmi-tool-btn-secondary" onclick="shareOnTwitter()" style="display:flex;align-items:center;gap:0.5rem;" title="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+        </div>
+
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top: 1.5rem;">
+        <h3>Compare</h3>
+        <div class="bmi-calc-compare">
+          <div class="bmi-calc-compare-item">
+            <h4>Your BMI</h4>
+            <div class="value" id="compare-your">—</div>
+          </div>
+          <div class="bmi-calc-compare-item">
+            <h4>US Average (Adult)</h4>
+            <div class="value">29.1</div>
+          </div>
+          <div class="bmi-calc-compare-item">
+            <h4>Healthy Range Midpoint</h4>
+            <div class="value">22.0</div>
+          </div>
+          <div class="bmi-calc-compare-item">
+            <h4>Your Ideal Weight (mid-BMI 22)</h4>
+            <div class="value" id="compare-ideal">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="bmi-calc-result" id="result-panel" style="display: none;">
+        <div class="bmi-calc-number" id="bmi-value">—</div>
+        <div class="bmi-calc-category" id="bmi-category">—</div>
+        <div class="bmi-calc-bar">
+          <div class="bmi-calc-marker" id="bmi-marker" style="left: 0%;"></div>
+        </div>
+        <div class="bmi-calc-legend">
+          <span>Underweight</span>
+          <span>Normal</span>
+          <span>Overweight</span>
+          <span>Obese</span>
+        </div>
+        <p id="bmi-message" style="margin-top: 1rem; font-size: 0.9375rem;"></p>
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top:1.5rem;">
+        <!-- How It Works -->
+  <div class="bmi-container" style="padding: 3rem 0;">
+    <div class="bmi-tool-card" style="max-width: 800px; margin: 0 auto;">
+      <h2>How It Works</h2>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1.5rem;">
+        BMI (Body Mass Index) is a simple screening tool that uses your height and weight to estimate whether you fall into a healthy weight range. It is calculated as:
+      </p>
+      <div style="background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.5rem; text-align: center; font-family: var(--bmi-font-mono); font-size: 1.125rem; margin-bottom: 1.5rem;">
+        BMI = weight (kg) ÷ height² (m²)
+      </div>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        For imperial units (like we use here), the formula is:
+      </p>
+      <div style="background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.5rem; text-align: center; font-family: var(--bmi-font-mono); font-size: 1.125rem; margin-bottom: 1.5rem;">
+        BMI = (weight in lbs × 703) ÷ height² (in inches)
+      </div>
+      <h3 style="margin-top: 1.5rem;">What the Categories Mean</h3>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem;">
+        <li><strong>Underweight (&lt;18.5):</strong> May indicate malnutrition or other health issues. Consult a healthcare provider.</li>
+        <li><strong>Normal (18.5–24.9):</strong> Associated with the lowest health risk for most adults.</li>
+        <li><strong>Overweight (25–29.9):</strong> May indicate increased risk for cardiovascular conditions. Lifestyle changes are often recommended.</li>
+        <li><strong>Obese (≥30):</strong> Associated with significantly higher risk for diabetes, heart disease, and certain cancers. Medical guidance is advised.</li>
+      </ul>
+      <h3 style="margin-top: 1.5rem;">Limitations</h3>
+      <p style="color: var(--bmi-text-secondary);">
+        BMI does not distinguish between muscle and fat. Athletes with high muscle mass may register as "overweight" despite low body fat. Similarly, older adults may have normal BMI but high body fat percentage. For a more complete picture, use our <a href="body-fat-estimator.html">Body Fat Estimator</a> or <a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a> tools alongside this calculator.
+      </p>
+      <h3 style="margin-top: 1.5rem;">Practical Tips</h3>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem;">
+        <li>Weigh yourself at the same time each day (preferably morning, after using the bathroom, before eating).</li>
+        <li>Use a digital scale on a hard, flat surface for consistency.</li>
+        <li>Track trends over weeks, not day-to-day fluctuations. The 7-day moving average in this tool smooths out water-weight noise.</li>
+        <li>Your data is saved in your browser's localStorage. Clear it anytime by clicking "Clear History."</li>
+      </ul>
     </div>
   </div>
-</section>
+      </div>
 
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
+      <div class="bmi-calc-chart-container">
+        <canvas id="bmi-chart"></canvas>
+      </div>
+
+      <div class="bmi-calc-history" id="history-section" style="display: none;">
+        <h3>Your History</h3>
+        <div style="overflow-x: auto;">
+          <table class="bmi-calc-table">
+            <thead>
+              <tr><th>Date</th><th>Weight</th><th>BMI</th><th>Category</th><th>7-Day Avg</th></tr>
+            </thead>
+            <tbody id="history-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ad Slot: Article Bottom -->
+<!-- Related Articles & Recommended Tools -->
+    <div class="bmi-ad-slot" data-ad-slot="tool_middle" style="margin-top:2rem;"><span>Advertisement</span></div>
+
+  <div class="bmi-article-footer" style="margin-top: 3rem;">
+    <div class="bmi-related-articles">
+      <h3>Related Articles</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <img src="../images/blog/tracked-bmi-90-days-spreadsheet.jpg" alt="90 day BMI tracking" width="60" height="45" loading="lazy">
+          <div>
+            <a href="../blog/tracked-bmi-90-days-spreadsheet.html">I Tracked My BMI for 90 Days Straight</a>
+            <span>April 2, 2026</span>
+          </div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/five-bmi-myths-tested.jpg" alt="BMI myths tested" width="60" height="45" loading="lazy">
+          <div>
+            <a href="../blog/five-bmi-myths-tested.html">5 Popular BMI Myths Tested With Real Data</a>
+            <span>April 10, 2026</span>
+          </div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/austin-fittest-city-data-problem.jpg" alt="Austin fittest city data" width="60" height="45" loading="lazy">
+          <div>
+            <a href="../blog/austin-fittest-city-data-problem.html">Why Austin's 'Fittest City' Label Is a Data Problem</a>
+            <span>April 14, 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-recommended-tools">
+      <h3>Recommended Tools</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <div>
+            <a href="body-fat-estimator.html">Body Fat Estimator</a>
+            <span>Navy tape method</span>
+          </div>
+        </div>
+        <div class="bmi-related-item">
+          <div>
+            <a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a>
+            <span>Metabolic risk screening</span>
+          </div>
+        </div>
+        <div class="bmi-related-item">
+          <div>
+            <a href="ideal-weight-range.html">Ideal Weight Range</a>
+            <span>4 formulas compared</span>
+          </div>
+        </div>
+        <div class="bmi-related-item">
+          <div>
+            <a href="weight-loss-timeline.html">Weight Loss Timeline</a>
+            <span>Project your journey</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="bmi-ad-slot" data-ad-slot="tool_bottom" style="margin-top:2rem;"><span>Advertisement</span></div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="../blog/index.html">All Articles</a></li>
+          <li><a href="../blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="../blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="../blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="../about.html">About Jamie</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+          <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
+  </div>
 </footer>
 
-</main>
-</div>
+<script src="../ads-loader.js"></script>
+<script>
+// BMI Calculator Logic
+const STORAGE_KEY = 'bmi_history';
+let currentBMI = null;
+let currentWeight = null;
+let currentHeight = null;
+
+function getHeightInches() {
+  const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+  const inc = parseFloat(document.getElementById('height-in').value) || 0;
+  return ft * 12 + inc;
+}
+
+function calculateBMI() {
+  const heightInches = getHeightInches();
+  const weight = parseFloat(document.getElementById('weight').value);
+
+  if (!heightInches || heightInches < 20 || heightInches > 120) {
+    alert('Please enter a valid height (e.g., 5 ft 10 in or 70 in)');
+    return;
+  }
+  if (!weight || weight < 50 || weight > 800) {
+    alert('Please enter a valid weight in pounds (50-800)');
+    return;
+  }
+
+  currentHeight = heightInches;
+  currentWeight = weight;
+  const heightM = heightInches * 0.0254;
+  const weightKg = weight * 0.453592;
+  currentBMI = weightKg / (heightM * heightM);
+  currentBMI = Math.round(currentBMI * 10) / 10;
+
+  displayResult(currentBMI, heightInches);
+  updateCompare(currentBMI, heightInches);
+  drawChart();
+}
+
+function getCategory(bmi) {
+  if (bmi < 18.5) return { name: 'Underweight', color: '#3b82f6', message: 'You may need to gain weight. Talk to a healthcare provider.' };
+  if (bmi < 25) return { name: 'Normal Weight', color: '#10b981', message: 'Great! You're in the healthy range. Keep tracking to maintain.' };
+  if (bmi < 30) return { name: 'Overweight', color: '#f59e0b', message: 'Consider lifestyle changes. Small, consistent improvements work best.' };
+  return { name: 'Obese', color: '#ef4444', message: 'Talk to a healthcare provider about a safe, sustainable plan.' };
+}
+
+function displayResult(bmi, heightInches) {
+  const panel = document.getElementById('result-panel');
+  panel.style.display = 'block';
+  document.getElementById('bmi-value').textContent = bmi.toFixed(1);
+  const cat = getCategory(bmi);
+  document.getElementById('bmi-category').textContent = cat.name;
+  document.getElementById('bmi-category').style.color = cat.color;
+  document.getElementById('bmi-message').textContent = cat.message;
+
+  // Position marker (scale: 15-40 BMI mapped to 0-100%)
+  const pct = Math.min(Math.max((bmi - 15) / 25 * 100, 0), 100);
+  document.getElementById('bmi-marker').style.left = pct + '%';
+}
+
+function updateCompare(bmi, heightInches) {
+  document.getElementById('compare-your').textContent = bmi.toFixed(1);
+  const idealWeight = 22 * Math.pow(heightInches * 0.0254, 2) / 0.453592;
+  document.getElementById('compare-ideal').textContent = Math.round(idealWeight) + ' lbs';
+}
+
+function getHistory() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+  } catch(e) { return []; }
+}
+
+function saveToHistory() {
+  if (!currentBMI || !currentWeight) {
+    alert('Calculate your BMI first, then save.');
+    return;
+  }
+  const dateInput = document.getElementById('date-input').value;
+  const date = dateInput || new Date().toISOString().split('T')[0];
+  const history = getHistory();
+  history.push({ date, weight: currentWeight, bmi: currentBMI, height: currentHeight });
+  history.sort((a, b) => new Date(a.date) - new Date(b.date));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  renderHistory();
+  drawChart();
+  alert('Saved to your browser history!');
+}
+
+function clearHistory() {
+  if (confirm('Clear all saved BMI history? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHistory();
+    drawChart();
+  }
+}
+
+function renderHistory() {
+  const history = getHistory();
+  const section = document.getElementById('history-section');
+  const tbody = document.getElementById('history-table');
+
+  if (history.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  section.style.display = 'block';
+
+  // Calculate 7-day moving average
+  const averages = [];
+  for (let i = 0; i < history.length; i++) {
+    const start = Math.max(0, i - 6);
+    const slice = history.slice(start, i + 1);
+    const avg = slice.reduce((s, h) => s + h.bmi, 0) / slice.length;
+    averages.push(Math.round(avg * 10) / 10);
+  }
+
+  tbody.innerHTML = history.map((h, i) => {
+    const cat = getCategory(h.bmi);
+    return `<tr>
+      <td>${h.date}</td>
+      <td>${h.weight} lbs</td>
+      <td style="color:${cat.color};font-weight:600;">${h.bmi.toFixed(1)}</td>
+      <td>${cat.name}</td>
+      <td>${averages[i].toFixed(1)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function drawChart() {
+  const history = getHistory();
+  const canvas = document.getElementById('bmi-chart');
+  if (!canvas.getContext) return;
+  const ctx = canvas.getContext('2d');
+
+  // Set canvas size
+  const container = canvas.parentElement;
+  canvas.width = container.clientWidth * 2;
+  canvas.height = 300 * 2;
+  canvas.style.width = container.clientWidth + 'px';
+  canvas.style.height = '300px';
+  ctx.scale(2, 2);
+
+  const w = container.clientWidth;
+  const h = 300;
+  const padding = { top: 30, right: 30, bottom: 50, left: 50 };
+
+  ctx.clearRect(0, 0, w, h);
+
+  if (history.length < 2) {
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '14px Inter, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('Save at least 2 entries to see your trend chart', w/2, h/2);
+    return;
+  }
+
+  const chartW = w - padding.left - padding.right;
+  const chartH = h - padding.top - padding.bottom;
+
+  // Calculate 7-day moving averages
+  const averages = [];
+  for (let i = 0; i < history.length; i++) {
+    const start = Math.max(0, i - 6);
+    const slice = history.slice(start, i + 1);
+    const avg = slice.reduce((s, h) => s + h.bmi, 0) / slice.length;
+    averages.push(avg);
+  }
+
+  const allValues = [...history.map(h => h.bmi), ...averages];
+  const minVal = Math.min(...allValues) - 1;
+  const maxVal = Math.max(...allValues) + 1;
+  const range = maxVal - minVal || 1;
+
+  // Draw grid lines
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = padding.top + (chartH * i / 4);
+    ctx.beginPath();
+    ctx.moveTo(padding.left, y);
+    ctx.lineTo(w - padding.right, y);
+    ctx.stroke();
+    const val = maxVal - (range * i / 4);
+    ctx.fillStyle = '#64748b';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillText(val.toFixed(1), padding.left - 8, y + 4);
+  }
+
+  // Draw BMI line
+  ctx.strokeStyle = '#7c3aed';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  history.forEach((h, i) => {
+    const x = padding.left + (chartW * i / (history.length - 1));
+    const y = padding.top + chartH - ((h.bmi - minVal) / range * chartH);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Draw 7-day average line
+  ctx.strokeStyle = '#f97316';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([5, 5]);
+  ctx.beginPath();
+  averages.forEach((avg, i) => {
+    const x = padding.left + (chartW * i / (history.length - 1));
+    const y = padding.top + chartH - ((avg - minVal) / range * chartH);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Draw points
+  history.forEach((h, i) => {
+    const x = padding.left + (chartW * i / (history.length - 1));
+    const y = padding.top + chartH - ((h.bmi - minVal) / range * chartH);
+    ctx.fillStyle = '#7c3aed';
+    ctx.beginPath();
+    ctx.arc(x, y, 4, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // X-axis labels
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px Inter, sans-serif';
+  ctx.textAlign = 'center';
+  const step = Math.max(1, Math.floor(history.length / 6));
+  history.forEach((h, i) => {
+    if (i % step === 0 || i === history.length - 1) {
+      const x = padding.left + (chartW * i / (history.length - 1));
+      ctx.fillText(h.date.slice(5), x, h - 10);
+    }
+  });
+
+  // Legend
+  ctx.fillStyle = '#7c3aed';
+  ctx.fillRect(w - 180, 10, 12, 12);
+  ctx.fillStyle = '#1e1b4b';
+  ctx.textAlign = 'left';
+  ctx.fillText('Daily BMI', w - 162, 20);
+  ctx.fillStyle = '#f97316';
+  ctx.fillRect(w - 100, 10, 12, 12);
+  ctx.fillStyle = '#1e1b4b';
+  ctx.fillText('7-Day Avg', w - 82, 20);
+}
+
+function exportCSV() {
+  const history = getHistory();
+  if (history.length === 0) {
+    alert('No history to export. Save some entries first.');
+    return;
+  }
+  let csv = 'Date,Weight (lbs),Height (in),BMI,Category\n';
+  history.forEach(h => {
+    const cat = getCategory(h.bmi).name;
+    csv += `${h.date},${h.weight},${h.height},${h.bmi.toFixed(1)},${cat}\n`;
+  });
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'bmi-history-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Set default date
+document.getElementById('date-input').value = new Date().toISOString().split('T')[0];
+
+// Load history on page load
+renderHistory();
+drawChart();
+
+// Redraw chart on resize
+window.addEventListener('resize', drawChart);
+</script>
 
 <script>
-function calcBMI() {
-  const height = parseFloat(document.getElementById('height').value) / 100;
-  const weight = parseFloat(document.getElementById('weight').value);
-  const age = parseInt(document.getElementById('age').value);
-  const ethnicity = document.getElementById('ethnicity').value;
-
-  if (!height || !weight) { alert('Please enter height and weight'); return; }
-
-  const bmi = weight / (height * height);
-  const bmiRounded = bmi.toFixed(1);
-
-  // Ethnicity-specific thresholds
-  let thresholds = { underweight: 18.5, normal: 24.9, overweight: 29.9 };
-  if (ethnicity === 'asian') { thresholds = { underweight: 18.5, normal: 22.9, overweight: 27.5 }; }
-  if (ethnicity === 'pacific') { thresholds = { underweight: 18.5, normal: 26, overweight: 32 }; }
-
-  let category, risk, color;
-  if (bmi < thresholds.underweight) { category = 'Underweight'; risk = 'Malnutrition risk, osteoporosis'; color = '#3b82f6'; }
-  else if (bmi < thresholds.normal) { category = 'Normal weight'; risk = 'Lowest health risk'; color = '#10b981'; }
-  else if (bmi < thresholds.overweight) { category = 'Overweight'; risk = 'Moderate health risk'; color = '#f59e0b'; }
-  else { category = 'Obese'; risk = 'High health risk'; color = '#ef4444'; }
-
-  const idealLow = (18.5 * height * height).toFixed(1);
-  const idealHigh = (thresholds.normal * height * height).toFixed(1);
-
-  const result = { bmi: bmiRounded, category, height: document.getElementById('height').value, weight, ethnicity, age };
-  localStorage.setItem('bmt_last_bmi', JSON.stringify(result));
-
-  document.getElementById('bmiResult').innerHTML = `
-    <div class="bmt-result-card">
-      <h3 style="color:var(--bmt-primary-dark); margin-bottom:12px;">Your BMI Result</h3>
-      <div class="bmt-result-big" style="color:${color}">${bmiRounded}</div>
-      <div style="font-size:1.1rem; font-weight:600; color:${color}; margin-bottom:16px;">${category}</div>
-      <div class="bmt-result-grid">
-        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Health Risk</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${risk}</div></div>
-        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Healthy Range</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${idealLow}-${idealHigh} kg</div></div>
-        <div class="bmt-result-item"><div style="font-size:0.8rem; color:var(--bmt-text-light); text-transform:uppercase;">Threshold Used</div><div style="font-size:1.1rem; font-weight:700; color:var(--bmt-primary-dark); margin-top:4px;">${ethnicity === 'asian' ? 'Asian (WHO WP)' : ethnicity === 'pacific' ? 'Pacific Islander' : 'WHO/CDC'}</div></div>
-      </div>
-      <p style="margin-top:16px; font-size:0.9rem; color:var(--bmt-text-light);">BMI does not account for muscle mass, bone density, or fat distribution. Athletes and elderly may have misleading results.</p>
-    </div>
-  `;
+// Share functionality
+function copyToolLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('Link copied to clipboard!');
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
 }
 
-function saveCalculation() {
-  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
-  if (!last) { alert('Calculate BMI first'); return; }
-  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]');
-  saved.push({ ...last, savedAt: new Date().toISOString(), tool: 'bmi' });
-  localStorage.setItem('bmt_saved', JSON.stringify(saved.slice(-20)));
-  alert('Saved! You have ' + saved.length + ' calculations.');
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  } catch (err) {
+    alert('Could not copy link. Please copy manually: ' + text);
+  }
+  document.body.removeChild(ta);
 }
 
-function shareResult() {
-  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
-  if (!last) { alert('Calculate BMI first'); return; }
-  const url = window.location.origin + '/tools/bmi-calculator.html?h=' + last.height + '&w=' + last.weight;
-  navigator.clipboard.writeText(url).then(() => alert('Link copied!'));
-}
-
-function generateReport() {
-  const last = JSON.parse(localStorage.getItem('bmt_last_bmi') || 'null');
-  if (!last) { alert('Calculate BMI first'); return; }
-  const html = `<!DOCTYPE html><html><head><title>BMI Report - BMITool</title></head>
-  <body style="font-family:system-ui,sans-serif; max-width:600px; margin:40px auto; padding:20px;">
-  <h1 style="color:#0d9488;">BMI Clinical Report</h1>
-  <p><strong>Generated:</strong> ${new Date().toLocaleDateString()}</p>
-  <p><strong>BMI:</strong> ${last.bmi}</p>
-  <p><strong>Category:</strong> ${last.category}</p>
-  <p><strong>Threshold:</strong> ${last.ethnicity}</p>
-  <hr><p style="color:#666; font-size:0.9rem;">For informational purposes only. Consult your healthcare provider.</p>
-  </body></html>`;
-  const blob = new Blob([html], {type:'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'bmi-report.html';
-  a.click();
-}
-
-function comparePrevious() {
-  const saved = JSON.parse(localStorage.getItem('bmt_saved') || '[]').filter(s => s.tool === 'bmi');
-  if (saved.length < 2) { alert('Need at least 2 BMI calculations. Save a few first!'); return; }
-  let html = '<h3>BMI History</h3><ul>';
-  saved.slice(-5).forEach((s, i) => {
-    html += `<li>${i+1}. BMI ${s.bmi} (${s.category}) - ${new Date(s.savedAt).toLocaleDateString()}</li>`;
-  });
-  html += '</ul>';
-  const w = window.open('', '_blank');
-  w.document.write('<html><head><title>BMI Comparison</title></head><body style="font-family:system-ui,sans-serif; padding:40px;">' + html + '</body></html>');
+function shareOnTwitter() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent(document.title);
+  window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'width=550,height=420');
 }
 </script>
 
