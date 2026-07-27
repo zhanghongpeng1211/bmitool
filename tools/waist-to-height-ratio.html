@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Waist-to-Height Ratio — BMITool.org</title>
+<meta name="description" content="Calculate your waist-to-height ratio for metabolic risk screening. Simple tape measure, better than BMI alone. All private.">>
+<link rel="canonical" href="https://bmitool.org/tools/waist-to-height-ratio.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Waist-to-Height Ratio — BMITool.org">>
+<meta property="og:description" content="Calculate your waist-to-height ratio for metabolic risk screening. Simple tape measure, better than BMI alone. All private.">>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/tools/waist-to-height-ratio.html">
+<meta property="og:image" content="https://bmitool.org/images/og-waist-height.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Waist-to-Height Ratio — BMITool.org">>
+<meta name="twitter:description" content="Calculate your waist-to-height ratio for metabolic risk screening. Simple tape measure, better than BMI alone. All private.">>
+<meta name="twitter:image" content="https://bmitool.org/images/og-waist-height.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Waist-to-Height Ratio Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "James 'Jamie' Whitfield", "url": "https://bmitool.org/about.html"},
+  "description": "Waist-to-height ratio calculator with visual risk gauge, BMI comparison, and trend tracking. All data stays in your browser.",
+  "featureList": "WHtR calculation, Visual risk gauge, BMI comparison, History tracking, Risk category breakdown, Export to CSV"
+}
+</script>
+"""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://bmitool.org/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Waist-to-Height Ratio",
+      "item": "https://bmitool.org/tools/waist-to-height-ratio.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.whtr-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.whtr-gauge-container { position: relative; width: 280px; height: 160px; margin: 0 auto 1.5rem; }
+.whtr-gauge-value { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; }
+.whtr-gauge-number { font-size: 3rem; font-weight: 800; color: var(--bmi-primary); line-height: 1; }
+.whtr-gauge-label { font-size: 0.875rem; color: var(--bmi-text-muted); }
+.whtr-risk-bar { width: 100%; height: 32px; border-radius: 16px; background: linear-gradient(to right, #10b981 0%, #10b981 40%, #f59e0b 40%, #f59e0b 55%, #ef4444 55%, #ef4444 100%); position: relative; margin: 1.5rem 0; }
+.whtr-risk-marker { position: absolute; top: -8px; width: 4px; height: 48px; background: var(--bmi-text); border-radius: 2px; transform: translateX(-50%); transition: left 0.5s ease; }
+.whtr-risk-legend { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--bmi-text-muted); }
+.whtr-categories { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem; }
+.whtr-cat-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem; border-radius: var(--bmi-radius); font-size: 0.875rem; border: 2px solid transparent; }
+.whtr-cat-item.active { background: var(--bmi-bg); border-color: var(--bmi-primary); font-weight: 600; }
+.whtr-cat-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.whtr-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+.whtr-comp-item { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1rem; text-align: center; }
+.whtr-comp-item h4 { font-size: 0.75rem; color: var(--bmi-text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+.whtr-comp-item .value { font-size: 1.5rem; font-weight: 700; color: var(--bmi-text); }
+.whtr-comp-item .sub { font-size: 0.75rem; color: var(--bmi-text-muted); margin-top: 0.25rem; }
+.whtr-history-table { width: 100%; font-size: 0.875rem; margin-top: 1rem; }
+.whtr-history-table th, .whtr-history-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--bmi-border); }
+.whtr-history-table th { font-weight: 600; color: var(--bmi-text-secondary); }
+.whtr-info-box { background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.25rem; margin-top: 1.5rem; }
+.whtr-info-box h4 { margin-bottom: 0.5rem; font-size: 1rem; }
+.whtr-info-box p { font-size: 0.9375rem; color: var(--bmi-text-secondary); margin: 0; }
+.whtr-chart-container { width: 100%; height: 250px; margin-top: 1.5rem; }
+@media (max-width: 768px) { .whtr-layout { grid-template-columns: 1fr; } .whtr-categories { grid-template-columns: 1fr; } .whtr-comparison { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>Waist-to-Height Ratio</h1>
+    <p>A simple tape-measure metric that often predicts metabolic risk better than BMI alone. Track your ratio over time and see how you compare to healthy thresholds.</p>
+  </div>
+</header>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="tool_top"><span>Advertisement</span></div>
+</div>
+
+<main class="bmi-container" style="padding: 3rem 0;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="bmi-breadcrumb-sep">/</span>
+    <a href="index.html">Tools</a><span class="bmi-breadcrumb-sep">/</span>
+    <span>Waist-to-Height Ratio</span>
+  </nav>
+
+  <div class="whtr-layout">
+    <div>
+      <div class="bmi-tool-card">
+        <h2>Measurements</h2>
+        <div class="bmi-tool-input-group">
+          <label>Height (inches)</label>
+          <input type="number" id="height" placeholder="e.g. 70" min="40" max="96" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Waist Circumference (inches)</label>
+          <input type="number" id="waist" placeholder="e.g. 34" min="20" max="80" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Weight (lbs, optional for BMI comparison)</label>
+          <input type="number" id="weight" placeholder="e.g. 185" min="50" max="600" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Date (optional)</label>
+          <input type="date" id="date-input">
+        </div>
+        <button class="bmi-tool-btn" onclick="calculateWHtR()">Calculate Ratio</button>
+        <div class="bmi-calc-actions" style="margin-top:1rem;">
+          <button class="bmi-tool-btn-secondary" onclick="saveMeasurement()">Save Measurement</button>
+          <button class="bmi-tool-btn-secondary" onclick="clearHistory()">Clear History</button>
+          <button class="bmi-tool-btn-secondary" onclick="exportCSV()">Export CSV</button>
+        </div>
+        <div class="bmi-privacy-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>All data stays in your browser — we never see it.</span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <button class="bmi-tool-btn-secondary" onclick="copyToolLink()" style="display:flex;align-items:center;gap:0.5rem;" title="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+          <button class="bmi-tool-btn-secondary" onclick="shareOnTwitter()" style="display:flex;align-items:center;gap:0.5rem;" title="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+        </div>
+
+      </div>
+
+      <div class="whtr-info-box">
+        <h4>Why This Matters</h4>
+        <p>Research published in <em>Obesity Reviews</em> (2012) and validated in subsequent meta-analyses shows that waist-to-height ratio (WHtR) is a better predictor of cardiovascular and metabolic risk than BMI alone. The "keep your waist less than half your height" rule is simple, requires no scale, and works across ethnicities and ages.</p>
+      </div>
+
+      <div class="bmi-tool-card" id="history-panel" style="display:none;margin-top:1.5rem;">
+        <h3>Measurement History</h3>
+        <div style="overflow-x:auto;">
+          <table class="whtr-history-table">
+            <thead><tr><th>Date</th><th>Waist</th><th>Height</th><th>WHtR</th><th>Category</th><th>Change</th></tr></thead>
+            <tbody id="history-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="bmi-tool-card" id="result-panel" style="display:none;">
+        <h2 style="text-align:center;">Your Result</h2>
+        <div class="whtr-gauge-container">
+          <canvas id="gauge-chart" width="280" height="160"></canvas>
+          <div class="whtr-gauge-value">
+            <div class="whtr-gauge-number" id="whtr-value">—</div>
+            <div class="whtr-gauge-label">Waist-to-Height Ratio</div>
+          </div>
+        </div>
+
+        <div class="whtr-risk-bar">
+          <div class="whtr-risk-marker" id="risk-marker" style="left:0%;"></div>
+        </div>
+        <div class="whtr-risk-legend">
+          <span>Low Risk (&lt;0.40)</span>
+          <span>Increased (0.40-0.50)</span>
+          <span>High Risk (&gt;0.50)</span>
+        </div>
+
+        <div class="whtr-categories" id="categories">
+          <div class="whtr-cat-item" data-cat="low"><div class="whtr-cat-dot" style="background:#10b981;"></div>Low Risk — &lt;0.40</div>
+          <div class="whtr-cat-item" data-cat="moderate"><div class="whtr-cat-dot" style="background:#3b82f6;"></div>Moderate — 0.40-0.46</div>
+          <div class="whtr-cat-item" data-cat="increased"><div class="whtr-cat-dot" style="background:#f59e0b;"></div>Increased — 0.46-0.50</div>
+          <div class="whtr-cat-item" data-cat="high"><div class="whtr-cat-dot" style="background:#ef4444;"></div>High Risk — &gt;0.50</div>
+        </div>
+
+        <div class="whtr-comparison">
+          <div class="whtr-comp-item">
+            <h4>Your WHtR</h4>
+            <div class="value" id="comp-whtr">—</div>
+            <div class="sub" id="comp-whtr-cat">—</div>
+          </div>
+          <div class="whtr-comp-item">
+            <h4>Your BMI</h4>
+            <div class="value" id="comp-bmi">—</div>
+            <div class="sub" id="comp-bmi-cat">—</div>
+          </div>
+          <div class="whtr-comp-item">
+            <h4>Ideal Waist</h4>
+            <div class="value" id="comp-ideal">—</div>
+            <div class="sub">Half your height</div>
+          </div>
+          <div class="whtr-comp-item">
+            <h4>Waist to Lose</h4>
+            <div class="value" id="comp-lose">—</div>
+            <div class="sub">To reach 0.50</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top:1.5rem;">
+        <h2>How It Works</h2>
+        <div style="font-size:0.9375rem;color:var(--bmi-text-secondary);line-height:1.7;">
+          <p><strong>WHtR Research:</strong> Waist-to-height ratio has been shown to predict cardiovascular risk better than BMI in multiple meta-analyses. The "keep your waist less than half your height" rule works across ethnicities and ages.</p>
+          <p style="margin-top:0.75rem;"><strong>How to Use:</strong> Measure your waist at the navel level (men) or narrowest point (women). Divide by your height in the same units. A ratio under 0.5 indicates low metabolic risk.</p>
+          <p style="margin-top:0.75rem;"><strong>Categories:</strong> &lt;0.40 = Low Risk, 0.40-0.46 = Moderate, 0.46-0.50 = Increased Risk, &gt;0.50 = High Risk.</p>
+          <p style="margin-top:0.75rem;"><strong>Tips:</strong> Measure at the same time of day, after exhaling normally. Do not suck in your stomach. Use a non-stretch tape.</p>
+        </div>
+      </div>
+
+      <div class="bmi-tool-card" id="chart-panel" style="display:none;margin-top:1.5rem;">
+        <h3>Trend Chart</h3>
+        <div class="whtr-chart-container">
+          <canvas id="trend-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bmi-ad-slot" data-ad-slot="tool_middle" style="margin-top:2rem;"><span>Advertisement</span></div>
+
+  <div class="bmi-article-footer" style="margin-top:3rem;">
+    <div class="bmi-related-articles">
+      <h3>Related Articles</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <img src="../images/blog/five-bmi-myths-tested.jpg" alt="BMI myths" width="60" height="45" loading="lazy">
+          <div><a href="../blog/five-bmi-myths-tested.html">5 Popular BMI Myths Tested With Real Data</a><span>April 10, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/austin-fittest-city-data-problem.jpg" alt="Austin fittest city" width="60" height="45" loading="lazy">
+          <div><a href="../blog/austin-fittest-city-data-problem.html">Why Austin's 'Fittest City' Label Is a Data Problem</a><span>April 14, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/rucking-yvo-warrior-month.jpg" alt="Rucking experiment" width="60" height="45" loading="lazy">
+          <div><a href="../blog/rucking-yvo-warrior-month.html">I Tried Rucking With YVO Warrior for a Month</a><span>April 22, 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-recommended-tools">
+      <h3>Recommended Tools</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item"><div><a href="bmi-calculator.html">BMI Calculator</a><span>Compare metrics</span></div></div>
+        <div class="bmi-related-item"><div><a href="body-fat-estimator.html">Body Fat Estimator</a><span>Tape method</span></div></div>
+        <div class="bmi-related-item"><div><a href="calorie-needs-calculator.html">Calorie Needs</a><span>Find your TDEE</span></div></div>
+        <div class="bmi-related-item"><div><a href="weight-loss-timeline.html">Weight Loss Timeline</a><span>Plan your journey</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bmi-ad-slot" data-ad-slot="tool_bottom" style="margin-top:2rem;"><span>Advertisement</span></div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div><h4>Tools</h4><ul>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="weight-loss-timeline.html">Weight Loss Timeline</a></li>
+        <li><a href="body-fat-estimator.html">Body Fat Estimator</a></li>
+        <li><a href="ideal-weight-range.html">Ideal Weight Range</a></li>
+        <li><a href="calorie-needs-calculator.html">Calorie Needs</a></li>
+        <li><a href="macro-split-planner.html">Macro Split Planner</a></li>
+        <li><a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+      </ul></div>
+      <div><h4>Blog</h4><ul>
+        <li><a href="../blog/index.html">All Articles</a></li>
+        <li><a href="../blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+        <li><a href="../blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+        <li><a href="../blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+      </ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="../about.html">About Jamie</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul></div>
+    </div>
+    <div class="bmi-footer-bottom"><p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p></div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const STORAGE_KEY = 'whtr_history';
+let currentResult = null;
+
+function calculateWHtR() {
+  const h = parseFloat(document.getElementById('height').value);
+  const waist = parseFloat(document.getElementById('waist').value);
+  const weight = parseFloat(document.getElementById('weight').value) || null;
+
+  if (!h || h < 40 || h > 96) { alert('Please enter a valid height'); return; }
+  if (!waist || waist < 20 || waist > 80) { alert('Please enter a valid waist measurement'); return; }
+
+  const whtr = waist / h;
+  const whtrRounded = Math.round(whtr * 1000) / 1000;
+  const bmi = weight ? (weight * 0.453592) / Math.pow(h * 0.0254, 2) : null;
+  const idealWaist = h * 0.5;
+  const waistToLose = Math.max(0, waist - idealWaist);
+
+  currentResult = { h, waist, weight, whtr: whtrRounded, bmi, date: document.getElementById('date-input').value || new Date().toISOString().split('T')[0] };
+
+  displayResult(whtrRounded, bmi, idealWaist, waistToLose);
+  renderHistory();
+  drawTrendChart();
+}
+
+function getCategory(whtr) {
+  if (whtr < 0.40) return { name: 'Low Risk', cat: 'low', color: '#10b981', message: 'Excellent. Your waist is well under half your height.' };
+  if (whtr < 0.46) return { name: 'Moderate', cat: 'moderate', color: '#3b82f6', message: 'Acceptable, but monitor trends. Aim to keep it below 0.50.' };
+  if (whtr <= 0.50) return { name: 'Increased Risk', cat: 'increased', color: '#f59e0b', message: 'Consider lifestyle changes. Research shows elevated metabolic risk above 0.50.' };
+  return { name: 'High Risk', cat: 'high', color: '#ef4444', message: 'Talk to a healthcare provider. Your waist circumference suggests elevated metabolic risk.' };
+}
+
+function displayResult(whtr, bmi, idealWaist, waistToLose) {
+  document.getElementById('result-panel').style.display = 'block';
+  document.getElementById('chart-panel').style.display = 'block';
+  document.getElementById('whtr-value').textContent = whtr.toFixed(2);
+
+  const cat = getCategory(whtr);
+  document.getElementById('whtr-value').style.color = cat.color;
+
+  // Position marker (scale 0.3-0.6 mapped to 0-100%)
+  const pct = Math.min(Math.max((whtr - 0.3) / 0.3 * 100, 0), 100);
+  document.getElementById('risk-marker').style.left = pct + '%';
+
+  // Highlight category
+  document.querySelectorAll('.whtr-cat-item').forEach(el => {
+    el.classList.toggle('active', el.dataset.cat === cat.cat);
+  });
+
+  // Comparison
+  document.getElementById('comp-whtr').textContent = whtr.toFixed(2);
+  document.getElementById('comp-whtr').style.color = cat.color;
+  document.getElementById('comp-whtr-cat').textContent = cat.name;
+  document.getElementById('comp-whtr-cat').style.color = cat.color;
+
+  if (bmi) {
+    const bmiCat = bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal' : bmi < 30 ? 'Overweight' : 'Obese';
+    document.getElementById('comp-bmi').textContent = bmi.toFixed(1);
+    document.getElementById('comp-bmi-cat').textContent = bmiCat;
+  } else {
+    document.getElementById('comp-bmi').textContent = '—';
+    document.getElementById('comp-bmi-cat').textContent = 'Enter weight';
+  }
+
+  document.getElementById('comp-ideal').textContent = idealWaist.toFixed(1) + '"';
+  document.getElementById('comp-lose').textContent = waistToLose > 0 ? waistToLose.toFixed(1) + '"' : 'At goal!';
+  document.getElementById('comp-lose').style.color = waistToLose > 0 ? '#ef4444' : '#10b981';
+
+  drawGauge(whtr, cat.color);
+}
+
+function drawGauge(whtr, color) {
+  const canvas = document.getElementById('gauge-chart');
+  const ctx = canvas.getContext('2d');
+  const w = 280, h = 160, cx = w/2, cy = h - 10, r = 120;
+
+  ctx.clearRect(0, 0, w, h);
+
+  // Background arc (0.3 to 0.6)
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, Math.PI, 0);
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 20;
+  ctx.stroke();
+
+  // Color zones
+  const zones = [
+    { start: Math.PI, end: Math.PI + Math.PI * (0.40 - 0.3) / 0.3, color: '#10b981' },
+    { start: Math.PI + Math.PI * (0.40 - 0.3) / 0.3, end: Math.PI + Math.PI * (0.46 - 0.3) / 0.3, color: '#3b82f6' },
+    { start: Math.PI + Math.PI * (0.46 - 0.3) / 0.3, end: Math.PI + Math.PI * (0.50 - 0.3) / 0.3, color: '#f59e0b' },
+    { start: Math.PI + Math.PI * (0.50 - 0.3) / 0.3, end: 0, color: '#ef4444' }
+  ];
+
+  zones.forEach(z => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, z.start, z.end);
+    ctx.strokeStyle = z.color;
+    ctx.lineWidth = 20;
+    ctx.stroke();
+  });
+
+  // Needle
+  const angle = Math.PI + Math.PI * Math.min(Math.max((whtr - 0.3) / 0.3, 0), 1);
+  const nx = cx + Math.cos(angle) * (r - 10);
+  const ny = cy + Math.sin(angle) * (r - 10);
+
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.lineTo(nx, ny);
+  ctx.strokeStyle = '#1e1b4b';
+  ctx.lineWidth = 3;
+  ctx.stroke();
+
+  // Center dot
+  ctx.beginPath();
+  ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+  ctx.fillStyle = '#1e1b4b';
+  ctx.fill();
+
+  // Labels
+  ctx.fillStyle = '#64748b';
+  ctx.font = '11px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('0.30', cx - r + 15, cy + 15);
+  ctx.fillText('0.60', cx + r - 15, cy + 15);
+}
+
+function drawTrendChart() {
+  const history = getHistory();
+  const canvas = document.getElementById('trend-chart');
+  const ctx = canvas.getContext('2d');
+  const container = canvas.parentElement;
+  canvas.width = container.clientWidth * 2;
+  canvas.height = 250 * 2;
+  canvas.style.width = container.clientWidth + 'px';
+  canvas.style.height = '250px';
+  ctx.scale(2, 2);
+
+  const w = container.clientWidth, h = 250;
+  const p = { t: 30, r: 30, b: 40, l: 40 };
+
+  ctx.clearRect(0, 0, w, h);
+
+  if (history.length < 2) {
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '14px Inter';
+    ctx.textAlign = 'center';
+    ctx.fillText('Save at least 2 measurements to see trends', w/2, h/2);
+    return;
+  }
+
+  const cw = w - p.l - p.r, ch = h - p.t - p.b;
+  const minVal = Math.min(...history.map(h => h.whtr)) - 0.02;
+  const maxVal = Math.max(...history.map(h => h.whtr)) + 0.02;
+  const range = maxVal - minVal || 0.01;
+
+  // Reference lines
+  [0.40, 0.50].forEach(ref => {
+    if (ref >= minVal && ref <= maxVal) {
+      const y = p.t + ch - ((ref - minVal) / range * ch);
+      ctx.strokeStyle = ref === 0.40 ? '#10b981' : '#ef4444';
+      ctx.setLineDash([5, 5]);
+      ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(p.l, y); ctx.lineTo(w - p.r, y); ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = ref === 0.40 ? '#10b981' : '#ef4444';
+      ctx.font = '11px Inter';
+      ctx.textAlign = 'right';
+      ctx.fillText(ref.toFixed(2), p.l - 5, y + 3);
+    }
+  });
+
+  // Grid
+  ctx.strokeStyle = '#e2e8f0';
+  ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = p.t + (ch * i / 4);
+    ctx.beginPath(); ctx.moveTo(p.l, y); ctx.lineTo(w - p.r, y); ctx.stroke();
+    ctx.fillStyle = '#64748b'; ctx.font = '12px Inter'; ctx.textAlign = 'right';
+    ctx.fillText((maxVal - range * i / 4).toFixed(2), p.l - 8, y + 4);
+  }
+
+  // Line
+  ctx.strokeStyle = '#7c3aed';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  history.forEach((h, i) => {
+    const x = p.l + (cw * i / (history.length - 1));
+    const y = p.t + ch - ((h.whtr - minVal) / range * ch);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Points
+  history.forEach((h, i) => {
+    const x = p.l + (cw * i / (history.length - 1));
+    const y = p.t + ch - ((h.whtr - minVal) / range * ch);
+    const cat = getCategory(h.whtr);
+    ctx.fillStyle = cat.color;
+    ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = 'white';
+    ctx.beginPath(); ctx.arc(x, y, 2, 0, Math.PI * 2); ctx.fill();
+  });
+
+  // X labels
+  ctx.fillStyle = '#64748b'; ctx.font = '11px Inter'; ctx.textAlign = 'center';
+  const step = Math.max(1, Math.floor(history.length / 5));
+  history.forEach((h, i) => {
+    if (i % step === 0 || i === history.length - 1) {
+      const x = p.l + (cw * i / (history.length - 1));
+      ctx.fillText(h.date.slice(5), x, h - 5);
+    }
+  });
+}
+
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+
+function saveMeasurement() {
+  if (!currentResult) { alert('Calculate first'); return; }
+  const history = getHistory();
+  history.push(currentResult);
+  history.sort((a, b) => new Date(a.date) - new Date(b.date));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  renderHistory();
+  drawTrendChart();
+  alert('Saved!');
+}
+
+function clearHistory() {
+  if (confirm('Clear all measurements?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHistory();
+    drawTrendChart();
+  }
+}
+
+function renderHistory() {
+  const history = getHistory();
+  const panel = document.getElementById('history-panel');
+  if (history.length === 0) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+
+  document.getElementById('history-table').innerHTML = history.map((h, i) => {
+    const cat = getCategory(h.whtr);
+    const change = i > 0 ? (h.whtr - history[i-1].whtr).toFixed(3) : '—';
+    const changeColor = change !== '—' ? (parseFloat(change) < 0 ? 'color:#10b981;' : 'color:#ef4444;') : '';
+    return `<tr>
+      <td>${h.date}</td>
+      <td>${h.waist.toFixed(1)}"</td>
+      <td>${h.h.toFixed(1)}"</td>
+      <td><strong style="color:${cat.color};">${h.whtr.toFixed(2)}</strong></td>
+      <td>${cat.name}</td>
+      <td style="${changeColor}">${change !== '—' ? (parseFloat(change) < 0 ? '▼ ' : '▲ ') + change : '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+function exportCSV() {
+  const history = getHistory();
+  if (history.length === 0) { alert('No history to export'); return; }
+  let csv = 'Date,Height,Weight,Waist,WHtR,Category,BMI\n';
+  history.forEach(h => {
+    const cat = getCategory(h.whtr);
+    csv += `${h.date},${h.h},${h.weight||''},${h.waist},${h.whtr.toFixed(3)},${cat.name},${h.bmi?h.bmi.toFixed(1):''}\n`;
+  });
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'waist-height-history-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+document.getElementById('date-input').value = new Date().toISOString().split('T')[0];
+renderHistory();
+window.addEventListener('resize', drawTrendChart);
+</script>
+
+<script>
+// Share functionality
+function copyToolLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('Link copied to clipboard!');
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  } catch (err) {
+    alert('Could not copy link. Please copy manually: ' + text);
+  }
+  document.body.removeChild(ta);
+}
+
+function shareOnTwitter() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent(document.title);
+  window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'width=550,height=420');
+}
+</script>
+
+</body>
+</html>
