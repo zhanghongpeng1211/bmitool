@@ -1,0 +1,21 @@
+{
+  "site_name": "BMITool.org",
+  "domain": "bmitool.org",
+  "description": "Data-driven health tools and experiments from Austin, Texas. BMI calculators, body composition trackers, and metabolic health insights — no data leaves your browser.",
+  "author": "James 'Jamie' Whitfield",
+  "location": "Austin, Texas",
+  "language": "en",
+  "charset": "UTF-8",
+  "theme_color": "#7c3aed",
+  "css_prefix": "bmi-",
+  "favicon": "favicon.ico",
+  "logo": "images/logo.svg",
+  "social": {
+    "twitter": "@bmitool",
+    "github": "bmitool"
+  },
+  "analytics": {
+    "enabled": false,
+    "provider": "none"
+  }
+}
