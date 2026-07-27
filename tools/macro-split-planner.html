@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macro Split Planner — BMITool.org</title>
+<meta name="description" content="Design your protein, carb, and fat distribution. Visual charts, meal breakdown, and preset templates. All private.">>
+<link rel="canonical" href="https://bmitool.org/tools/macro-split-planner.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Macro Split Planner — BMITool.org">>
+<meta property="og:description" content="Design your protein, carb, and fat distribution. Visual charts, meal breakdown, and preset templates. All private.">>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/tools/macro-split-planner.html">
+<meta property="og:image" content="https://bmitool.org/images/og-macro-split.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Macro Split Planner — BMITool.org">>
+<meta name="twitter:description" content="Design your protein, carb, and fat distribution. Visual charts, meal breakdown, and preset templates. All private.">>
+<meta name="twitter:image" content="https://bmitool.org/images/og-macro-split.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Macro Split Planner",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "James 'Jamie' Whitfield", "url": "https://bmitool.org/about.html"},
+  "description": "Design protein, carb, and fat distribution based on goals, diet style, and training. Visual macro charts and meal planning breakdown. All data stays in your browser.",
+  "featureList": "Custom macro ratios, Preset diet templates, Visual stacked bar chart, Meal-by-meal breakdown, Protein per kg target, History tracking, Export to CSV"
+}
+</script>
+"""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://bmitool.org/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Macro Split Planner",
+      "item": "https://bmitool.org/tools/macro-split-planner.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.msp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.msp-presets { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+.msp-preset-btn { background: var(--bmi-border-light); border: 2px solid var(--bmi-border); border-radius: var(--bmi-radius); padding: 0.75rem; text-align: center; cursor: pointer; transition: all 0.2s; font-size: 0.875rem; font-weight: 600; }
+.msp-preset-btn:hover { border-color: var(--bmi-primary-light); }
+.msp-preset-btn.active { background: var(--bmi-primary); color: white; border-color: var(--bmi-primary); }
+.msp-preset-btn .sub { font-size: 0.75rem; font-weight: 400; opacity: 0.8; margin-top: 0.25rem; }
+.msp-slider-group { margin-bottom: 1.5rem; }
+.msp-slider-group label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.5rem; }
+.msp-slider-group input[type="range"] { width: 100%; accent-color: var(--bmi-primary); }
+.msp-slider-val { font-weight: 700; color: var(--bmi-primary); }
+.msp-stacked-bar { width: 100%; height: 48px; border-radius: var(--bmi-radius); overflow: hidden; display: flex; margin: 1.5rem 0; }
+.msp-stacked-segment { display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 0.875rem; transition: width 0.3s ease; }
+.msp-macro-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.msp-macro-card { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1.25rem; text-align: center; border-top: 4px solid; }
+.msp-macro-card h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.msp-macro-card .grams { font-size: 2rem; font-weight: 800; line-height: 1; }
+.msp-macro-card .calories { font-size: 0.875rem; color: var(--bmi-text-muted); margin-top: 0.25rem; }
+.msp-meal-breakdown { margin-top: 2rem; }
+.msp-meal-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid var(--bmi-border); }
+.msp-meal-item:last-child { border-bottom: none; }
+.msp-meal-bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin-top: 0.25rem; width: 120px; }
+.msp-meal-bar-seg { height: 100%; }
+.msp-history-table { width: 100%; font-size: 0.875rem; margin-top: 1rem; }
+.msp-history-table th, .msp-history-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--bmi-border); }
+.msp-history-table th { font-weight: 600; color: var(--bmi-text-secondary); }
+.msp-total-check { text-align: center; padding: 0.75rem; border-radius: var(--bmi-radius); margin-top: 1rem; font-weight: 600; }
+.msp-total-check.ok { background: #dcfce7; color: #166534; }
+.msp-total-check.warn { background: #fef3c7; color: #92400e; }
+@media (max-width: 768px) { .msp-layout { grid-template-columns: 1fr; } .msp-presets { grid-template-columns: 1fr; } .msp-macro-cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>Macro Split Planner</h1>
+    <p>Design your protein, carb, and fat distribution based on your goals, diet style, and training schedule. Visual stacked bars, meal-by-meal breakdown, and grams-per-kg targets.</p>
+  </div>
+</header>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="tool_top"><span>Advertisement</span></div>
+</div>
+
+<main class="bmi-container" style="padding: 3rem 0;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="bmi-breadcrumb-sep">/</span>
+    <a href="index.html">Tools</a><span class="bmi-breadcrumb-sep">/</span>
+    <span>Macro Split Planner</span>
+  </nav>
+
+  <div class="msp-layout">
+    <div>
+      <div class="bmi-tool-card">
+        <h2>Quick Presets</h2>
+        <div class="msp-presets">
+          <div class="msp-preset-btn" onclick="setPreset('balanced')">Balanced<div class="sub">30/40/30</div></div>
+          <div class="msp-preset-btn" onclick="setPreset('lowcarb')">Low Carb<div class="sub">35/15/50</div></div>
+          <div class="msp-preset-btn" onclick="setPreset('keto')">Keto<div class="sub">20/5/75</div></div>
+          <div class="msp-preset-btn" onclick="setPreset('highprotein')">High Protein<div class="sub">40/30/30</div></div>
+          <div class="msp-preset-btn active" onclick="setPreset('athlete')">Athlete<div class="sub">25/55/20</div></div>
+          <div class="msp-preset-btn" onclick="setPreset('custom')">Custom<div class="sub">Adjust sliders</div></div>
+        </div>
+
+        <h2>Your Details</h2>
+        <div class="bmi-tool-input-group">
+          <label>Daily Calorie Target</label>
+          <input type="number" id="calories" placeholder="e.g. 2200" min="800" max="8000" step="10">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Body Weight (lbs)</label>
+          <input type="number" id="weight" placeholder="e.g. 185" min="50" max="600" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Goal</label>
+          <select id="goal">
+            <option value="maintain">Maintain Weight</option>
+            <option value="lose">Lose Fat</option>
+            <option value="gain">Build Muscle</option>
+            <option value="recomp">Body Recomposition</option>
+          </select>
+        </div>
+
+        <h3 style="margin-top:1.5rem;margin-bottom:1rem;">Custom Ratios</h3>
+        <div class="msp-slider-group">
+          <label>Protein <span class="msp-slider-val" id="protein-val">25%</span></label>
+          <input type="range" id="protein-pct" min="5" max="60" value="25" oninput="updateSliders()">
+        </div>
+        <div class="msp-slider-group">
+          <label>Carbs <span class="msp-slider-val" id="carbs-val">55%</span></label>
+          <input type="range" id="carbs-pct" min="5" max="70" value="55" oninput="updateSliders()">
+        </div>
+        <div class="msp-slider-group">
+          <label>Fat <span class="msp-slider-val" id="fat-val">20%</span></label>
+          <input type="range" id="fat-pct" min="5" max="70" value="20" oninput="updateSliders()">
+        </div>
+        <div class="msp-total-check warn" id="total-check">Total: 100% — Adjust sliders to balance</div>
+
+        <button class="bmi-tool-btn" onclick="calculateMacros()" style="margin-top:1.5rem;">Calculate Macros</button>
+        <div class="bmi-calc-actions" style="margin-top:1rem;">
+          <button class="bmi-tool-btn-secondary" onclick="savePlan()">Save Plan</button>
+          <button class="bmi-tool-btn-secondary" onclick="clearPlans()">Clear History</button>
+          <button class="bmi-tool-btn-secondary" onclick="exportCSV()">Export CSV</button>
+        </div>
+        <div class="bmi-privacy-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>All data stays in your browser — we never see it.</span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <button class="bmi-tool-btn-secondary" onclick="copyToolLink()" style="display:flex;align-items:center;gap:0.5rem;" title="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+          <button class="bmi-tool-btn-secondary" onclick="shareOnTwitter()" style="display:flex;align-items:center;gap:0.5rem;" title="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+        </div>
+
+      </div>
+
+      <div class="bmi-tool-card" id="history-panel" style="display:none;margin-top:1.5rem;">
+        <h3>Saved Plans</h3>
+        <div style="overflow-x:auto;">
+          <table class="msp-history-table">
+            <thead><tr><th>Name</th><th>Calories</th><th>P/C/F</th><th>Protein g</th><th>Date</th></tr></thead>
+            <tbody id="history-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="bmi-tool-card" id="result-panel" style="display:none;">
+        <h2 style="text-align:center;">Your Macro Plan</h2>
+        <div class="msp-stacked-bar" id="macro-bar">
+          <div class="msp-stacked-segment" id="bar-protein" style="width:25%;background:#7c3aed;">Protein</div>
+          <div class="msp-stacked-segment" id="bar-carbs" style="width:55%;background:#22c55e;">Carbs</div>
+          <div class="msp-stacked-segment" id="bar-fat" style="width:20%;background:#f59e0b;">Fat</div>
+        </div>
+
+        
+        <div style="margin-top:2rem;">
+          <h3 style="text-align:center;margin-bottom:1rem;">Macro Distribution</h3>
+          <div style="width:100%;height:250px;display:flex;justify-content:center;">
+            <canvas id="macro-pie-chart" width="250" height="250" style="max-width:250px;max-height:250px;"></canvas>
+          </div>
+        </div>
+        <div class="msp-macro-cards">
+          <div class="msp-macro-card" style="border-color:#7c3aed;">
+            <h4 style="color:#7c3aed;">Protein</h4>
+            <div class="grams" id="protein-grams">—</div>
+            <div class="calories" id="protein-cals">— cal</div>
+            <div class="calories" id="protein-perkg" style="margin-top:0.5rem;font-weight:600;">— g/kg</div>
+          </div>
+          <div class="msp-macro-card" style="border-color:#22c55e;">
+            <h4 style="color:#22c55e;">Carbs</h4>
+            <div class="grams" id="carbs-grams">—</div>
+            <div class="calories" id="carbs-cals">— cal</div>
+          </div>
+          <div class="msp-macro-card" style="border-color:#f59e0b;">
+            <h4 style="color:#f59e0b;">Fat</h4>
+            <div class="grams" id="fat-grams">—</div>
+            <div class="calories" id="fat-cals">— cal</div>
+          </div>
+        </div>
+
+        <div class="msp-meal-breakdown">
+          <h3>Meal-by-Meal Breakdown (4 meals)</h3>
+          <div id="meal-breakdown"></div>
+        </div>
+
+        <div style="margin-top:2rem;padding:1rem;background:var(--bmi-bg);border-radius:var(--bmi-radius);">
+          <h4 style="margin-bottom:0.5rem;">Protein Quality Note</h4>
+          <p style="font-size:0.875rem;color:var(--bmi-text-secondary);margin:0;">
+            Target <strong>1.6-2.2 g/kg body weight</strong> for muscle building, <strong>1.2-1.6 g/kg</strong> for maintenance, <strong>1.0-1.2 g/kg</strong> for general health. 
+            Animal proteins (meat, eggs, dairy) have higher bioavailability than most plant proteins. If vegetarian, aim for the higher end of the range.
+          </p>
+        </div>
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top:1.5rem;">
+        <!-- How It Works -->
+  <div class="bmi-container" style="padding: 3rem 0;">
+    <div class="bmi-tool-card" style="max-width: 800px; margin: 0 auto;">
+      <h2>How It Works</h2>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1.5rem;">
+        This planner converts your daily calorie target into specific gram targets for protein, carbohydrates, and fat. Here is how the math works:
+      </p>
+      <h3 style="margin-top: 1.5rem;">The Calorie-to-Gram Conversion</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        Each macronutrient has a fixed calorie density:
+      </p>
+      <div style="background: var(--bmi-bg); border-radius: var(--bmi-radius); padding: 1.5rem; font-family: var(--bmi-font-mono); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.8;">
+        Protein = 4 calories per gram<br>
+        Carbohydrates = 4 calories per gram<br>
+        Fat = 9 calories per gram
+      </div>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        For example, if your target is 2,200 calories with a 30/40/30 split:
+      </p>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li>Protein: 2,200 × 30% = 660 cal ÷ 4 = <strong>165g</strong></li>
+        <li>Carbs: 2,200 × 40% = 880 cal ÷ 4 = <strong>220g</strong></li>
+        <li>Fat: 2,200 × 30% = 660 cal ÷ 9 = <strong>73g</strong></li>
+      </ul>
+      <h3 style="margin-top: 1.5rem;">Preset Templates Explained</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        Each preset is optimized for a different goal:
+      </p>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>Balanced (30/40/30):</strong> Good for general health and maintenance. Moderate protein supports muscle preservation without over-restriction.</li>
+        <li><strong>Low Carb (35/15/50):</strong> Higher fat helps satiety. Useful for insulin sensitivity or appetite control.</li>
+        <li><strong>Keto (20/5/75):</strong> Very low carb induces ketosis. Requires strict adherence and is not suitable for high-intensity athletes.</li>
+        <li><strong>High Protein (40/30/30):</strong> Maximizes muscle protein synthesis. Best for strength training and body recomposition.</li>
+        <li><strong>Athlete (25/55/20):</strong> Carb-heavy to fuel glycogen stores. Ideal for endurance runners, cyclists, and team sports.</li>
+      </ul>
+      <h3 style="margin-top: 1.5rem;">Protein Per Kilogram</h3>
+      <p style="color: var(--bmi-text-secondary); margin-bottom: 1rem;">
+        The tool calculates your protein intake relative to body weight. Research-backed targets:
+      </p>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem; margin-bottom: 1.5rem;">
+        <li><strong>1.0–1.2 g/kg:</strong> General health, sedentary adults</li>
+        <li><strong>1.2–1.6 g/kg:</strong> Maintenance with light activity</li>
+        <li><strong>1.6–2.2 g/kg:</strong> Muscle building, strength training</li>
+        <li><strong>2.0–2.4 g/kg:</strong> Competitive bodybuilders during cuts</li>
+      </ul>
+      <h3 style="margin-top: 1.5rem;">Practical Tips</h3>
+      <ul style="color: var(--bmi-text-secondary); padding-left: 1.5rem;">
+        <li>Start with the preset closest to your goal, then adjust sliders to match your preferences.</li>
+        <li>Ensure percentages add to exactly 100% — the tool will warn you if they do not.</li>
+        <li>Meal breakdown assumes 4 meals/day. Adjust portions if you eat 2–3 larger meals or 5–6 smaller ones.</li>
+        <li>Save multiple plans to compare. All data stays in your browser.</li>
+      </ul>
+    </div>
+  </div>
+      </div>
+    </div>
+  </div>
+  <div class="bmi-ad-slot" data-ad-slot="tool_middle" style="margin-top:2rem;"><span>Advertisement</span></div>
+
+  <div class="bmi-article-footer" style="margin-top:3rem;">
+    <div class="bmi-related-articles">
+      <h3>Related Articles</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <img src="../images/blog/heb-prepared-meals-30-days.jpg" alt="H-E-B meals" width="60" height="45" loading="lazy">
+          <div><a href="../blog/heb-prepared-meals-30-days.html">I Ate Only H-E-B Prepared Meals for 30 Days</a><span>April 28, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/meal-prep-algorithm.jpg" alt="Meal prep algorithm" width="60" height="45" loading="lazy">
+          <div><a href="../blog/meal-prep-algorithm.html">Meal Prep Didn't Work for Me. So I Built an Algorithm</a><span>May 18, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/plant-based-trend-bmi-labels.jpg" alt="Plant-based labels" width="60" height="45" loading="lazy">
+          <div><a href="../blog/plant-based-trend-bmi-labels.html">What the Plant-Based Trend Means for Your BMI</a><span>May 28, 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-recommended-tools">
+      <h3>Recommended Tools</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item"><div><a href="calorie-needs-calculator.html">Calorie Needs</a><span>Find your TDEE first</span></div></div>
+        <div class="bmi-related-item"><div><a href="weight-loss-timeline.html">Weight Loss Timeline</a><span>Plan your deficit</span></div></div>
+        <div class="bmi-related-item"><div><a href="bmi-calculator.html">BMI Calculator</a><span>Track body metrics</span></div></div>
+        <div class="bmi-related-item"><div><a href="body-fat-estimator.html">Body Fat Estimator</a><span>Check composition</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="bmi-ad-slot" data-ad-slot="tool_bottom" style="margin-top:2rem;"><span>Advertisement</span></div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div><h4>Tools</h4><ul>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="weight-loss-timeline.html">Weight Loss Timeline</a></li>
+        <li><a href="body-fat-estimator.html">Body Fat Estimator</a></li>
+        <li><a href="ideal-weight-range.html">Ideal Weight Range</a></li>
+        <li><a href="calorie-needs-calculator.html">Calorie Needs</a></li>
+        <li><a href="macro-split-planner.html">Macro Split Planner</a></li>
+        <li><a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+      </ul></div>
+      <div><h4>Blog</h4><ul>
+        <li><a href="../blog/index.html">All Articles</a></li>
+        <li><a href="../blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+        <li><a href="../blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+        <li><a href="../blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+      </ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="../about.html">About Jamie</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul></div>
+    </div>
+    <div class="bmi-footer-bottom"><p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p></div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const STORAGE_KEY = 'msp_plans';
+let currentPlan = null;
+const presets = {
+  balanced: { p: 30, c: 40, f: 30 },
+  lowcarb: { p: 35, c: 15, f: 50 },
+  keto: { p: 20, c: 5, f: 75 },
+  highprotein: { p: 40, c: 30, f: 30 },
+  athlete: { p: 25, c: 55, f: 20 },
+  custom: { p: 25, c: 55, f: 20 }
+};
+
+function setPreset(name) {
+  document.querySelectorAll('.msp-preset-btn').forEach(b => b.classList.remove('active'));
+  event.target.closest('.msp-preset-btn').classList.add('active');
+  const preset = presets[name];
+  document.getElementById('protein-pct').value = preset.p;
+  document.getElementById('carbs-pct').value = preset.c;
+  document.getElementById('fat-pct').value = preset.f;
+  updateSliders();
+}
+
+function updateSliders() {
+  const p = parseInt(document.getElementById('protein-pct').value);
+  const c = parseInt(document.getElementById('carbs-pct').value);
+  const f = parseInt(document.getElementById('fat-pct').value);
+  const total = p + c + f;
+
+  document.getElementById('protein-val').textContent = p + '%';
+  document.getElementById('carbs-val').textContent = c + '%';
+  document.getElementById('fat-val').textContent = f + '%';
+
+  const check = document.getElementById('total-check');
+  check.textContent = 'Total: ' + total + '%';
+  check.className = 'msp-total-check ' + (total === 100 ? 'ok' : 'warn');
+  if (total === 100) check.textContent += ' ✓ Balanced';
+  else if (total < 100) check.textContent += ' — Add ' + (100 - total) + '% more';
+  else check.textContent += ' — Remove ' + (total - 100) + '%';
+}
+
+function calculateMacros() {
+  const calories = parseInt(document.getElementById('calories').value);
+  const weight = parseFloat(document.getElementById('weight').value);
+  const p = parseInt(document.getElementById('protein-pct').value);
+  const c = parseInt(document.getElementById('carbs-pct').value);
+  const f = parseInt(document.getElementById('fat-pct').value);
+
+  if (!calories || calories < 800) { alert('Please enter a valid calorie target (800+)'); return; }
+  if (p + c + f !== 100) { alert('Macro percentages must add up to 100%. Current: ' + (p+c+f) + '%'); return; }
+
+  const proteinCal = Math.round(calories * p / 100);
+  const carbsCal = Math.round(calories * c / 100);
+  const fatCal = Math.round(calories * f / 100);
+  const proteinG = Math.round(proteinCal / 4);
+  const carbsG = Math.round(carbsCal / 4);
+  const fatG = Math.round(fatCal / 9);
+  const weightKg = weight ? weight * 0.453592 : null;
+  const proteinPerKg = weightKg ? (proteinG / weightKg).toFixed(1) : null;
+
+  currentPlan = { calories, weight, p, c, f, proteinG, carbsG, fatG, proteinCal, carbsCal, fatCal, proteinPerKg, date: new Date().toISOString() };
+
+  document.getElementById('result-panel').style.display = 'block';
+  document.getElementById('bar-protein').style.width = p + '%';
+  document.getElementById('bar-carbs').style.width = c + '%';
+  document.getElementById('bar-fat').style.width = f + '%';
+
+  document.getElementById('protein-grams').textContent = proteinG + 'g';
+  document.getElementById('protein-cals').textContent = proteinCal.toLocaleString() + ' cal';
+  document.getElementById('protein-perkg').textContent = proteinPerKg ? proteinPerKg + ' g/kg' : '—';
+  document.getElementById('carbs-grams').textContent = carbsG + 'g';
+  document.getElementById('carbs-cals').textContent = carbsCal.toLocaleString() + ' cal';
+  document.getElementById('fat-grams').textContent = fatG + 'g';
+  document.getElementById('fat-cals').textContent = fatCal.toLocaleString() + ' cal';
+  drawMacroPie(p, c, f);
+
+  // Meal breakdown (4 meals: breakfast 25%, lunch 35%, snack 15%, dinner 25%)
+  const meals = [
+    { name: 'Breakfast', pct: 0.25 },
+    { name: 'Lunch', pct: 0.35 },
+    { name: 'Afternoon Snack', pct: 0.15 },
+    { name: 'Dinner', pct: 0.25 }
+  ];
+
+  document.getElementById('meal-breakdown').innerHTML = meals.map(m => {
+    const mP = Math.round(proteinG * m.pct);
+    const mC = Math.round(carbsG * m.pct);
+    const mF = Math.round(fatG * m.pct);
+    const mCal = Math.round(calories * m.pct);
+    const pPct = (mP / (mP + mC + mF) * 100).toFixed(0);
+    const cPct = (mC / (mP + mC + mF) * 100).toFixed(0);
+    const fPct = (mF / (mP + mC + mF) * 100).toFixed(0);
+    return `
+      <div class="msp-meal-item">
+        <div>
+          <strong>${m.name}</strong> — ${mCal} cal
+          <div style="font-size:0.75rem;color:var(--bmi-text-muted);margin-top:0.25rem;">
+            P: ${mP}g · C: ${mC}g · F: ${mF}g
+          </div>
+        </div>
+        <div>
+          <div class="msp-meal-bar">
+            <div class="msp-meal-bar-seg" style="width:${pPct}%;background:#7c3aed;"></div>
+            <div class="msp-meal-bar-seg" style="width:${cPct}%;background:#22c55e;"></div>
+            <div class="msp-meal-bar-seg" style="width:${fPct}%;background:#f59e0b;"></div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function getPlans() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+
+function savePlan() {
+  if (!currentPlan) { alert('Calculate a plan first'); return; }
+  const plans = getPlans();
+  const name = prompt('Name this plan:', 'Plan ' + (plans.length + 1));
+  if (!name) return;
+  plans.push({ name, date: new Date().toISOString(), data: currentPlan });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
+  renderHistory();
+  alert('Saved!');
+}
+
+function clearPlans() {
+  if (confirm('Clear all saved plans?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHistory();
+  }
+}
+
+function renderHistory() {
+  const plans = getPlans();
+  const panel = document.getElementById('history-panel');
+  if (plans.length === 0) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+  document.getElementById('history-table').innerHTML = plans.map(p => `
+    <tr>
+      <td><strong>${p.name}</strong></td>
+      <td>${p.data.calories.toLocaleString()}</td>
+      <td>${p.data.p}/${p.data.c}/${p.data.f}</td>
+      <td>${p.data.proteinG}g</td>
+      <td>${new Date(p.date).toLocaleDateString()}</td>
+    </tr>
+  `).join('');
+}
+
+function drawMacroPie(p, c, f) {
+  const canvas = document.getElementById('macro-pie-chart');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const cx = 125, cy = 125, r = 100;
+
+  ctx.clearRect(0, 0, 250, 250);
+
+  const total = p + c + f;
+  const pAngle = (p / total) * Math.PI * 2;
+  const cAngle = (c / total) * Math.PI * 2;
+  const fAngle = (f / total) * Math.PI * 2;
+
+  let start = -Math.PI / 2;
+
+  // Protein
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, r, start, start + pAngle);
+  ctx.closePath();
+  ctx.fillStyle = '#7c3aed';
+  ctx.fill();
+  start += pAngle;
+
+  // Carbs
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, r, start, start + cAngle);
+  ctx.closePath();
+  ctx.fillStyle = '#22c55e';
+  ctx.fill();
+  start += cAngle;
+
+  // Fat
+  ctx.beginPath();
+  ctx.moveTo(cx, cy);
+  ctx.arc(cx, cy, r, start, start + fAngle);
+  ctx.closePath();
+  ctx.fillStyle = '#f59e0b';
+  ctx.fill();
+
+  // Center hole (donut)
+  ctx.beginPath();
+  ctx.arc(cx, cy, 50, 0, Math.PI * 2);
+  ctx.fillStyle = 'white';
+  ctx.fill();
+
+  // Labels
+  ctx.fillStyle = '#1e1b4b';
+  ctx.font = 'bold 14px Inter';
+  ctx.textAlign = 'center';
+  ctx.fillText('Macros', cx, cy - 5);
+  ctx.font = '12px Inter';
+  ctx.fillStyle = '#64748b';
+  ctx.fillText(`${p}% / ${c}% / ${f}%`, cx, cy + 12);
+}
+
+function exportCSV() {
+  if (!currentPlan) { alert('Calculate a plan first'); return; }
+  let csv = 'Macro,Grams,Calories,Percentage\n';
+  csv += `Protein,${currentPlan.proteinG},${currentPlan.proteinCal},${currentPlan.p}%\n`;
+  csv += `Carbs,${currentPlan.carbsG},${currentPlan.carbsCal},${currentPlan.c}%\n`;
+  csv += `Fat,${currentPlan.fatG},${currentPlan.fatCal},${currentPlan.f}%\n`;
+  csv += `\nMeal,Protein g,Carbs g,Fat g,Calories\n`;
+  csv += `Breakfast,${Math.round(currentPlan.proteinG*0.25)},${Math.round(currentPlan.carbsG*0.25)},${Math.round(currentPlan.fatG*0.25)},${Math.round(currentPlan.calories*0.25)}\n`;
+  csv += `Lunch,${Math.round(currentPlan.proteinG*0.35)},${Math.round(currentPlan.carbsG*0.35)},${Math.round(currentPlan.fatG*0.35)},${Math.round(currentPlan.calories*0.35)}\n`;
+  csv += `Snack,${Math.round(currentPlan.proteinG*0.15)},${Math.round(currentPlan.carbsG*0.15)},${Math.round(currentPlan.fatG*0.15)},${Math.round(currentPlan.calories*0.15)}\n`;
+  csv += `Dinner,${Math.round(currentPlan.proteinG*0.25)},${Math.round(currentPlan.carbsG*0.25)},${Math.round(currentPlan.fatG*0.25)},${Math.round(currentPlan.calories*0.25)}\n`;
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'macro-plan-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+updateSliders();
+renderHistory();
+</script>
+
+<script>
+// Share functionality
+function copyToolLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('Link copied to clipboard!');
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  } catch (err) {
+    alert('Could not copy link. Please copy manually: ' + text);
+  }
+  document.body.removeChild(ta);
+}
+
+function shareOnTwitter() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent(document.title);
+  window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'width=550,height=420');
+}
+</script>
+
+</body>
+</html>
