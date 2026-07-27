@@ -1,0 +1,27 @@
+/* Ad Slots */
+.bmi-ad-slot {
+  display: none;
+  width: 100%;
+  min-height: 250px;
+  background: var(--bmi-surface, #f8fafc);
+  border: 1px dashed var(--bmi-border, #e2e8f0);
+  border-radius: var(--bmi-radius, 8px);
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+.bmi-ad-slot.has-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bmi-ad-slot > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 100%;
+  color: var(--bmi-text-muted, #94a3b8);
+  font-size: 0.875rem;
+}
