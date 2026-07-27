@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meal Prep Did Not Work for Me. So I Built an Algorithm. — BMITool.org</title>
+<meta name="description" content="Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.">>
+<link rel="canonical" href="https://bmitool.org/blog/meal-prep-algorithm.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Meal Prep Did Not Work for Me. So I Built an Algorithm. — BMITool.org">>
+<meta property="og:description" content="Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.">>
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://bmitool.org/blog/meal-prep-algorithm.html">
+<meta property="og:image" content="https://bmitool.org/images/blog/meal-prep-algorithm.jpg">
+<meta property="article:published_time" content="2026-05-18">
+<meta property="article:author" content="https://bmitool.org/about.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Meal Prep Did Not Work for Me. So I Built an Algorithm. — BMITool.org">>
+<meta name="twitter:description" content="Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.">>
+<meta name="twitter:image" content="https://bmitool.org/images/blog/meal-prep-algorithm.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Meal Prep Didn‘t Work for Me. So I Built an Algorithm Instead.",
+  "url": "https://bmitool.org/blog/meal-prep-algorithm.html",
+  "image": "https://bmitool.org/images/blog/meal-prep-algorithm.jpg",
+  "datePublished": "2026-05-18",
+  "dateModified": "2026-05-18",
+  "author": {
+    "@type": "Person",
+    "name": "James 'Jamie' Whitfield",
+    "url": "https://bmitool.org/about.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "BMITool.org",
+    "url": "https://bmitool.org/"
+  },
+  "articleSection": "Self-Experiment",
+  "wordCount": 1062
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../tools/index.html">Tools</a></li>
+      <li><a href="index.html" class="active">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main style="padding: 3rem 0;">
+  <div class="bmi-container">
+    <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a>
+      <span class="bmi-breadcrumb-sep">/</span>
+      <a href="index.html">Blog</a>
+      <span class="bmi-breadcrumb-sep">/</span>
+      <span>Meal Prep Didn‘t Work for Me. So I Built an Algorithm Instead.</span>
+    </nav>
+
+    <article class="bmi-content" style="max-width: 800px; margin: 0 auto;">
+      <header style="margin-bottom: 2rem;">
+        <span style="display: inline-block; background: var(--bmi-border-light); color: var(--bmi-text-secondary); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem;">Self-Experiment</span>
+        <h1 style="margin-bottom: 0.5rem;">Meal Prep Didn‘t Work for Me. So I Built an Algorithm Instead.</h1>
+        <div style="color: var(--bmi-text-muted); font-size: 0.875rem;">
+          <span>May 18, 2026</span> · <span>1062 words</span> · <span>By James "Jamie" Whitfield</span>
+        </div>
+      </header>
+
+      <img src="../images/blog/meal-prep-algorithm.jpg" alt="Meal Prep Didn‘t Work for Me. So I Built an Algorithm Instead." width="800" height="450" style="width: 100%; height: auto; border-radius: var(--bmi-radius-lg); margin-bottom: 2rem;" loading="eager">
+
+      <!-- Ad Slot: Article Top -->
+      <div class="bmi-ad-slot" data-ad-slot="article_top">
+        <span>Advertisement</span>
+      </div>
+
+      <div class="article-body">
+<p>Sunday meal prep is a lifestyle brand, not a realistic solution for my brain. Pixel doesn't care about meal prep either — she just wants the rotisserie chicken. I tried it six times. Each time, I spent four hours cooking on Sunday afternoon — chopping vegetables, cooking grains, portioning chicken into identical Tupperware containers. I filled my fridge with what looked like a meal prep influencer’s Instagram post. By Tuesday, I was bored out of my mind. By Thursday, I was ordering Torchy’s and feeling guilty. By Saturday, I was throwing away sad, slimy vegetables and half-eaten chicken that had been in the fridge too long.</p>
+
+<p>The data was clear from my tracking: I need variety (can’t eat the same thing more than twice in a row) and low friction (no more than 15 minutes of active cooking per meal). Batch cooking fails on both — it reduces variety by design, and it requires a big time commitment upfront that my ADHD-adjacent brain resents. So I built a stupid simple algorithm. Not AI. Not machine learning. Not even a real app. Just a set of rules in a Google Sheet that spits out a weekly grocery list and meal plan based on three inputs: my calorie target, my macro preferences (high protein, moderate carb), and my tolerance for cooking (scale of 0 to 3, where 0 = microwave only and 3 = willing to use an oven and a cutting board).</p>
+
+<p>Here’s the logic (you can steal it — I’ve put a template on bmitool.org):</p>
+
+<strong>Inputs I set once (for me):</strong>
+<ul>
+<li>Target calories: 2,450/day (maintenance at 170 lbs, moderate activity)</li>
+<li>Protein target: 130g/day (about 1.7g per kg of body weight)</li>
+<li>Cooking tolerance: 2 (can chop vegetables, use one pan, use oven — but no sous vide, no food processor, no multi-hour marinades)</li>
+</ul>
+
+<strong>Rules I hard-coded into the spreadsheet:</strong>
+<ul>
+<li>No more than 2 days of the same protein in a row (prevents boredom)</li>
+<li>At least one “lazy meal” (H-E-B pre-made) per day (reduces friction)</li>
+<li>Breakfast must take <5 minutes (overnight oats, Greek yogurt, protein shake)</li>
+<li>At least 3 different vegetable colors per day (based on a 2019 *Nutrients* paper linking dietary color variety to micronutrient adequacy)</li>
+<li>No meal requiring more than 4 ingredients (excluding salt, pepper, oil)</li>
+</ul>
+
+<a href="../tools/calorie-needs-calculator.html" class="bmi-inline-tool">
+<p><div class="bmi-inline-tool-icon">🔥</div></p>
+<p><div class="bmi-inline-tool-content"></p>
+<p><h4>Calorie Needs Calculator</h4></p>
+<p><p>Calculate your daily calorie needs with Harris-Benedict and Mifflin-St Jeor equations.</p></p>
+<p><p class="bmi-inline-tool-privacy">All data stays in your browser — we never see it.</p></p>
+<p></div></p>
+</a>
+
+<strong>My algorithm’s sample week (actual from last month — I ran it for four weeks straight):</strong>
+
+<p>| Day | Breakfast | Lunch | Dinner | Protein (g) | Calories | Prep time (min) |</p>
+<p>|--|--|-|--|-|-|--|</p>
+<p>| Mon | Greek yogurt (170g) + berries (100g) | Turkey wrap (H-E-B tortilla, deli turkey, spinach, mustard) | H-E-B rotisserie chicken + steamed broccoli (frozen, microwave) | 128 | 2,410 | 5 + 0 + 5 |</p>
+<p>| Tue | Protein shake (whey, water, ice) + banana | Leftover chicken + broccoli | Ground turkey tacos (H-E-B tortillas, turkey, salsa, avocado) | 135 | 2,490 | 2 + 0 + 12 |</p>
+<p>| Wed | Overnight oats (prepped night before — oats, milk, protein powder, peanut butter) | H-E-B tuna salad kit (crackers not included, eat with cucumber slices) | Salmon (frozen filet from H-E-B, 10 min in air fryer) + asparagus (pan) | 131 | 2,380 | 0 + 2 + 15 |</p>
+<p>| Thu | Scrambled eggs (2) + whole wheat toast + avocado | Leftover salmon + asparagus | H‑E‑B Meal Simple meatloaf (just microwave) + green beans (frozen, steam bag) | 126 | 2,450 | 5 + 0 + 8 |</p>
+<p>| Fri | Greek yogurt + granola (the H-E-B store brand, less sugar) | Turkey wrap (same as Monday, different hot sauce) | Frozen burger patty (air fryer) + pre-made salad kit (use half dressing) | 140 | 2,520 | 3 + 0 + 10 |</p>
+<p>| Sat | Protein shake + banana | H-E-B sushi (spicy tuna roll) | Takeout (planned — Torchy’s, 2 tacos: Trailer Park and Democrat) | 115 | 2,600 | 2 + 0 + 15 (drive time) |</p>
+<p>| Sun | Leftover eggs (from Thursday) | Leftover burger + salad | Chicken breast (air fryer, 12 min) + sweet potato (microwave baked) | 133 | 2,440 | 5 + 0 + 15 |</p>
+
+<p>The algorithm doesn’t produce gourmet meals. It produces *good enough* meals that I will actually eat without ordering delivery. The key is the variety rule — no same-protein-two-days-in-a-row forced me to buy 4-5 different protein sources each week (chicken, turkey, fish, beef, eggs, protein powder). That prevents the meal-prep boredom spiral. The lazy-meal rule (at least one H-E-B pre-made per day) acknowledges reality: some days I don’t want to cook at all. Instead of ordering $25 of Torchy’s, I spend $6 on a Meal Simple tray and call it dinner.</p>
+
+<a href="../tools/macro-split-planner.html" class="bmi-inline-tool">
+<p><div class="bmi-inline-tool-icon">🥗</div></p>
+<p><div class="bmi-inline-tool-content"></p>
+<p><h4>Macro Split Planner</h4></p>
+<p><p>Design your protein, carb, and fat distribution based on your goals and diet style.</p></p>
+<p><p class="bmi-inline-tool-privacy">All data stays in your browser — we never see it.</p></p>
+<p></div></p>
+</a>
+
+<p>Did it work? I’ve been running this system for 8 weeks now. My adherence (percent of days within 200 calories of my 2,450 target) went from 52% (during the meal prep era) to 81% (algorithm era). My protein intake average went from 98g to 127g — almost hitting my 130g target. My body fat (Navy method, measured every Monday) dropped from 18.9% to 17.2% while my weight stayed within 1 lb of 170. That’s recomposition — gaining muscle, losing fat, stable scale weight. My BMI went from 26.9 to 26.5 — a small change, but the body fat difference is meaningful.</p>
+
+<p>The algorithm is just a spreadsheet with conditional formatting and a few lookup tables. You don’t need an app. Write down 10 meals you actually like (not “should” like — actually like, including the Torchy’s run). Categorize them by protein source and prep time. Then randomize with a constraint: no repeat protein within 48 hours. That’s it. That’s the algorithm. I run it on Sunday morning, it generates a shopping list, I go to H-E-B for 20 minutes, and I’m done. No more four-hour meal prep marathons. No more wasted vegetables. No more Thursday night guilt.</p>
+
+<p>Meal prep culture made me feel like a failure. Turns out I just needed a different system — one designed for a human with a short attention span, a healthy respect for leftovers (but only for exactly one day), and a deep appreciation for H-E-B’s rotisserie chicken. If you want my Google Sheet template, it’s on the blog. No email required. I hate that stuff too.</p>
+
+<p>— Jamie</p>
+
+<p></p>
+
+<p></p>
+      </div>
+
+      <!-- Ad Slot: Article Middle -->
+      <div class="bmi-ad-slot" data-ad-slot="article_middle" style="margin: 2rem 0;">
+        <span>Advertisement</span>
+      </div>
+
+      <!-- Ad Slot: Article Bottom -->
+      <div class="bmi-ad-slot" data-ad-slot="article_bottom" style="margin: 2rem 0;">
+        <span>Advertisement</span>
+      </div>
+
+      <!-- Related Articles & Recommended Tools -->
+      <div class="bmi-article-footer" style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--bmi-border-light);">
+        <div class="bmi-related-articles">
+          <h3>Related Articles</h3>
+          <div class="bmi-related-list">
+      <div class="bmi-related-item">
+        <img src="../images/blog/tracked-bmi-90-days-spreadsheet.jpg" alt="I Tracked My BMI for 90 Days Straight. Here‘s the Spreadsheet." width="60" height="45" loading="lazy">
+        <div>
+          <a href="tracked-bmi-90-days-spreadsheet.html">I Tracked My BMI for 90 Days Straight. Here‘s the Spreadsheet.</a>
+          <span>April 02, 2026</span>
+        </div>
+      </div>
+      <div class="bmi-related-item">
+        <img src="../images/blog/canyon-ranch-austin-spreadsheet.jpg" alt="I Spent a Week at Canyon Ranch Austin. I Brought a Spreadsheet." width="60" height="45" loading="lazy">
+        <div>
+          <a href="canyon-ranch-austin-spreadsheet.html">I Spent a Week at Canyon Ranch Austin. I Brought a Spreadsheet.</a>
+          <span>May 10, 2026</span>
+        </div>
+      </div>
+      <div class="bmi-related-item">
+        <img src="../images/blog/moved-austin-resting-heart-rate.jpg" alt="I Moved to Austin and My Resting Heart Rate Changed. I Have the Graph." width="60" height="45" loading="lazy">
+        <div>
+          <a href="moved-austin-resting-heart-rate.html">I Moved to Austin and My Resting Heart Rate Changed. I Have the Graph.</a>
+          <span>April 18, 2026</span>
+        </div>
+      </div>
+
+          </div>
+        </div>
+        <div class="bmi-recommended-tools">
+          <h3>Recommended Tools</h3>
+          <div class="bmi-related-list">
+      <div class="bmi-related-item">
+        <div>
+          <a href="../tools/macro-split-planner.html">Macro Split Planner</a>
+          <span>Design your protein, carb, and fat distribution ba...</span>
+        </div>
+      </div>
+      <div class="bmi-related-item">
+        <div>
+          <a href="../tools/bmi-calculator.html">BMI Calculator</a>
+          <span>Calculate your Body Mass Index with instant visual...</span>
+        </div>
+      </div>
+      <div class="bmi-related-item">
+        <div>
+          <a href="../tools/ideal-weight-range.html">Ideal Weight Range</a>
+          <span>Compare four classic formulas side by side to find...</span>
+        </div>
+      </div>
+      <div class="bmi-related-item">
+        <div>
+          <a href="../tools/weight-loss-timeline.html">Weight Loss Timeline</a>
+          <span>Project your weight loss journey with realistic ti...</span>
+        </div>
+      </div>
+
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="../tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="../tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="../tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="../tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="../tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="../tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="index.html">All Articles</a></li>
+          <li><a href="tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="../about.html">About Jamie</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
+          <li><a href="../terms.html">Terms of Use</a></li>
+          <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+</body>
+</html>
