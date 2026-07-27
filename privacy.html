@@ -3,145 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy | BMITool.org</title>
-<meta name="description" content="Privacy policy for BMITool.org. Your health data is never collected, stored, or shared. All calculations happen in your browser.">
+<title>Privacy Policy — BMITool.org</title>
+<meta name="description" content="BMITool.org collects minimal data. Read our privacy policy to understand how we protect your information.">
 <link rel="canonical" href="https://bmitool.org/privacy.html">
-<link rel="stylesheet" href="/style.css">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<meta property="og:title" content="Privacy Policy — BMITool.org">
+<meta property="og:description" content="BMITool.org collects minimal data. Read our privacy policy to understand how we protect your information.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/privacy.html">
+<meta property="og:image" content="https://bmitool.org/images/og-default.jpg">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy — BMITool.org">
+<meta name="twitter:description" content="BMITool.org collects minimal data. Read our privacy policy to understand how we protect your information.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Privacy Policy",
+  "url": "https://bmitool.org/privacy.html",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://bmitool.org/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Privacy Policy",
+        "item": "https://bmitool.org/privacy.html"
+      }
+    ]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div class="bmt-layout">
-
-<aside class="bmt-sidebar">
-  <a href="/" class="bmt-sidebar-logo">
-    <svg viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-    BMITool
-  </a>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Clinical Tools</div>
-    <a href="/tools/bmi-calculator.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>BMI Calculator</a>
-    <a href="/tools/pediatric-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Pediatric BMI</a>
-    <a href="/tools/asian-bmi.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Asian BMI</a>
-    <a href="/tools/bmi-waist.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>BMI + Waist</a>
-    <a href="/tools/bmi-trend.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>BMI Trend</a>
-    <a href="/tools/ideal-weight.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/></svg>Ideal Weight</a>
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="tools/index.html">Tools</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
   </div>
-  <div class="bmt-sidebar-section">
-    <div class="bmt-sidebar-title">Resources</div>
-    <a href="/blog/" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Blog</a>
-    <a href="/faq.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>FAQ</a>
-    <a href="/about.html" class="bmt-sidebar-link"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>About</a>
+</nav>
+
+<main style="padding: 3rem 0;">
+  <div class="bmi-container">
+    <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="bmi-breadcrumb-sep">/</span>
+      <span>Privacy Policy</span>
+    </nav>
+
+    <div class="bmi-content" style="max-width: 800px; margin: 0 auto;">
+      <h1>Privacy Policy</h1>
+      <p><strong>Last updated:</strong> June 6, 2026</p>
+
+      <h2>Our Core Principle</h2>
+      <p>We collect as little data as possible. We don't want your personal information, your health data, your email address, or your browsing history. This site is designed to work without any of that.</p>
+
+      <h2>What We Don't Collect</h2>
+      <ul>
+        <li><strong>Personal information:</strong> We don't ask for your name, email, address, phone number, or any identifying information.</li>
+        <li><strong>Health data:</strong> Your BMI, weight, body fat percentage, calorie targets, and any other inputs you enter into our tools are processed entirely in your browser. They never leave your device.</li>
+        <li><strong>Account data:</strong> We don't have user accounts, login systems, or registration forms.</li>
+        <li><strong>Payment data:</strong> We don't sell anything directly, so we never process credit cards or payment information.</li>
+      </ul>
+
+      <h2>What We Do Collect (Minimal)</h2>
+      <p>The only data we potentially have access to is:</p>
+      <ul>
+        <li><strong>Server logs:</strong> Our hosting provider (GitHub Pages) may collect basic server logs including your IP address, browser type, and pages visited. This is standard for all websites and is not under our direct control.</li>
+        <li><strong>Advertising data:</strong> If you see ads on this site, the ad network may use cookies or similar technologies to serve relevant ads. You can opt out of personalized advertising through your browser settings or by visiting <a href="https://optout.aboutads.info" target="_blank" rel="noopener">YourAdChoices</a>.</li>
+      </ul>
+
+      <h2>Local Storage (Your Browser Only)</h2>
+      <p>Some of our tools use your browser's localStorage feature to save your calculation history (e.g., past BMI entries, weight logs). This data:</p>
+      <ul>
+        <li>Is stored <strong>only</strong> on your device</li>
+        <li>Is never transmitted to our servers</li>
+        <li>Can be cleared at any time by clearing your browser data</li>
+        <li>Is not accessible to us or any third party</li>
+      </ul>
+
+      <h2>Cookies</h2>
+      <p>We do not use cookies for tracking, analytics, or personalization. Third-party advertisers may use cookies as described above.</p>
+
+      <h2>Third-Party Links</h2>
+      <p>Our articles may contain links to external websites (e.g., PubMed, CDC, product pages). We are not responsible for the privacy practices of these third-party sites. We encourage you to read their privacy policies.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>This site is not intended for children under 13. We do not knowingly collect any information from children under 13.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this privacy policy from time to time. Changes will be posted on this page with an updated date. Since we don't have your email, we can't notify you directly — please check this page periodically.</p>
+
+      <h2>Contact</h2>
+      <p>If you have questions about this privacy policy, email us at <a href="mailto:privacy@bmitool.org">privacy@bmitool.org</a>.</p>
+    </div>
   </div>
-  <div class="bmt-sidebar-footer">&copy; 2026 BMITool.org<br><small>Not medical advice</small></div>
-</aside>
-
-<main class="bmt-main">
-
-<section class="bmt-hero">
-  <div class="bmt-container">
-    <h1>Privacy Policy</h1>
-    <p>Your health data belongs to you. We don't want it, we don't collect it, and we can't share what we don't have.</p>
-  </div>
-</section>
-
-<section style="padding:40px 0;">
-  <div class="bmt-container" style="max-width:800px;">
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Data Collection</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;"><strong>BMITool.org does not collect personal health data.</strong> All calculations — including height, weight, age, BMI results, and trend history — happen entirely within your web browser using JavaScript. Your data is never transmitted to our servers, never stored in our databases, and never shared with third parties.</p>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">The only data we collect is standard web server logs, which may include:</p>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li>IP address (anonymized where possible)</li>
-        <li>Browser type and version</li>
-        <li>Operating system</li>
-        <li>Referring page</li>
-        <li>Date and time of access</li>
-        <li>Pages visited</li>
-      </ul>
-      <p style="margin-top:16px; color:var(--bmt-text-light); line-height:1.7;">These logs are used for website analytics, security monitoring, and troubleshooting. They do not contain any health information.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Local Storage</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">Some calculators on this site offer an optional "Save my inputs" or "Track my trends" feature. When enabled, this data is stored using your browser's <strong>localStorage</strong> API — a client-side storage mechanism that keeps data on your device only.</p>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">LocalStorage data:</p>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li>Never leaves your device</li>
-        <li>Never syncs to our servers</li>
-        <li>Can be cleared at any time through your browser settings</li>
-        <li>Is deleted if you clear browser data or uninstall your browser</li>
-      </ul>
-      <p style="margin-top:16px; color:var(--bmt-text-light); line-height:1.7;">You are in complete control of this data. We cannot access it, recover it, or delete it remotely.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Cookies</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">BMITool.org uses minimal cookies for essential functionality:</p>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li><strong>Session cookies:</strong> To maintain your preferences (e.g., unit selection)</li>
-        <li><strong>Analytics cookies:</strong> To understand how visitors use the site (Google Analytics, anonymized)</li>
-        <li><strong>Advertising cookies:</strong> If you have consented to personalized advertising</li>
-      </ul>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">You can manage cookie preferences through your browser settings. Blocking cookies will not affect calculator functionality.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Third-Party Services</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">We may use the following third-party services:</p>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li><strong>Google Analytics:</strong> For aggregated, anonymized traffic analysis. You can opt out using Google's opt-out browser add-on.</li>
-        <li><strong>Google AdSense / Affiliate Partners:</strong> For advertising. These services may use cookies to serve relevant ads. See our <a href="/disclosure.html" style="color:var(--bmt-primary)">Disclosure</a> page for details.</li>
-        <li><strong>Content Delivery Networks (CDN):</strong> For fast delivery of static assets. No personal data is shared.</li>
-      </ul>
-      <p style="margin-top:16px; color:var(--bmt-text-light); line-height:1.7;">These third parties have their own privacy policies. We encourage you to review them.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Your Rights</h2>
-      <p style="margin-bottom:16px; color:var(--bmt-text-light); line-height:1.7;">Depending on your jurisdiction, you may have the following rights:</p>
-      <ul style="color:var(--bmt-text-light); padding-left:20px; line-height:1.8;">
-        <li><strong>Access:</strong> Request copies of any personal data we hold about you</li>
-        <li><strong>Correction:</strong> Request correction of inaccurate data</li>
-        <li><strong>Deletion:</strong> Request deletion of your data (note: we don't store health data)</li>
-        <li><strong>Objection:</strong> Object to processing of your data for marketing purposes</li>
-        <li><strong>Portability:</strong> Request transfer of your data to another service</li>
-      </ul>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">To exercise these rights, contact us at <a href="mailto:privacy@bmitool.org" style="color:var(--bmt-primary)">privacy@bmitool.org</a>.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Data Security</h2>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">This site is served over HTTPS (TLS encryption). However, because we do not collect health data, there is no health data to secure. Your localStorage data is as secure as your device — protect it with device passwords, encryption, and regular software updates.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Children's Privacy</h2>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">BMITool.org does not knowingly collect personal information from children under 13. The pediatric BMI calculator is designed for parents and healthcare providers to use on behalf of children. If you believe we have inadvertently collected data from a child under 13, please contact us immediately.</p>
-    </div>
-
-    <div class="bmt-card" style="margin-bottom:24px;">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:16px; font-size:1.3rem;">Changes to This Policy</h2>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">We may update this privacy policy from time to time. Changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.</p>
-    </div>
-
-    <div class="bmt-card" style="background:#f0fdfa; border:1px solid var(--bmt-primary-light);">
-      <h2 style="color:var(--bmt-primary-dark); margin-bottom:12px; font-size:1.1rem;">Contact</h2>
-      <p style="color:var(--bmt-text-light); line-height:1.7;">For privacy-related questions or concerns:</p>
-      <p style="color:var(--bmt-text-light); margin-top:8px;">Email: <a href="mailto:privacy@bmitool.org" style="color:var(--bmt-primary)">privacy@bmitool.org</a></p>
-      <p style="color:var(--bmt-text-light); font-size:0.85rem; margin-top:12px;">Last updated: May 23, 2026</p>
-    </div>
-
-  </div>
-</section>
-
-<footer class="bmt-footer">
-  <a href="/">Home</a><a href="/blog/">Blog</a><a href="/faq.html">FAQ</a><a href="/about.html">About</a><a href="/privacy.html">Privacy</a><a href="/contact.html">Contact</a>
-  <br><br>&copy; 2026 BMITool.org &middot; Not medical advice
-</footer>
-
 </main>
-</div>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="tools/bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="tools/weight-loss-timeline.html">Weight Loss Timeline</a></li>
+          <li><a href="tools/body-fat-estimator.html">Body Fat Estimator</a></li>
+          <li><a href="tools/ideal-weight-range.html">Ideal Weight Range</a></li>
+          <li><a href="tools/calorie-needs-calculator.html">Calorie Needs</a></li>
+          <li><a href="tools/macro-split-planner.html">Macro Split Planner</a></li>
+          <li><a href="tools/waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Blog</h4>
+        <ul>
+          <li><a href="blog/index.html">All Articles</a></li>
+          <li><a href="blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+          <li><a href="blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+          <li><a href="blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>About</h4>
+        <ul>
+          <li><a href="about.html">About Jamie</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Medical Disclaimer</a></li>
+          <li><a href="disclosure.html">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bmi-footer-bottom">
+      <p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
