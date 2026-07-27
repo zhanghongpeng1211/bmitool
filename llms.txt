@@ -1,41 +1,57 @@
-# BMITool.org — Clinical-Grade BMI & Metabolic Health Resource
+# bmitool
 
-## About
-BMITool.org is an independent educational resource providing clinical-grade BMI calculators and metabolic health assessments. Founded and authored by Dr. David Chen, a board-certified Internal Medicine physician with 15+ years of clinical experience, MD from Johns Hopkins University, and MPH from Harvard T.H. Chan School of Public Health.
+Free online calculators and educational content. Not professional advice.
 
-The site specializes in ethnicity-specific BMI thresholds (WHO Western Pacific guidelines for Asian populations), pediatric BMI percentiles (CDC growth charts), combined metabolic risk assessment (BMI + waist circumference), long-term BMI trend tracking, and evidence-based clinical insights.
+## Pages
+- Home: https://bmitool.org/
+- Tools: https://bmitool.org/tools/
+- Blog: https://bmitool.org/blog/
+- About: https://bmitool.org/about.html
+- Contact: https://bmitool.org/contact.html
+- FAQ: https://bmitool.org/faq.html
+- Sitemap: https://bmitool.org/sitemap.html
 
-## Site Structure
-- Home: https://bmitool.org/ — Overview of clinical tools and latest articles
-- Blog: https://bmitool.org/blog/ — Clinical insights, research analysis, and patient stories
-- Tools: https://bmitool.org/tools/ — 6 clinical calculators
-  - BMI Calculator: Standard BMI with ethnicity-specific thresholds
-  - Pediatric BMI: Age/sex-specific percentiles for children 2-19
-  - Asian BMI Threshold: WHO Western Pacific guidelines
-  - BMI + Waist: Combined metabolic risk assessment
-  - BMI Trend Tracker: Long-term weight monitoring with visual trends
-  - Ideal Weight Range: BMI-based healthy weight goals with frame adjustment
-- About: https://bmitool.org/about.html — Dr. David Chen credentials and clinical philosophy
-- FAQ: https://bmitool.org/faq.html — Evidence-based answers to common questions
-- Contact: https://bmitool.org/contact.html — Contact information and inquiry guidelines
-- Privacy: https://bmitool.org/privacy.html — Data handling and privacy practices
-- Disclosure: https://bmitool.org/disclosure.html — Medical disclaimer and affiliate disclosure
+## Tools
+- BMI Calculator — Free, Private, With Charts — BMITool.org: https://bmitool.org/tools/bmi-calculator.html
+- Body Fat Estimator — BMITool.org: https://bmitool.org/tools/body-fat-estimator.html
+- Calorie Needs Calculator — BMITool.org: https://bmitool.org/tools/calorie-needs-calculator.html
+- Ideal Weight Range — BMITool.org: https://bmitool.org/tools/ideal-weight-range.html
+- Macro Split Planner — BMITool.org: https://bmitool.org/tools/macro-split-planner.html
+- Waist-to-Height Ratio — BMITool.org: https://bmitool.org/tools/waist-to-height-ratio.html
+- Weight Loss Timeline Calculator — BMITool.org: https://bmitool.org/tools/weight-loss-timeline.html
 
-## Content Themes
-- BMI limitations and appropriate clinical use
-- Ethnicity-specific metabolic risk thresholds (Asian, South Asian, Pacific Islander)
-- Pediatric growth assessment and growth trajectory analysis
-- Body composition vs BMI debate
-- Metabolic syndrome and cardiovascular risk assessment
-- Weight management and metabolic adaptation
-- Evidence-based clinical practice protocols
-- Future of obesity medicine and metabolic health technology
-
-## Author Expertise
-Dr. David Chen is a board-certified Internal Medicine physician specializing in metabolic health and obesity medicine. Former researcher at NIH NIDDK. Clinical practice spans academic and community settings. Writing style: data-driven, clinically grounded, with personal case examples and occasional frustration with oversimplified health information.
-
-## Data & Privacy
-All calculator computations run client-side in the browser. No health data is transmitted to servers, stored in databases, or shared with third parties. Optional localStorage for saving calculator inputs and trend data. Standard web analytics (anonymized) and advertising cookies may be used.
-
-## Medical Disclaimer
-All content is for educational purposes only. Not a substitute for professional medical advice, diagnosis, or treatment. No patient-provider relationship is established through use of this website.
+## Articles
+- Austin Heat Fitness Wearable Lies 2026 (austin-heat-fitness-wearable-lies-2026) -- My fitness tracker said I burned 4,200 calories yesterday. I was so proud. I posted a screenshot in my group chat. My friend Sarah, who actually knows things, replied: "Jamie, it was 102 degrees yeste -- July 23, 2026
+- Austin Heat Fitness Wearable Lies (austin-heat-fitness-wearable-lies) -- My Fitness Watch Said I Was 'Overreaching' During Austin's Hottest Week. It Was Wrong. James "Jamie" Whitfield I was halfway through my Tuesday morning run on the Lady Bird Lake trail when my watch bu -- July 06, 2026
+- Bmi Normal But Feel Like Garbage (bmi-normal-but-feel-like-garbage) -- The scale in my bathroom is a liar. Not the digital kind of lie where you shift your weight to the left and shave off two pounds. I mean the deep, structural kind of dishonesty that makes a 32-year-ol -- July 06, 2026
+- My Fitness Tracker Said I Burned 4200 Calories (my-fitness-tracker-said-i-burned-4200-calories) -- My Fitness Tracker Said I Burned 4,200 Calories. My Spreadsheet Said 2,890. The Truth Was Messier. 4,200. That's what my fitness watch told me I burned last Saturday. I was at YVO Warrior on the Butle -- June 24, 2026
+- The Week I Ate Nothing But Food Truck Tacos (the-week-i-ate-nothing-but-food-truck-tacos) -- The Week I Ate Nothing But Food Truck Tacos — Here's What the Data Said I had a theory. A stupid theory, but a theory nonetheless. I call it the "Austin Food Truck Hypothesis." The hypothesis goes lik -- June 23, 2026
+- Can't Afford Wegovy? Here's What the Data Says (cant-afford-wegovy-alternatives-data) -- I spent two months digging through GLP-1 alternatives. Repurposed generics, supplements, and lifestyle interventions. -- June 05, 2026
+- Three Small Data Changes That Moved My BMI (three-small-data-changes-moved-bmi) -- Three data hygiene fixes that moved my BMI from 26.8 to 25.9. No diet changes, no exercise fads. Just better data. -- June 01, 2026
+- What the Plant-Based Trend Means for Your BMI (plant-based-trend-bmi-labels) -- I bought 20 plant-based products from H-E-B and compared them to animal-based equivalents. The sodium was shocking. -- May 28, 2026
+- It's 105°F in Austin. How I Adjust My Workout Data. (105f-austin-workout-data) -- Your fitness tracker lies above 95°F. Here's how I adjust training and data for Austin summers. -- May 22, 2026
+- Why Your BMI Calculator Is Probably Lying to You (why-your-bmi-calculator-is-probably-lying-to-you) -- I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong. -- May 20, 2026
+- Meal Prep Did Not Work for Me. So I Built an Algorithm. (meal-prep-algorithm) -- Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking. -- May 18, 2026
+- What 15 Years of Metabolic Data Actually Looks Like (what-15-years-of-metabolic-data-actually-looks-like) -- After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context. -- May 18, 2026
+- The Asian BMI Threshold: Why American Doctors Get It Wrong (asian-bmi-threshold-why-american-doctors-get-it-wrong) -- My mother has a BMI of 23.4. In American medicine, that's 'normal.' In reality, she's pre-diabetic with elevated triglycerides. Here's why. -- May 15, 2026
+- I Lost 40 Pounds but My Data Looks the Same (lost-40-pounds-data-same) -- The email I get every week: someone lost weight but their BMI barely moved. Here is why that happens. -- May 14, 2026
+- Pediatric BMI: Why Adult Calculators Harm Children (pediatric-bmi-why-adult-calculators-harm-children) -- A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not obese, and completely normal for his growth trajectory. -- May 12, 2026
+- BMI vs Body Fat Percentage: The Real Debate (bmi-vs-body-fat-percentage-the-real-debate) -- Body fat percentage is more accurate than BMI. But it's also harder to measure accurately, more expensive, and not always more clinically useful. Here's the nuanced truth. -- May 10, 2026
+- I Spent a Week at Canyon Ranch Austin (canyon-ranch-austin-spreadsheet) -- I brought a spreadsheet to Canyon Ranch Austin. The data was fascinating, the experience was mixed, the cost was absurd. -- May 10, 2026
+- The BMI Rebound: Why Lost Weight Returns (the-bmi-rebound-why-lost-weight-returns) -- I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation that follows weight loss is real, brutal, and poorly understood by most physicians. -- May 08, 2026
+- Another BMI Post. But I Actually Ran the Numbers. (another-bmi-post-ran-numbers) -- Another BMI post. I know. But I actually ran the numbers this time. NHANES data, DEXA correlations, and a lot of spreadsheets. -- May 06, 2026
+- Waist Circumference: The Missing Piece (waist-circumference-the-missing-piece) -- I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negotiable in my practice. -- May 05, 2026
+- Why I Stopped Telling Patients Their 'Ideal Weight' (why-i-stop-telling-patients-their-ideal-weight) -- For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures. I don't do that anymore. -- May 03, 2026
+- The New Texas Nutrition License Law Is Coming. (texas-nutrition-license-law) -- The new Texas nutrition license law is coming. I crunched the numbers. It is a mess, but it is a mess with a spreadsheet. -- May 02, 2026
+- Metabolic Health: Beyond the Scale (metabolic-health-beyond-the-scale) -- I have patients who weigh 200 pounds and are metabolically healthier than patients who weigh 150. Here's what actually determines metabolic health. -- April 30, 2026
+- I Ate Only H-E-B Prepared Meals for 30 Days (heb-prepared-meals-30-days) -- I ate only H-E-B prepared meals for 30 days and tracked everything. The sodium numbers were shocking. -- April 28, 2026
+- The NIH Study That Changed How I See BMI (the-nih-study-that-changed-how-i-see-bmi) -- During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in medical school about weight and health. -- April 28, 2026
+- BMI Calculators for Athletes: Why They Fail (bmi-calculators-for-athletes-why-they-fail) -- A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%. Here's why BMI is meaningless for athletes. -- April 25, 2026
+- How I Use BMI in My Clinic: The Real Protocol (how-i-use-bmi-in-my-clinic-real-protocol) -- After 15 years, I've developed a specific protocol for using BMI without falling into its traps. Here's exactly what I do during a new patient visit. -- April 22, 2026
+- I Tried Rucking With YVO Warrior for a Month. (rucking-yvo-warrior-month) -- Walking with 20 pounds on the Butler Trail. Heart rate data, body composition changes, and why BMI barely budged. -- April 22, 2026
+- The Future of BMI: What Comes Next (the-future-of-bmi-what-comes-next) -- BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it — and what's not ready yet. -- April 20, 2026
+- I Moved to Austin and My Resting Heart Rate Changed (moved-austin-resting-heart-rate) -- Moving from Denver to Austin changed my resting heart rate. I have the data, the graph, and some theories. -- April 18, 2026
+- Why Austin's 'Fittest City' Label Is a Data Problem. (austin-fittest-city-data-problem) -- Austin keeps showing up on 'fittest city' lists. As a data guy who lives here, I have some questions about those rankings. -- April 14, 2026
+- I Tested 5 Popular BMI Myths. Only 2 Were True. (five-bmi-myths-tested) -- I tested 5 popular BMI myths with real data. Only 2 were true. NHANES data, DEXA correlations, and a lot of spreadsheets. -- April 10, 2026
+- SXSW 2026 Had a Health Track. I Went. (sxsw-2026-health-track) -- SXSW 2026 had a health track. I went. It was weird. Here is what happened when a data guy went to a wellness conference. -- April 06, 2026
+- I Tracked My BMI for 90 Days Straight. (tracked-bmi-90-days-spreadsheet) -- I tracked my BMI for 90 days straight. Here is the spreadsheet. Daily weigh-ins, moving averages, and the lying nature of daily numbers. -- April 02, 2026
