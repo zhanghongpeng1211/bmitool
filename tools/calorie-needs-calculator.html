@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calorie Needs Calculator — BMITool.org</title>
+<meta name="description" content="Calculate daily calorie needs with Harris-Benedict and Mifflin-St Jeor equations. Climate adjustments included. All private.">>
+<link rel="canonical" href="https://bmitool.org/tools/calorie-needs-calculator.html">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+<meta property="og:title" content="Calorie Needs Calculator — BMITool.org">>
+<meta property="og:description" content="Calculate daily calorie needs with Harris-Benedict and Mifflin-St Jeor equations. Climate adjustments included. All private.">>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bmitool.org/tools/calorie-needs-calculator.html">
+<meta property="og:image" content="https://bmitool.org/images/og-calorie-needs.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Calorie Needs Calculator — BMITool.org">>
+<meta name="twitter:description" content="Calculate daily calorie needs with Harris-Benedict and Mifflin-St Jeor equations. Climate adjustments included. All private.">>
+<meta name="twitter:image" content="https://bmitool.org/images/og-calorie-needs.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Calorie Needs Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "James 'Jamie' Whitfield", "url": "https://bmitool.org/about.html"},
+  "description": "Harris-Benedict and Mifflin-St Jeor equations side by side with climate and activity adjustments. All data stays in your browser.",
+  "featureList": "Harris-Benedict equation, Mifflin-St Jeor equation, Climate adjustment, Activity multiplier, Visual pie chart, Macronutrient breakdown, History tracking, Export to CSV"
+}
+</script>
+"""
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmitool.org/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://bmitool.org/tools/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Calorie Needs Calculator",
+      "item": "https://bmitool.org/tools/calorie-needs-calculator.html"
+    }
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="../style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.cnc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+.cnc-result-card { background: var(--bmi-border-light); border-radius: var(--bmi-radius-lg); padding: 1.5rem; margin-bottom: 1rem; text-align: center; border: 2px solid transparent; }
+.cnc-result-card.active { border-color: var(--bmi-primary); }
+.cnc-result-card h3 { font-size: 0.875rem; color: var(--bmi-text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+.cnc-result-card .value { font-size: 2.5rem; font-weight: 800; color: var(--bmi-primary); line-height: 1; }
+.cnc-result-card .detail { font-size: 0.875rem; color: var(--bmi-text-secondary); margin-top: 0.5rem; }
+.cnc-pie-container { position: relative; width: 250px; height: 250px; margin: 0 auto; }
+.cnc-pie-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+.cnc-pie-value { font-size: 2rem; font-weight: 800; color: var(--bmi-primary); line-height: 1; }
+.cnc-pie-label { font-size: 0.875rem; color: var(--bmi-text-muted); }
+.cnc-breakdown { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+.cnc-break-item { background: var(--bmi-border-light); border-radius: var(--bmi-radius); padding: 1rem; text-align: center; }
+.cnc-break-item h4 { font-size: 0.75rem; color: var(--bmi-text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+.cnc-break-item .value { font-size: 1.5rem; font-weight: 700; color: var(--bmi-text); }
+.cnc-break-item .sub { font-size: 0.75rem; color: var(--bmi-text-muted); margin-top: 0.25rem; }
+.cnc-climate-note { background: var(--bmi-bg); border-left: 4px solid var(--bmi-warning); padding: 1rem; border-radius: 0 var(--bmi-radius) var(--bmi-radius) 0; margin-top: 1rem; font-size: 0.9375rem; }
+.cnc-history-table { width: 100%; font-size: 0.875rem; margin-top: 1rem; }
+.cnc-history-table th, .cnc-history-table td { padding: 0.5rem; text-align: left; border-bottom: 1px solid var(--bmi-border); }
+.cnc-history-table th { font-weight: 600; color: var(--bmi-text-secondary); }
+@media (max-width: 768px) { .cnc-layout { grid-template-columns: 1fr; } .cnc-breakdown { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav class="bmi-nav">
+  <div class="bmi-container bmi-nav-inner">
+    <a href="../index.html" class="bmi-nav-logo">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="12" y2="14"/></svg>
+      BMITool<span>.org</span>
+    </a>
+    <button class="bmi-nav-toggle" onclick="document.querySelector('.bmi-nav-links').classList.toggle('active')" aria-label="Toggle menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <ul class="bmi-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="index.html">Tools</a></li>
+      <li><a href="../blog/index.html">Blog</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../faq.html">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="bmi-tool-hero">
+  <div class="bmi-container">
+    <h1>Calorie Needs Calculator</h1>
+    <p>Harris-Benedict and Mifflin-St Jeor equations side by side, with climate and activity adjustments. See your BMR, TDEE, and macronutrient breakdown in one view.</p>
+  </div>
+</header>
+
+<div class="bmi-container">
+  <div class="bmi-ad-slot" data-ad-slot="tool_top"><span>Advertisement</span></div>
+</div>
+
+<main class="bmi-container" style="padding: 3rem 0;">
+  <nav class="bmi-breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">Home</a><span class="bmi-breadcrumb-sep">/</span>
+    <a href="index.html">Tools</a><span class="bmi-breadcrumb-sep">/</span>
+    <span>Calorie Needs Calculator</span>
+  </nav>
+
+  <div class="cnc-layout">
+    <div>
+      <div class="bmi-tool-card">
+        <h2>Your Details</h2>
+        <div class="bmi-tool-input-group">
+          <label>Sex</label>
+          <select id="sex"><option value="male">Male</option><option value="female">Female</option></select>
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Age</label>
+          <input type="number" id="age" placeholder="e.g. 38" min="18" max="100">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Height (inches)</label>
+          <input type="number" id="height" placeholder="e.g. 70" min="40" max="96" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Weight (lbs)</label>
+          <input type="number" id="weight" placeholder="e.g. 185" min="50" max="600" step="0.1">
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Activity Level</label>
+          <select id="activity">
+            <option value="1.2">Sedentary (desk job, little exercise)</option>
+            <option value="1.375" selected>Lightly Active (1-3 days/week)</option>
+            <option value="1.55">Moderately Active (3-5 days/week)</option>
+            <option value="1.725">Very Active (6-7 days/week)</option>
+            <option value="1.9">Extremely Active (physical job + training)</option>
+          </select>
+        </div>
+        <div class="bmi-tool-input-group">
+          <label>Average Daily Temperature</label>
+          <select id="climate">
+            <option value="0">Temperate (60-75°F, no adjustment)</option>
+            <option value="100">Warm (75-85°F, +100 cal)</option>
+            <option value="200" selected>Hot (85-95°F, +200 cal — like Austin summer)</option>
+            <option value="300">Very Hot (95°F+, +300 cal)</option>
+            <option value="-100">Cold (below 50°F, -100 cal)</option>
+          </select>
+        </div>
+        <button class="bmi-tool-btn" onclick="calculateCalories()">Calculate Calorie Needs</button>
+        <div class="bmi-calc-actions" style="margin-top:1rem;">
+          <button class="bmi-tool-btn-secondary" onclick="saveCalculation()">Save Calculation</button>
+          <button class="bmi-tool-btn-secondary" onclick="clearHistory()">Clear History</button>
+          <button class="bmi-tool-btn-secondary" onclick="exportCSV()">Export CSV</button>
+        </div>
+        <div class="bmi-privacy-notice">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>All data stays in your browser — we never see it.</span>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap;">
+          <button class="bmi-tool-btn-secondary" onclick="copyToolLink()" style="display:flex;align-items:center;gap:0.5rem;" title="Copy link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+          <button class="bmi-tool-btn-secondary" onclick="shareOnTwitter()" style="display:flex;align-items:center;gap:0.5rem;" title="Share on Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X
+          </button>
+        </div>
+
+      </div>
+
+      <div class="bmi-tool-card" id="history-panel" style="display:none;margin-top:1.5rem;">
+        <h3>Calculation History</h3>
+        <div style="overflow-x:auto;">
+          <table class="cnc-history-table">
+            <thead><tr><th>Date</th><th>BMR</th><th>TDEE</th><th>Method</th><th>Climate</th></tr></thead>
+            <tbody id="history-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="bmi-tool-card" id="result-panel" style="display:none;">
+        <h2 style="text-align:center;">Your Results</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="cnc-result-card" id="card-hb">
+            <h3>Harris-Benedict</h3>
+            <div class="value" id="hb-tdee">—</div>
+            <div class="detail">TDEE calories/day</div>
+            <div class="detail" style="margin-top:0.25rem;">BMR: <strong id="hb-bmr">—</strong></div>
+          </div>
+          <div class="cnc-result-card active" id="card-msj">
+            <h3>Mifflin-St Jeor</h3>
+            <div class="value" id="msj-tdee">—</div>
+            <div class="detail">TDEE calories/day</div>
+            <div class="detail" style="margin-top:0.25rem;">BMR: <strong id="msj-bmr">—</strong></div>
+          </div>
+        </div>
+
+        <div class="cnc-climate-note">
+          <strong>Climate adjustment:</strong> <span id="climate-text">+200 cal/day for hot climate (Austin summer)</span>. This accounts for increased thermoregulation energy expenditure. Research suggests a 5-15% increase in BMR in hot environments.
+        </div>
+
+        <div style="margin-top:2rem;">
+          <h3 style="text-align:center;margin-bottom:1rem;">TDEE Breakdown (Mifflin-St Jeor)</h3>
+          <div class="cnc-pie-container">
+            <canvas id="pie-chart" width="250" height="250"></canvas>
+            <div class="cnc-pie-text">
+              <div class="cnc-pie-value" id="total-tdee">—</div>
+              <div class="cnc-pie-label">calories/day</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cnc-breakdown">
+          <div class="cnc-break-item">
+            <h4>Basal Metabolic</h4>
+            <div class="value" id="break-bmr">—</div>
+            <div class="sub">Just existing</div>
+          </div>
+          <div class="cnc-break-item">
+            <h4>Activity Burn</h4>
+            <div class="value" id="break-activity">—</div>
+            <div class="sub">Moving around</div>
+          </div>
+          <div class="cnc-break-item">
+            <h4>Climate Adjust</h4>
+            <div class="value" id="break-climate">—</div>
+            <div class="sub">Thermoregulation</div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--bmi-border);">
+          <h3 style="text-align:center;margin-bottom:1rem;">Macronutrient Targets (Mifflin-St Jeor TDEE)</h3>
+          <div class="cnc-breakdown">
+            <div class="cnc-break-item">
+              <h4>Protein (25%)</h4>
+              <div class="value" id="macro-protein-g">—</div>
+              <div class="sub" id="macro-protein-cal">— cal</div>
+            </div>
+            <div class="cnc-break-item">
+              <h4>Carbs (45%)</h4>
+              <div class="value" id="macro-carbs-g">—</div>
+              <div class="sub" id="macro-carbs-cal">— cal</div>
+            </div>
+            <div class="cnc-break-item">
+              <h4>Fat (30%)</h4>
+              <div class="value" id="macro-fat-g">—</div>
+              <div class="sub" id="macro-fat-cal">— cal</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmi-tool-card" style="margin-top:1.5rem;">
+        <h2>How It Works</h2>
+        <div style="font-size:0.9375rem;color:var(--bmi-text-secondary);line-height:1.7;">
+          <p><strong>Harris-Benedict vs Mifflin-St Jeor:</strong> Harris-Benedict (1919) tends to overestimate BMR by 5-10% for modern populations. Mifflin-St Jeor (1990) is generally more accurate and is the equation used by most dietitians.</p>
+          <p style="margin-top:0.75rem;"><strong>Climate Adjustment:</strong> Hot climates like Austin summers can increase BMR by 5-15% due to thermoregulation. The tool adds 100-300 calories based on your selection.</p>
+          <p style="margin-top:0.75rem;"><strong>Activity Multipliers:</strong> These are based on the classic PAL (Physical Activity Level) scale. Be honest - most people overestimate their activity level.</p>
+          <p style="margin-top:0.75rem;"><strong>Tips:</strong> Start with the Mifflin-St Jeor result. Track your actual weight for 2-3 weeks. If you are losing/gaining faster than expected, adjust by 100-200 calories.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bmi-ad-slot" data-ad-slot="tool_middle" style="margin-top:2rem;"><span>Advertisement</span></div>
+
+  <div class="bmi-article-footer" style="margin-top:3rem;">
+    <div class="bmi-related-articles">
+      <h3>Related Articles</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item">
+          <img src="../images/blog/105f-austin-workout-data.jpg" alt="Austin heat workout" width="60" height="45" loading="lazy">
+          <div><a href="../blog/105f-austin-workout-data.html">It's 105°F in Austin. Here's How I'm Adjusting My Workout Data</a><span>May 22, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/heb-prepared-meals-30-days.jpg" alt="H-E-B meals" width="60" height="45" loading="lazy">
+          <div><a href="../blog/heb-prepared-meals-30-days.html">I Ate Only H-E-B Prepared Meals for 30 Days</a><span>April 28, 2026</span></div>
+        </div>
+        <div class="bmi-related-item">
+          <img src="../images/blog/meal-prep-algorithm.jpg" alt="Meal prep algorithm" width="60" height="45" loading="lazy">
+          <div><a href="../blog/meal-prep-algorithm.html">Meal Prep Didn't Work for Me. So I Built an Algorithm</a><span>May 18, 2026</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bmi-recommended-tools">
+      <h3>Recommended Tools</h3>
+      <div class="bmi-related-list">
+        <div class="bmi-related-item"><div><a href="macro-split-planner.html">Macro Split Planner</a><span>Design your macros</span></div></div>
+        <div class="bmi-related-item"><div><a href="weight-loss-timeline.html">Weight Loss Timeline</a><span>Plan your deficit</span></div></div>
+        <div class="bmi-related-item"><div><a href="bmi-calculator.html">BMI Calculator</a><span>Track body metrics</span></div></div>
+        <div class="bmi-related-item"><div><a href="body-fat-estimator.html">Body Fat Estimator</a><span>Check composition</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bmi-ad-slot" data-ad-slot="tool_bottom" style="margin-top:2rem;"><span>Advertisement</span></div>
+</main>
+
+<footer class="bmi-footer">
+  <div class="bmi-container">
+    <div class="bmi-footer-grid">
+      <div><h4>Tools</h4><ul>
+        <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+        <li><a href="weight-loss-timeline.html">Weight Loss Timeline</a></li>
+        <li><a href="body-fat-estimator.html">Body Fat Estimator</a></li>
+        <li><a href="ideal-weight-range.html">Ideal Weight Range</a></li>
+        <li><a href="calorie-needs-calculator.html">Calorie Needs</a></li>
+        <li><a href="macro-split-planner.html">Macro Split Planner</a></li>
+        <li><a href="waist-to-height-ratio.html">Waist-to-Height Ratio</a></li>
+      </ul></div>
+      <div><h4>Blog</h4><ul>
+        <li><a href="../blog/index.html">All Articles</a></li>
+        <li><a href="../blog/tracked-bmi-90-days-spreadsheet.html">90-Day BMI Tracking</a></li>
+        <li><a href="../blog/five-bmi-myths-tested.html">5 BMI Myths Tested</a></li>
+        <li><a href="../blog/austin-fittest-city-data-problem.html">Austin Fittest City?</a></li>
+      </ul></div>
+      <div><h4>About</h4><ul>
+        <li><a href="../about.html">About Jamie</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+      </ul></div>
+      <div><h4>Legal</h4><ul>
+        <li><a href="../privacy.html">Privacy Policy</a></li>
+        <li><a href="../terms.html">Terms of Use</a></li>
+        <li><a href="../disclaimer.html">Medical Disclaimer</a></li>
+        <li><a href="../disclosure.html">Affiliate Disclosure</a></li>
+      </ul></div>
+    </div>
+    <div class="bmi-footer-bottom"><p>© 2026 BMITool.org — Built with spreadsheets and stubbornness in East Austin, Texas.</p></div>
+  </div>
+</footer>
+
+<script src="../ads-loader.js"></script>
+<script>
+const STORAGE_KEY = 'cnc_history';
+let currentResult = null;
+
+function calculateCalories() {
+  const sex = document.getElementById('sex').value;
+  const age = parseInt(document.getElementById('age').value);
+  const h = parseFloat(document.getElementById('height').value);
+  const w = parseFloat(document.getElementById('weight').value);
+  const activity = parseFloat(document.getElementById('activity').value);
+  const climate = parseInt(document.getElementById('climate').value);
+
+  if (!age || !h || !w) { alert('Please fill in all fields'); return; }
+
+  const wKg = w * 0.453592;
+  const hCm = h * 2.54;
+
+  // Harris-Benedict
+  let hbBMR;
+  if (sex === 'male') hbBMR = 66.5 + (13.75 * wKg) + (5.003 * hCm) - (6.75 * age);
+  else hbBMR = 655.1 + (9.563 * wKg) + (1.850 * hCm) - (4.676 * age);
+
+  // Mifflin-St Jeor
+  let msjBMR;
+  if (sex === 'male') msjBMR = (10 * wKg) + (6.25 * hCm) - (5 * age) + 5;
+  else msjBMR = (10 * wKg) + (6.25 * hCm) - (5 * age) - 161;
+
+  const hbTDEE = Math.round(hbBMR * activity + climate);
+  const msjTDEE = Math.round(msjBMR * activity + climate);
+  const hbBMRr = Math.round(hbBMR);
+  const msjBMRr = Math.round(msjBMR);
+
+  currentResult = { sex, age, h, w, activity, climate, hbBMR: hbBMRr, msjBMR: msjBMRr, hbTDEE, msjTDEE, date: new Date().toISOString() };
+
+  document.getElementById('result-panel').style.display = 'block';
+  document.getElementById('hb-tdee').textContent = hbTDEE.toLocaleString();
+  document.getElementById('hb-bmr').textContent = hbBMRr.toLocaleString();
+  document.getElementById('msj-tdee').textContent = msjTDEE.toLocaleString();
+  document.getElementById('msj-bmr').textContent = msjBMRr.toLocaleString();
+  document.getElementById('total-tdee').textContent = msjTDEE.toLocaleString();
+
+  const climateTexts = {
+    '-100': '-100 cal/day for cold climate (below 50°F)',
+    '0': 'No climate adjustment (temperate 60-75°F)',
+    '100': '+100 cal/day for warm climate (75-85°F)',
+    '200': '+200 cal/day for hot climate (85-95°F — like Austin summer)',
+    '300': '+300 cal/day for very hot climate (95°F+)'
+  };
+  document.getElementById('climate-text').textContent = climateTexts[climate] || '';
+
+  // Breakdown
+  const activityBurn = Math.round(msjBMR * (activity - 1));
+  document.getElementById('break-bmr').textContent = msjBMRr.toLocaleString();
+  document.getElementById('break-activity').textContent = activityBurn.toLocaleString();
+  document.getElementById('break-climate').textContent = (climate > 0 ? '+' : '') + climate;
+
+  // Macros (based on MSJ TDEE)
+  const proteinCal = Math.round(msjTDEE * 0.25);
+  const carbsCal = Math.round(msjTDEE * 0.45);
+  const fatCal = Math.round(msjTDEE * 0.30);
+  document.getElementById('macro-protein-g').textContent = Math.round(proteinCal / 4) + 'g';
+  document.getElementById('macro-protein-cal').textContent = proteinCal.toLocaleString() + ' cal';
+  document.getElementById('macro-carbs-g').textContent = Math.round(carbsCal / 4) + 'g';
+  document.getElementById('macro-carbs-cal').textContent = carbsCal.toLocaleString() + ' cal';
+  document.getElementById('macro-fat-g').textContent = Math.round(fatCal / 9) + 'g';
+  document.getElementById('macro-fat-cal').textContent = fatCal.toLocaleString() + ' cal';
+
+  drawPie(msjBMRr, activityBurn, climate);
+}
+
+function drawPie(bmr, activity, climate) {
+  const canvas = document.getElementById('pie-chart');
+  const ctx = canvas.getContext('2d');
+  const cx = 125, cy = 125, r = 90, thickness = 35;
+
+  ctx.clearRect(0, 0, 250, 250);
+
+  const total = bmr + activity + Math.abs(climate);
+  const bmrAngle = (bmr / total) * Math.PI * 2;
+  const actAngle = (activity / total) * Math.PI * 2;
+  const climAngle = (Math.abs(climate) / total) * Math.PI * 2;
+
+  let start = -Math.PI / 2;
+
+  // BMR
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, start, start + bmrAngle);
+  ctx.strokeStyle = '#7c3aed';
+  ctx.lineWidth = thickness;
+  ctx.stroke();
+  start += bmrAngle;
+
+  // Activity
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, start, start + actAngle);
+  ctx.strokeStyle = '#a78bfa';
+  ctx.lineWidth = thickness;
+  ctx.stroke();
+  start += actAngle;
+
+  // Climate
+  if (climate !== 0) {
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, start, start + climAngle);
+    ctx.strokeStyle = climate > 0 ? '#f97316' : '#3b82f6';
+    ctx.lineWidth = thickness;
+    ctx.stroke();
+  }
+}
+
+function getHistory() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch(e) { return []; }
+}
+
+function saveCalculation() {
+  if (!currentResult) { alert('Calculate first'); return; }
+  const history = getHistory();
+  history.push(currentResult);
+  history.sort((a, b) => new Date(a.date) - new Date(b.date));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  renderHistory();
+  alert('Saved!');
+}
+
+function clearHistory() {
+  if (confirm('Clear all saved calculations?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    renderHistory();
+  }
+}
+
+function renderHistory() {
+  const history = getHistory();
+  const panel = document.getElementById('history-panel');
+  if (history.length === 0) { panel.style.display = 'none'; return; }
+  panel.style.display = 'block';
+
+  const climateLabels = { '-100': 'Cold', '0': 'Temperate', '100': 'Warm', '200': 'Hot', '300': 'Very Hot' };
+
+  document.getElementById('history-table').innerHTML = history.map(h => `
+    <tr>
+      <td>${new Date(h.date).toLocaleDateString()}</td>
+      <td>${h.msjBMR.toLocaleString()}</td>
+      <td><strong>${h.msjTDEE.toLocaleString()}</strong></td>
+      <td>Mifflin-St Jeor</td>
+      <td>${climateLabels[h.climate] || h.climate}</td>
+    </tr>
+  `).join('');
+}
+
+function exportCSV() {
+  if (!currentResult) { alert('Calculate first'); return; }
+  let csv = 'Method,BMR,TDEE,Activity Multiplier,Climate Adjustment,Protein(g),Carbs(g),Fat(g)\n';
+  csv += `Harris-Benedict,${currentResult.hbBMR},${currentResult.hbTDEE},${currentResult.activity},${currentResult.climate},${Math.round(currentResult.hbTDEE*0.25/4)},${Math.round(currentResult.hbTDEE*0.45/4)},${Math.round(currentResult.hbTDEE*0.30/9)}\n`;
+  csv += `Mifflin-St Jeor,${currentResult.msjBMR},${currentResult.msjTDEE},${currentResult.activity},${currentResult.climate},${Math.round(currentResult.msjTDEE*0.25/4)},${Math.round(currentResult.msjTDEE*0.45/4)},${Math.round(currentResult.msjTDEE*0.30/9)}\n`;
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'calorie-needs-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click(); URL.revokeObjectURL(url);
+}
+
+renderHistory();
+</script>
+
+<script>
+// Share functionality
+function copyToolLink() {
+  var url = window.location.href;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(function() {
+      alert('Link copied to clipboard!');
+    }).catch(function() {
+      fallbackCopy(url);
+    });
+  } else {
+    fallbackCopy(url);
+  }
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  } catch (err) {
+    alert('Could not copy link. Please copy manually: ' + text);
+  }
+  document.body.removeChild(ta);
+}
+
+function shareOnTwitter() {
+  var url = encodeURIComponent(window.location.href);
+  var text = encodeURIComponent(document.title);
+  window.open('https://twitter.com/intent/tweet?url=' + url + '&text=' + text, '_blank', 'width=550,height=420');
+}
+</script>
+
+</body>
+</html>
