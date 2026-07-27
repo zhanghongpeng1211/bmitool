@@ -1,93 +1,1105 @@
 [
   {
-    "title": "Why Your BMI Calculator Is Probably Lying to You",
+    "slug": "austin-heat-fitness-wearable-lies-2026",
+    "title": "Austin Heat Fitness Wearable Lies 2026",
+    "description": "My fitness tracker said I burned 4,200 calories yesterday. I was so proud. I posted a screenshot in my group chat. My friend Sarah, who actually knows things, replied: \"Jamie, it was 102 degrees yeste",
+    "excerpt": "My fitness tracker said I burned 4,200 calories yesterday. I was so proud. I posted a screenshot in my group chat. My friend Sarah, who actually knows things, replied: \"Jamie, it was 102 degrees yeste",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "July 23, 2026",
+    "date": "July 23, 2026",
+    "date_modified": "2026-07-23",
+    "word_count": 1027,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/austin-heat-fitness-wearable-lies-2026.jpg",
+    "tools_referenced": [
+      "index",
+      "calorie-needs-calculator",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "waist-to-height-ratio",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James ",
+      "job_title": "Former data analyst at a fintech startup, now runs bmitool.org full-time",
+      "location": ""
+    },
+    "date_iso": "2026-07-23",
+    "readTime": "5min read"
+  },
+  {
+    "slug": "austin-heat-fitness-wearable-lies",
+    "title": "Austin Heat Fitness Wearable Lies",
+    "description": "My Fitness Watch Said I Was 'Overreaching' During Austin's Hottest Week. It Was Wrong. James \"Jamie\" Whitfield I was halfway through my Tuesday morning run on the Lady Bird Lake trail when my watch bu",
+    "excerpt": "My Fitness Watch Said I Was 'Overreaching' During Austin's Hottest Week. It Was Wrong. James \"Jamie\" Whitfield I was halfway through my Tuesday morning run on the Lady Bird Lake trail when my watch bu",
+    "category": "",
+    "tags": [],
+    "date_published": "July 06, 2026",
+    "date": "July 06, 2026",
+    "date_modified": "2026-07-06",
+    "word_count": 2870,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/austin-heat-fitness-wearable-lies.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "weight-loss-timeline",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James ",
+      "job_title": "Former data analyst at a fintech startup, now runs bmitool.org full-time",
+      "location": ""
+    },
+    "date_iso": "2026-07-06",
+    "readTime": "14min read"
+  },
+  {
+    "slug": "bmi-normal-but-feel-like-garbage",
+    "title": "Bmi Normal But Feel Like Garbage",
+    "description": "The scale in my bathroom is a liar. Not the digital kind of lie where you shift your weight to the left and shave off two pounds. I mean the deep, structural kind of dishonesty that makes a 32-year-ol",
+    "excerpt": "The scale in my bathroom is a liar. Not the digital kind of lie where you shift your weight to the left and shave off two pounds. I mean the deep, structural kind of dishonesty that makes a 32-year-ol",
+    "category": "",
+    "tags": [],
+    "date_published": "July 06, 2026",
+    "date": "July 06, 2026",
+    "date_modified": "2026-07-06",
+    "word_count": 1652,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/bmi-normal-but-feel-like-garbage.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James ",
+      "job_title": "Former data analyst at a fintech startup, now runs bmitool.org full-time",
+      "location": ""
+    },
+    "date_iso": "2026-07-06",
+    "readTime": "8min read"
+  },
+  {
+    "slug": "my-fitness-tracker-said-i-burned-4200-calories",
+    "title": "My Fitness Tracker Said I Burned 4200 Calories",
+    "description": "My Fitness Tracker Said I Burned 4,200 Calories. My Spreadsheet Said 2,890. The Truth Was Messier. 4,200. That's what my fitness watch told me I burned last Saturday. I was at YVO Warrior on the Butle",
+    "category": "",
+    "date_published": "June 24, 2026",
+    "date": "June 24, 2026",
+    "date_modified": "2026-06-24",
+    "word_count": 1180,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/my-fitness-tracker-said-i-burned-4200-calories.jpg",
+    "tools_referenced": [
+      "index",
+      "calorie-needs-calculator",
+      "bmi-calculator",
+      "weight-loss-timeline",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James ",
+      "job_title": "Former data analyst at a fintech startup, now runs bmitool.org full-time",
+      "location": ""
+    },
+    "readTime": "5min read",
+    "excerpt": "My Fitness Tracker Said I Burned 4,200 Calories. My Spreadsheet Said 2,890. The Truth Was Messier. 4,200. That's what my fitness watch told me I burned last Saturday. I was at YVO Warrior on the Butle",
+    "tags": [],
+    "date_iso": "2026-06-24"
+  },
+  {
+    "slug": "the-week-i-ate-nothing-but-food-truck-tacos",
+    "title": "The Week I Ate Nothing But Food Truck Tacos",
+    "description": "The Week I Ate Nothing But Food Truck Tacos — Here's What the Data Said I had a theory. A stupid theory, but a theory nonetheless. I call it the \"Austin Food Truck Hypothesis.\" The hypothesis goes lik",
+    "excerpt": "The Week I Ate Nothing But Food Truck Tacos — Here's What the Data Said I had a theory. A stupid theory, but a theory nonetheless. I call it the \"Austin Food Truck Hypothesis.\" The hypothesis goes lik",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "June 23, 2026",
+    "date": "June 23, 2026",
+    "date_modified": "2026-06-23",
+    "word_count": 1260,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/the-week-i-ate-nothing-but-food-truck-tacos.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "calorie-needs-calculator",
+      "weight-loss-timeline",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James ",
+      "job_title": "Former data analyst at a fintech startup, now runs bmitool.org full-time",
+      "location": ""
+    },
+    "date_iso": "2026-06-23",
+    "readTime": "6min read"
+  },
+  {
+    "slug": "cant-afford-wegovy-alternatives-data",
+    "title": "Can't Afford Wegovy? Here's What the Data Says",
+    "description": "I spent two months digging through GLP-1 alternatives. Repurposed generics, supplements, and lifestyle interventions.",
+    "category": "Health Data",
+    "date_published": "June 05, 2026",
+    "date_modified": "2026-06-05",
+    "word_count": 1683,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/cant-afford-wegovy-alternatives-data.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "waist-to-height-ratio",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "weight-loss-timeline",
+      "calorie-needs-calculator"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "8min read",
+    "date": "June 05, 2026",
+    "excerpt": "I spent two months digging through GLP-1 alternatives. Repurposed generics, supplements, and lifestyle interventions.",
+    "tags": [
+      "Health Data"
+    ],
+    "date_iso": "2026-06-05"
+  },
+  {
+    "slug": "three-small-data-changes-moved-bmi",
+    "title": "Three Small Data Changes That Moved My BMI",
+    "description": "Three data hygiene fixes that moved my BMI from 26.8 to 25.9. No diet changes, no exercise fads. Just better data.",
+    "category": "Self-Experiment",
+    "date_published": "June 01, 2026",
+    "date_modified": "2026-06-01",
+    "word_count": 1234,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/three-small-data-changes-moved-bmi.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "weight-loss-timeline",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "June 01, 2026",
+    "excerpt": "Three data hygiene fixes that moved my BMI from 26.8 to 25.9. No diet changes, no exercise fads. Just better data.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-06-01"
+  },
+  {
+    "slug": "plant-based-trend-bmi-labels",
+    "title": "What the Plant-Based Trend Means for Your BMI",
+    "description": "I bought 20 plant-based products from H-E-B and compared them to animal-based equivalents. The sodium was shocking.",
+    "category": "Nutrition",
+    "date_published": "May 28, 2026",
+    "date_modified": "2026-05-28",
+    "word_count": 1355,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/plant-based-trend-bmi-labels.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "macro-split-planner",
+      "body-fat-estimator",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "weight-loss-timeline",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "May 28, 2026",
+    "excerpt": "I bought 20 plant-based products from H-E-B and compared them to animal-based equivalents. The sodium was shocking.",
+    "tags": [
+      "Nutrition"
+    ],
+    "date_iso": "2026-05-28"
+  },
+  {
+    "slug": "105f-austin-workout-data",
+    "title": "It's 105°F in Austin. How I Adjust My Workout Data.",
+    "description": "Your fitness tracker lies above 95°F. Here's how I adjust training and data for Austin summers.",
+    "category": "Self-Experiment",
+    "date_published": "May 22, 2026",
+    "date_modified": "2026-05-22",
+    "word_count": 1273,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/105f-austin-workout-data.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "calorie-needs-calculator",
+      "waist-to-height-ratio",
+      "weight-loss-timeline",
+      "macro-split-planner",
+      "body-fat-estimator",
+      "ideal-weight-range"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "May 22, 2026",
+    "excerpt": "Your fitness tracker lies above 95°F. Here's how I adjust training and data for Austin summers.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-05-22"
+  },
+  {
     "slug": "why-your-bmi-calculator-is-probably-lying-to-you",
+    "title": "Why Your BMI Calculator Is Probably Lying to You",
+    "description": "I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.",
     "excerpt": "I've seen patients celebrate 'normal' BMIs while their metabolic panels told a completely different story. Here's what most calculators get wrong.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 20, 2026",
     "date": "May 20, 2026",
-    "category": "Clinical Insights"
+    "date_modified": "2026-05-20",
+    "word_count": 678,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/why-your-bmi-calculator-is-probably-lying-to-you.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "Dr. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-20",
+    "readTime": "3min read"
   },
   {
-    "title": "What 15 Years of Metabolic Data Actually Looks Like",
-    "slug": "what-15-years-of-metabolic-data-actually-looks-like",
-    "excerpt": "After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context.",
+    "slug": "meal-prep-algorithm",
+    "title": "Meal Prep Did Not Work for Me. So I Built an Algorithm.",
+    "description": "Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.",
+    "category": "Self-Experiment",
+    "date_published": "May 18, 2026",
+    "date_modified": "2026-05-18",
+    "word_count": 1321,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/meal-prep-algorithm.jpg",
+    "tools_referenced": [
+      "index",
+      "calorie-needs-calculator",
+      "macro-split-planner",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "weight-loss-timeline",
+      "body-fat-estimator",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
     "date": "May 18, 2026",
-    "category": "Clinical Data"
+    "excerpt": "Meal prep did not work for me. So I built an algorithm instead. It is not pretty, but it works better than Sunday batch cooking.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-05-18"
   },
   {
-    "title": "The Asian BMI Threshold: Why American Doctors Get It Wrong",
+    "slug": "what-15-years-of-metabolic-data-actually-looks-like",
+    "title": "What 15 Years of Metabolic Data Actually Looks Like",
+    "description": "After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context.",
+    "excerpt": "After reviewing over 12,000 patient records, one pattern is clear: BMI tells you almost nothing about metabolic health without context.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 18, 2026",
+    "date": "May 18, 2026",
+    "date_modified": "2026-05-18",
+    "word_count": 661,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/what-15-years-of-metabolic-data-actually-looks-like.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "D. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-18",
+    "readTime": "3min read"
+  },
+  {
     "slug": "asian-bmi-threshold-why-american-doctors-get-it-wrong",
+    "title": "The Asian BMI Threshold: Why American Doctors Get It Wrong",
+    "description": "My mother has a BMI of 23.4. In American medicine, that's 'normal.' In reality, she's pre-diabetic with elevated triglycerides. Here's why.",
     "excerpt": "My mother has a BMI of 23.4. In American medicine, that's 'normal.' In reality, she's pre-diabetic with elevated triglycerides. Here's why.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 15, 2026",
     "date": "May 15, 2026",
-    "category": "Ethnicity & Health"
+    "date_modified": "2026-05-15",
+    "word_count": 722,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/asian-bmi-threshold-why-american-doctors-get-it-wrong.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "Dr. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-15",
+    "readTime": "3min read"
   },
   {
-    "title": "Pediatric BMI: Why Adult Calculators Harm Children",
+    "slug": "lost-40-pounds-data-same",
+    "title": "I Lost 40 Pounds but My Data Looks the Same",
+    "description": "The email I get every week: someone lost weight but their BMI barely moved. Here is why that happens.",
+    "category": "Health Data",
+    "date_published": "May 14, 2026",
+    "date_modified": "2026-05-14",
+    "word_count": 1145,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/lost-40-pounds-data-same.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "weight-loss-timeline",
+      "waist-to-height-ratio",
+      "macro-split-planner",
+      "ideal-weight-range",
+      "calorie-needs-calculator"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "5min read",
+    "date": "May 14, 2026",
+    "excerpt": "The email I get every week: someone lost weight but their BMI barely moved. Here is why that happens.",
+    "tags": [
+      "Health Data"
+    ],
+    "date_iso": "2026-05-14"
+  },
+  {
     "slug": "pediatric-bmi-why-adult-calculators-harm-children",
-    "excerpt": "A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not obese.",
+    "title": "Pediatric BMI: Why Adult Calculators Harm Children",
+    "description": "A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not obese, and completely normal for his growth trajectory.",
+    "excerpt": "A parent recently told me their 8-year-old was 'obese' because an adult BMI calculator said so. The child was in the 85th percentile — overweight, not obese, and completely normal for his growth trajectory.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 12, 2026",
     "date": "May 12, 2026",
-    "category": "Pediatrics"
+    "date_modified": "2026-05-12",
+    "word_count": 721,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/pediatric-bmi-why-adult-calculators-harm-children.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-12",
+    "readTime": "3min read"
   },
   {
-    "title": "BMI vs Body Fat Percentage: The Real Debate",
     "slug": "bmi-vs-body-fat-percentage-the-real-debate",
-    "excerpt": "Body fat percentage is more accurate than BMI. But it's also harder to measure, more expensive, and not always more clinically useful.",
+    "title": "BMI vs Body Fat Percentage: The Real Debate",
+    "description": "Body fat percentage is more accurate than BMI. But it's also harder to measure accurately, more expensive, and not always more clinically useful. Here's the nuanced truth.",
+    "excerpt": "Body fat percentage is more accurate than BMI. But it's also harder to measure accurately, more expensive, and not always more clinically useful. Here's the nuanced truth.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 10, 2026",
     "date": "May 10, 2026",
-    "category": "Clinical Insights"
+    "date_modified": "2026-05-10",
+    "word_count": 738,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/bmi-vs-body-fat-percentage-the-real-debate.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-10",
+    "readTime": "3min read"
   },
   {
-    "title": "The BMI Rebound: Why Lost Weight Returns",
+    "slug": "canyon-ranch-austin-spreadsheet",
+    "title": "I Spent a Week at Canyon Ranch Austin",
+    "description": "I brought a spreadsheet to Canyon Ranch Austin. The data was fascinating, the experience was mixed, the cost was absurd.",
+    "category": "Self-Experiment",
+    "date_published": "May 10, 2026",
+    "date_modified": "2026-05-10",
+    "word_count": 1566,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/canyon-ranch-austin-spreadsheet.jpg",
+    "tools_referenced": [
+      "index",
+      "body-fat-estimator",
+      "bmi-calculator",
+      "calorie-needs-calculator",
+      "macro-split-planner",
+      "weight-loss-timeline",
+      "ideal-weight-range",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "7min read",
+    "date": "May 10, 2026",
+    "excerpt": "I brought a spreadsheet to Canyon Ranch Austin. The data was fascinating, the experience was mixed, the cost was absurd.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-05-10"
+  },
+  {
     "slug": "the-bmi-rebound-why-lost-weight-returns",
-    "excerpt": "I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation is real.",
-    "date": "May 8, 2026",
-    "category": "Weight Management"
+    "title": "The BMI Rebound: Why Lost Weight Returns",
+    "description": "I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation that follows weight loss is real, brutal, and poorly understood by most physicians.",
+    "excerpt": "I've watched hundreds of patients lose 20, 30, 50 pounds. And I've watched most of them gain it back. The metabolic adaptation that follows weight loss is real, brutal, and poorly understood by most physicians.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 08, 2026",
+    "date": "May 08, 2026",
+    "date_modified": "2026-05-08",
+    "word_count": 700,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/the-bmi-rebound-why-lost-weight-returns.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "weight-loss-timeline",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "D. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-08",
+    "readTime": "3min read"
   },
   {
-    "title": "Waist Circumference: The Missing Piece",
+    "slug": "another-bmi-post-ran-numbers",
+    "title": "Another BMI Post. But I Actually Ran the Numbers.",
+    "description": "Another BMI post. I know. But I actually ran the numbers this time. NHANES data, DEXA correlations, and a lot of spreadsheets.",
+    "category": "Health Data",
+    "date_published": "May 06, 2026",
+    "date_modified": "2026-05-06",
+    "word_count": 1206,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/another-bmi-post-ran-numbers.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "waist-to-height-ratio",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "weight-loss-timeline",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "May 06, 2026",
+    "excerpt": "Another BMI post. I know. But I actually ran the numbers this time. NHANES data, DEXA correlations, and a lot of spreadsheets.",
+    "tags": [
+      "Health Data"
+    ],
+    "date_iso": "2026-05-06"
+  },
+  {
     "slug": "waist-circumference-the-missing-piece",
-    "excerpt": "I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negotiable.",
-    "date": "May 5, 2026",
-    "category": "Clinical Insights"
+    "title": "Waist Circumference: The Missing Piece",
+    "description": "I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negotiable in my practice.",
+    "excerpt": "I've had patients with 'normal' BMIs but 40-inch waists. Their metabolic panels looked like disaster zones. Here's why waist measurement is non-negotiable in my practice.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 05, 2026",
+    "date": "May 05, 2026",
+    "date_modified": "2026-05-05",
+    "word_count": 686,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/waist-circumference-the-missing-piece.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "waist-to-height-ratio",
+      "body-fat-estimator",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-05",
+    "readTime": "3min read"
   },
   {
-    "title": "Why I Stopped Telling Patients Their 'Ideal Weight'",
     "slug": "why-i-stop-telling-patients-their-ideal-weight",
-    "excerpt": "For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures.",
-    "date": "May 3, 2026",
-    "category": "Clinical Practice"
+    "title": "Why I Stopped Telling Patients Their 'Ideal Weight'",
+    "description": "For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures. I don't do that anymore.",
+    "excerpt": "For years, I gave patients a number. 'Your ideal weight is 165 pounds.' Then I watched them obsess, fail, and feel like failures. I don't do that anymore.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "May 03, 2026",
+    "date": "May 03, 2026",
+    "date_modified": "2026-05-03",
+    "word_count": 665,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/why-i-stop-telling-patients-their-ideal-weight.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-05-03",
+    "readTime": "3min read"
   },
   {
-    "title": "Metabolic Health: Beyond the Scale",
+    "slug": "texas-nutrition-license-law",
+    "title": "The New Texas Nutrition License Law Is Coming.",
+    "description": "The new Texas nutrition license law is coming. I crunched the numbers. It is a mess, but it is a mess with a spreadsheet.",
+    "category": "Policy",
+    "date_published": "May 02, 2026",
+    "date_modified": "2026-05-02",
+    "word_count": 1125,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/texas-nutrition-license-law.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "macro-split-planner",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "weight-loss-timeline",
+      "ideal-weight-range"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "5min read",
+    "date": "May 02, 2026",
+    "excerpt": "The new Texas nutrition license law is coming. I crunched the numbers. It is a mess, but it is a mess with a spreadsheet.",
+    "tags": [
+      "Policy"
+    ],
+    "date_iso": "2026-05-02"
+  },
+  {
     "slug": "metabolic-health-beyond-the-scale",
+    "title": "Metabolic Health: Beyond the Scale",
+    "description": "I have patients who weigh 200 pounds and are metabolically healthier than patients who weigh 150. Here's what actually determines metabolic health.",
     "excerpt": "I have patients who weigh 200 pounds and are metabolically healthier than patients who weigh 150. Here's what actually determines metabolic health.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "April 30, 2026",
     "date": "April 30, 2026",
-    "category": "Metabolic Health"
+    "date_modified": "2026-04-30",
+    "word_count": 710,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/metabolic-health-beyond-the-scale.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "Dr. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-04-30",
+    "readTime": "3min read"
   },
   {
-    "title": "The NIH Study That Changed How I See BMI",
-    "slug": "the-nih-study-that-changed-how-i-see-bmi",
-    "excerpt": "During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in medical school.",
+    "slug": "heb-prepared-meals-30-days",
+    "title": "I Ate Only H-E-B Prepared Meals for 30 Days",
+    "description": "I ate only H-E-B prepared meals for 30 days and tracked everything. The sodium numbers were shocking.",
+    "category": "Self-Experiment",
+    "date_published": "April 28, 2026",
+    "date_modified": "2026-04-28",
+    "word_count": 1584,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/heb-prepared-meals-30-days.jpg",
+    "tools_referenced": [
+      "index",
+      "calorie-needs-calculator",
+      "macro-split-planner",
+      "bmi-calculator",
+      "weight-loss-timeline",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "7min read",
     "date": "April 28, 2026",
-    "category": "Research & Data"
+    "excerpt": "I ate only H-E-B prepared meals for 30 days and tracked everything. The sodium numbers were shocking.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-04-28"
   },
   {
-    "title": "BMI Calculators for Athletes: Why They Fail",
+    "slug": "the-nih-study-that-changed-how-i-see-bmi",
+    "title": "The NIH Study That Changed How I See BMI",
+    "description": "During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in medical school about weight and health.",
+    "excerpt": "During my time at NIH NIDDK, I worked on a cohort study that followed 5,000 patients for 10 years. The findings challenged everything I learned in medical school about weight and health.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "April 28, 2026",
+    "date": "April 28, 2026",
+    "date_modified": "2026-04-28",
+    "word_count": 781,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/the-nih-study-that-changed-how-i-see-bmi.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "weight-loss-timeline",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-04-28",
+    "readTime": "3min read"
+  },
+  {
     "slug": "bmi-calculators-for-athletes-why-they-fail",
-    "excerpt": "A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%.",
+    "title": "BMI Calculators for Athletes: Why They Fail",
+    "description": "A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%. Here's why BMI is meaningless for athletes.",
+    "excerpt": "A college football player came to my clinic with a BMI of 32. His coach was panicking about 'obesity.' His body fat was 8%. Here's why BMI is meaningless for athletes.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "April 25, 2026",
     "date": "April 25, 2026",
-    "category": "Sports Medicine"
+    "date_modified": "2026-04-25",
+    "word_count": 746,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/bmi-calculators-for-athletes-why-they-fail.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "David Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-04-25",
+    "readTime": "3min read"
   },
   {
-    "title": "How I Use BMI in My Clinic: The Real Protocol",
     "slug": "how-i-use-bmi-in-my-clinic-real-protocol",
+    "title": "How I Use BMI in My Clinic: The Real Protocol",
+    "description": "After 15 years, I've developed a specific protocol for using BMI without falling into its traps. Here's exactly what I do during a new patient visit.",
     "excerpt": "After 15 years, I've developed a specific protocol for using BMI without falling into its traps. Here's exactly what I do during a new patient visit.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "April 22, 2026",
     "date": "April 22, 2026",
-    "category": "Clinical Practice"
+    "date_modified": "2026-04-22",
+    "word_count": 835,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/how-i-use-bmi-in-my-clinic-real-protocol.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "body-fat-estimator",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "D. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-04-22",
+    "readTime": "4min read"
   },
   {
-    "title": "The Future of BMI: What Comes Next",
+    "slug": "rucking-yvo-warrior-month",
+    "title": "I Tried Rucking With YVO Warrior for a Month.",
+    "description": "Walking with 20 pounds on the Butler Trail. Heart rate data, body composition changes, and why BMI barely budged.",
+    "category": "Self-Experiment",
+    "date_published": "April 22, 2026",
+    "date_modified": "2026-04-22",
+    "word_count": 1343,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/rucking-yvo-warrior-month.jpg",
+    "tools_referenced": [
+      "index",
+      "body-fat-estimator",
+      "bmi-calculator",
+      "waist-to-height-ratio",
+      "macro-split-planner",
+      "weight-loss-timeline",
+      "ideal-weight-range",
+      "calorie-needs-calculator"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "April 22, 2026",
+    "excerpt": "Walking with 20 pounds on the Butler Trail. Heart rate data, body composition changes, and why BMI barely budged.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-04-22"
+  },
+  {
     "slug": "the-future-of-bmi-what-comes-next",
-    "excerpt": "BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it.",
+    "title": "The Future of BMI: What Comes Next",
+    "description": "BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it — and what's not ready yet.",
+    "excerpt": "BMI is a 200-year-old tool. In 10 years, we'll look back and wonder why we ever used it. Here's what's replacing it — and what's not ready yet.",
+    "category": "",
+    "tags": [
+      "General"
+    ],
+    "date_published": "April 20, 2026",
     "date": "April 20, 2026",
-    "category": "Future of Medicine"
+    "date_modified": "2026-04-20",
+    "word_count": 784,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/the-future-of-bmi-what-comes-next.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "waist-to-height-ratio",
+      "calorie-needs-calculator",
+      "ideal-weight-range",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "D. Chen",
+      "job_title": "Board-Certified Internal Medicine Physician",
+      "location": ""
+    },
+    "date_iso": "2026-04-20",
+    "readTime": "3min read"
+  },
+  {
+    "slug": "moved-austin-resting-heart-rate",
+    "title": "I Moved to Austin and My Resting Heart Rate Changed",
+    "description": "Moving from Denver to Austin changed my resting heart rate. I have the data, the graph, and some theories.",
+    "category": "Self-Experiment",
+    "date_published": "April 18, 2026",
+    "date_modified": "2026-04-18",
+    "word_count": 1413,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/moved-austin-resting-heart-rate.jpg",
+    "tools_referenced": [
+      "index",
+      "calorie-needs-calculator",
+      "bmi-calculator",
+      "waist-to-height-ratio",
+      "weight-loss-timeline",
+      "ideal-weight-range",
+      "body-fat-estimator",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "7min read",
+    "date": "April 18, 2026",
+    "excerpt": "Moving from Denver to Austin changed my resting heart rate. I have the data, the graph, and some theories.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-04-18"
+  },
+  {
+    "slug": "austin-fittest-city-data-problem",
+    "title": "Why Austin's 'Fittest City' Label Is a Data Problem.",
+    "description": "Austin keeps showing up on 'fittest city' lists. As a data guy who lives here, I have some questions about those rankings.",
+    "category": "Health Data",
+    "date_published": "April 14, 2026",
+    "date_modified": "2026-04-14",
+    "word_count": 1380,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/austin-fittest-city-data-problem.jpg",
+    "tools_referenced": [
+      "index",
+      "waist-to-height-ratio",
+      "bmi-calculator",
+      "ideal-weight-range",
+      "body-fat-estimator",
+      "weight-loss-timeline",
+      "calorie-needs-calculator",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "April 14, 2026",
+    "excerpt": "Austin keeps showing up on 'fittest city' lists. As a data guy who lives here, I have some questions about those rankings.",
+    "tags": [
+      "Health Data"
+    ],
+    "date_iso": "2026-04-14"
+  },
+  {
+    "slug": "five-bmi-myths-tested",
+    "title": "I Tested 5 Popular BMI Myths. Only 2 Were True.",
+    "description": "I tested 5 popular BMI myths with real data. Only 2 were true. NHANES data, DEXA correlations, and a lot of spreadsheets.",
+    "category": "Health Data",
+    "date_published": "April 10, 2026",
+    "date_modified": "2026-04-10",
+    "word_count": 1938,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/five-bmi-myths-tested.jpg",
+    "tools_referenced": [
+      "index",
+      "ideal-weight-range",
+      "bmi-calculator",
+      "calorie-needs-calculator",
+      "waist-to-height-ratio",
+      "body-fat-estimator",
+      "weight-loss-timeline",
+      "macro-split-planner"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "9min read",
+    "date": "April 10, 2026",
+    "excerpt": "I tested 5 popular BMI myths with real data. Only 2 were true. NHANES data, DEXA correlations, and a lot of spreadsheets.",
+    "tags": [
+      "Health Data"
+    ],
+    "date_iso": "2026-04-10"
+  },
+  {
+    "slug": "sxsw-2026-health-track",
+    "title": "SXSW 2026 Had a Health Track. I Went.",
+    "description": "SXSW 2026 had a health track. I went. It was weird. Here is what happened when a data guy went to a wellness conference.",
+    "category": "Events",
+    "date_published": "April 06, 2026",
+    "date_modified": "2026-04-06",
+    "word_count": 1395,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/sxsw-2026-health-track.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "body-fat-estimator",
+      "calorie-needs-calculator",
+      "weight-loss-timeline",
+      "ideal-weight-range",
+      "macro-split-planner",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "6min read",
+    "date": "April 06, 2026",
+    "excerpt": "SXSW 2026 had a health track. I went. It was weird. Here is what happened when a data guy went to a wellness conference.",
+    "tags": [
+      "Events"
+    ],
+    "date_iso": "2026-04-06"
+  },
+  {
+    "slug": "tracked-bmi-90-days-spreadsheet",
+    "title": "I Tracked My BMI for 90 Days Straight.",
+    "description": "I tracked my BMI for 90 days straight. Here is the spreadsheet. Daily weigh-ins, moving averages, and the lying nature of daily numbers.",
+    "category": "Self-Experiment",
+    "date_published": "April 02, 2026",
+    "date_modified": "2026-04-02",
+    "word_count": 1623,
+    "has_image": true,
+    "image_path": "https://bmitool.org/images/blog/tracked-bmi-90-days-spreadsheet.jpg",
+    "tools_referenced": [
+      "index",
+      "bmi-calculator",
+      "weight-loss-timeline",
+      "macro-split-planner",
+      "body-fat-estimator",
+      "ideal-weight-range",
+      "calorie-needs-calculator",
+      "waist-to-height-ratio"
+    ],
+    "author": {
+      "name": "James 'Jamie' Whitfield",
+      "job_title": "",
+      "location": ""
+    },
+    "readTime": "8min read",
+    "date": "April 02, 2026",
+    "excerpt": "I tracked my BMI for 90 days straight. Here is the spreadsheet. Daily weigh-ins, moving averages, and the lying nature of daily numbers.",
+    "tags": [
+      "Self-Experiment"
+    ],
+    "date_iso": "2026-04-02"
   }
 ]
